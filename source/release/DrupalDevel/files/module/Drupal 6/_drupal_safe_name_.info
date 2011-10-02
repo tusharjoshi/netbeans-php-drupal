@@ -1,0 +1,7 @@
+name = ${real_name}
+description = 
+core = 6.x
+package = 
+php = 
+version =
+dependencies[] = 

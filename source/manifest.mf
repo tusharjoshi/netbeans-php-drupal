@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.hollyit.drupaldevel/1
+OpenIDE-Module-Layer: org/hollyit/drupaldevel/layer.xml
+OpenIDE-Module-Localizing-Bundle: org/hollyit/drupaldevel/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
