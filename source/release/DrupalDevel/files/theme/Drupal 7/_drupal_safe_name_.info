@@ -1,0 +1,7 @@
+name = ${real_name}
+description = 
+core = 7.x
+version =
+engine = phptemplate
+stylesheets[all][] = style.css
+stylesheets[print][] = print.css
