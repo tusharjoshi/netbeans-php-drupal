@@ -1,0 +1,6 @@
+10/03/2001
+  - Add signing to the NBM
+  - Changed the modal type of the code insert dialog
+  - Removed the "keep open" option
+  - Added update center
+  

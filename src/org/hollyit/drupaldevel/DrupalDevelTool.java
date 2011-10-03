@@ -77,9 +77,7 @@ public final class DrupalDevelTool {
                         } catch (BadLocationException ble) {
                             target.getToolkit().beep();
                         } finally {
-                            if (!dialog.chkKeepOpen.isSelected()){
-                                dialog.setVisible(false);
-                            }
+                            dialog.setVisible(false);
                         }
 
                     }

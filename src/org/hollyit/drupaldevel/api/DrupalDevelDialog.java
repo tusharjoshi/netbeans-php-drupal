@@ -133,15 +133,12 @@ public class DrupalDevelDialog extends javax.swing.JDialog {
         cbCategory = new javax.swing.JComboBox();
         btnInsert = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        chkKeepOpen = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("org/hollyit/drupaldevel/api/Bundle"); // NOI18N
         setTitle(bundle.getString("DrupalDevelDialog.title")); // NOI18N
         setAlwaysOnTop(true);
         setIconImage(null);
-        setModal(true);
-        setModalityType(java.awt.Dialog.ModalityType.DOCUMENT_MODAL);
 
         pnAPIType.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("DrupalDevelDialog.pnAPIType.border.title"))); // NOI18N
 
@@ -247,9 +244,6 @@ public class DrupalDevelDialog extends javax.swing.JDialog {
             }
         });
 
-        chkKeepOpen.setText(org.openide.util.NbBundle.getMessage(DrupalDevelDialog.class, "DrupalDevelDialog.chkKeepOpen.text")); // NOI18N
-        chkKeepOpen.setToolTipText(org.openide.util.NbBundle.getMessage(DrupalDevelDialog.class, "DrupalDevelDialog.chkKeepOpen.toolTipText")); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -261,13 +255,12 @@ public class DrupalDevelDialog extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pnAPIType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(chkKeepOpen)))
+                            .addComponent(pnItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(pnlDrupalVersion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
+                        .addGap(119, 119, 119)
                         .addComponent(btnInsert)
                         .addGap(18, 18, 18)
                         .addComponent(btnCancel)))
@@ -285,12 +278,10 @@ public class DrupalDevelDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(chkKeepOpen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsert)
                     .addComponent(btnCancel))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -369,7 +360,6 @@ public class DrupalDevelDialog extends javax.swing.JDialog {
     private javax.swing.JComboBox cbApiVersion;
     private javax.swing.JComboBox cbCategory;
     private javax.swing.JComboBox cbItem;
-    public javax.swing.JCheckBox chkKeepOpen;
     private javax.swing.JPanel pnAPIType;
     private javax.swing.JPanel pnCategory;
     private javax.swing.JPanel pnItem;
