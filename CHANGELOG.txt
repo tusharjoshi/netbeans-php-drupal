@@ -1,6 +1,17 @@
-10/03/2001
+10/03/2011
   - Add signing to the NBM
   - Changed the modal type of the code insert dialog
   - Removed the "keep open" option
   - Added update center
   
+10/19/2011
+	1.5-dev branch:
+		- Library paths and Drupal versions are now set per project
+		- Added in a api.drupal.org search bar, which works off of the current project or global version settings.
+		- Renamed packages to org.netbeans.modules.php.drupaldevel.* to play nice with the PHP Module
+  
+10/22/2011
+	1.5 release
+		- Removed search bar and drupal tool bar. Combined into a new dockable window.
+		- LibraryPath versions are no longer Drupal X, but rather just X
+		- Project level properties for Drupal Version and Library Path now in place.
