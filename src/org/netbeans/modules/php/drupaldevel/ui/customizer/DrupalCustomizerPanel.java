@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import org.netbeans.api.project.Project;
 import org.netbeans.modules.php.drupaldevel.Util;
 import org.netbeans.modules.php.drupaldevel.libraryParser;
-import org.netbeans.modules.php.api.phpmodule.PhpModule;
 import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
 import org.netbeans.spi.project.ui.support.ProjectCustomizer.Category;
 
@@ -23,9 +23,9 @@ import org.netbeans.spi.project.ui.support.ProjectCustomizer.Category;
 public class DrupalCustomizerPanel extends javax.swing.JPanel {
 
     private final Category category;
-    private final PhpModule phpModule;
+    private final Project phpModule;
 
-    DrupalCustomizerPanel(Category category, PhpModule phpModule) {
+    DrupalCustomizerPanel(Category category, Project phpModule) {
         assert category != null;
         assert phpModule != null;
 
