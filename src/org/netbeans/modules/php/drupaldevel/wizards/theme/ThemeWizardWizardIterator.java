@@ -13,9 +13,9 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import javax.swing.JComponent;
 import javax.swing.event.ChangeListener;
-import org.netbeans.modules.php.api.phpmodule.PhpModule;
+import org.netbeans.api.project.Project;
+
 import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
-import org.netbeans.modules.php.drupaldevel.DrupalDevelTool;
 import org.netbeans.modules.php.drupaldevel.Util;
 import org.netbeans.modules.php.drupaldevel.wizards.WizardUtils;
 import org.openide.WizardDescriptor;
@@ -25,7 +25,6 @@ import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 import org.openide.loaders.DataObject;
 import org.openide.util.ImageUtilities;
-import org.openide.util.NbPreferences;
 
 public final class ThemeWizardWizardIterator implements WizardDescriptor.InstantiatingIterator {
 
@@ -41,7 +40,7 @@ public final class ThemeWizardWizardIterator implements WizardDescriptor.Instant
     private String safeName;
     private ArrayList fileList;
     private static final String fs = File.separator;
-    private PhpModule proj;
+    private Project proj;
 
     /**
      * Initialize panels representing individual wizard's steps and sets

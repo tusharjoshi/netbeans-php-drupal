@@ -14,7 +14,8 @@ import java.util.Set;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.event.ChangeListener;
-import org.netbeans.modules.php.api.phpmodule.PhpModule;
+import org.netbeans.api.project.Project;
+
 import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
 import org.netbeans.modules.php.drupaldevel.Util;
 import org.netbeans.modules.php.drupaldevel.wizards.WizardUtils;
@@ -40,7 +41,7 @@ public final class ModuleWizardIterator implements WizardDescriptor.Instantiatin
     private String safeName;
     private ArrayList fileList;
     private static final String fs = File.separator;
-    private PhpModule proj;
+    private Project proj;
     private static final Logger LOGGER = Logger.getLogger(ModuleWizardIterator.class.getName());
 
     /**

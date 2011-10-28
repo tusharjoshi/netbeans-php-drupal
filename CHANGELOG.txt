@@ -15,3 +15,8 @@
 		- Removed search bar and drupal tool bar. Combined into a new dockable window.
 		- LibraryPath versions are no longer Drupal X, but rather just X
 		- Project level properties for Drupal Version and Library Path now in place.
+		
+10/28/2011
+	1.5.1 release
+		- Dropped phpmodule dependency and switched to Netbeans lookups
+		- Now works on 7.0+ and any version until Netbeans makes some major API changes.

@@ -5,8 +5,8 @@
 package org.netbeans.modules.php.drupaldevel.ui.customizer;
 
 import javax.swing.JComponent;
-import org.netbeans.modules.php.api.phpmodule.PhpModule;
-import org.netbeans.modules.php.api.util.UiUtils;
+import org.netbeans.api.project.Project;
+import org.netbeans.modules.php.drupaldevel.Util;
 import org.netbeans.spi.project.ui.support.ProjectCustomizer;
 import org.netbeans.spi.project.ui.support.ProjectCustomizer.Category;
 import org.openide.util.Lookup;
@@ -29,12 +29,12 @@ public class DrupalCustomizer  implements ProjectCustomizer.CompositeCategoryPro
 
     @Override
     public JComponent createComponent(Category category, Lookup context) {
-        PhpModule phpModule = PhpModule.lookupPhpModule(context);
+        Project phpModule = Util.lookupPhpModule(context);
         return new DrupalCustomizerPanel(category, phpModule);
     }
 
     @ProjectCustomizer.CompositeCategoryProvider.Registration(
-        projectType = UiUtils.CUSTOMIZER_PATH,
+        projectType = "org-netbeans-modules-php-project",
         position = 360
     )
     public static DrupalCustomizer createCustomizer() {

@@ -6,10 +6,10 @@ package org.netbeans.modules.php.drupaldevel;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.prefs.Preferences;
-import org.netbeans.modules.php.api.phpmodule.PhpModule;
 import org.openide.modules.InstalledFileLocator;
 import org.openide.util.NbPreferences;
-
+import org.netbeans.api.project.ProjectUtils;
+import org.netbeans.api.project.Project;
 /**
  *
  * @author Jamie Holly <jamie@hollyit.net>
@@ -29,7 +29,7 @@ public final class DrupalDevelPreferences {
      * @param phpModule the phpModule to retrieve the version for
      * @return a string containing the Drupal version
      */
-    public static String getDrupalVersion(PhpModule phpModule) {
+    public static String getDrupalVersion(Project phpModule) {
         Preferences preferences = getPreferences(phpModule);
         String drupalVersion = preferences.get(DRUPAL_VERSION, "");
         if (drupalVersion.equals("")) {
@@ -59,7 +59,7 @@ public final class DrupalDevelPreferences {
      * @param phpModule The phpModule the setting applies to
      * @param drupalVersion A string containing the numeric Drupal version.
      */
-    public static void setDrupalVersion(PhpModule phpModule, String drupalVersion) {
+    public static void setDrupalVersion(Project phpModule, String drupalVersion) {
         getPreferences(phpModule).put(DRUPAL_VERSION, drupalVersion);
     }
 
@@ -77,9 +77,9 @@ public final class DrupalDevelPreferences {
      * @param phpModule the phpModule to retrieve the preference for
      * @return the Preference or null if not set.
      */
-    private static Preferences getPreferences(PhpModule phpModule) {
+    private static Preferences getPreferences(Project phpModule) {
         try {
-        return phpModule.getPreferences(DrupalDevelPreferences.class, false);
+        return ProjectUtils.getPreferences(phpModule, DrupalDevelPreferences.class, false);
         } catch (Exception e){
             
         }
@@ -129,7 +129,7 @@ public final class DrupalDevelPreferences {
      * @param phpModule The phpModule to perform the lookup on
      * @return A string containing the absolute path to the library files.
      */
-    public static String getLibraryPath(PhpModule phpModule) {
+    public static String getLibraryPath(Project phpModule) {
         Preferences preferences = getPreferences(phpModule);
         String drupalVersion = preferences.get(DRUPAL_LIBRARY_PATH, "");
         if (drupalVersion.isEmpty() || drupalVersion.equals("")) {
@@ -144,7 +144,7 @@ public final class DrupalDevelPreferences {
      * @param phpModule the phpModule to save the setting with
      * @param path A string containing the absolute path to the library
      */
-    public static void setLibraryPath(PhpModule phpModule, String path) {
+    public static void setLibraryPath(Project phpModule, String path) {
         getPreferences(phpModule).put(DRUPAL_LIBRARY_PATH, path);
     }
 

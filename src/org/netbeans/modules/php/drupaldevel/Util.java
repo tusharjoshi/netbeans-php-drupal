@@ -9,8 +9,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Map;
-import javax.swing.Action;
-import javax.swing.Icon;
 import org.openide.cookies.InstanceCookie;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
@@ -21,17 +19,14 @@ import org.openide.util.Lookup;
 import org.openide.util.NbBundle;
 import org.openide.util.lookup.Lookups;
 import java.io.File;
-import javax.swing.JFileChooser;
-import javax.swing.JTextField;
-import javax.swing.text.Caret;
+import javax.swing.*;
 import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
+import org.netbeans.api.project.FileOwnerQuery;
+import org.netbeans.api.project.Project;
 import org.netbeans.editor.BaseDocument;
 import org.openide.loaders.DataObject;
-import org.openide.modules.InstalledFileLocator;
-import org.openide.util.NbPreferences;
-import org.netbeans.lib.editor.util.swing.DocumentUtilities;
-import org.netbeans.modules.php.api.phpmodule.PhpModule;
+import org.openide.util.Parameters;
 import org.openide.windows.TopComponent;
 
 /**
@@ -39,7 +34,7 @@ import org.openide.windows.TopComponent;
  * @version $Rev: 1 $
  */
 public class Util {
-
+    public static String PHPModule = "org.netbeans.modules.php.project.PhpProject";
     private Util() {
         // omitted
     }
@@ -176,18 +171,38 @@ public class Util {
      * 
      * @return The actual PhpModule found or null on not found.
      */
-    public static PhpModule getActiveProject() {
+    public static Project getActiveProject() {
         FileObject fo;
-        PhpModule module;
+
         try {
             TopComponent tc = TopComponent.getRegistry().getActivated();
 
             DataObject mainDataObj = tc.getLookup().lookup(DataObject.class);
             fo = mainDataObj.getPrimaryFile();
-            module = PhpModule.forFileObject(fo);
-            return module;
+            Project proj = FileOwnerQuery.getOwner(fo);
+     
+            return proj;
         } catch (Exception e) {
         }
         return null;
     }
+    
+    public static Project lookupPhpModule(Lookup lookup) {
+        Parameters.notNull("lookup", lookup);
+
+        // try directly
+        Project result = lookup.lookup(Project.class);
+        if (result != null) {
+            return result;
+        }
+        // try through Project instance
+        Project project = lookup.lookup(Project.class);
+        if (project != null) {
+            result = project.getLookup().lookup(Project.class);
+            if (result != null) {
+                return result;
+            }
+        }
+        return null;
+    }    
 }

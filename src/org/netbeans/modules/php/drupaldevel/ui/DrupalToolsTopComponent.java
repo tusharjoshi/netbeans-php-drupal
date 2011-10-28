@@ -15,11 +15,11 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.*;
 import org.netbeans.api.editor.EditorRegistry;
-import org.netbeans.modules.php.api.phpmodule.PhpModule;
 import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
 import org.netbeans.modules.php.drupaldevel.Util;
 import org.netbeans.modules.php.drupaldevel.ui.apitree.*;
 import javax.swing.text.BadLocationException;
+import org.netbeans.api.project.Project;
 import org.netbeans.modules.php.drupaldevel.DrupalEditorUtilities;
 import org.netbeans.modules.php.drupaldevel.libraryParser;
 import org.openide.awt.HtmlBrowser;
@@ -62,7 +62,7 @@ public final class DrupalToolsTopComponent extends TopComponent {
                 JTextComponent jtc = EditorRegistry.lastFocusedComponent();
                 if (jtc != null) {
                     activeEditor = jtc;
-                    PhpModule proj = Util.getActiveProject();
+                    Project proj = Util.getActiveProject();
                     if (proj != null) {
                         setActiveVersion(proj);
                     }
@@ -114,7 +114,7 @@ public final class DrupalToolsTopComponent extends TopComponent {
 
     }
 
-    private void setActiveVersion(PhpModule proj) {
+    private void setActiveVersion(Project proj) {
         String version = DrupalDevelPreferences.getDefaultDrupalVersion();
         String path = null;
         if (proj != null) {
