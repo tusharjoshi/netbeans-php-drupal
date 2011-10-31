@@ -37,6 +37,25 @@ final class DrupalPanel extends javax.swing.JPanel {
             }
         });
         validateLibraryPath();
+        
+        txtDrushPath.getDocument().addDocumentListener(new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                validateDrushPath();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                validateDrushPath();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                validateDrushPath();
+            }
+        });
+        validateDrushPath();        
 
         // TODO listen to changes in form fields and call controller.changed()
     }
@@ -51,6 +70,17 @@ final class DrupalPanel extends javax.swing.JPanel {
         }
         return pathGood;
     }
+    
+    private Boolean validateDrushPath(){
+        Boolean pathGood = DrupalDevelPreferences.validateDrushPath(txtDrushPath.getText().toString());
+        if (pathGood){
+            lblInvalidDrush.setVisible(false);
+        } else {
+            lblInvalidDrush.setVisible(true);
+        }
+        return pathGood;
+    }    
+    
     private void updateDrupalVersions(){
         this.cbDrupalVersion.removeAllItems();
         String drVer = DrupalDevelPreferences.getDefaultDrupalVersion();
@@ -71,7 +101,11 @@ final class DrupalPanel extends javax.swing.JPanel {
         }         
         
     }
-    
+      
+    private String getDrushPath(){
+        return txtDrushPath.getText();
+    }
+  
     
     /** This method is called from within the constructor to
      * initialize the form.
@@ -90,6 +124,10 @@ final class DrupalPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cbDrupalVersion = new javax.swing.JComboBox();
+        lblInvalidDrush = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        txtDrushPath = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(DrupalPanel.class, "DrupalPanel.jLabel1.text")); // NOI18N
 
@@ -102,7 +140,7 @@ final class DrupalPanel extends javax.swing.JPanel {
             }
         });
 
-        lblInvalid.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        lblInvalid.setFont(new java.awt.Font("Tahoma", 3, 11));
         lblInvalid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/wizards/dialog-warning.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(lblInvalid, org.openide.util.NbBundle.getMessage(DrupalPanel.class, "DrupalPanel.lblInvalid.text")); // NOI18N
 
@@ -128,7 +166,7 @@ final class DrupalPanel extends javax.swing.JPanel {
                         .addComponent(jButton2))
                     .addComponent(jLabel1)
                     .addComponent(lblInvalid))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,18 +206,51 @@ final class DrupalPanel extends javax.swing.JPanel {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
+        lblInvalidDrush.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        lblInvalidDrush.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/wizards/dialog-warning.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblInvalidDrush, org.openide.util.NbBundle.getMessage(DrupalPanel.class, "DrupalPanel.lblInvalidDrush.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jButton3, org.openide.util.NbBundle.getMessage(DrupalPanel.class, "DrupalPanel.jButton3.text")); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        txtDrushPath.setText(org.openide.util.NbBundle.getMessage(DrupalPanel.class, "DrupalPanel.txtDrushPath.text")); // NOI18N
+        txtDrushPath.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDrushPathActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(DrupalPanel.class, "DrupalPanel.jLabel3.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtDrushPath)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(lblInvalidDrush))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +259,15 @@ final class DrupalPanel extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDrushPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblInvalidDrush)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -206,13 +285,23 @@ final class DrupalPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void txtDrushPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDrushPathActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDrushPathActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Util.browseDrupalLibraryPath(this, txtDrushPath);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     void load() {
         drupalLibraryPathTextField.setText(DrupalDevelPreferences.getDefaultLibraryPath());
+        txtDrushPath.setText(DrupalDevelPreferences.getDrushPath());
     }
 
     void store() {
         DrupalDevelPreferences.setDefaultDrupalVersion(cbDrupalVersion.getSelectedItem().toString());
         DrupalDevelPreferences.setDefaultLibraryPath(drupalLibraryPathTextField.getText());
+        DrupalDevelPreferences.setDrushPath(getDrushPath());
         
     }
 
@@ -225,10 +314,14 @@ final class DrupalPanel extends javax.swing.JPanel {
     private javax.swing.JTextField drupalLibraryPathTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblInvalid;
+    private javax.swing.JLabel lblInvalidDrush;
+    private javax.swing.JTextField txtDrushPath;
     // End of variables declaration//GEN-END:variables
 }

@@ -117,6 +117,7 @@ public class DrupalCustomizerPanel extends javax.swing.JPanel {
         }
         DrupalDevelPreferences.setDrupalVersion(phpModule, getDrupalVersion());
         DrupalDevelPreferences.setLibraryPath(phpModule, getLibraryPath());
+        
     }
 
     private String getLibraryPath() {
@@ -210,13 +211,13 @@ public class DrupalCustomizerPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbDrupalVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,6 +246,7 @@ public class DrupalCustomizerPanel extends javax.swing.JPanel {
                                         JOptionPane.ERROR_MESSAGE);   
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cbDrupalVersion;
     private javax.swing.JTextField drupalLibraryPathTextField;
