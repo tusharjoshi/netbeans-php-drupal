@@ -3,12 +3,12 @@
 <filesystem>
     <folder name="Services">
         <folder name="AutoupdateType">
-            <file name="org_hollyit_drupaldevel_update_center.instance">
-                <attr name="displayName" bundlevalue="org.netbeans.modules.php.drupaldevel.Bundle#Services/AutoupdateType/org_hollyit_drupaldevel_update_center.instance"/>
+            <file name="org_netbeans_modules_php_drupaldevel_update_center.instance">
+                <attr name="displayName" bundlevalue="org.netbeans.modules.php.drupaldevel.Bundle#Services/AutoupdateType/org_netbeans_modules_php_drupaldevel_update_center.instance"/>
                 <attr name="enabled" boolvalue="true"/>
                 <attr name="instanceCreate" methodvalue="org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogFactory.createUpdateProvider"/>
                 <attr name="instanceOf" stringvalue="org.netbeans.spi.autoupdate.UpdateProvider"/>
-                <attr name="url" bundlevalue="org.netbeans.modules.php.drupaldevel.Bundle#org_hollyit_drupaldevel_update_center"/>
+                <attr name="url" bundlevalue="org.netbeans.modules.php.drupaldevel.Bundle#org_netbeans_modules_php_drupaldevel_update_center"/>
             </file>
         </folder>
     </folder>
