@@ -20,3 +20,7 @@
 	1.5.1 release
 		- Dropped phpmodule dependency and switched to Netbeans lookups
 		- Now works on 7.0+ and any version until Netbeans makes some major API changes.
+
+10/31/2011
+        2.0.0 - bleeding
+                - Initial Drush support added. 
