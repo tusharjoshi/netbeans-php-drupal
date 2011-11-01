@@ -10,7 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
@@ -228,15 +230,27 @@ public class CommandProcessor extends JPanel implements ActionListener, ItemList
             return executionTime;
         }
 
+        private String loadStream(InputStream s) throws Exception {
+            BufferedReader br = new BufferedReader(new InputStreamReader(s));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+            return sb.toString();
+        }
+
         public void runCommand(String[] command) {
             try {
                 executionStart = System.nanoTime();
                 ProcessBuilder pb = new ProcessBuilder(command);
                 pb.redirectErrorStream(true);
                 process = pb.start();
+       
+
 
                 execute();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
