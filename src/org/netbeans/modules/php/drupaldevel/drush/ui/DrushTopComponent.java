@@ -108,7 +108,7 @@ public final class DrushTopComponent extends TopComponent {
         if (System.getProperty("os.name").startsWith("Windows")) {
             command = "cmd /c " + DrupalDevelPreferences.getDrushPath() + "\\drush.bat ";
         } else {
-            //@TODO: Add support for Mac and Linux
+            command = DrupalDevelPreferences.getDrushPath() + "/drush ";
         }
 
         command += "-r " + activeProject.getProjectDirectory().getPath() + " --include=" + DrupalDevelPreferences.getDrushIncludePath() + " ";
@@ -119,8 +119,10 @@ public final class DrushTopComponent extends TopComponent {
 
         }
         command += " -y " + input;
+        command = command.replaceAll("\\s+", " ");
         cmdProcessor.println("<b>EXECUTE: </b><i>" + command + "</i>");
         String[] cmd = command.split("\\s");
+
         btnCancel.setEnabled(true);
         System.out.println(command);
         cmdProcessor.runCommand(cmd);
