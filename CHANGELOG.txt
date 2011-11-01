@@ -24,3 +24,6 @@
 10/31/2011
         2.0.0 - bleeding
                 - Initial Drush support added. 
+11/01/2011
+        2.0.1 - bleeding
+                - Initial Drush support for MAC and *Nix
