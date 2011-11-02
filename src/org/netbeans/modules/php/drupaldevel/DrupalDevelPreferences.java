@@ -22,6 +22,7 @@ public final class DrupalDevelPreferences {
     private static final String DRUPAL_VERSION = "version"; // NOI18N
     private static final String DRUPAL_LIBRARY_PATH = "librarypath"; // NOI18N
     private static final String DRUPAL_DRUSH_PATH = "drushpath"; // NOI18N
+    private static final String DRUPAL_PATH = "drupalpath"; // NOI18N
     private static final String DRUPAL_DEFAULT_VERSION = "6"; // NOI18N
 
     private DrupalDevelPreferences() {
@@ -224,8 +225,31 @@ public final class DrupalDevelPreferences {
     public static String getDrushIncludePath(){
  
         File emulatorBinary = InstalledFileLocator.getDefault().locate(
-                "DrupalDevel", "org.netbeans.modules.php.dupaldevel", false);
+                "NBDrush", "org.netbeans.modules.php.dupaldevel", false);
         String path = emulatorBinary.getAbsolutePath();
-        return path + "/NBDrush";
+        return path;
     }
+    
+    /**
+     * Retrieve the library path for a given project or the global default if the library
+     * path is not set in the project properties window.
+     * 
+     * @param phpModule The phpModule to perform the lookup on
+     * @return A string containing the absolute path to the library files.
+     */
+    public static String getDrupalPath(Project phpModule) {
+        Preferences preferences = getPreferences(phpModule);
+        String drupalVersion = preferences.get(DRUPAL_PATH, "");
+        return drupalVersion;
+    }
+
+    /**
+     * Sets the projects library path in the project's private.properties file
+     * 
+     * @param phpModule the phpModule to save the setting with
+     * @param path A string containing the absolute path to the library
+     */
+    public static void setDrupalPath(Project phpModule, String path) {
+        getPreferences(phpModule).put(DRUPAL_PATH, path);
+    }    
 }

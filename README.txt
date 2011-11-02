@@ -17,13 +17,8 @@ The Drush window accepts Drush commands. The non-interactive -y parameter is aut
 
 You can specify the URL of your site via the host box.
 
-For Drush to work, Drupal must be located in the root of your project. I am looking into ways of fixing this,
-but it is a requirement as of now. 
+If Drupal is not in your project root directory or you store your Netbeans project meta in a different directory then you need to set the location of Drupal under the project properties.
 
-The Drush command field and host field have a history based upon the active project. The history files are stored
-under nbproject/private for each project.
+The Drush command field and host field have a history based upon the active project. The history files are stored under nbproject/private for each project.
 
-If you find any problems, please copy the output of your Drush output window to the support ticket. Also include the
-version of PHP you are running, the Drupal version and Drush version, Netbeans version, operating system and version as well
-as output from any error windows that appear in Netbeans. The more information you can provide, the easier and quicker it 
-will be for me to track down problems.
+If you find any problems, please copy the output of your Drush output window to the support ticket. Also include the version of PHP you are running, the Drupal version and Drush version, Netbeans version, operating system and version as well as output from any error windows that appear in Netbeans. The more information you can provide, the easier and quicker it will be for me to track down problems.

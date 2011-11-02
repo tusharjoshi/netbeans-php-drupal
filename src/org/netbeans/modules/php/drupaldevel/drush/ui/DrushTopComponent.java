@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.text.JTextComponent;
 import org.netbeans.api.editor.EditorRegistry;
 import org.netbeans.api.project.Project;
+import org.netbeans.api.project.ProjectUtils;
+
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import org.netbeans.api.settings.ConvertAsProperties;
@@ -46,6 +48,7 @@ public final class DrushTopComponent extends TopComponent {
         setToolTipText(NbBundle.getMessage(DrushTopComponent.class, "HINT_DrushTopComponent"));
         btnCancel.setEnabled(false);
         activeProject = Util.getActiveProject();
+        
         propListener = new PropertyChangeListener() {
 
             public void propertyChange(PropertyChangeEvent evt) {
@@ -110,8 +113,13 @@ public final class DrushTopComponent extends TopComponent {
         } else {
             command = DrupalDevelPreferences.getDrushPath() + "/drush ";
         }
-
-        command += "-r " + activeProject.getProjectDirectory().getPath() + " --include=" + DrupalDevelPreferences.getDrushIncludePath() + " ";
+        
+        String drupalPath = DrupalDevelPreferences.getDrupalPath(activeProject);
+        if (drupalPath.equals("")){
+            drupalPath = activeProject.getProjectDirectory().getPath();
+        }
+                
+        command += "-r \"" + drupalPath + "\" --include=\"" + DrupalDevelPreferences.getDrushIncludePath() + "\" ";
         btnCancel.setEnabled(true);
         btnExecute.setEnabled(false);
         if (!cmbHost.getText().equals("")) {
@@ -230,6 +238,7 @@ public final class DrushTopComponent extends TopComponent {
         EditorRegistry.addPropertyChangeListener(propListener);
         btnCancel.setEnabled(false);
         btnExecute.setEnabled(true);
+        Util.drushWindow = this;
     }
 
     @Override
@@ -237,6 +246,7 @@ public final class DrushTopComponent extends TopComponent {
         EditorRegistry.removePropertyChangeListener(propListener);
         cmbCommand.writeHistory();
         cmbHost.writeHistory();
+        Util.drushWindow = null;
     }
 
     void writeProperties(java.util.Properties p) {

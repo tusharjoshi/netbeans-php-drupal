@@ -8,6 +8,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.net.URLEncoder;
+import javax.swing.JOptionPane;
 import javax.swing.text.JTextComponent;
 import org.openide.windows.TopComponent;
 import org.netbeans.api.settings.ConvertAsProperties;
@@ -24,6 +25,7 @@ import org.netbeans.modules.php.drupaldevel.DrupalEditorUtilities;
 import org.netbeans.modules.php.drupaldevel.libraryParser;
 import org.openide.awt.HtmlBrowser;
 import org.netbeans.modules.php.drupaldevel.autocomplete.*;
+import org.netbeans.modules.php.drupaldevel.drush.ui.DrushTopComponent;
 
 /**
  * Top component which displays something.
@@ -49,13 +51,13 @@ public final class DrupalToolsTopComponent extends TopComponent {
     private PropertyChangeListener propListener;
     private ApiTreeEventListener apiTreeListener;
     private AutoCompleteEventListener acListener;
-    
+
     public DrupalToolsTopComponent() {
         initComponents();
         setName(NbBundle.getMessage(DrupalToolsTopComponent.class, "CTL_DrupalToolsTopComponent"));
         setToolTipText(NbBundle.getMessage(DrupalToolsTopComponent.class, "HINT_DrupalToolsTopComponent"));
         setActiveVersion();
-        
+
         propListener = new PropertyChangeListener() {
 
             public void propertyChange(PropertyChangeEvent evt) {
@@ -70,7 +72,7 @@ public final class DrupalToolsTopComponent extends TopComponent {
                 }
             }
         };
-        
+
         acListener = new AutoCompleteEventListener() {
 
             @Override
@@ -83,7 +85,34 @@ public final class DrupalToolsTopComponent extends TopComponent {
 
             @Override
             public void itemSelected(ApiTreeEvent evt) {
-                insertCodeToEditor(evt.getItemPath());
+                ApiTreeItem item = evt.getItem();
+                if (evt.getAction().equals(ApiTreeEvent.EVENT_INSERT)) {
+                    insertCodeToEditor(item.getFile());
+                } else if (evt.getAction().equals(ApiTreeEvent.EVENT_HELP)) {
+                    String fName="";
+                    if (item.getItemType().equals("themes")){
+                        fName = "template_" + item.getName();
+                    } else if (item.getItemType().equals("hooks")){
+                        fName = "hook_" + item.getName();
+                    } 
+                    
+                    if (fName.length()>0){
+                        try {
+                            String url = "http://api.drupal.org/api/search/" + activeDrupalVersion + "/" + URLEncoder.encode(fName, "UTF-8");
+                            HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(url));
+                        } catch (Exception eee) {
+                            return;//nothing much to do
+                        }                        
+                    }
+                    
+                } else if (evt.getAction().equals(ApiTreeEvent.EVENT_LOOKUP)) {
+                    if (Util.drushWindow == null){
+                    
+                } else {
+                        Util.drushWindow.executeDrush("nb-hook " + item.getName());
+                    }
+     
+                }
             }
         };
 
@@ -141,11 +170,12 @@ public final class DrupalToolsTopComponent extends TopComponent {
         apiTree1.setEnabled(true);
         this.activeDrupalVersion = version;
         apiTree1.loadPath(path);
-        
+
         autoComplete1.setWordFile(DrupalDevelPreferences.getDefaultLibraryPath() + "/search/" + version + ".txt");
     }
+
     public void launchSearch() {
-        
+
         try {
             String url = "http://api.drupal.org/api/search/" + this.activeDrupalVersion + "/" + URLEncoder.encode(autoComplete1.getText(), "UTF-8");
             HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(url));
@@ -153,7 +183,7 @@ public final class DrupalToolsTopComponent extends TopComponent {
             return;//nothing much to do
         }
     }
-    
+
     @Override
     public void componentOpened() {
         EditorRegistry.addPropertyChangeListener(propListener);
@@ -164,11 +194,11 @@ public final class DrupalToolsTopComponent extends TopComponent {
 
     @Override
     public void componentClosed() {
-       EditorRegistry.removePropertyChangeListener(propListener);
-       apiTree1.removeApiItemSelection(apiTreeListener);
-       autoComplete1.removeAutoCompleteListener(acListener);
+        EditorRegistry.removePropertyChangeListener(propListener);
+        apiTree1.removeApiItemSelection(apiTreeListener);
+        autoComplete1.removeAutoCompleteListener(acListener);
     }
-    
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -237,7 +267,6 @@ public final class DrupalToolsTopComponent extends TopComponent {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         launchSearch();
     }//GEN-LAST:event_jButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.netbeans.modules.php.drupaldevel.ui.apitree.ApiTree apiTree1;
     private org.netbeans.modules.php.drupaldevel.autocomplete.AutoComplete autoComplete1;
