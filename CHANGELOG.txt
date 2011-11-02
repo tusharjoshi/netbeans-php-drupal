@@ -27,3 +27,9 @@
 11/01/2011
         2.0.1 - bleeding
                 - Initial Drush support for MAC and *Nix
+				
+11/02/2001
+		2.0.2 - bleeding
+				- Option can now be set in project properties for the location of the 
+				  Drupal installation
+				- Initial APITree Context Menu support added

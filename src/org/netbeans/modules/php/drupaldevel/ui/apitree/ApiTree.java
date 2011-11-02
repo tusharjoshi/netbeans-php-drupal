@@ -5,15 +5,10 @@
 package org.netbeans.modules.php.drupaldevel.ui.apitree;
 
 import java.awt.BorderLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.io.File;
 import java.util.ArrayList;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.event.EventListenerList;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -31,6 +26,9 @@ public class ApiTree extends JPanel {
     JTree tree;
     protected EventListenerList listenerList = new EventListenerList();
     public TreePath selectedRow;
+    private JPopupMenu contextMenu;
+    private ApiTreeItem selItem;
+    private JMenuItem[] menuItems = new JMenuItem[3];
 
     public ApiTree() {
 
@@ -38,26 +36,62 @@ public class ApiTree extends JPanel {
         tree = new JTree(root);
         JScrollPane treeView = new JScrollPane(tree);
         add(treeView, BorderLayout.CENTER);
-        final ApiTree me = this;
+        ActionListener al = new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JMenuItem item = (JMenuItem) e.getSource();
+                if (item.getText().equals("Insert")) {
+                    fireApiItemEvent(new ApiTreeEvent(tree, selItem, ApiTreeEvent.EVENT_INSERT));
+                } else if (item.getText().equals("Help")) {
+                    fireApiItemEvent(new ApiTreeEvent(tree, selItem, ApiTreeEvent.EVENT_HELP));
+                } else if (item.getText().equals("Implimentations")) {
+                    fireApiItemEvent(new ApiTreeEvent(tree, selItem, ApiTreeEvent.EVENT_LOOKUP));
+                }
+
+            }
+        };
+
+        contextMenu = new JPopupMenu();
+        Icon icn = new ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/ui/apitree/add.png"));
+
+        menuItems[0] = new JMenuItem("Insert", icn);
+        icn = new ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/ui/apitree/help.png"));
+        menuItems[1] = new JMenuItem("Help", icn);
+        icn = new ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/ui/apitree/find.png"));
+        menuItems[2] = new JMenuItem("Implimentations", icn);
+        for (int i = 0; i < 3; i++) {
+            menuItems[i].addActionListener(al);
+            contextMenu.add(menuItems[i]);
+        }
         MouseListener ml = new MouseAdapter() {
 
             public void mousePressed(MouseEvent e) {
                 int selRow = tree.getRowForLocation(e.getX(), e.getY());
                 TreePath selPath = tree.getPathForLocation(e.getX(), e.getY());
                 if (selRow != -1) {
-                    
-                    if (e.getClickCount() == 2) {
-                        String strPath;
-                        DefaultMutableTreeNode selNode = (DefaultMutableTreeNode) selPath.getLastPathComponent();
-                        if (selNode.getClass().getSimpleName().equals("ApiTreeItem")){
-                            ApiTreeItem selItem = (ApiTreeItem) selNode;
-                            fireApiItemEvent(new ApiTreeEvent(tree, selItem.getFile()));
-                            
-                        }
-                     
-                        me.selectedRow = selPath;
+                    DefaultMutableTreeNode selNode = (DefaultMutableTreeNode) selPath.getLastPathComponent();
+                    if (selNode.getClass().getSimpleName().equals("ApiTreeItem")) {
+                        selItem = (ApiTreeItem) selNode;
+                        if (e.getClickCount() == 2) {
+                            fireApiItemEvent(new ApiTreeEvent(tree, selItem, ApiTreeEvent.EVENT_INSERT));
 
-                     
+
+                        } else if (e.getClickCount() == 1 && SwingUtilities.isRightMouseButton(e)) {
+                            System.out.println(selItem.getName());
+                            int x = e.getX();
+                            int y = e.getY();
+                            if (selItem.getItemType().equals("hooks")) {
+                                menuItems[2].setVisible(true);
+                                contextMenu.show(tree, x, y);
+                            } else if (selItem.getItemType().equals("themes")) {
+                                menuItems[2].setVisible(false);
+                            }
+
+                            contextMenu.show(tree, x, y);
+                        }
+
+                        selectedRow = selPath;
                     }
                 }
             }
@@ -68,7 +102,7 @@ public class ApiTree extends JPanel {
 
     public void loadPath(String path) {
         root.removeAllChildren();
-        root.add(this.getTree(path, root, 0));
+        root.add(this.getTree(path, root, 0, ""));
 
         TreeModel mod = new DefaultTreeModel(root);
         tree.setRootVisible(false);
@@ -77,7 +111,7 @@ public class ApiTree extends JPanel {
 
     }
 
-    private DefaultMutableTreeNode getTree(String path, DefaultMutableTreeNode parent, int level) {
+    private DefaultMutableTreeNode getTree(String path, DefaultMutableTreeNode parent, int level, String type) {
         DefaultMutableTreeNode node = new DefaultMutableTreeNode("");
 
         File dir = new File(path);
@@ -86,18 +120,26 @@ public class ApiTree extends JPanel {
             for (int i = 0; i < children.length; i++) {
                 String name = children[i].getName();
                 if (children[i].isFile()) {
-                    
+
                     name = name.replace(".tpl", "");
                     ApiTreeItem item = new ApiTreeItem(name);
                     item.setFile(children[i].getPath());
+                    item.setItemType(type);
+                    item.setName(name);                    
                     node = item;
-     
+
                 } else {
                     node = new DefaultMutableTreeNode(name);
                 }
                 //System.out.println(children[i]);
                 if (children[i].isDirectory()) {
-                    node.add(this.getTree(children[i].getPath(), node, 0));
+                    if (level == 0) {
+                        type = children[i].getName();
+                        System.out.println(type);
+                    }
+                    level++;
+                    node.add(this.getTree(children[i].getPath(), node, level, type));
+                    level--;
                 }
                 parent.add(node);
             }

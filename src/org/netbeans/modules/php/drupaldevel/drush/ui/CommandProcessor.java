@@ -10,21 +10,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
+import java.io.*;
 import java.util.HashMap;
 import javax.swing.*;
 import javax.swing.event.EventListenerList;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.text.DefaultEditorKit;
-import javax.swing.text.Document;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
+import org.openide.cookies.LineCookie;
+import org.openide.filesystems.FileObject;
+import org.openide.filesystems.FileUtil;
+import org.openide.loaders.DataObject;
+import org.openide.loaders.DataObjectNotFoundException;
+import org.openide.text.Line;
 
 /**
  *
@@ -246,7 +247,7 @@ public class CommandProcessor extends JPanel implements ActionListener, ItemList
                 ProcessBuilder pb = new ProcessBuilder(command);
                 pb.redirectErrorStream(true);
                 process = pb.start();
-       
+
 
 
                 execute();
@@ -269,11 +270,28 @@ class ActivatedHyperlinkListener implements HyperlinkListener {
     public void hyperlinkUpdate(HyperlinkEvent hyperlinkEvent) {
 
         HyperlinkEvent.EventType type = hyperlinkEvent.getEventType();
-        final URL url = hyperlinkEvent.getURL();
+        final String url = hyperlinkEvent.getURL().toString();
+        if (type == HyperlinkEvent.EventType.ACTIVATED) {
+            if (url.startsWith("file://")) {
+                String fileName = url.substring(7, url.lastIndexOf(":"));
+                String lineNumber = url.substring(url.lastIndexOf(":") + 1);
+                File f = new File(fileName);
+                FileObject fobj = FileUtil.toFileObject(f);
+                DataObject dobj = null;
+                try {
+                    dobj = DataObject.find(fobj);
+                } catch (DataObjectNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+                if (dobj != null) {
+                    LineCookie lc = (LineCookie) dobj.getCookie(LineCookie.class);
+                    if (lc != null) {
+                        Line l = lc.getLineSet().getOriginal(Integer.parseInt(lineNumber));
+                        l.show(Line.ShowOpenType.OPEN, Line.ShowVisibilityType.FOCUS);
+                    }
 
-        if (type == HyperlinkEvent.EventType.ENTERED) {
-        } else if (type == HyperlinkEvent.EventType.ACTIVATED) {
-            System.out.println("URL: " + url);
+                }
+            }
         }
     }
 }

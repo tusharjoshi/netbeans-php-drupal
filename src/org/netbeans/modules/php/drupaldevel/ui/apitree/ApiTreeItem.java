@@ -13,7 +13,8 @@ import javax.swing.tree.DefaultMutableTreeNode;
     
 public class ApiTreeItem extends DefaultMutableTreeNode{
     private String itemFile;
-    
+    private String type;
+    private String name;
     public ApiTreeItem(String name){
         super(name);
     }
@@ -25,4 +26,20 @@ public class ApiTreeItem extends DefaultMutableTreeNode{
     public String getFile(){
         return this.itemFile;
     }
+    
+    public void setItemType(String type){
+        this.type = type;
+    }
+    
+    public String getItemType(){
+        return type;
+    }    
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public String getName(){
+        return name;
+    }     
 }

@@ -25,6 +25,7 @@ import javax.swing.text.JTextComponent;
 import org.netbeans.api.project.FileOwnerQuery;
 import org.netbeans.api.project.Project;
 import org.netbeans.editor.BaseDocument;
+import org.netbeans.modules.php.drupaldevel.drush.ui.DrushTopComponent;
 import org.openide.loaders.DataObject;
 import org.openide.util.Parameters;
 import org.openide.windows.TopComponent;
@@ -35,6 +36,7 @@ import org.openide.windows.TopComponent;
  */
 public class Util {
     public static String PHPModule = "org.netbeans.modules.php.project.PhpProject";
+    public static DrushTopComponent drushWindow;
     private Util() {
         // omitted
     }
