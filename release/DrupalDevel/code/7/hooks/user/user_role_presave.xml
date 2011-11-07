@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_role_presave</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_role_presave</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_role_presave();
+*/
+function ${file_name}_user_role_presave($role) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_role_presave($role)</h2>
+
+<p>Inform other modules that a user role is about to be saved.</p>
+<p>Modules implementing this hook can act on the user role object before
+it has been saved to the database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$role</b> -- 
+A user role object.</p>
+
+
+
+]]></help>
+	</item>

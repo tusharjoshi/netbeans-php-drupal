@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>dashboard_regions</title>
+		<external>http://api.drupal.org/api/search/7/hook_dashboard_regions</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_dashboard_regions();
+*/
+function ${file_name}_dashboard_regions() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_dashboard_regions()</h2>
+
+<p>Adds regions to the dashboard.</p>
+
+
+
+
+]]></help>
+	</item>

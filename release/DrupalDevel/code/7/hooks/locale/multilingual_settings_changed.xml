@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>multilingual_settings_changed</title>
+		<external>http://api.drupal.org/api/search/7/hook_multilingual_settings_changed</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_multilingual_settings_changed();
+*/
+function ${file_name}_multilingual_settings_changed() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_multilingual_settings_changed()</h2>
+
+<p>Allow modules to react to language settings changes.</p>
+<p>Every module needing to act when the number of enabled languages changes
+should implement this. This is an "internal" hook and should not be invoked
+elsewhere. The typical implementation would trigger some kind of rebuilding,
+this way system components could properly react to the change of the enabled
+languages number.</p>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>openid</title>
+		<external>http://api.drupal.org/api/search/7/hook_openid</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_openid();
+*/
+function ${file_name}_openid($op, $request) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_openid($op, $request)</h2>
+
+<p>Allow modules to modify the OpenID request parameters.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$op</b> -- 
+The operation to be performed.
+Possible values:</p>
+<ul>
+<li>request: Modify parameters before they are sent to the OpenID provider.
+</li>
+</ul>
+<p><b>$request</b> -- 
+An associative array of parameter defaults to which to modify or append.</p>
+
+
+
+]]></help>
+	</item>

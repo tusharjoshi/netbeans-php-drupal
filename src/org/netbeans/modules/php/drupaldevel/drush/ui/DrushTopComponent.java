@@ -94,8 +94,12 @@ public final class DrushTopComponent extends TopComponent {
         });
 
     }
-
+    public void setActiveProject(Project proj){
+        this.activeProject = proj;
+    }
     public void executeDrush(String input) {
+
+   
         String libPath = DrupalDevelPreferences.getDrushPath();
         boolean libraryCheck = DrupalDevelPreferences.validateDrushPath(libPath);
         if (!libraryCheck) {
@@ -107,6 +111,7 @@ public final class DrushTopComponent extends TopComponent {
             cmdProcessor.println("<span style='font-weight:bold;color:#ff0000'>[ERROR]</span> Active project not detected. Please open a PHP project file in the editor then proceed.");
             return;
         }
+              
         String command = "";
         if (System.getProperty("os.name").startsWith("Windows")) {
             command = "cmd /c " + DrupalDevelPreferences.getDrushPath() + "\\drush.bat ";
@@ -115,10 +120,11 @@ public final class DrushTopComponent extends TopComponent {
         }
         
         String drupalPath = DrupalDevelPreferences.getDrupalPath(activeProject);
+        
         if (drupalPath.equals("")){
-            drupalPath = activeProject.getProjectDirectory().getPath();
+            drupalPath = DrupalDevelPreferences.getSourceDirectory(activeProject);
         }
-                
+    
         command += "-r \"" + drupalPath + "\" --include=\"" + DrupalDevelPreferences.getDrushIncludePath() + "\" ";
         btnCancel.setEnabled(true);
         btnExecute.setEnabled(false);

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>stream_wrappers</title>
+		<external>http://api.drupal.org/api/search/7/hook_stream_wrappers</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_stream_wrappers();
+*/
+function ${file_name}_stream_wrappers() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_stream_wrappers()</h2>
+
+<p>Registers PHP stream wrapper implementations associated with a module.</p>
+<p>Provide a facility for managing and querying user-defined stream wrappers
+in PHP. PHP's internal stream_get_wrappers() doesn't return the class
+registered to handle a stream, which we need to be able to find the handler
+for class instantiation.</p>
+<p>If a module registers a scheme that is already registered with PHP, it will
+be unregistered and replaced with the specified class.</p>
+
+
+
+
+]]></help>
+	</item>

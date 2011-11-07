@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>cron_queue_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_cron_queue_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_cron_queue_info();
+*/
+function ${file_name}_cron_queue_info() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_cron_queue_info()</h2>
+
+<p>Declare queues holding items that need to be run periodically.</p>
+<p>While there can be only one hook_cron() process running at the same time,
+there can be any number of processes defined here running. Because of
+this, long running tasks are much better suited for this API. Items queued
+in hook_cron() might be processed in the same cron run if there are not many
+items in the queue, otherwise it might take several requests, which can be
+run in parallel.</p>
+
+
+
+
+]]></help>
+	</item>

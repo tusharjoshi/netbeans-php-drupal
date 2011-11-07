@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>entity_info_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_entity_info_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_entity_info_alter();
+*/
+function ${file_name}_entity_info_alter(&$entity_info) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_entity_info_alter(&$entity_info)</h2>
+
+<p>Alter the entity info.</p>
+<p>Modules may implement this hook to alter the information that defines an
+entity. All properties that are available in hook_entity_info() can be
+altered here.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_info</b> -- 
+The entity info array, keyed by entity name.</p>
+
+
+
+]]></help>
+	</item>

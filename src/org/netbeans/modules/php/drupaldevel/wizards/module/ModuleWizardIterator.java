@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
 package org.netbeans.modules.php.drupaldevel.wizards.module;
 
@@ -13,6 +13,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeListener;
 import org.netbeans.api.project.Project;
 
@@ -39,7 +40,7 @@ public final class ModuleWizardIterator implements WizardDescriptor.Instantiatin
     private FileObject targetFolder;
     private ModuleWizardPanel2 panel2;
     private String safeName;
-    private ArrayList fileList;
+    private String libraryPath;
     private static final String fs = File.separator;
     private Project proj;
     private static final Logger LOGGER = Logger.getLogger(ModuleWizardIterator.class.getName());
@@ -50,14 +51,14 @@ public final class ModuleWizardIterator implements WizardDescriptor.Instantiatin
      */
     private WizardDescriptor.Panel[] getPanels() {
 
-        //JOptionPane.showMessageDialog(null, this.fo);
+        this.proj = Util.getActiveProject();
+        this.drupalVersion = DrupalDevelPreferences.getDrupalVersion(this.proj);
+        this.libraryPath = WizardUtils.WizardTemplatePath(proj, "module", this.drupalVersion);
         if (panels == null) {
-            this.proj = Util.getActiveProject();
-            
             getTargetFolder();
-            panel2 = new ModuleWizardPanel2(getTargetFolder(), DrupalDevelPreferences.getDrupalVersion(this.proj), DrupalDevelPreferences.getLibraryPath(this.proj));
+            panel2 = new ModuleWizardPanel2(getTargetFolder(), drupalVersion, this.libraryPath);
             panels = new WizardDescriptor.Panel[]{
-                  panel2
+                panel2
             };
             String[] steps = createSteps();
             for (int i = 0; i < panels.length; i++) {
@@ -86,6 +87,7 @@ public final class ModuleWizardIterator implements WizardDescriptor.Instantiatin
         }
         return panels;
     }
+
     @SuppressWarnings("unchecked")
     public Set<FileObject> instantiate() throws IOException {
         this.safeName = panel2.getModuleSafeName();
@@ -95,13 +97,12 @@ public final class ModuleWizardIterator implements WizardDescriptor.Instantiatin
 
         ArrayList fileList = panel2.getFileList();
         fo = FileUtil.toFileObject(new File(basePath));
-        String libraryPath = DrupalDevelPreferences.getLibraryPath(this.proj);
         FileObject subFolder = fo.createFolder(safeName);
         for (int i = 0; i < fileList.size(); i++) {
             String src = fileList.get(i).toString();
-            String name = WizardUtils.fileName(src, this.safeName);            
+            String name = WizardUtils.fileName(src, this.safeName);
             FileObject file = subFolder.createData(name);
-            WizardUtils.generateFile(file, libraryPath, this.drupalVersion, "module", name, src, this.safeName, this.moduleName);
+            WizardUtils.generateFile(file, libraryPath, name, src, this.safeName, this.moduleName);
             DataObject dObj = DataObject.find(file);
             OpenCookie oc = (OpenCookie) dObj.getCookie(OpenCookie.class);
             if (oc != null) {
@@ -120,6 +121,7 @@ public final class ModuleWizardIterator implements WizardDescriptor.Instantiatin
 
     private FileObject getTargetFolder() {
         this.targetFolder = Templates.getTargetFolder(wizard);
+
         return this.targetFolder;
     }
 

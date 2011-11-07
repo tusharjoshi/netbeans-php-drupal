@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>delete</title>
+		<external>http://api.drupal.org/api/search/7/hook_delete</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_delete();
+*/
+function ${file_name}_delete(&$node) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_delete(&$node)</h2>
+
+<p>Respond to node deletion.</p>
+<p>This is a hook used by node modules. It is called to allow the module
+to take action when a node is being deleted from the database by, for
+example, deleting information from related tables.</p>
+
+<h3>Parameters</h3>
+<p>
+&amp;$node
+The node being deleted.</p>
+
+
+
+]]></help>
+	</item>

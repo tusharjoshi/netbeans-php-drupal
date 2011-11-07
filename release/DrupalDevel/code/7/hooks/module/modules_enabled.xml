@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>modules_enabled</title>
+		<external>http://api.drupal.org/api/search/7/hook_modules_enabled</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_modules_enabled();
+*/
+function ${file_name}_modules_enabled($modules) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_modules_enabled($modules)</h2>
+
+<p>Perform necessary actions after modules are enabled.</p>
+<p>This function differs from hook_enable() in that it gives all other modules a
+chance to perform actions when modules are enabled, whereas hook_enable() is
+only called on the module actually being enabled. See module_enable() for a
+detailed description of the order in which install and enable hooks are
+invoked.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$modules</b> -- 
+An array of the modules that were enabled.</p>
+
+
+
+]]></help>
+	</item>

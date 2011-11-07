@@ -28,8 +28,21 @@
         2.0.1 - bleeding
                 - Initial Drush support for MAC and *Nix
 				
-11/02/2001
-		2.0.2 - bleeding
-				- Option can now be set in project properties for the location of the 
-				  Drupal installation
-				- Initial APITree Context Menu support added
+11/02/2011
+        2.0.2 - bleeding
+                        - Option can now be set in project properties for the location of the 
+                          Drupal installation
+                        - Initial APITree Context Menu support added
+
+11/06/2011
+        2.0.3 - beta
+                        - First beta of 2.0 branch
+                        - Reworked template system. Code templates are now XML based
+                        - Added help window to API TopComponent
+                        - Moved api.drupal.org search bar back to the toolbar
+                        - Added quickfind box on API TopComponent
+                        - Drush TopComponent now opens when invoked
+                        - Project source directory now parsed from project configuration
+                        - External template libraries now merge with core libraries.
+                        - Started help system
+                        - Added icons to APITree items

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>filter_tips</title>
+		<external>http://api.drupal.org/api/search/7/hook_filter_tips</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_filter_tips();
+*/
+function ${file_name}_filter_tips($delta, $format, $long = FALSE) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_filter_tips($delta, $format, $long = FALSE)</h2>
+
+<p>Provide tips for using filters.</p>
+<p>A module's tips should be informative and to the point. Short tips are
+preferably one-liners.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$delta</b> -- 
+Which of this module's filters to use. Modules which only implement one
+filter can ignore this parameter.</p>
+<p><b>$format</b> -- 
+Which format we are providing tips for.</p>
+<p><b>$long</b> -- 
+If set to true, long tips are requested, otherwise short tips are needed.</p>
+
+
+
+]]></help>
+	</item>

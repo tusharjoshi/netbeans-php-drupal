@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_local_tasks_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_local_tasks_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu_local_tasks_alter();
+*/
+function ${file_name}_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_local_tasks_alter(&$data, $router_item, $root_path)</h2>
+
+<p>Alter tabs and actions displayed on the page before they are rendered.</p>
+<p>This hook is invoked by menu_local_tasks(). The system-determined tabs and
+actions are passed in by reference. Additional tabs or actions may be added,
+or existing items altered.</p>
+<p>Each tab or action is an associative array containing:</p>
+<ul>
+<li>#theme: The theme function to use to render.
+</li>
+<li>#link: An associative array containing:
+<ul>
+<li>title: The localized title of the link.
+</li>
+<li>href: The system path to link to.
+</li>
+<li>localized_options: An array of options to pass to url().
+</li>
+</ul>
+</li>
+<li>#active: Whether the link should be marked as 'active'.
+</li>
+</ul>
+
+<h3>Parameters</h3>
+<p><b>
+$data</b> -- 
+An associative array containing:</p>
+<ul>
+<li>actions: An associative array containing:</p>
+<ul>
+<li>count: The amount of actions determined by the menu system, which can
+be ignored.
+</li>
+<li>output: A list of of actions, each one being an associative array
+as described above.
+</li>
+</ul>
+</li>
+<li>tabs: An indexed array (list) of tab levels (up to 2 levels), each
+containing an associative array:</p>
+<ul>
+<li>count: The amount of tabs determined by the menu system. This value
+does not need to be altered if there is more than one tab.
+</li>
+<li>output: A list of of tabs, each one being an associative array as
+described above.
+</li>
+</ul>
+</li>
+</ul>
+<p><b>$router_item</b> -- 
+The menu system router item of the page.</p>
+<p><b>$root_path</b> -- 
+The path to the root item for this set of tabs.</p>
+
+
+
+]]></help>
+	</item>

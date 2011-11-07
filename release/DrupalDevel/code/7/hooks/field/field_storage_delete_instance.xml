@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_delete_instance</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_delete_instance</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_delete_instance();
+*/
+function ${file_name}_field_storage_delete_instance($instance) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_delete_instance($instance)</h2>
+
+<p>Act on deletion of a field instance.</p>
+<p>This hook is invoked from field_delete_instance() to ask the field storage
+module to mark all information stored for the field instance for deletion.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$instance</b> -- 
+The instance being deleted.</p>
+
+
+
+]]></help>
+	</item>

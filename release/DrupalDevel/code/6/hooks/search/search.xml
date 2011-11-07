@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>search</title>
+		<external>http://api.drupal.org/api/search/7/hook_search</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_search();
+*/
+function ${file_name}_search($op = 'search', $keys = NULL) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_search($op = 'search', $keys = NULL)</h2>
+
+<p>Define a custom search routine.</p>
+<p>This hook allows a module to perform searches on content it defines
+(custom node types, users, or comments, for example) when a site search
+is performed.</p>
+<p>Note that you can use form API to extend the search. You will need to use
+hook_form_alter() to add any additional required form elements. You can
+process their values on submission using a custom validation function.
+You will need to merge any custom search values into the search keys
+using a key:value syntax. This allows all search queries to have a clean
+and permanent URL. See node_form_alter() for an example.</p>
+<p>The example given here is for node.module, which uses the indexed search
+capabilities. To do this, node module also implements hook_update_index()
+which is used to create and maintain the index.</p>
+<p>We call do_search() with the keys, the module name, and extra SQL fragments
+to use when searching. See hook_update_index() for more information.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$op</b> -- 
+A string defining which operation to perform:</p>
+<ul>
+<li>'admin': The hook should return a form array, containing any fieldsets
+the module wants to add to the Search settings page at
+admin/settings/search.
+</li>
+<li>'name': The hook should return a translated name defining the type of
+items that are searched for with this module ('content', 'users', ...).
+</li>
+<li>'reset': The search index is going to be rebuilt. Modules which use
+hook_update_index() should update their indexing bookkeeping so that it
+starts from scratch the next time hook_update_index() is called.
+</li>
+<li>'search': The hook should perform a search using the keywords in $keys.
+</li>
+<li>'status': If the module implements hook_update_index(), it should return
+an array containing the following keys:</p>
+<ul>
+<li>remaining: The amount of items that still need to be indexed.
+</li>
+<li>total: The total amount of items (both indexed and unindexed).
+</li>
+</ul>
+</li>
+</ul>
+<p><b>$keys</b> -- 
+The search keywords as entered by the user.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>filter_FILTER_prepare</title>
+		<external>http://api.drupal.org/api/search/7/hook_filter_FILTER_prepare</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_filter_FILTER_prepare();
+*/
+function ${file_name}_filter_FILTER_prepare($text, $filter, $format, $langcode, $cache, $cache_id) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_filter_FILTER_prepare($text, $filter, $format, $langcode, $cache, $cache_id)</h2>
+
+<p>Prepare callback for hook_filter_info().</p>
+<p>Note: This is not really a hook. The function name is manually specified via
+'prepare callback' in hook_filter_info(), with this recommended callback
+name pattern. It is called from check_markup().</p>
+<p>See hook_filter_info() for a description of the filtering process. Filters
+should not use the 'prepare callback' step for anything other than escaping,
+because that would short-circuit the control the user has over the order in
+which filters are applied.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$text</b> -- 
+The text string to be filtered.</p>
+<p><b>$filter</b> -- 
+The filter object containing settings for the given format.</p>
+<p><b>$format</b> -- 
+The text format object assigned to the text to be filtered.</p>
+<p><b>$langcode</b> -- 
+The language code of the text to be filtered.</p>
+<p><b>$cache</b> -- 
+A Boolean indicating whether the filtered text is going to be cached in
+{cache_filter}.</p>
+<p><b>$cache_id</b> -- 
+The ID of the filtered text in {cache_filter}, if $cache is TRUE.</p>
+
+
+
+]]></help>
+	</item>

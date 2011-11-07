@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>html_head_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_html_head_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_html_head_alter();
+*/
+function ${file_name}_html_head_alter(&$head_elements) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_html_head_alter(&$head_elements)</h2>
+
+<p>Alter XHTML HEAD tags before they are rendered by drupal_get_html_head().</p>
+<p>Elements available to be altered are only those added using
+drupal_add_html_head_link() or drupal_add_html_head(). CSS and JS files
+are handled using drupal_add_css() and drupal_add_js(), so the head links
+for those files will not appear in the $head_elements array.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$head_elements</b> -- 
+An array of renderable elements. Generally the values of the #attributes
+array will be the most likely target for changes.</p>
+
+
+
+]]></help>
+	</item>

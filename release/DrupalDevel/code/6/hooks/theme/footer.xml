@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>footer</title>
+		<external>http://api.drupal.org/api/search/7/hook_footer</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_footer();
+*/
+function ${file_name}_footer($main = 0) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_footer($main = 0)</h2>
+
+<p>Insert closing HTML.</p>
+<p>This hook enables modules to insert HTML just before the \</body\> closing
+tag of web pages. This is useful for adding JavaScript code to the footer
+and for outputting debug information. It is not possible to add JavaScript
+to the header at this point, and developers wishing to do so should use
+hook_init() instead.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$main</b> -- 
+Whether the current page is the front page of the site.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_site_status_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_site_status_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu_site_status_alter();
+*/
+function ${file_name}_menu_site_status_alter(&$menu_site_status, $path) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_site_status_alter(&$menu_site_status, $path)</h2>
+
+<p>Control site status before menu dispatching.</p>
+<p>The hook is called after checking whether the site is offline but before
+the current router item is retrieved and executed by
+menu_execute_active_handler(). If the site is in offline mode,
+$menu_site_status is set to MENU_SITE_OFFLINE.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$menu_site_status</b> -- 
+Supported values are MENU_SITE_OFFLINE, MENU_ACCESS_DENIED,
+MENU_NOT_FOUND and MENU_SITE_ONLINE. Any other value than
+MENU_SITE_ONLINE will skip the default menu handling system and be passed
+for delivery to drupal_deliver_page() with a NULL
+$default_delivery_callback.</p>
+<p><b>$path</b> -- 
+Contains the system path that is going to be loaded. This is read only,
+use hook_url_inbound_alter() to change the path.</p>
+
+
+
+]]></help>
+	</item>

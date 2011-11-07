@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>taxonomy_term_insert</title>
+		<external>http://api.drupal.org/api/search/7/hook_taxonomy_term_insert</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_taxonomy_term_insert();
+*/
+function ${file_name}_taxonomy_term_insert($term) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_taxonomy_term_insert($term)</h2>
+
+<p>Act on taxonomy terms when inserted.</p>
+<p>Modules implementing this hook can act on the term object when saved to
+the database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$term</b> -- 
+A taxonomy term object.</p>
+
+
+
+]]></help>
+	</item>

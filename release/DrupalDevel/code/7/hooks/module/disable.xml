@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>disable</title>
+		<external>http://api.drupal.org/api/search/7/hook_disable</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_disable();
+*/
+function ${file_name}_disable() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_disable()</h2>
+
+<p>Perform necessary actions before module is disabled.</p>
+<p>The hook is called every time the module is disabled.</p>
+
+
+
+
+]]></help>
+	</item>

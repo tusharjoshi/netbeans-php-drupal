@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>install</title>
+		<external>http://api.drupal.org/api/search/7/hook_install</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_install();
+*/
+function ${file_name}_install() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_install()</h2>
+
+<p>Perform setup tasks when the module is installed.</p>
+<p>If the module implements hook_schema(), the database tables will
+be created before this hook is fired.</p>
+<p>This hook will only be called the first time a module is enabled or after it
+is re-enabled after being uninstalled. The module's schema version will be
+set to the module's greatest numbered update hook. Because of this, anytime a
+hook_update_N() is added to the module, this function needs to be updated to
+reflect the current version of the database schema.</p>
+<p>See the Schema API documentation at
+<a href="http://drupal.org/node/146843">http://drupal.org/node/146843</a>
+for details on hook_schema and how database tables are defined.</p>
+<p>Note that since this function is called from a full bootstrap, all functions
+(including those in modules enabled by the current page request) are
+available when this hook is called. Use cases could be displaying a user
+message, or calling a module function necessary for initial setup, etc.</p>
+<p>Please be sure that anything added or modified in this function that can
+be removed during uninstall should be removed with hook_uninstall().</p>
+
+
+
+
+]]></help>
+	</item>

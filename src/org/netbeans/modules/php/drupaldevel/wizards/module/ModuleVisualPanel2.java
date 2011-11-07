@@ -66,7 +66,7 @@ public final class ModuleVisualPanel2 extends JPanel implements DocumentListener
         
         if (this.fileList.size()==0) {
             
-            this.fileList = WizardUtils.getFilesList(this.libraryPath + "/files/module/" + this.drupalVer);
+            this.fileList = WizardUtils.getFilesList(this.libraryPath);
 
         }
         String generatedFiles = "";

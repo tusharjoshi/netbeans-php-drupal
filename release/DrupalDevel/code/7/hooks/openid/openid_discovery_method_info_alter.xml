@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>openid_discovery_method_info_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_openid_discovery_method_info_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_openid_discovery_method_info_alter();
+*/
+function ${file_name}_openid_discovery_method_info_alter(&$methods) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_openid_discovery_method_info_alter(&$methods)</h2>
+
+<p>Allow modules to alter discovery methods.</p>
+
+
+
+
+]]></help>
+	</item>

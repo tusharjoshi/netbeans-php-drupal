@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_delete_revision</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_delete_revision</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_delete_revision();
+*/
+function ${file_name}_field_delete_revision($entity_type, $entity, $field, $instance, $langcode, &$items) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_delete_revision($entity_type, $entity, $field, $instance, $langcode, &$items)</h2>
+
+<p>Define custom revision delete behavior for this module's field types.</p>
+<p>This hook is invoked just before the data is deleted from field storage
+in field_attach_delete_revision(), and will only be called for fieldable
+types that are versioned.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity.</p>
+<p><b>$entity</b> -- 
+The entity for the operation.</p>
+<p><b>$field</b> -- 
+The field structure for the operation.</p>
+<p><b>$instance</b> -- 
+The instance structure for $field on $entity's bundle.</p>
+<p><b>$langcode</b> -- 
+The language associated with $items.</p>
+<p><b>$items</b> -- 
+$entity->{$field['field_name']}[$langcode], or an empty array if unset.</p>
+
+
+
+]]></help>
+	</item>

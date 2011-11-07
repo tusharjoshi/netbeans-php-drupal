@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>stream_wrappers_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_stream_wrappers_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_stream_wrappers_alter();
+*/
+function ${file_name}_stream_wrappers_alter(&$wrappers) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_stream_wrappers_alter(&$wrappers)</h2>
+
+<p>Alters the list of PHP stream wrapper implementations.</p>
+
+
+
+
+]]></help>
+	</item>

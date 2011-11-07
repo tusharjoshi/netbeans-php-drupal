@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>library_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_library_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_library_alter();
+*/
+function ${file_name}_library_alter(&$libraries, $module) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_library_alter(&$libraries, $module)</h2>
+
+<p>Alters the JavaScript/CSS library registry.</p>
+<p>Allows certain, contributed modules to update libraries to newer versions
+while ensuring backwards compatibility. In general, such manipulations should
+only be done by designated modules, since most modules that integrate with a
+certain library also depend on the API of a certain library version.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$libraries</b> -- 
+The JavaScript/CSS libraries provided by $module. Keyed by internal library
+name and passed by reference.</p>
+<p><b>$module</b> -- 
+The name of the module that registered the libraries.</p>
+
+
+
+]]></help>
+	</item>

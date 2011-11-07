@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_menu_alter();
+*/
+function ${file_name}_menu_alter(&$items) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_alter(&$items)</h2>
+
+<p>Alter the data being saved to the {menu_router} table after hook_menu is invoked.</p>
+<p>This hook is invoked by menu_router_build(). The menu definitions are passed
+in by reference.  Each element of the $items array is one item returned
+by a module from hook_menu.  Additional items may be added, or existing items
+altered.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$items</b> -- 
+Associative array of menu router definitions returned from hook_menu().</p>
+
+
+
+]]></help>
+	</item>

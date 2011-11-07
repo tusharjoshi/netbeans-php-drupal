@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_delete</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_delete</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu_delete();
+*/
+function ${file_name}_menu_delete($menu) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_delete($menu)</h2>
+
+<p>Informs modules that a custom menu was deleted.</p>
+<p>This hook is used to notify modules that a custom menu along with all links
+contained in it (if any) has been deleted. Contributed modules may use the
+information to perform actions based on the information entered into the menu
+system.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$link</b> -- 
+An array representing a custom menu:</p>
+<ul>
+<li>menu_name: The unique name of the custom menu.
+</li>
+<li>title: The human readable menu title.
+</li>
+<li>description: The custom menu description.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>image_style_save</title>
+		<external>http://api.drupal.org/api/search/7/hook_image_style_save</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_image_style_save();
+*/
+function ${file_name}_image_style_save($style) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_image_style_save($style)</h2>
+
+<p>Respond to image style updating.</p>
+<p>This hook enables modules to update settings that might be affected by
+changes to an image. For example, updating a module specific variable to
+reflect a change in the image style's name.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$style</b> -- 
+The image style array that is being updated.</p>
+
+
+
+]]></help>
+	</item>

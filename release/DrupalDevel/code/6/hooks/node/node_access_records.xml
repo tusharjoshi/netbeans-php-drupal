@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_access_records</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_access_records</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_node_access_records();
+*/
+function ${file_name}_node_access_records($node) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_access_records($node)</h2>
+
+<p>Set permissions for a node to be written to the database.</p>
+<p>When a node is saved, a module implementing hook_node_access_records() will
+be asked if it is interested in the access permissions for a node. If it is
+interested, it must respond with an array of permissions arrays for that
+node.</p>
+<p>Each permissions item in the array is an array with the following elements:</p>
+<ul>
+<li>'realm': The name of a realm that the module has defined in
+hook_node_grants().
+</li>
+<li>'gid': A 'grant ID' from hook_node_grants().
+</li>
+<li>'grant_view': If set to TRUE a user that has been identified as a member
+of this gid within this realm can view this node.
+</li>
+<li>'grant_update': If set to TRUE a user that has been identified as a member
+of this gid within this realm can edit this node.
+</li>
+<li>'grant_delete': If set to TRUE a user that has been identified as a member
+of this gid within this realm can delete this node.
+</li>
+<li>'priority': If multiple modules seek to set permissions on a node, the
+realms that have the highest priority will win out, and realms with a lower
+priority will not be written. If there is any doubt, it is best to
+leave this 0.
+</li>
+</ul>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>token_info_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_token_info_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_token_info_alter();
+*/
+function ${file_name}_token_info_alter(&$data) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_token_info_alter(&$data)</h2>
+
+<p>Alter the metadata about available placeholder tokens and token types.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$data</b> -- 
+The associative array of token definitions from hook_token_info().</p>
+
+
+
+]]></help>
+	</item>

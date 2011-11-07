@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>view</title>
+		<external>http://api.drupal.org/api/search/7/hook_view</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_view();
+*/
+function ${file_name}_view($node, $teaser = FALSE, $page = FALSE) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_view($node, $teaser = FALSE, $page = FALSE)</h2>
+
+<p>Display a node.</p>
+<p>This is a hook used by node modules. It allows a module to define a
+custom method of displaying its nodes, usually by displaying extra
+information particular to that node type.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node to be displayed.</p>
+<p><b>$teaser</b> -- 
+Whether we are to generate a "teaser" or summary of the node, rather than
+display the whole thing.</p>
+<p><b>$page</b> -- 
+Whether the node is being displayed as a standalone page. If this is
+TRUE, the node title should not be displayed, as it will be printed
+automatically by the theme system. Also, the module may choose to alter
+the default breadcrumb trail in this case.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_info();
+*/
+function ${file_name}_field_storage_info() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_info()</h2>
+
+<p>Expose Field API storage backends.</p>
+
+
+
+
+]]></help>
+	</item>

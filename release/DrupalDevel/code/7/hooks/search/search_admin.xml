@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>search_admin</title>
+		<external>http://api.drupal.org/api/search/7/hook_search_admin</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_search_admin();
+*/
+function ${file_name}_search_admin() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_search_admin()</h2>
+
+<p>Add elements to the search settings form.</p>
+
+
+
+
+]]></help>
+	</item>

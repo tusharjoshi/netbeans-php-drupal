@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>cron_queue_info_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_cron_queue_info_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_cron_queue_info_alter();
+*/
+function ${file_name}_cron_queue_info_alter(&$queues) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_cron_queue_info_alter(&$queues)</h2>
+
+<p>Alter cron queue information before cron runs.</p>
+<p>Called by drupal_cron_run() to allow modules to alter cron queue settings
+before any jobs are processesed.</p>
+
+<h3>Parameters</h3>
+<p>
+array $queues
+An array of cron queue information.</p>
+
+
+
+]]></help>
+	</item>

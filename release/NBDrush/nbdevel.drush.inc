@@ -52,10 +52,15 @@ function drush_nbdevel_fn_view($function_name) {
     }
     $reflect = new ReflectionMethod($class, $method);
   }
-  $func_info = array('!file' => $reflect->getFileName(), '!startline' => $reflect->getStartLine(), '!endline' => $reflect->getEndLine());
+  $path = $reflect->getFileName();
+  
+  $path = str_replace('\\','/',$path);
+  $file = str_replace(DRUPAL_ROOT, "", $path);
+
+  $func_info = array('!file' => $file, '!path' => $path, '!startline' => $reflect->getStartLine(), '!endline' => $reflect->getEndLine());
   //drush_print_pipe(dt("!file -line !startline", $func_info));
   drush_print_pipe($reflect->getFileName());
-  drush_print(dt("<a href='file://!file:!startline' style='color:#0000ff;text-decoration:underline'>!file:!startline</a>", $func_info));
+  drush_print(dt("<a href='file://!path:!startline' style='text-decoration:underline;color:#0000AA;'>!file:!startline</a>", $func_info));
 
   //_drush_devel_print_function($reflect->getFileName(), $reflect->getStartLine(), $reflect->getEndLine());
 }

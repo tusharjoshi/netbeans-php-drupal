@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>filetransfer_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_filetransfer_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_filetransfer_info();
+*/
+function ${file_name}_filetransfer_info() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_filetransfer_info()</h2>
+
+<p>Register information about FileTransfer classes provided by a module.</p>
+<p>The FileTransfer class allows transfering files over a specific type of
+connection. Core provides classes for FTP and SSH. Contributed modules are
+free to extend the FileTransfer base class to add other connection types,
+and if these classes are registered via hook_filetransfer_info(), those
+connection types will be available to site administrators using the Update
+manager when they are redirected to the authorize.php script to authorize
+the file operations.</p>
+
+
+
+
+]]></help>
+	</item>

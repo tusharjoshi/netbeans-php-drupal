@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_delete</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_delete</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_delete();
+*/
+function ${file_name}_field_storage_delete($entity_type, $entity, $fields) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_delete($entity_type, $entity, $fields)</h2>
+
+<p>Delete all field data for an entity.</p>
+<p>This hook is invoked from field_attach_delete() to ask the field storage
+module to delete field data.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The entity type of entity, such as 'node' or 'user'.</p>
+<p><b>$entity</b> -- 
+The entity on which to operate.</p>
+<p><b>$fields</b> -- 
+An array listing the fields to delete. The keys and values of the
+array are field IDs.</p>
+
+
+
+]]></help>
+	</item>

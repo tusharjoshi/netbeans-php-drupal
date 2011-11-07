@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu();
+*/
+function ${file_name}_menu() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu()</h2>
+
+<p>Define menu items and page callbacks.</p>
+<p>This hook enables modules to register paths in order to define how URL
+requests are handled. Paths may be registered for URL handling only, or they
+can register a link to be placed in a menu (usually the Navigation menu). A
+path and its associated information is commonly called a "menu router item".
+This hook is rarely called (for example, when modules are enabled), and
+its results are cached in the database.</p>
+<p>hook_menu() implementations return an associative array whose keys define
+paths and whose values are an associative array of properties for each
+path. (The complete list of properties is in the return value section below.)</p>
+<p>The definition for each path may include a page callback function, which is
+invoked when the registered path is requested. If there is no other
+registered path that fits the requested path better, any further path
+components are passed to the callback function. For example, your module
+could register path 'abc/def':</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;<span&nbsp;class="php-keyword">function</span>&nbsp;<span&nbsp;class="php-function-or-constant">mymodule_menu</span>()&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-variable">$items</span>[<span&nbsp;class="php-string">'abc/def'</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'page&nbsp;callback'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'mymodule_abc_view'</span>,<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;);<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-keyword">return</span>&nbsp;<span&nbsp;class="php-variable">$items</span>;<br&nbsp;/>
+&nbsp;&nbsp;}<br&nbsp;/>
+<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-keyword">function</span>&nbsp;<span&nbsp;class="php-function-or-constant">mymodule_abc_view</span>(<span&nbsp;class="php-variable">$ghi</span>&nbsp;=&nbsp;<span&nbsp;class="php-constant">0</span>,&nbsp;<span&nbsp;class="php-variable">$jkl</span>&nbsp;=&nbsp;<span&nbsp;class="php-string">''</span>)&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;...<br&nbsp;/>
+</span>&nbsp;&nbsp;}<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>When path 'abc/def' is requested, no further path components are in the
+request, and no additional arguments are passed to the callback function (so
+$ghi and $jkl would take the default values as defined in the function
+signature). When 'abc/def/123/foo' is requested, $ghi will be '123' and
+$jkl will be 'foo'. Note that this automatic passing of optional path
+arguments applies only to page and theme callback functions.</p>
+<p>In addition to optional path arguments, the page callback and other callback
+functions may specify argument lists as arrays. These argument lists may
+contain both fixed/hard-coded argument values and integers that correspond
+to path components. When integers are used and the callback function is
+called, the corresponding path components will be substituted for the
+integers. That is, the integer 0 in an argument list will be replaced with
+the first path component, integer 1 with the second, and so on (path
+components are numbered starting from zero). To pass an integer without it
+being replaced with its respective path component, use the string value of
+the integer (e.g., '1') as the argument value. This substitution feature
+allows you to re-use a callback function for several different paths. For
+example:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;<span&nbsp;class="php-keyword">function</span>&nbsp;<span&nbsp;class="php-function-or-constant">mymodule_menu</span>()&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-variable">$items</span>[<span&nbsp;class="php-string">'abc/def'</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'page&nbsp;callback'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'mymodule_abc_view'</span>,<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'page&nbsp;arguments'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-keyword">array</span>(<span&nbsp;class="php-constant">1</span>,&nbsp;<span&nbsp;class="php-string">'foo'</span>),<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;);<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-keyword">return</span>&nbsp;<span&nbsp;class="php-variable">$items</span>;<br&nbsp;/>
+&nbsp;&nbsp;}<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>When path 'abc/def' is requested, the page callback function will get 'def'
+as the first argument and (always) 'foo' as the second argument.</p>
+<p>If a page callback function uses an argument list array, and its path is
+requested with optional path arguments, then the list array's arguments are
+passed to the callback function first, followed by the optional path
+arguments. Using the above example, when path 'abc/def/bar/baz' is requested,
+mymodule_abc_view() will be called with 'def', 'foo', 'bar' and 'baz' as
+arguments, in that order.</p>
+<p>Special care should be taken for the page callback drupal_get_form(), because
+your specific form callback function will always receive $form and
+&amp;$form_state as the first function arguments:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;<span&nbsp;class="php-keyword">function</span>&nbsp;<span&nbsp;class="php-function-or-constant">mymodule_abc_form</span>(<span&nbsp;class="php-variable">$form</span>,&nbsp;&amp;<span&nbsp;class="php-variable">$form_state</span>)&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;...<br&nbsp;/>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-keyword">return</span>&nbsp;<span&nbsp;class="php-variable">$form</span>;<br&nbsp;/>
+&nbsp;&nbsp;}<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>See @link form_api Form API documentation @endlink for details.</p>
+<p>Wildcards within paths also work with integer substitution. For example,
+your module could register path 'my-module/%/edit':</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;<span&nbsp;class="php-variable">$items</span>[<span&nbsp;class="php-string">'my-module/%/edit'</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'page&nbsp;callback'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'mymodule_abc_edit'</span>,<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'page&nbsp;arguments'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-keyword">array</span>(<span&nbsp;class="php-constant">1</span>),<br&nbsp;/>
+&nbsp;&nbsp;);<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>When path 'my-module/foo/edit' is requested, integer 1 will be replaced
+with 'foo' and passed to the callback function.</p>
+<p>Registered paths may also contain special "auto-loader" wildcard components
+in the form of '%mymodule_abc', where the '%' part means that this path
+component is a wildcard, and the 'mymodule_abc' part defines the prefix for a
+load function, which here would be named mymodule_abc_load(). When a matching
+path is requested, your load function will receive as its first argument the
+path component in the position of the wildcard; load functions may also be
+passed additional arguments (see "load arguments" in the return value
+section below). For example, your module could register path
+'my-module/%mymodule_abc/edit':</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;<span&nbsp;class="php-variable">$items</span>[<span&nbsp;class="php-string">'my-module/%mymodule_abc/edit'</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'page&nbsp;callback'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'mymodule_abc_edit'</span>,<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'page&nbsp;arguments'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-keyword">array</span>(<span&nbsp;class="php-constant">1</span>),<br&nbsp;/>
+&nbsp;&nbsp;);<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>When path 'my-module/123/edit' is requested, your load function
+mymodule_abc_load() will be invoked with the argument '123', and should
+load and return an "abc" object with internal id 123:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;<span&nbsp;class="php-keyword">function</span>&nbsp;<span&nbsp;class="php-function-or-constant">mymodule_abc_load</span>(<span&nbsp;class="php-variable">$abc_id</span>)&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-keyword">return</span>&nbsp;<span&nbsp;class="php-function-or-constant">db_query</span>(<span&nbsp;class="php-string">&quot;SELECT&nbsp;*&nbsp;FROM&nbsp;{mymodule_abc}&nbsp;WHERE&nbsp;abc_id&nbsp;=&nbsp;:abc_id&quot;</span>,&nbsp;<span&nbsp;class="php-keyword">array</span>(<span&nbsp;class="php-string">':abc_id'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-variable">$abc_id</span>))-&gt;<span&nbsp;class="php-function-or-constant">fetchObject</span>();<br&nbsp;/>
+&nbsp;&nbsp;}<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>This 'abc' object will then be passed into the callback functions defined
+for the menu item, such as the page callback function mymodule_abc_edit()
+to replace the integer 1 in the argument array.</p>
+<p>You can also define a %wildcard_to_arg() function (for the example menu
+entry above this would be 'mymodule_abc_to_arg()'). The _to_arg() function
+is invoked to retrieve a value that is used in the path in place of the
+wildcard. A good example is user.module, which defines
+user_uid_optional_to_arg() (corresponding to the menu entry
+'user/%user_uid_optional'). This function returns the user ID of the
+current user.</p>
+<p>The _to_arg() function will get called with three arguments:</p>
+<ul>
+<li>$arg: A string representing whatever argument may have been supplied by
+the caller (this is particularly useful if you want the _to_arg()
+function only supply a (default) value if no other value is specified,
+as in the case of user_uid_optional_to_arg().
+</li>
+<li>$map: An array of all path fragments (e.g. array('node','123','edit') for
+'node/123/edit').
+</li>
+<li>$index: An integer indicating which element of $map corresponds to $arg.
+</li>
+</ul>
+<p>_load() and _to_arg() functions may seem similar at first glance, but they
+have different purposes and are called at different times. _load()
+functions are called when the menu system is collecting arguments to pass
+to the callback functions defined for the menu item. _to_arg() functions
+are called when the menu system is generating links to related paths, such
+as the tabs for a set of MENU_LOCAL_TASK items.</p>
+<p>You can also make groups of menu items to be rendered (by default) as tabs
+on a page. To do that, first create one menu item of type MENU_NORMAL_ITEM,
+with your chosen path, such as 'foo'. Then duplicate that menu item, using a
+subdirectory path, such as 'foo/tab1', and changing the type to
+MENU_DEFAULT_LOCAL_TASK to make it the default tab for the group. Then add
+the additional tab items, with paths such as "foo/tab2" etc., with type
+MENU_LOCAL_TASK. Example:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p><span&nbsp;class="php-comment">//&nbsp;Make&nbsp;&quot;Foo&nbsp;settings&quot;&nbsp;appear&nbsp;on&nbsp;the&nbsp;admin&nbsp;Config&nbsp;page<br&nbsp;/>
+</span><span&nbsp;class="php-variable">$items</span>[<span&nbsp;class="php-string">'admin/config/foo'</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'title'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'Foo&nbsp;settings'</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'type'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-function-or-constant">MENU_NORMAL_ITEM</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;Page&nbsp;callback,&nbsp;etc.&nbsp;need&nbsp;to&nbsp;be&nbsp;added&nbsp;here.<br&nbsp;/>
+</span>);<br&nbsp;/>
+<span&nbsp;class="php-comment">//&nbsp;Make&nbsp;&quot;Global&nbsp;settings&quot;&nbsp;the&nbsp;main&nbsp;tab&nbsp;on&nbsp;the&nbsp;&quot;Foo&nbsp;settings&quot;&nbsp;page<br&nbsp;/>
+</span><span&nbsp;class="php-variable">$items</span>[<span&nbsp;class="php-string">'admin/config/foo/global'</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'title'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'Global&nbsp;settings'</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'type'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-function-or-constant">MENU_DEFAULT_LOCAL_TASK</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;Access&nbsp;callback,&nbsp;page&nbsp;callback,&nbsp;and&nbsp;theme&nbsp;callback&nbsp;will&nbsp;be&nbsp;inherited<br&nbsp;/>
+</span>&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;from&nbsp;'admin/config/foo',&nbsp;if&nbsp;not&nbsp;specified&nbsp;here&nbsp;to&nbsp;override.<br&nbsp;/>
+</span>);<br&nbsp;/>
+<span&nbsp;class="php-comment">//&nbsp;Make&nbsp;an&nbsp;additional&nbsp;tab&nbsp;called&nbsp;&quot;Node&nbsp;settings&quot;&nbsp;on&nbsp;&quot;Foo&nbsp;settings&quot;<br&nbsp;/>
+</span><span&nbsp;class="php-variable">$items</span>[<span&nbsp;class="php-string">'admin/config/foo/node'</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'title'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'Node&nbsp;settings'</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'type'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-function-or-constant">MENU_LOCAL_TASK</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;Page&nbsp;callback&nbsp;and&nbsp;theme&nbsp;callback&nbsp;will&nbsp;be&nbsp;inherited&nbsp;from<br&nbsp;/>
+</span>&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;'admin/config/foo',&nbsp;if&nbsp;not&nbsp;specified&nbsp;here&nbsp;to&nbsp;override.<br&nbsp;/>
+</span>&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;Need&nbsp;to&nbsp;add&nbsp;access&nbsp;callback&nbsp;or&nbsp;access&nbsp;arguments.<br&nbsp;/>
+</span>);<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+
+
+
+
+]]></help>
+	</item>

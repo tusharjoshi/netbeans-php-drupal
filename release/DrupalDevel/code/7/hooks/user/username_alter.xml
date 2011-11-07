@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>username_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_username_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_username_alter();
+*/
+function ${file_name}_username_alter(&$name, $account) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_username_alter(&$name, $account)</h2>
+
+<p>Alter the username that is displayed for a user.</p>
+<p>Called by format_username() to allow modules to alter the username that's
+displayed. Can be used to ensure user privacy in situations where
+$account->name is too revealing.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$name</b> -- 
+The string that format_username() will return.</p>
+<p><b>$account</b> -- 
+The account object passed to format_username().</p>
+
+
+
+]]></help>
+	</item>

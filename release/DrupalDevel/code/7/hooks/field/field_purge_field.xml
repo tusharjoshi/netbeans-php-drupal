@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_purge_field</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_purge_field</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_purge_field();
+*/
+function ${file_name}_field_purge_field($field) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_purge_field($field)</h2>
+
+<p>Acts when a field record is being purged.</p>
+<p>In field_purge_field(), after the field configuration has been
+removed from the database, the field storage module has had a chance to
+run its hook_field_storage_purge_field(), and the field info cache
+has been cleared, this hook is invoked on all modules to allow them to
+respond to the field being purged.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The field being purged.</p>
+
+
+
+]]></help>
+	</item>

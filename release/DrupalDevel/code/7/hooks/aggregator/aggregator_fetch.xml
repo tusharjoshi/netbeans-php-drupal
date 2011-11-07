@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>aggregator_fetch</title>
+		<external>http://api.drupal.org/api/search/7/hook_aggregator_fetch</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_aggregator_fetch();
+*/
+function ${file_name}_aggregator_fetch($feed) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_aggregator_fetch($feed)</h2>
+
+<p>Implement this hook to create an alternative fetcher for aggregator module.</p>
+<p>A fetcher downloads feed data to a Drupal site. The fetcher is called
+at the first of the three aggregation stages: data is downloaded by the
+active fetcher, it is converted to a common format by the active parser and
+finally, it is passed to all active processors which manipulate or store the
+data.</p>
+<p>Modules that define this hook can be set as active fetcher on
+admin/config/services/aggregator. Only one fetcher can be active at a time.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$feed</b> -- 
+The $feed object that describes the resource to be downloaded.
+$feed->url contains the link to the feed. Download the data at the URL
+and expose it to other modules by attaching it to $feed->source_string.</p>
+
+
+
+]]></help>
+	</item>

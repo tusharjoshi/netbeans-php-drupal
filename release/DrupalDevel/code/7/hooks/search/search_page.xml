@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>search_page</title>
+		<external>http://api.drupal.org/api/search/7/hook_search_page</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_search_page();
+*/
+function ${file_name}_search_page($results) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_search_page($results)</h2>
+
+<p>Override the rendering of search results.</p>
+<p>A module that implements hook_search_info() to define a type of search
+may implement this hook in order to override the default theming of
+its search results, which is otherwise themed using theme('search_results').</p>
+<p>Note that by default, theme('search_results') and theme('search_result')
+work together to create an ordered list (OL). So your hook_search_page()
+implementation should probably do this as well.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$results</b> -- 
+An array of search results.</p>
+
+
+
+]]></help>
+	</item>

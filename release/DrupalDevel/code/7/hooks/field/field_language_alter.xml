@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_language_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_language_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_language_alter();
+*/
+function ${file_name}_field_language_alter(&$display_language, $context) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_language_alter(&$display_language, $context)</h2>
+
+<p>Perform alterations on field_language() values.</p>
+<p>This hook is invoked to alter the array of display languages for the given
+entity.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$display_language</b> -- 
+A reference to an array of language codes keyed by field name.</p>
+<p><b>$context</b> -- 
+An associative array containing:</p>
+<ul>
+<li>entity_type: The type of the entity to be displayed.
+</li>
+<li>entity: The entity with fields to render.
+</li>
+<li>langcode: The language code $entity has to be displayed in.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

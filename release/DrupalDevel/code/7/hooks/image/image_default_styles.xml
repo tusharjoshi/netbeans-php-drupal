@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>image_default_styles</title>
+		<external>http://api.drupal.org/api/search/7/hook_image_default_styles</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_image_default_styles();
+*/
+function ${file_name}_image_default_styles() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_image_default_styles()</h2>
+
+<p>Provide module-based image styles for reuse throughout Drupal.</p>
+<p>This hook allows your module to provide image styles. This may be useful if
+you require images to fit within exact dimensions. Note that you should
+attempt to re-use the default styles provided by Image module whenever
+possible, rather than creating image styles that are specific to your module.
+Image provides the styles "thumbnail", "medium", and "large".</p>
+<p>You may use this hook to more easily manage your site's changes by moving
+existing image styles from the database to a custom module. Note however that
+moving image styles to code instead storing them in the database has a
+negligible effect on performance, since custom image styles are loaded
+from the database all at once. Even if all styles are pulled from modules,
+Image module will still perform the same queries to check the database for
+any custom styles.</p>
+
+
+
+
+]]></help>
+	</item>

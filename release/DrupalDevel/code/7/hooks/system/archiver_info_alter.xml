@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>archiver_info_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_archiver_info_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_archiver_info_alter();
+*/
+function ${file_name}_archiver_info_alter(&$info) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_archiver_info_alter(&$info)</h2>
+
+<p>Alter archiver information declared by other modules.</p>
+<p>See hook_archiver_info() for a description of archivers and the archiver
+information structure.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$info</b> -- 
+Archiver information to alter (return values from hook_archiver_info()).</p>
+
+
+
+]]></help>
+	</item>

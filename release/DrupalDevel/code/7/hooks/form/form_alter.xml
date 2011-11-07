@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>form_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_form_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_form_alter();
+*/
+function ${file_name}_form_alter(&$form, &$form_state, $form_id) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_form_alter(&$form, &$form_state, $form_id)</h2>
+
+<p>Perform alterations before a form is rendered.</p>
+<p>One popular use of this hook is to add form elements to the node form. When
+altering a node form, the node object can be accessed at $form['#node'].</p>
+<p>Note that instead of hook_form_alter(), which is called for all forms, you
+can also use hook_form_FORM_ID_alter() to alter a specific form. For each
+module (in system weight order) the general form alter hook implementation
+is invoked first, then the form ID specific alter implementation is called.
+After all module hook implementations are invoked, the hook_form_alter()
+implementations from themes are invoked in the same manner.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$form</b> -- 
+Nested array of form elements that comprise the form.</p>
+<p><b>$form_state</b> -- 
+A keyed array containing the current state of the form. The arguments
+that drupal_get_form() was originally called with are available in the
+array $form_state['build_info']['args'].</p>
+<p><b>$form_id</b> -- 
+String representing the name of the form itself. Typically this is the
+name of the function that generated the form.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_formatter_prepare_view</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_formatter_prepare_view</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_formatter_prepare_view();
+*/
+function ${file_name}_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays)</h2>
+
+<p>Allow formatters to load information for field values being displayed.</p>
+<p>This should be used when a formatter needs to load additional information
+from the database in order to render a field, for example a reference field
+which displays properties of the referenced entities such as name or type.</p>
+<p>This hook is called after the field type's own hook_field_prepare_view().</p>
+<p>Unlike most other field hooks, this hook operates on multiple entities. The
+$entities, $instances and $items parameters are arrays keyed by entity ID.
+For performance reasons, information for all available entities should be
+loaded in a single query where possible.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity.</p>
+<p><b>$entities</b> -- 
+Array of entities being displayed, keyed by entity ID.</p>
+<p><b>$field</b> -- 
+The field structure for the operation.</p>
+<p><b>$instances</b> -- 
+Array of instance structures for $field for each entity, keyed by entity
+ID.</p>
+<p><b>$langcode</b> -- 
+The language the field values are to be shown in. If no language is
+provided the current language is used.</p>
+<p><b>$items</b> -- 
+Array of field values for the entities, keyed by entity ID.</p>
+<p><b>$displays</b> -- 
+Array of display settings to use for each entity, keyed by entity ID.</p>
+
+
+
+]]></help>
+	</item>

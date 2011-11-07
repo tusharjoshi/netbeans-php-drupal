@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_load</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_load</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_load();
+*/
+function ${file_name}_user_load($users) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_load($users)</h2>
+
+<p>Act on user objects when loaded from the database.</p>
+<p>Due to the static cache in user_load_multiple() you should not use this
+hook to modify the user properties returned by the {users} table itself
+since this may result in unreliable results when loading from cache.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$users</b> -- 
+An array of user objects, indexed by uid.</p>
+
+
+
+]]></help>
+	</item>

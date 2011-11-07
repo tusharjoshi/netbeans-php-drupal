@@ -20,7 +20,6 @@ public class ApiTreeEvent extends EventObject {
     public static String EVENT_HELP = "help";
 
     public ApiTreeEvent(Object source, ApiTreeItem item, String action) {
-        
         super(source);
         this.treeItem = item;
 

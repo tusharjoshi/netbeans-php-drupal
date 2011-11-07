@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>theme</title>
+		<external>http://api.drupal.org/api/search/7/hook_theme</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_theme();
+*/
+function ${file_name}_theme($existing, $type, $theme, $path) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_theme($existing, $type, $theme, $path)</h2>
+
+<p>Register a module (or theme's) theme implementations.</p>
+<p>The following parameters are all optional.</p>
+
+<h3>Parameters</h3>
+<p>
+array $existing
+An array of existing implementations that may be used for override
+purposes. This is primarily useful for themes that may wish to examine
+existing implementations to extract data (such as arguments) so that
+it may properly register its own, higher priority implementations.</p>
+<p><b>$type</b> -- 
+Whether a theme, module, etc. is being processed. This is primarily useful
+so that themes tell if they are the actual theme being called or a parent
+theme. May be one of:</p>
+<ul>
+<li>'module': A module is being checked for theme implementations.
+</li>
+<li>'base_theme_engine': A theme engine is being checked for a theme that is
+a parent of the actual theme being used.
+</li>
+<li>'theme_engine': A theme engine is being checked for the actual theme
+being used.
+</li>
+<li>'base_theme': A base theme is being checked for theme implementations.
+</li>
+<li>'theme': The actual theme in use is being checked.
+</li>
+</ul>
+<p><b>$theme</b> -- 
+The actual name of theme, module, etc. that is being being processed.</p>
+<p><b>$path</b> -- 
+The directory path of the theme or module, so that it doesn't need to be
+looked up.</p>
+
+
+
+]]></help>
+	</item>

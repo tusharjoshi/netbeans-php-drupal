@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>insert</title>
+		<external>http://api.drupal.org/api/search/7/hook_insert</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_insert();
+*/
+function ${file_name}_insert($node) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_insert($node)</h2>
+
+<p>Respond to node insertion.</p>
+<p>This is a hook used by node modules. It is called to allow the module
+to take action when a new node is being inserted in the database by,
+for example, inserting information into related tables.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node being inserted.</p>
+
+
+
+]]></help>
+	</item>

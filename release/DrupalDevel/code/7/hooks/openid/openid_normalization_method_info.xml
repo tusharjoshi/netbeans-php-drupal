@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>openid_normalization_method_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_openid_normalization_method_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_openid_normalization_method_info();
+*/
+function ${file_name}_openid_normalization_method_info() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_openid_normalization_method_info()</h2>
+
+<p>Allow modules to declare OpenID normalization methods.</p>
+<p>The discovery function callbacks will be called in turn with an unique
+parameter, the identifier to normalize. They have to return a normalized
+identifier, or NULL if the identifier is not in a form they can handle.</p>
+<p>The first normalization method that succeed (return a value that is not NULL)
+will stop the normalization process.</p>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>language_fallback_candidates_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_language_fallback_candidates_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_language_fallback_candidates_alter();
+*/
+function ${file_name}_language_fallback_candidates_alter(array &$fallback_candidates) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_language_fallback_candidates_alter(array &$fallback_candidates)</h2>
+
+<p>Perform alterations on the language fallback candidates.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$fallback_candidates</b> -- 
+An array of language codes whose order will determine the language fallback
+order.</p>
+
+
+
+]]></help>
+	</item>

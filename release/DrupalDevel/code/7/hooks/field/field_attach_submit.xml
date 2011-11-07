@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_attach_submit</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_attach_submit</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_attach_submit();
+*/
+function ${file_name}_field_attach_submit($entity_type, $entity, $form, &$form_state) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_attach_submit($entity_type, $entity, $form, &$form_state)</h2>
+
+<p>Act on field_attach_submit().</p>
+<p>This hook is invoked after the field module has performed the operation.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity; for example, 'node' or 'user'.</p>
+<p><b>$entity</b> -- 
+The entity for which an edit form is being submitted. The incoming form
+values have been extracted as field values of the $entity object.</p>
+<p><b>$form</b> -- 
+The form structure where field elements are attached to. This might be a
+full form structure, or a sub-part of a larger form. The $form['#parents']
+property can be used to identify the corresponding part of
+$form_state['values'].</p>
+<p><b>$form_state</b> -- 
+An associative array containing the current state of the form.</p>
+
+
+
+]]></help>
+	</item>

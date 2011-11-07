@@ -1,9 +1,10 @@
 Drupal development module for the Netbeans IDE.
 
-Full documentation available at:
-http://www.hollyit.net/documentation/drupal-development-tool-netbeans
+Full documentation available now available under Help in Netbeans
 
-2.0-bleeding
+2.0-beta
+
+The templating system has been reworked. If you are currently using custom template libraries, then please check out Help in Netbeans for the changes as your old libraries will no longer work.
 
 This version introduces Drush support. This is an early release for testing. This should now work on all major operating
 systems. 

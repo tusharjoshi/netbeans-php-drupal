@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>cron</title>
+		<external>http://api.drupal.org/api/search/7/hook_cron</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_cron();
+*/
+function ${file_name}_cron() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_cron()</h2>
+
+<p>Perform periodic actions.</p>
+<p>Modules that require to schedule some commands to be executed at regular
+intervals can implement hook_cron(). The engine will then call the hook
+at the appropriate intervals defined by the administrator. This interface
+is particularly handy to implement timers or to automate certain tasks.
+Database maintenance, recalculation of settings or parameters, and
+automatic mailings are good candidates for cron tasks.</p>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>simpletest_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_simpletest_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_simpletest_alter();
+*/
+function ${file_name}_simpletest_alter(&$groups) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_simpletest_alter(&$groups)</h2>
+
+<p>Alter the list of tests.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$groups</b> -- 
+A two dimension array, the first key is the test group (as defined in
+getInfo) the second is the name of the class and the value is the return
+value of the getInfo method.</p>
+
+
+
+]]></help>
+	</item>

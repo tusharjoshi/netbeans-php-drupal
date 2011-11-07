@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_extra_fields</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_extra_fields</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_extra_fields();
+*/
+function ${file_name}_field_extra_fields() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_extra_fields()</h2>
+
+<p>Exposes "pseudo-field" components on fieldable entities.</p>
+<p>Field UI's "Manage fields" and "Manage display" pages let users re-order
+fields, but also non-field components. For nodes, these include the title,
+poll choices, and other elements exposed by modules through hook_form() or
+hook_form_alter().</p>
+<p>Fieldable entities or modules that want to have their components supported
+should expose them using this hook. The user-defined settings (weight,
+visible) are automatically applied on rendered forms and displayed
+entities in a #pre_render callback added by field_attach_form() and
+field_attach_view().</p>
+
+
+
+
+]]></help>
+	</item>
