@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_contextual_links_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_contextual_links_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu_contextual_links_alter();
+*/
+function ${file_name}_menu_contextual_links_alter(&$links, $router_item, $root_path) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_contextual_links_alter(&$links, $router_item, $root_path)</h2>
+
+<p>Alter contextual links before they are rendered.</p>
+<p>This hook is invoked by menu_contextual_links(). The system-determined
+contextual links are passed in by reference. Additional links may be added
+or existing links can be altered.</p>
+<p>Each contextual link must at least contain:</p>
+<ul>
+<li>title: The localized title of the link.
+</li>
+<li>href: The system path to link to.
+</li>
+<li>localized_options: An array of options to pass to url().
+</li>
+</ul>
+
+<h3>Parameters</h3>
+<p><b>
+$links</b> -- 
+An associative array containing contextual links for the given $root_path,
+as described above. The array keys are used to build CSS class names for
+contextual links and must therefore be unique for each set of contextual
+links.</p>
+<p><b>$router_item</b> -- 
+The menu router item belonging to the $root_path being requested.</p>
+<p><b>$root_path</b> -- 
+The (parent) path that has been requested to build contextual links for.
+This is a normalized path, which means that an originally passed path of
+'node/123' became 'node/%'.</p>
+
+
+
+]]></help>
+	</item>

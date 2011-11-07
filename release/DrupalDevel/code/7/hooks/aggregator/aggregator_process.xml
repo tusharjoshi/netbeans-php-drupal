@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>aggregator_process</title>
+		<external>http://api.drupal.org/api/search/7/hook_aggregator_process</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_aggregator_process();
+*/
+function ${file_name}_aggregator_process($feed) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_aggregator_process($feed)</h2>
+
+<p>Implement this hook to create a processor for aggregator module.</p>
+<p>A processor acts on parsed feed data. Active processors are called at the
+third and last of the aggregation stages: data is downloaded by the active
+fetcher, it is converted to a common format by the active parser and
+finally, it is passed to all active processors which manipulate or store the
+data.</p>
+<p>Modules that define this hook can be activated as processor on
+admin/config/services/aggregator.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$feed</b> -- 
+The $feed object that describes the resource to be processed. $feed->items
+contains an array of feed items downloaded and parsed at the parsing
+stage. See hook_aggregator_parse() for the basic format of a single item
+in the $feed->items array. For the exact format refer to the particular
+parser in use.</p>
+
+
+
+]]></help>
+	</item>

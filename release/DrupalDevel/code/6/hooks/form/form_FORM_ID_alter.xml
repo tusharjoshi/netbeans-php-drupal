@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>form_FORM_ID_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_form_FORM_ID_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_form_FORM_ID_alter();
+*/
+function ${file_name}_form_FORM_ID_alter(&$form, &$form_state) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_form_FORM_ID_alter(&$form, &$form_state)</h2>
+
+<p>Provide a form-specific alteration instead of the global hook_form_alter().</p>
+<p>Modules can implement hook_form_FORM_ID_alter() to modify a specific form,
+rather than implementing hook_form_alter() and checking the form ID, or
+using long switch statements to alter multiple forms.</p>
+<p>Note that this hook fires before hook_form_alter(). Therefore all
+implementations of hook_form_FORM_ID_alter() will run before all
+implementations of hook_form_alter(), regardless of the module order.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$form</b> -- 
+Nested array of form elements that comprise the form. The arguments
+that drupal_get_form() was originally called with are available in the
+array $form['#parameters'].</p>
+<p><b>$form_state</b> -- 
+A keyed array containing the current state of the form.</p>
+
+
+
+]]></help>
+	</item>

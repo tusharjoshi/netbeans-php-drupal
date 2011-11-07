@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>comment_folded</title>
+		<external>http://api.drupal.org/api/search/6/theme_comment_folded</external>
+		<group>theme</group>
+		<template><![CDATA[function ${file_name}_preprocess_comment_folded(&$variables) {
+  ${set_cursor}
+}]]></template>
+		<help></help>
+	</item>

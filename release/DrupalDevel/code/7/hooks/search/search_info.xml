@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>search_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_search_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_search_info();
+*/
+function ${file_name}_search_info() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_search_info()</h2>
+
+<p>Define a custom search type.</p>
+<p>This hook allows a module to tell search.module that it wishes to perform
+searches on content it defines (custom node types, users, or comments for
+example) when a site search is performed.</p>
+<p>In order for the search to do anything, your module must also implement
+hook_search_execute(), which is called when someone requests a search
+on your module's type of content. If you want to have your content
+indexed in the standard search index, your module should also implement
+hook_update_index(). If your search type has settings, you can implement
+hook_search_admin() to add them to the search settings page. You can also
+alter the display of your module's search results by implementing
+hook_search_page(). You can use hook_form_FORM_ID_alter(), with
+FORM_ID set to 'search', to add fields to the search form (see
+node_form_search_form_alter() for an example). You can use
+hook_search_access() to limit access to searching, and hook_search_page() to
+override how search results are displayed.</p>
+
+
+
+
+]]></help>
+	</item>

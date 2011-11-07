@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>search_preprocess</title>
+		<external>http://api.drupal.org/api/search/7/hook_search_preprocess</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_search_preprocess();
+*/
+function ${file_name}_search_preprocess($text) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_search_preprocess($text)</h2>
+
+<p>Preprocess text for search.</p>
+<p>This hook is called to preprocess both the text added to the search index and
+the keywords users have submitted for searching.</p>
+<p>Possible uses:</p>
+<ul>
+<li>Adding spaces between words of Chinese or Japanese text.
+</li>
+<li>Stemming words down to their root words to allow matches between, for
+instance, walk, walked, walking, and walks in searching.
+</li>
+<li>Expanding abbreviations and acronymns that occur in text.
+</li>
+</ul>
+
+<h3>Parameters</h3>
+<p><b>
+$text</b> -- 
+The text to preprocess. This is a single piece of plain text extracted
+from between two HTML tags or from the search query. It will not contain
+any HTML entities or HTML tags.</p>
+
+
+
+]]></help>
+	</item>

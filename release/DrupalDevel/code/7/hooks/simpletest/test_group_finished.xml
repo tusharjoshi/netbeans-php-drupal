@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>test_group_finished</title>
+		<external>http://api.drupal.org/api/search/7/hook_test_group_finished</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_test_group_finished();
+*/
+function ${file_name}_test_group_finished() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_test_group_finished()</h2>
+
+<p>A test group has finished.</p>
+<p>This hook is called just once at the end of a test group.</p>
+
+
+
+
+]]></help>
+	</item>

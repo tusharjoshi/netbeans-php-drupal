@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>page_delivery_callback_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_page_delivery_callback_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_page_delivery_callback_alter();
+*/
+function ${file_name}_page_delivery_callback_alter(&$callback) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_page_delivery_callback_alter(&$callback)</h2>
+
+<p>Alters the delivery callback used to send the result of the page callback to the browser.</p>
+<p>Called by drupal_deliver_page() to allow modules to alter how the
+page is delivered to the browser.</p>
+<p>This hook is intended for altering the delivery callback based on
+information unrelated to the path of the page accessed. For example,
+it can be used to set the delivery callback based on a HTTP request
+header (as shown in the code sample). To specify a delivery callback
+based on path information, use hook_menu() or hook_menu_alter().</p>
+<p>This hook can also be used as an API function that can be used to explicitly
+set the delivery callback from some other function. For example, for a module
+named MODULE:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p><span&nbsp;class="php-keyword">function</span>&nbsp;<span&nbsp;class="php-function-or-constant">MODULE_page_delivery_callback_alter</span>(&amp;<span&nbsp;class="php-variable">$callback</span>,&nbsp;<span&nbsp;class="php-variable">$set</span>&nbsp;=&nbsp;<span&nbsp;class="php-function-or-constant">FALSE</span>)&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-keyword">static</span>&nbsp;<span&nbsp;class="php-variable">$stored_callback</span>;<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-keyword">if</span>&nbsp;(<span&nbsp;class="php-variable">$set</span>)&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-variable">$stored_callback</span>&nbsp;=&nbsp;<span&nbsp;class="php-variable">$callback</span>;<br&nbsp;/>
+&nbsp;&nbsp;}<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-keyword">elseif</span>&nbsp;(<span&nbsp;class="php-keyword">isset</span>(<span&nbsp;class="php-variable">$stored_callback</span>))&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-variable">$callback</span>&nbsp;=&nbsp;<span&nbsp;class="php-variable">$stored_callback</span>;<br&nbsp;/>
+&nbsp;&nbsp;}<br&nbsp;/>
+}<br&nbsp;/>
+<span&nbsp;class="php-keyword">function</span>&nbsp;<span&nbsp;class="php-function-or-constant">SOMEWHERE_ELSE</span>()&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-variable">$desired_delivery_callback</span>&nbsp;=&nbsp;<span&nbsp;class="php-string">'foo'</span>;<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-function-or-constant">MODULE_page_delivery_callback_alter</span>(<span&nbsp;class="php-variable">$desired_delivery_callback</span>,&nbsp;<span&nbsp;class="php-function-or-constant">TRUE</span>);<br&nbsp;/>
+}<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+
+<h3>Parameters</h3>
+<p><b>
+$callback</b> -- 
+The name of a function.</p>
+
+
+
+]]></help>
+	</item>

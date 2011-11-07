@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>search_access</title>
+		<external>http://api.drupal.org/api/search/7/hook_search_access</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_search_access();
+*/
+function ${file_name}_search_access() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_search_access()</h2>
+
+<p>Define access to a custom search routine.</p>
+<p>This hook allows a module to define permissions for a search tab.</p>
+
+
+
+
+]]></help>
+	</item>

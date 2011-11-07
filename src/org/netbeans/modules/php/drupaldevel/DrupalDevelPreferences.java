@@ -5,13 +5,14 @@ package org.netbeans.modules.php.drupaldevel;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.prefs.Preferences;
 import javax.swing.JOptionPane;
 import org.openide.modules.InstalledFileLocator;
 import org.openide.util.NbPreferences;
 import org.netbeans.api.project.ProjectUtils;
 import org.netbeans.api.project.Project;
+import org.netbeans.api.project.SourceGroup;
+import org.netbeans.api.project.Sources;
 
 /**
  *
@@ -38,7 +39,7 @@ public final class DrupalDevelPreferences {
     public static String getDrupalVersion(Project phpModule) {
         Preferences preferences = getPreferences(phpModule);
         String drupalVersion = preferences.get(DRUPAL_VERSION, "");
-        if (drupalVersion.equals("")) {
+        if (drupalVersion.equals("") || drupalVersion.equals("Default")) {
             drupalVersion = getDefaultDrupalVersion();
         }
         return drupalVersion;
@@ -135,9 +136,13 @@ public final class DrupalDevelPreferences {
      * @return A string containing the absolute path to the library files.
      */
     public static String getLibraryPath(Project phpModule) {
+        return getLibraryPath(phpModule, true);
+    }
+
+    public static String getLibraryPath(Project phpModule, Boolean includeDefault) {
         Preferences preferences = getPreferences(phpModule);
         String drupalVersion = preferences.get(DRUPAL_LIBRARY_PATH, "");
-        if (drupalVersion.isEmpty() || drupalVersion.equals("")) {
+        if (includeDefault && (drupalVersion.isEmpty() || drupalVersion.equals(""))) {
             drupalVersion = getDefaultLibraryPath();
         }
         return drupalVersion;
@@ -196,7 +201,7 @@ public final class DrupalDevelPreferences {
      */
     public static String getDrushPath() {
         String path = NbPreferences.forModule(DrupalDevelTool.class).get("drupalDrushPath", "");
- 
+
         return path;
 
     }
@@ -221,15 +226,15 @@ public final class DrupalDevelPreferences {
         }
         return hasCode;
     }
-    
-    public static String getDrushIncludePath(){
- 
+
+    public static String getDrushIncludePath() {
+
         File emulatorBinary = InstalledFileLocator.getDefault().locate(
                 "NBDrush", "org.netbeans.modules.php.dupaldevel", false);
         String path = emulatorBinary.getAbsolutePath();
         return path;
     }
-    
+
     /**
      * Retrieve the library path for a given project or the global default if the library
      * path is not set in the project properties window.
@@ -251,5 +256,19 @@ public final class DrupalDevelPreferences {
      */
     public static void setDrupalPath(Project phpModule, String path) {
         getPreferences(phpModule).put(DRUPAL_PATH, path);
-    }    
+    }
+
+    public static String getSourceDirectory(Project project) {
+        String path = "";
+        
+        Sources sources = (Sources) project.getLookup().lookup(Sources.class);
+        SourceGroup[] groups = sources.getSourceGroups(Sources.TYPE_GENERIC);
+        for (int i=0; i<groups.length; i++){
+            if (groups[i].getName().equals("${src.dir}")){
+                path = groups[i].getRootFolder().getPath();
+            }
+        }
+        
+        return path;
+    }
 }

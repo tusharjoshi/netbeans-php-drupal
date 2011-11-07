@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_delete_field</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_delete_field</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_delete_field();
+*/
+function ${file_name}_field_delete_field($field) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_delete_field($field)</h2>
+
+<p>Act on a field being deleted.</p>
+<p>This hook is invoked just after a field is deleted by field_delete_field().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The field just deleted.</p>
+
+
+
+]]></help>
+	</item>

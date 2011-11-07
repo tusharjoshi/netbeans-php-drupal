@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>view</title>
+		<external>http://api.drupal.org/api/search/7/hook_view</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_view();
+*/
+function ${file_name}_view($node, $view_mode) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_view($node, $view_mode)</h2>
+
+<p>Display a node.</p>
+<p>This is a hook used by node modules. It allows a module to define a
+custom method of displaying its nodes, usually by displaying extra
+information particular to that node type.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node to be displayed, as returned by node_load().</p>
+<p><b>$view_mode</b> -- 
+View mode, e.g. 'full', 'teaser', ...</p>
+
+
+
+]]></help>
+	</item>

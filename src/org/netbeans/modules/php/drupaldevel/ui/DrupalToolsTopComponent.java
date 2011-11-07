@@ -8,7 +8,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.net.URLEncoder;
-import javax.swing.JOptionPane;
 import javax.swing.text.JTextComponent;
 import org.openide.windows.TopComponent;
 import org.netbeans.api.settings.ConvertAsProperties;
@@ -22,10 +21,11 @@ import org.netbeans.modules.php.drupaldevel.ui.apitree.*;
 import javax.swing.text.BadLocationException;
 import org.netbeans.api.project.Project;
 import org.netbeans.modules.php.drupaldevel.DrupalEditorUtilities;
+import org.netbeans.modules.php.drupaldevel.drush.ui.DrushTopComponent;
 import org.netbeans.modules.php.drupaldevel.libraryParser;
 import org.openide.awt.HtmlBrowser;
-import org.netbeans.modules.php.drupaldevel.autocomplete.*;
-import org.netbeans.modules.php.drupaldevel.drush.ui.DrushTopComponent;
+import org.netbeans.modules.php.drupaldevel.ui.searchbar.autocomplete.*;
+import org.openide.windows.WindowManager;
 
 /**
  * Top component which displays something.
@@ -47,6 +47,7 @@ public final class DrupalToolsTopComponent extends TopComponent {
     private Lookup.Result result = null;
     private String activeDrupalPath = "";
     private String activeDrupalVersion = "";
+    private Project activeProject;
     private JTextComponent activeEditor;
     private PropertyChangeListener propListener;
     private ApiTreeEventListener apiTreeListener;
@@ -73,13 +74,7 @@ public final class DrupalToolsTopComponent extends TopComponent {
             }
         };
 
-        acListener = new AutoCompleteEventListener() {
 
-            @Override
-            public void enterPressedEvent(AutoCompleteEvent evt) {
-                launchSearch();
-            }
-        };
 
         apiTreeListener = new ApiTreeEventListener() {
 
@@ -87,41 +82,47 @@ public final class DrupalToolsTopComponent extends TopComponent {
             public void itemSelected(ApiTreeEvent evt) {
                 ApiTreeItem item = evt.getItem();
                 if (evt.getAction().equals(ApiTreeEvent.EVENT_INSERT)) {
-                    insertCodeToEditor(item.getFile());
-                } else if (evt.getAction().equals(ApiTreeEvent.EVENT_HELP)) {
-                    String fName="";
-                    if (item.getItemType().equals("themes")){
-                        fName = "template_" + item.getName();
-                    } else if (item.getItemType().equals("hooks")){
-                        fName = "hook_" + item.getName();
-                    } 
+                    TemplateParser tp = new TemplateParser(item.getFile());
                     
-                    if (fName.length()>0){
+                    insertCodeToEditor(tp.getTag("template"));
+                } else if (evt.getAction().equals(ApiTreeEvent.EVENT_HELP)) {
+                    String fName = "";
+                    if (item.getItemType().equals("themes")) {
+                        fName = "template_" + item.getName();
+                    } else if (item.getItemType().equals("hooks")) {
+                        fName = "hook_" + item.getName();
+                    }
+
+                    if (fName.length() > 0) {
                         try {
                             String url = "http://api.drupal.org/api/search/" + activeDrupalVersion + "/" + URLEncoder.encode(fName, "UTF-8");
                             HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(url));
                         } catch (Exception eee) {
                             return;//nothing much to do
-                        }                        
+                        }
                     }
-                    
+
                 } else if (evt.getAction().equals(ApiTreeEvent.EVENT_LOOKUP)) {
-                    if (Util.drushWindow == null){
-                    
-                } else {
-                        Util.drushWindow.executeDrush("nb-hook " + item.getName());
-                    }
-     
+                    DrushTopComponent tc = Util.drushWindow;
+                    if (tc == null) {
+                        tc = (DrushTopComponent) WindowManager.getDefault().findTopComponent("DrushTopComponent");
+                        tc.open();
+                        tc.requestActive();
+                        
+                    } 
+                    tc.setActiveProject(activeProject);
+                    tc.executeDrush("nb-hook " + item.getName());
+
                 }
             }
         };
 
     }
 
-    private void insertCodeToEditor(String path) {
+    private void insertCodeToEditor(String text) {
         if (this.activeEditor != null) {
             try {
-                String text = libraryParser.getTemplate(path);
+
                 text = libraryParser.parseVariables(text, this.activeEditor);
                 int cursorPos = text.indexOf("${set_cursor}");
                 int offset = -1;
@@ -146,13 +147,13 @@ public final class DrupalToolsTopComponent extends TopComponent {
     private void setActiveVersion(Project proj) {
         String version = DrupalDevelPreferences.getDefaultDrupalVersion();
         String path = null;
-        if (proj != null) {
+        if (proj != null && proj != activeProject) {
+            activeProject = proj;
             version = DrupalDevelPreferences.getDrupalVersion(proj);
-            path = DrupalDevelPreferences.getLibraryPath(proj) + "/code/" + version;
-            if (!path.equals(this.activeDrupalPath)) {
-                setWindowPathItems(path, version);
-                this.setDisplayName("Drupal " + version);
-            }
+            path = DrupalDevelPreferences.getLibraryPath(proj);
+            setWindowPathItems(path, version);
+            this.setDisplayName("Drupal " + version);
+
         } else {
             if (this.activeDrupalPath.equals("")) {
                 apiTree1.setEnabled(false);
@@ -169,18 +170,10 @@ public final class DrupalToolsTopComponent extends TopComponent {
         this.activeDrupalPath = path;
         apiTree1.setEnabled(true);
         this.activeDrupalVersion = version;
-        apiTree1.loadPath(path);
-
-        autoComplete1.setWordFile(DrupalDevelPreferences.getDefaultLibraryPath() + "/search/" + version + ".txt");
-    }
-
-    public void launchSearch() {
-
-        try {
-            String url = "http://api.drupal.org/api/search/" + this.activeDrupalVersion + "/" + URLEncoder.encode(autoComplete1.getText(), "UTF-8");
-            HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(url));
-        } catch (Exception eee) {
-            return;//nothing much to do
+        if (path.equals("")){
+            apiTree1.loadPath(DrupalDevelPreferences.libraryInstallPath()  + "/code/" + version);
+        } else {
+            apiTree1.loadPath(DrupalDevelPreferences.libraryInstallPath()  + "/code/" + version, path + "/code/" + version); 
         }
     }
 
@@ -188,7 +181,7 @@ public final class DrupalToolsTopComponent extends TopComponent {
     public void componentOpened() {
         EditorRegistry.addPropertyChangeListener(propListener);
         apiTree1.addApiItemSelection(apiTreeListener);
-        autoComplete1.addAutoCompleteListener(acListener);
+        //autoComplete1.addAutoCompleteListener(acListener);
         setActiveVersion();
     }
 
@@ -196,7 +189,7 @@ public final class DrupalToolsTopComponent extends TopComponent {
     public void componentClosed() {
         EditorRegistry.removePropertyChangeListener(propListener);
         apiTree1.removeApiItemSelection(apiTreeListener);
-        autoComplete1.removeAutoCompleteListener(acListener);
+        //autoComplete1.removeAutoCompleteListener(acListener);
     }
 
     /** This method is called from within the constructor to
@@ -207,72 +200,21 @@ public final class DrupalToolsTopComponent extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        apiTree1 = new org.netbeans.modules.php.drupaldevel.ui.apitree.ApiTree();
-        jPanel1 = new javax.swing.JPanel();
-        autoComplete1 = new org.netbeans.modules.php.drupaldevel.autocomplete.AutoComplete();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-
-        autoComplete1.setText(org.openide.util.NbBundle.getMessage(DrupalToolsTopComponent.class, "DrupalToolsTopComponent.autoComplete1.text")); // NOI18N
-
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(DrupalToolsTopComponent.class, "DrupalToolsTopComponent.jButton1.text")); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(DrupalToolsTopComponent.class, "DrupalToolsTopComponent.jLabel1.text")); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(autoComplete1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(autoComplete1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
-                .addContainerGap())
-        );
+        apiTree1 = new org.netbeans.modules.php.drupaldevel.ui.apitree.ApitTreeUI();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(apiTree1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(apiTree1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE))
+            .addComponent(apiTree1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        launchSearch();
-    }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.netbeans.modules.php.drupaldevel.ui.apitree.ApiTree apiTree1;
-    private org.netbeans.modules.php.drupaldevel.autocomplete.AutoComplete autoComplete1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private org.netbeans.modules.php.drupaldevel.ui.apitree.ApitTreeUI apiTree1;
     // End of variables declaration//GEN-END:variables
 
     void writeProperties(java.util.Properties p) {

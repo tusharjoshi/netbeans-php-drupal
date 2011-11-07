@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>flush_caches</title>
+		<external>http://api.drupal.org/api/search/7/hook_flush_caches</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_flush_caches();
+*/
+function ${file_name}_flush_caches() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_flush_caches()</h2>
+
+<p>Add a list of cache tables to be cleared.</p>
+<p>This hook allows your module to add cache table names to the list of cache
+tables that will be cleared by the Clear button on the Performance page or
+whenever drupal_flush_all_caches is invoked.</p>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_update_field</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_update_field</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_update_field();
+*/
+function ${file_name}_field_update_field($field, $prior_field, $has_data) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_update_field($field, $prior_field, $has_data)</h2>
+
+<p>Act on a field being updated.</p>
+<p>This hook is invoked just after field is updated in field_update_field().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The field as it is post-update.</p>
+<p><b>$prior_field</b> -- 
+The field as it was pre-update.</p>
+<p><b>$has_data</b> -- 
+Whether any data already exists for this field.</p>
+
+
+
+]]></help>
+	</item>

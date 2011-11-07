@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.JOptionPane;
+import org.netbeans.api.project.Project;
+import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
 import org.netbeans.modules.php.drupaldevel.libraryParser;
 import org.openide.filesystems.FileLock;
 import org.openide.filesystems.FileObject;
@@ -29,6 +32,7 @@ public class WizardUtils {
     public static ArrayList getFilesList(final String path) {
         ArrayList dirs = new ArrayList();
         File dir = new File(path);
+        
         FileFilter filter = new FileFilter() {
 
             @Override
@@ -57,10 +61,10 @@ public class WizardUtils {
         return name;
     }
 
-    public static void generateFile(final FileObject file, String libraryPath, String ver, String type, String name, String src, String safeName, String realName) throws IOException {
+    public static void generateFile(final FileObject file, String libraryPath, String name, String src, String safeName, String realName) throws IOException {
         try {
             FileSystem fs = file.getFileSystem();
-            String text = libraryParser.getTemplate(libraryPath + "/files/" + type + "/" + ver + "/" + src);
+            String text = libraryParser.getTemplate(libraryPath + "/" + src);
             text = text.replaceAll(Pattern.quote("${real_name}"), realName);
             text = text.replaceAll(Pattern.quote("${safe_name}"), safeName);
             final String textOut = text;
@@ -84,5 +88,16 @@ public class WizardUtils {
         } catch (IOException ex) {
             Exceptions.printStackTrace(ex);
         }
+    }
+    
+    public static String WizardTemplatePath(Project proj, String type, String version){
+        
+        String path = DrupalDevelPreferences.getLibraryPath(proj) + "/files/" + type + "/" + version;
+        File file = new File(path);
+        if (!file.isDirectory()){
+            path = DrupalDevelPreferences.libraryInstallPath() + "/files/" + type + "/" + version;
+        }
+        
+        return path;
     }
 }

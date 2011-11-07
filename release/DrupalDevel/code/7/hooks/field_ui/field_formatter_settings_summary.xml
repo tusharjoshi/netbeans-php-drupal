@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_formatter_settings_summary</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_formatter_settings_summary</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_formatter_settings_summary();
+*/
+function ${file_name}_field_formatter_settings_summary($field, $instance, $view_mode) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_formatter_settings_summary($field, $instance, $view_mode)</h2>
+
+<p>Returns a short summary for the current formatter settings of an instance.</p>
+<p>If an empty result is returned, the formatter is assumed to have no
+configurable settings, and no UI will be provided to display a settings
+form.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The field structure.</p>
+<p><b>$instance</b> -- 
+The instance structure.</p>
+<p><b>$view_mode</b> -- 
+The view mode for which a settings summary is requested.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>update_index</title>
+		<external>http://api.drupal.org/api/search/7/hook_update_index</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_update_index();
+*/
+function ${file_name}_update_index() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_update_index()</h2>
+
+<p>Update the search index for this module.</p>
+<p>This hook is called every cron run if search.module is enabled, your
+module has implemented hook_search_info(), and your module has been set as
+an active search module on the Search settings page
+(admin/config/search/settings). It allows your module to add items to the
+built-in search index using search_index(), or to add them to your module's
+own indexing mechanism.</p>
+<p>When implementing this hook, your module should index content items that
+were modified or added since the last run. PHP has a time limit
+for cron, though, so it is advisable to limit how many items you index
+per run using variable_get('search_cron_limit') (see example below). Also,
+since the cron run could time out and abort in the middle of your run, you
+should update your module's internal bookkeeping on when items have last
+been indexed as you go rather than waiting to the end of indexing.</p>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>tokens_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_tokens_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_tokens_alter();
+*/
+function ${file_name}_tokens_alter(array &$replacements, array $context) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_tokens_alter(array &$replacements, array $context)</h2>
+
+<p>Alter replacement values for placeholder tokens.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$replacements</b> -- 
+An associative array of replacements returned by hook_tokens().</p>
+<p><b>$context</b> -- 
+The context in which hook_tokens() was called. An associative array with
+the following keys, which have the same meaning as the corresponding
+parameters of hook_tokens():</p>
+<ul>
+<li>'type'
+</li>
+<li>'tokens'
+</li>
+<li>'data'
+</li>
+<li>'options'
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_formatter_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_formatter_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_formatter_info();
+*/
+function ${file_name}_field_formatter_info() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_formatter_info()</h2>
+
+<p>Expose Field API formatter types.</p>
+<p>Formatters handle the display of field values. Formatter hooks are typically
+called by the Field Attach API field_attach_prepare_view() and
+field_attach_view() functions.</p>
+
+
+
+
+]]></help>
+	</item>

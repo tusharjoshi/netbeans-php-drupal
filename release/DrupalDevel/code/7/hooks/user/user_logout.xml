@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_logout</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_logout</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_logout();
+*/
+function ${file_name}_user_logout($account) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_logout($account)</h2>
+
+<p>The user just logged out.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$account</b> -- 
+The user object on which the operation was just performed.</p>
+
+
+
+]]></help>
+	</item>

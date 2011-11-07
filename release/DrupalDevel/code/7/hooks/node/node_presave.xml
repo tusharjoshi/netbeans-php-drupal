@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_presave</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_presave</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_node_presave();
+*/
+function ${file_name}_node_presave($node) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_presave($node)</h2>
+
+<p>Act on a node being inserted or updated.</p>
+<p>This hook is invoked from node_save() before the node is saved to the
+database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node that is being inserted or updated.</p>
+
+
+
+]]></help>
+	</item>

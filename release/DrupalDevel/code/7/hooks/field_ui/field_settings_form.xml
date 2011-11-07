@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_settings_form</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_settings_form</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_settings_form();
+*/
+function ${file_name}_field_settings_form($field, $instance, $has_data) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_settings_form($field, $instance, $has_data)</h2>
+
+<p>Add settings to a field settings form.</p>
+<p>Invoked from field_ui_field_settings_form() to allow the module defining the
+field to add global settings (i.e. settings that do not depend on the bundle
+or instance) to the field settings form. If the field already has data, only
+include settings that are safe to change.</p>
+<p>@todo: Only the field type module knows which settings will affect the
+field's schema, but only the field storage module knows what schema
+changes are permitted once a field already has data. Probably we need an
+easy way for a field type module to ask whether an update to a new schema
+will be allowed without having to build up a fake $prior_field structure
+for hook_field_update_forbid().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The field structure being configured.</p>
+<p><b>$instance</b> -- 
+The instance structure being configured.</p>
+<p><b>$has_data</b> -- 
+TRUE if the field already has data, FALSE if not.</p>
+
+
+
+]]></help>
+	</item>

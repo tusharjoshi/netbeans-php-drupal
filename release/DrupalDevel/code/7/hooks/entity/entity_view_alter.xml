@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>entity_view_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_entity_view_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_entity_view_alter();
+*/
+function ${file_name}_entity_view_alter(&$build, $type) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_entity_view_alter(&$build, $type)</h2>
+
+<p>Alter the results of ENTITY_view().</p>
+<p>This hook is called after the content has been assembled in a structured
+array and may be used for doing processing which requires that the complete
+entity content structure has been built.</p>
+<p>If a module wishes to act on the rendered HTML of the entity rather than the
+structured content array, it may use this hook to add a #post_render
+callback. Alternatively, it could also implement hook_preprocess_ENTITY().
+See drupal_render() and theme() for details.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$build</b> -- 
+A renderable array representing the entity content.</p>
+<p><b>$type</b> -- 
+The type of entity being rendered (i.e. node, user, comment).</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>watchdog</title>
+		<external>http://api.drupal.org/api/search/7/hook_watchdog</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_watchdog();
+*/
+function ${file_name}_watchdog(array $log_entry) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_watchdog(array $log_entry)</h2>
+
+<p>Log an event message</p>
+<p>This hook allows modules to route log events to custom destinations, such as
+SMS, Email, pager, syslog, ...etc.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$log_entry</b> -- 
+An associative array containing the following keys:</p>
+<ul>
+<li>type: The type of message for this entry. For contributed modules, this is
+normally the module name. Do not use 'debug', use severity WATCHDOG_DEBUG instead.
+</li>
+<li>user: The user object for the user who was logged in when the event happened.
+</li>
+<li>request_uri: The Request URI for the page the event happened in.
+</li>
+<li>referer: The page that referred the use to the page where the event occurred.
+</li>
+<li>ip: The IP address where the request for the page came from.
+</li>
+<li>timestamp: The UNIX timestamp of the date/time the event occurred
+</li>
+<li>severity: One of the following values as defined in RFC 3164 http://www.faqs.org/rfcs/rfc3164.html
+WATCHDOG_EMERGENCY Emergency: system is unusable
+WATCHDOG_ALERT     Alert: action must be taken immediately
+WATCHDOG_CRITICAL  Critical: critical conditions
+WATCHDOG_ERROR     Error: error conditions
+WATCHDOG_WARNING   Warning: warning conditions
+WATCHDOG_NOTICE    Notice: normal but significant condition
+WATCHDOG_INFO      Informational: informational messages
+WATCHDOG_DEBUG     Debug: debug-level messages
+</li>
+<li>link: an optional link provided by the module that called the watchdog() function.
+</li>
+<li>message: The text of the message to be logged.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

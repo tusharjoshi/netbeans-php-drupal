@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>update_last_removed</title>
+		<external>http://api.drupal.org/api/search/7/hook_update_last_removed</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_update_last_removed();
+*/
+function ${file_name}_update_last_removed() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_update_last_removed()</h2>
+
+<p>Return a number which is no longer available as hook_update_N().</p>
+<p>If you remove some update functions from your mymodule.install file, you
+should notify Drupal of those missing functions. This way, Drupal can
+ensure that no update is accidentally skipped.</p>
+<p>Implementations of this hook should be placed in a mymodule.install file in
+the same directory as mymodule.module.</p>
+
+
+
+
+]]></help>
+	</item>

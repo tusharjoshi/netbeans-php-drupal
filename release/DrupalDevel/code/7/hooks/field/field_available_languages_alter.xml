@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_available_languages_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_available_languages_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_available_languages_alter();
+*/
+function ${file_name}_field_available_languages_alter(&$languages, $context) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_available_languages_alter(&$languages, $context)</h2>
+
+<p>Alter field_available_languages() values.</p>
+<p>This hook is invoked from field_available_languages() to allow modules to
+alter the array of available languages for the given field.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$languages</b> -- 
+A reference to an array of language codes to be made available.</p>
+<p><b>$context</b> -- 
+An associative array containing:</p>
+<ul>
+<li>entity_type: The type of the entity the field is attached to.
+</li>
+<li>field: A field data structure.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

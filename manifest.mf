@@ -3,5 +3,5 @@ OpenIDE-Module: org.netbeans.modules.php.drupaldevel/2
 OpenIDE-Module-Layer: org/netbeans/modules/php/drupaldevel/layer.xml
 OpenIDE-Module-Localizing-Bundle: org/netbeans/modules/php/drupaldevel/Bundle.properties
 OpenIDE-Module-Requires: org.openide.windows.WindowManager
-OpenIDE-Module-Specification-Version: 2.0.2
+OpenIDE-Module-Specification-Version: 2.0.3
 

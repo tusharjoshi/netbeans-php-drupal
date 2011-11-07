@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_update_index</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_update_index</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_node_update_index();
+*/
+function ${file_name}_node_update_index($node) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_update_index($node)</h2>
+
+<p>Act on a node being indexed for searching.</p>
+<p>This hook is invoked during search indexing, after node_load(), and after
+the result of node_view() is added as $node->rendered to the node object.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node being indexed.</p>
+
+
+
+]]></help>
+	</item>

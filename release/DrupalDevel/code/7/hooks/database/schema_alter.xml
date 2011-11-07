@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>schema_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_schema_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_schema_alter();
+*/
+function ${file_name}_schema_alter(&$schema) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_schema_alter(&$schema)</h2>
+
+<p>Perform alterations to existing database schemas.</p>
+<p>When a module modifies the database structure of another module (by
+changing, adding or removing fields, keys or indexes), it should
+implement hook_schema_alter() to update the default $schema to take its
+changes into account.</p>
+<p>See hook_schema() for details on the schema definition structure.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$schema</b> -- 
+Nested array describing the schemas for all modules.</p>
+
+
+
+]]></help>
+	</item>

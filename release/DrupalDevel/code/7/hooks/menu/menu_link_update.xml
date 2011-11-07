@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_link_update</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_link_update</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu_link_update();
+*/
+function ${file_name}_menu_link_update($link) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_link_update($link)</h2>
+
+<p>Inform modules that a menu link has been updated.</p>
+<p>This hook is used to notify modules that menu items have been
+updated. Contributed modules may use the information to perform
+actions based on the information entered into the menu system.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$link</b> -- 
+Associative array defining a menu link as passed into menu_link_save().</p>
+
+
+
+]]></help>
+	</item>

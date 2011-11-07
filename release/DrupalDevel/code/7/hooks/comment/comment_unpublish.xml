@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>comment_unpublish</title>
+		<external>http://api.drupal.org/api/search/7/hook_comment_unpublish</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_comment_unpublish();
+*/
+function ${file_name}_comment_unpublish($comment) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_comment_unpublish($comment)</h2>
+
+<p>The comment is being unpublished by the moderator.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$comment</b> -- 
+Passes in the comment the action is being performed on.</p>
+
+
+
+]]></help>
+	</item>

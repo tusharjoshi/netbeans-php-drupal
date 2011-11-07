@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>query_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_query_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_query_alter();
+*/
+function ${file_name}_query_alter(QueryAlterableInterface $query) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_query_alter(QueryAlterableInterface $query)</h2>
+
+<p>Perform alterations to a structured query.</p>
+<p>Structured (aka dynamic) queries that have tags associated may be altered by any module
+before the query is executed.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$query</b> -- 
+A Query object describing the composite parts of a SQL query.</p>
+
+
+
+]]></help>
+	</item>

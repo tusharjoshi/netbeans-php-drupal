@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_view</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_view</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_view();
+*/
+function ${file_name}_user_view($account, $view_mode, $langcode) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_view($account, $view_mode, $langcode)</h2>
+
+<p>The user's account information is being displayed.</p>
+<p>The module should format its custom additions for display and add them to the
+$account->content array.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$account</b> -- 
+The user object on which the operation is being performed.</p>
+<p><b>$view_mode</b> -- 
+View mode, e.g. 'full'.</p>
+<p><b>$langcode</b> -- 
+The language code used for rendering.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_get_item_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_get_item_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu_get_item_alter();
+*/
+function ${file_name}_menu_get_item_alter(&$router_item, $path, $original_map) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_get_item_alter(&$router_item, $path, $original_map)</h2>
+
+<p>Alter a menu router item right after it has been retrieved from the database or cache.</p>
+<p>This hook is invoked by menu_get_item() and allows for run-time alteration of router
+information (page_callback, title, and so on) before it is translated and checked for
+access. The passed-in $router_item is statically cached for the current request, so this
+hook is only invoked once for any router item that is retrieved via menu_get_item().</p>
+<p>Usually, modules will only want to inspect the router item and conditionally
+perform other actions (such as preparing a state for the current request).
+Note that this hook is invoked for any router item that is retrieved by
+menu_get_item(), which may or may not be called on the path itself, so implementations
+should check the $path parameter if the alteration should fire for the current request
+only.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$router_item</b> -- 
+The menu router item for $path.</p>
+<p><b>$path</b> -- 
+The originally passed path, for which $router_item is responsible.</p>
+<p><b>$original_map</b> -- 
+The path argument map, as contained in $path.</p>
+
+
+
+]]></help>
+	</item>

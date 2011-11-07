@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>filter_FILTER_tips</title>
+		<external>http://api.drupal.org/api/search/7/hook_filter_FILTER_tips</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_filter_FILTER_tips();
+*/
+function ${file_name}_filter_FILTER_tips($filter, $format, $long) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_filter_FILTER_tips($filter, $format, $long)</h2>
+
+<p>Tips callback for hook_filter_info().</p>
+<p>Note: This is not really a hook. The function name is manually specified via
+'tips callback' in hook_filter_info(), with this recommended callback
+name pattern. It is called from _filter_tips().</p>
+<p>A filter's tips should be informative and to the point. Short tips are
+preferably one-liners.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$filter</b> -- 
+An object representing the filter.</p>
+<p><b>$format</b> -- 
+An object representing the text format the filter is contained in.</p>
+<p><b>$long</b> -- 
+Whether this callback should return a short tip to display in a form
+(FALSE), or whether a more elaborate filter tips should be returned for
+theme_filter_tips() (TRUE).</p>
+
+
+
+]]></help>
+	</item>

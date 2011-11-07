@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_access_records</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_access_records</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_node_access_records();
+*/
+function ${file_name}_node_access_records($node) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_access_records($node)</h2>
+
+<p>Set permissions for a node to be written to the database.</p>
+<p>When a node is saved, a module implementing hook_node_access_records() will
+be asked if it is interested in the access permissions for a node. If it is
+interested, it must respond with an array of permissions arrays for that
+node.</p>
+<p>Node access grants apply regardless of the published or unpublished status
+of the node. Implementations must make sure not to grant access to
+unpublished nodes if they don't want to change the standard access control
+behavior. Your module may need to create a separate access realm to handle
+access to unpublished nodes.</p>
+<p>Note that the grant values in the return value from your hook must be
+integers and not boolean TRUE and FALSE.</p>
+<p>Each permissions item in the array is an array with the following elements:</p>
+<ul>
+<li>'realm': The name of a realm that the module has defined in
+hook_node_grants().
+</li>
+<li>'gid': A 'grant ID' from hook_node_grants().
+</li>
+<li>'grant_view': If set to 1 a user that has been identified as a member
+of this gid within this realm can view this node. This should usually be
+set to $node->status. Failure to do so may expose unpublished content
+to some users.
+</li>
+<li>'grant_update': If set to 1 a user that has been identified as a member
+of this gid within this realm can edit this node.
+</li>
+<li>'grant_delete': If set to 1 a user that has been identified as a member
+of this gid within this realm can delete this node.
+</li>
+<li>'priority': If multiple modules seek to set permissions on a node, the
+realms that have the highest priority will win out, and realms with a lower
+priority will not be written. If there is any doubt, it is best to
+leave this 0.
+</li>
+</ul>
+<p>When an implementation is interested in a node but want to deny access to
+everyone, it may return a "deny all" grant:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p><span&nbsp;class="php-variable">$grants</span>[]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'realm'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'all'</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'gid'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">0</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'grant_view'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">0</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'grant_update'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">0</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'grant_delete'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">0</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'priority'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">1</span>,<br&nbsp;/>
+);<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>Setting the priority should cancel out other grants. In the case of a
+conflict between modules, it is safer to use hook_node_access_records_alter()
+to return only the deny grant.</p>
+<p>Note: a deny all grant is not written to the database; denies are implicit.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node that has just been saved.</p>
+
+
+
+]]></help>
+	</item>

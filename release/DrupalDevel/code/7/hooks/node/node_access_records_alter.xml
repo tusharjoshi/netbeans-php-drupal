@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_access_records_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_access_records_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_node_access_records_alter();
+*/
+function ${file_name}_node_access_records_alter(&$grants, $node) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_access_records_alter(&$grants, $node)</h2>
+
+<p>Alter permissions for a node before it is written to the database.</p>
+<p>Node access modules establish rules for user access to content. Node access
+records are stored in the {node_access} table and define which permissions
+are required to access a node. This hook is invoked after node access modules
+returned their requirements via hook_node_access_records(); doing so allows
+modules to modify the $grants array by reference before it is stored, so
+custom or advanced business logic can be applied.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$grants</b> -- 
+The $grants array returned by hook_node_access_records().</p>
+<p><b>$node</b> -- 
+The node for which the grants were acquired.</p>
+<p>The preferred use of this hook is in a module that bridges multiple node
+access modules with a configurable behavior, as shown in the example with the
+'is_preview' field.</p>
+
+
+
+]]></help>
+	</item>

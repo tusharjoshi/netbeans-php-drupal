@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>comment_view</title>
+		<external>http://api.drupal.org/api/search/7/hook_comment_view</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_comment_view();
+*/
+function ${file_name}_comment_view($comment, $view_mode, $langcode) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_comment_view($comment, $view_mode, $langcode)</h2>
+
+<p>The comment is being viewed. This hook can be used to add additional data to the comment before theming.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$comment</b> -- 
+Passes in the comment the action is being performed on.</p>
+<p><b>$view_mode</b> -- 
+View mode, e.g. 'full', 'teaser'...</p>
+<p><b>$langcode</b> -- 
+The language code used for rendering.</p>
+
+
+
+]]></help>
+	</item>

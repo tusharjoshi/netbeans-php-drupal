@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>search_execute</title>
+		<external>http://api.drupal.org/api/search/7/hook_search_execute</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_search_execute();
+*/
+function ${file_name}_search_execute($keys = NULL, $conditions = NULL) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_search_execute($keys = NULL, $conditions = NULL)</h2>
+
+<p>Execute a search for a set of key words.</p>
+<p>Use database API with the 'PagerDefault' query extension to perform your
+search.</p>
+<p>If your module uses hook_update_index() and search_index() to index its
+items, use table 'search_index' aliased to 'i' as the main table in your
+query, with the 'SearchQuery' extension. You can join to your module's table
+using the 'i.sid' field, which will contain the $sid values you provided to
+search_index(). Add the main keywords to the query by using method
+searchExpression(). The functions search_expression_extract() and
+search_expression_insert() may also be helpful for adding custom search
+parameters to the search expression.</p>
+<p>See node_search_execute() for an example of a module that uses the search
+index, and user_search_execute() for an example that doesn't ues the search
+index.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$keys</b> -- 
+The search keywords as entered by the user.</p>
+<p><b>$conditions</b> -- 
+An optional array of additional conditions, such as filters.</p>
+
+
+
+]]></help>
+	</item>

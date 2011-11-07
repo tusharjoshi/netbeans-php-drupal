@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>admin_paths_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_admin_paths_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_admin_paths_alter();
+*/
+function ${file_name}_admin_paths_alter(&$paths) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_admin_paths_alter(&$paths)</h2>
+
+<p>Redefine administrative paths defined by other modules.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$paths</b> -- 
+An associative array of administrative paths, as defined by implementations
+of hook_admin_paths().</p>
+
+
+
+]]></help>
+	</item>

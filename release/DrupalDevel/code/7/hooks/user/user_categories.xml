@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_categories</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_categories</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_categories();
+*/
+function ${file_name}_user_categories() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_categories()</h2>
+
+<p>Retrieve a list of user setting or profile information categories.</p>
+
+
+
+
+]]></help>
+	</item>

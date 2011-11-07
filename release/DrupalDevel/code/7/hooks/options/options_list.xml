@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>options_list</title>
+		<external>http://api.drupal.org/api/search/7/hook_options_list</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_options_list();
+*/
+function ${file_name}_options_list($field) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_options_list($field)</h2>
+
+<p>Returns the list of options to be displayed for a field.</p>
+<p>Field types willing to enable one or several of the widgets defined in
+options.module (select, radios/checkboxes, on/off checkbox) need to
+implement this hook to specify the list of options to display in the
+widgets.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The field definition.</p>
+
+
+
+]]></help>
+	</item>

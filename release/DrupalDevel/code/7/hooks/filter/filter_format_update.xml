@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>filter_format_update</title>
+		<external>http://api.drupal.org/api/search/7/hook_filter_format_update</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_filter_format_update();
+*/
+function ${file_name}_filter_format_update($format) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_filter_format_update($format)</h2>
+
+<p>Perform actions when a text format has been updated.</p>
+<p>This hook allows modules to act when a text format has been updated in any
+way. For example, when filters have been reconfigured, disabled, or
+re-arranged in the text format.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$format</b> -- 
+The format object of the format being updated.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>exit</title>
+		<external>http://api.drupal.org/api/search/7/hook_exit</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_exit();
+*/
+function ${file_name}_exit($destination = NULL) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_exit($destination = NULL)</h2>
+
+<p>Perform cleanup tasks.</p>
+<p>This hook is run at the end of each page request. It is often used for
+page logging and specialized cleanup. This hook MUST NOT print anything.</p>
+<p>Only use this hook if your code must run even for cached page views.
+If you have code which must run once on all non cached pages, use
+hook_init instead. Thats the usual case. If you implement this hook
+and see an error like 'Call to undefined function', it is likely that
+you are depending on the presence of a module which has not been loaded yet.
+It is not loaded because Drupal is still in bootstrap mode.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$destination</b> -- 
+If this hook is invoked as part of a drupal_goto() call, then this argument
+will be a fully-qualified URL that is the destination of the redirect.</p>
+
+
+
+]]></help>
+	</item>

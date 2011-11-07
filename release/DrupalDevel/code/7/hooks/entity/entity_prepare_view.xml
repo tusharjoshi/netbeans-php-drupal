@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>entity_prepare_view</title>
+		<external>http://api.drupal.org/api/search/7/hook_entity_prepare_view</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_entity_prepare_view();
+*/
+function ${file_name}_entity_prepare_view($entities, $type, $langcode) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_entity_prepare_view($entities, $type, $langcode)</h2>
+
+<p>Act on entities as they are being prepared for view.</p>
+<p>Allows you to operate on multiple entities as they are being prepared for
+view. Only use this if attaching the data during the entity_load() phase
+is not appropriate, for example when attaching other 'entity' style objects.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entities</b> -- 
+The entities keyed by entity ID.</p>
+<p><b>$type</b> -- 
+The type of entities being loaded (i.e. node, user, comment).</p>
+<p><b>$langcode</b> -- 
+The language to display the entity in.</p>
+
+
+
+]]></help>
+	</item>

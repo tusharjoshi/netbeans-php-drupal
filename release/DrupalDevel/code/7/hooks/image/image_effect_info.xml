@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>image_effect_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_image_effect_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_image_effect_info();
+*/
+function ${file_name}_image_effect_info() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_image_effect_info()</h2>
+
+<p>Define information about image effects provided by a module.</p>
+<p>This hook enables modules to define image manipulation effects for use with
+an image style.</p>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_widget_settings_form</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_widget_settings_form</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_widget_settings_form();
+*/
+function ${file_name}_field_widget_settings_form($field, $instance) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_widget_settings_form($field, $instance)</h2>
+
+<p>Add settings to a widget settings form.</p>
+<p>Invoked from field_ui_field_edit_form() to allow the module defining the
+widget to add settings for a widget instance.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The field structure being configured.</p>
+<p><b>$instance</b> -- 
+The instance structure being configured.</p>
+
+
+
+]]></help>
+	</item>

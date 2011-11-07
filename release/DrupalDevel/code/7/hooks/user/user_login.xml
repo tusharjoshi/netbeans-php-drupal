@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_login</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_login</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_login();
+*/
+function ${file_name}_user_login(&$edit, $account) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_login(&$edit, $account)</h2>
+
+<p>The user just logged in.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$edit</b> -- 
+The array of form values submitted by the user.</p>
+<p><b>$account</b> -- 
+The user object on which the operation was just performed.</p>
+
+
+
+]]></help>
+	</item>

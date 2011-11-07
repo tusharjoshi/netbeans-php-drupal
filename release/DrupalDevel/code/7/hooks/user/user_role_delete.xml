@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_role_delete</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_role_delete</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_role_delete();
+*/
+function ${file_name}_user_role_delete($role) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_role_delete($role)</h2>
+
+<p>Inform other modules that a user role has been deleted.</p>
+<p>This hook allows you act when a user role has been deleted.
+If your module stores references to roles, it's recommended that you
+implement this hook and delete existing instances of the deleted role
+in your module database tables.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$role</b> -- 
+The $role object being deleted.</p>
+
+
+
+]]></help>
+	</item>

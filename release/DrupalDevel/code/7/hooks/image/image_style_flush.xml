@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>image_style_flush</title>
+		<external>http://api.drupal.org/api/search/7/hook_image_style_flush</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_image_style_flush();
+*/
+function ${file_name}_image_style_flush($style) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_image_style_flush($style)</h2>
+
+<p>Respond to image style flushing.</p>
+<p>This hook enables modules to take effect when a style is being flushed (all
+images are being deleted from the server and regenerated). Any
+module-specific caches that contain information related to the style should
+be cleared using this hook. This hook is called whenever a style is updated,
+deleted, or any effect associated with the style is update or deleted.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$style</b> -- 
+The image style array that is being flushed.</p>
+
+
+
+]]></help>
+	</item>

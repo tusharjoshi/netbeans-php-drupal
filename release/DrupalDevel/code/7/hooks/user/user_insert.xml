@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_insert</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_insert</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_insert();
+*/
+function ${file_name}_user_insert(&$edit, $account, $category) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_insert(&$edit, $account, $category)</h2>
+
+<p>A user account was created.</p>
+<p>The module should save its custom additions to the user object into the
+database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$edit</b> -- 
+The array of form values submitted by the user.</p>
+<p><b>$account</b> -- 
+The user object on which the operation is being performed.</p>
+<p><b>$category</b> -- 
+The active category of user information being edited.</p>
+
+
+
+]]></help>
+	</item>

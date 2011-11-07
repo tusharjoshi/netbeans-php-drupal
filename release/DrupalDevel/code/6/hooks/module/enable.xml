@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>enable</title>
+		<external>http://api.drupal.org/api/search/7/hook_enable</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_enable();
+*/
+function ${file_name}_enable() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_enable()</h2>
+
+<p>Perform necessary actions after module is enabled.</p>
+<p>The hook is called everytime module is enabled.</p>
+
+
+
+
+]]></help>
+	</item>

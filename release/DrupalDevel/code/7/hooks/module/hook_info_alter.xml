@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>hook_info_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_hook_info_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_hook_info_alter();
+*/
+function ${file_name}_hook_info_alter(&$hooks) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_hook_info_alter(&$hooks)</h2>
+
+<p>Alter information from hook_hook_info().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$hooks</b> -- 
+Information gathered by module_hook_info() from other modules'
+implementations of hook_hook_info(). Alter this array directly.
+See hook_hook_info() for information on what this may contain.</p>
+
+
+
+]]></help>
+	</item>

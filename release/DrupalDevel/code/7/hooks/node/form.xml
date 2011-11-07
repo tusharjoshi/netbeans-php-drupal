@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>form</title>
+		<external>http://api.drupal.org/api/search/7/hook_form</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_form();
+*/
+function ${file_name}_form($node, &$form_state) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_form($node, &$form_state)</h2>
+
+<p>Display a node editing form.</p>
+<p>This hook, implemented by node modules, is called to retrieve the form
+that is displayed to create or edit a node. This form is displayed at path
+node/add/[node type] or node/[node ID]/edit.</p>
+<p>The submit and preview buttons, administrative and display controls, and
+sections added by other modules (such as path settings, menu settings,
+comment settings, and fields managed by the Field UI module) are
+displayed automatically by the node module. This hook just needs to
+return the node title and form editing fields specific to the node type.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node being added or edited.</p>
+<p><b>$form_state</b> -- 
+The form state array.</p>
+
+
+
+]]></help>
+	</item>

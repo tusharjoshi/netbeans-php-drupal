@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>page_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_page_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_page_alter();
+*/
+function ${file_name}_page_alter(&$page) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_page_alter(&$page)</h2>
+
+<p>Perform alterations before a page is rendered.</p>
+<p>Use this hook when you want to remove or alter elements at the page
+level, or add elements at the page level that depend on an other module's
+elements (this hook runs after hook_page_build().</p>
+<p>If you are making changes to entities such as forms, menus, or user
+profiles, use those objects' native alter hooks instead (hook_form_alter(),
+for example).</p>
+<p>The $page array contains top level elements for each block region:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'page_top'</span>]<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'header'</span>]<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'sidebar_first'</span>]<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'content'</span>]<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'sidebar_second'</span>]<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'page_bottom'</span>]<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>The 'content' element contains the main content of the current page, and its
+structure will vary depending on what module is responsible for building the
+page. Some legacy modules may not return structured content at all: their
+pre-rendered markup will be located in $page['content']['main']['#markup'].</p>
+<p>Pages built by Drupal's core Node and Blog modules use a standard structure:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;Node&nbsp;body.<br&nbsp;/>
+</span>&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'content'</span>][<span&nbsp;class="php-string">'system_main'</span>][<span&nbsp;class="php-string">'nodes'</span>][<span&nbsp;class="php-variable">$nid</span>][<span&nbsp;class="php-string">'body'</span>]<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;Array&nbsp;of&nbsp;links&nbsp;attached&nbsp;to&nbsp;the&nbsp;node&nbsp;(add&nbsp;comments,&nbsp;read&nbsp;more).<br&nbsp;/>
+</span>&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'content'</span>][<span&nbsp;class="php-string">'system_main'</span>][<span&nbsp;class="php-string">'nodes'</span>][<span&nbsp;class="php-variable">$nid</span>][<span&nbsp;class="php-string">'links'</span>]<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;The&nbsp;node&nbsp;object&nbsp;itself.<br&nbsp;/>
+</span>&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'content'</span>][<span&nbsp;class="php-string">'system_main'</span>][<span&nbsp;class="php-string">'nodes'</span>][<span&nbsp;class="php-variable">$nid</span>][<span&nbsp;class="php-string">'#node'</span>]<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;The&nbsp;results&nbsp;pager.<br&nbsp;/>
+</span>&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'content'</span>][<span&nbsp;class="php-string">'system_main'</span>][<span&nbsp;class="php-string">'pager'</span>]<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>Blocks may be referenced by their module/delta pair within a region:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;<span&nbsp;class="php-comment">//&nbsp;The&nbsp;login&nbsp;block&nbsp;in&nbsp;the&nbsp;first&nbsp;sidebar&nbsp;region.<br&nbsp;/>
+</span>&nbsp;&nbsp;<span&nbsp;class="php-variable">$page</span>[<span&nbsp;class="php-string">'sidebar_first'</span>][<span&nbsp;class="php-string">'user_login'</span>][<span&nbsp;class="php-string">'#block'</span>];<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+
+<h3>Parameters</h3>
+<p><b>
+$page</b> -- 
+Nested array of renderable elements that make up the page.</p>
+
+
+
+]]></help>
+	</item>

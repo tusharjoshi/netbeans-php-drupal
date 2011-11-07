@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>file_copy</title>
+		<external>http://api.drupal.org/api/search/7/hook_file_copy</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_file_copy();
+*/
+function ${file_name}_file_copy($file, $source) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_file_copy($file, $source)</h2>
+
+<p>Respond to a file that has been copied.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$file</b> -- 
+The newly copied file object.</p>
+<p><b>$source</b> -- 
+The original file before the copy.</p>
+
+
+
+]]></help>
+	</item>
