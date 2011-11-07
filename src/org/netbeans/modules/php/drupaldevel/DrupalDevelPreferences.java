@@ -102,9 +102,6 @@ public final class DrupalDevelPreferences {
         String path = NbPreferences.forModule(DrupalDevelTool.class).get("drupalLibraryPath", "");
         File f = new File(path);
 
-        if (!f.exists()) {
-            path = libraryInstallPath();
-        }
         return path;
     }
 

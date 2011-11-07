@@ -78,7 +78,7 @@ final class DrupalPanel extends javax.swing.JPanel {
         this.cbDrupalVersion.removeAllItems();
         String drVer = DrupalDevelPreferences.getDefaultDrupalVersion();
 
-        String path = DrupalDevelPreferences.getDefaultLibraryPath() + "/code";
+        String path = DrupalDevelPreferences.libraryInstallPath() + "/code";
 
         ArrayList items = libraryParser.parseTree(path);
         for (int i = 0; i < items.size(); i++) {
