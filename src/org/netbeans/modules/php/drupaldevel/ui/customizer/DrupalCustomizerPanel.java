@@ -83,7 +83,7 @@ public class DrupalCustomizerPanel extends javax.swing.JPanel {
             drVer = DrupalDevelPreferences.getDefaultDrupalVersion();
         }
 
-        String path = DrupalDevelPreferences.getDefaultLibraryPath() + "/code";
+        String path = DrupalDevelPreferences.libraryInstallPath() + "/code";
         items = libraryParser.parseTree(path);
         cbDrupalVersion.addItem("Default");
         for (int i = 0; i < items.size(); i++) {
