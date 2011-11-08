@@ -448,7 +448,9 @@ public class ApitTreeUI extends javax.swing.JPanel {
                     } else if (selItem.getItemType().equals("theme")) {
                         menuItems[2].setVisible(false);
                     }
+
                     if (selItem.getSearch().equals("")) {
+                        
                         menuItems[1].setVisible(false);
                     }                    
                     contextMenu.show(tree, x, y);
