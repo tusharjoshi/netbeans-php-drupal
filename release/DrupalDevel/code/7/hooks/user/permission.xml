@@ -8,7 +8,7 @@
 * Implements hook_permission();
 */
 function ${file_name}_permission() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_permission()</h2>

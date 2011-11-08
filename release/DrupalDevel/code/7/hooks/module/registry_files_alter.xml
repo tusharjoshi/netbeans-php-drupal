@@ -8,7 +8,7 @@
 * Implements hook_registry_files_alter();
 */
 function ${file_name}_registry_files_alter(&$files, $modules) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_registry_files_alter(&$files, $modules)</h2>

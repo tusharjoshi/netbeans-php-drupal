@@ -8,7 +8,7 @@
 * Implements hook_search_status();
 */
 function ${file_name}_search_status() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_search_status()</h2>

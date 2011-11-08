@@ -8,7 +8,7 @@
 * Implements hook_token_info_alter();
 */
 function ${file_name}_token_info_alter(&$data) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_token_info_alter(&$data)</h2>

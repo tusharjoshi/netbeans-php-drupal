@@ -8,7 +8,7 @@
 * Implements hook_validate();
 */
 function ${file_name}_validate($node, $form, &$form_state) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_validate($node, $form, &$form_state)</h2>

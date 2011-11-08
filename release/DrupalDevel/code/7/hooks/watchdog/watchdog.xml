@@ -8,7 +8,7 @@
 * Implements hook_watchdog();
 */
 function ${file_name}_watchdog(array $log_entry) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_watchdog(array $log_entry)</h2>

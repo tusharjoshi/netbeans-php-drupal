@@ -8,7 +8,7 @@
 * Implements hook_filter_info();
 */
 function ${file_name}_filter_info() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_filter_info()</h2>

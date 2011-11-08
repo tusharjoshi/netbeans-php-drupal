@@ -8,7 +8,7 @@
 * Implements hook_install_tasks();
 */
 function ${file_name}_install_tasks() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_install_tasks()</h2>

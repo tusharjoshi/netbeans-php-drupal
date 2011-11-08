@@ -8,7 +8,7 @@
 * Implements hook_custom_theme();
 */
 function ${file_name}_custom_theme() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_custom_theme()</h2>

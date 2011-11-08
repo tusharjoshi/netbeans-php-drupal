@@ -8,7 +8,7 @@
 * Implements hook_filetransfer_info();
 */
 function ${file_name}_filetransfer_info() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_filetransfer_info()</h2>

@@ -8,7 +8,7 @@
 * Implements hook_field_info_alter();
 */
 function ${file_name}_field_info_alter(&$info) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_field_info_alter(&$info)</h2>

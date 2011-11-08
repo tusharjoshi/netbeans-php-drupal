@@ -8,7 +8,7 @@
 * Implements sample_search_conditions_callback();
 */
 function ${file_name}_e_search_conditions_callback($keys) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>sample_search_conditions_callback($keys)</h2>

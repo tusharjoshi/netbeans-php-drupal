@@ -8,7 +8,7 @@
 * Implements hook_user_login();
 */
 function ${file_name}_user_login(&$edit, $account) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_user_login(&$edit, $account)</h2>

@@ -8,7 +8,7 @@
 * Implements hook_field_info_max_weight();
 */
 function ${file_name}_field_info_max_weight($entity_type, $bundle, $context) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_field_info_max_weight($entity_type, $bundle, $context)</h2>

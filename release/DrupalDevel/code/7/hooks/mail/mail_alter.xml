@@ -8,7 +8,7 @@
 * Implements hook_mail_alter();
 */
 function ${file_name}_mail_alter(&$message) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_mail_alter(&$message)</h2>

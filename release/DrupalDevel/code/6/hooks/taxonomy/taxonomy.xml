@@ -7,7 +7,7 @@
 /**
 * Implementation of hook_taxonomy();
 */
-function ${file_name}_taxonomy($op, $type, $array = NULL) {
+function ${file_name}_taxonomy($op, $type, $array = ${NULL}) {
    ${set_cursor}
 }
 ]]></template>

@@ -8,7 +8,7 @@
 * Implements hook_update();
 */
 function ${file_name}_update($node) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_update($node)</h2>

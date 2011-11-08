@@ -8,7 +8,7 @@
 * Implements hook_rdf_mapping();
 */
 function ${file_name}_rdf_mapping() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_rdf_mapping()</h2>

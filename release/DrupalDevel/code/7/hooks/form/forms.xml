@@ -8,7 +8,7 @@
 * Implements hook_forms();
 */
 function ${file_name}_forms($form_id, $args) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_forms($form_id, $args)</h2>

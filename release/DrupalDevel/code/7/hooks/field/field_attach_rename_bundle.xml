@@ -8,7 +8,7 @@
 * Implements hook_field_attach_rename_bundle();
 */
 function ${file_name}_field_attach_rename_bundle($entity_type, $bundle_old, $bundle_new) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_field_attach_rename_bundle($entity_type, $bundle_old, $bundle_new)</h2>

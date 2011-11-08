@@ -8,7 +8,7 @@
 * Implements hook_enable();
 */
 function ${file_name}_enable() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_enable()</h2>

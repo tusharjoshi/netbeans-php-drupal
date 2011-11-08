@@ -8,7 +8,7 @@
 * Implements hook_file_download();
 */
 function ${file_name}_file_download($uri) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_file_download($uri)</h2>

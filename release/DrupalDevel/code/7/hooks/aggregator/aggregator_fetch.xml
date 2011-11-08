@@ -8,7 +8,7 @@
 * Implements hook_aggregator_fetch();
 */
 function ${file_name}_aggregator_fetch($feed) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_aggregator_fetch($feed)</h2>

@@ -8,7 +8,7 @@
 * Implements hook_path_update();
 */
 function ${file_name}_path_update($path) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_path_update($path)</h2>

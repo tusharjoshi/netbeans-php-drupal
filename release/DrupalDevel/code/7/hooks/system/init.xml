@@ -8,7 +8,7 @@
 * Implements hook_init();
 */
 function ${file_name}_init() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_init()</h2>

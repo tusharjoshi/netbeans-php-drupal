@@ -8,7 +8,7 @@
 * Implements hook_updater_info();
 */
 function ${file_name}_updater_info() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_updater_info()</h2>

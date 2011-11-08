@@ -8,7 +8,7 @@
 * Implements hook_username_alter();
 */
 function ${file_name}_username_alter(&$name, $account) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_username_alter(&$name, $account)</h2>

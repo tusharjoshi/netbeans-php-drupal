@@ -8,7 +8,7 @@
 * Implements hook_help();
 */
 function ${file_name}_help($path, $arg) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_help($path, $arg)</h2>

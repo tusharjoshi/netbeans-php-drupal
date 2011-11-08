@@ -8,7 +8,7 @@
 * Implements hook_locale();
 */
 function ${file_name}_locale($op = 'groups') {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_locale($op = 'groups')</h2>

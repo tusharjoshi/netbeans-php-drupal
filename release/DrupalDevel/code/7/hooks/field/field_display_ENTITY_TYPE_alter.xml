@@ -7,8 +7,8 @@
 /**
 * Implements hook_field_display_ENTITY_TYPE_alter();
 */
-function ${file_name}_field_display_ENTITY_TYPE_alter(&$display, $context) {
-   ${set_cursor}
+function ${file_name}_field_display_${ENTITY_TYPE}_alter(&$display, $context) {
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_field_display_ENTITY_TYPE_alter(&$display, $context)</h2>

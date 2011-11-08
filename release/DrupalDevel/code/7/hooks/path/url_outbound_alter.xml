@@ -8,7 +8,7 @@
 * Implements hook_url_outbound_alter();
 */
 function ${file_name}_url_outbound_alter(&$path, &$options, $original_path) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_url_outbound_alter(&$path, &$options, $original_path)</h2>

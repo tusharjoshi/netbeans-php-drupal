@@ -8,7 +8,7 @@
 * Implements hook_image_toolkits();
 */
 function ${file_name}_image_toolkits() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_image_toolkits()</h2>

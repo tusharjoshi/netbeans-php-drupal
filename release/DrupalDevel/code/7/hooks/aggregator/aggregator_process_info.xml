@@ -8,7 +8,7 @@
 * Implements hook_aggregator_process_info();
 */
 function ${file_name}_aggregator_process_info($feed) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_aggregator_process_info($feed)</h2>

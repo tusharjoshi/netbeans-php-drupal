@@ -8,7 +8,7 @@
 * Implements hook_file_copy();
 */
 function ${file_name}_file_copy($file, $source) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_file_copy($file, $source)</h2>

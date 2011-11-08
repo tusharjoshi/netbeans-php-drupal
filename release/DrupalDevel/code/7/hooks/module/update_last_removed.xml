@@ -8,7 +8,7 @@
 * Implements hook_update_last_removed();
 */
 function ${file_name}_update_last_removed() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_update_last_removed()</h2>

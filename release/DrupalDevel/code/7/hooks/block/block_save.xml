@@ -8,7 +8,7 @@
 * Implements hook_block_save();
 */
 function ${file_name}_block_save($delta = '', $edit = array()) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_block_save($delta = '', $edit = array())</h2>

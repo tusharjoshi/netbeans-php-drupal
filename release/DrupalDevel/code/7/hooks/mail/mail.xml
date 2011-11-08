@@ -8,7 +8,7 @@
 * Implements hook_mail();
 */
 function ${file_name}_mail($key, &$message, $params) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_mail($key, &$message, $params)</h2>

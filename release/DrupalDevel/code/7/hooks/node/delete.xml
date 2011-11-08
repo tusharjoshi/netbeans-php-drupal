@@ -8,7 +8,7 @@
 * Implements hook_delete();
 */
 function ${file_name}_delete($node) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_delete($node)</h2>

@@ -7,7 +7,7 @@
 /**
 * Implementation of hook_link();
 */
-function ${file_name}_link($type, $object, $teaser = FALSE) {
+function ${file_name}_link($type, $object, $teaser = ${FALSE}) {
    ${set_cursor}
 }
 ]]></template>

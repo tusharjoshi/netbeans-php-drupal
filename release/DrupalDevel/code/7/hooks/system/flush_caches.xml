@@ -8,7 +8,7 @@
 * Implements hook_flush_caches();
 */
 function ${file_name}_flush_caches() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_flush_caches()</h2>

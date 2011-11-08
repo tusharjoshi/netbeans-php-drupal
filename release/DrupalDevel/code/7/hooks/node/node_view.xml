@@ -8,7 +8,7 @@
 * Implements hook_node_view();
 */
 function ${file_name}_node_view($node, $view_mode, $langcode) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_node_view($node, $view_mode, $langcode)</h2>

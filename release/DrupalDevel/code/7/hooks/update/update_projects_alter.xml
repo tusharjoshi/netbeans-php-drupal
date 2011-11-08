@@ -8,7 +8,7 @@
 * Implements hook_update_projects_alter();
 */
 function ${file_name}_update_projects_alter(&$projects) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_update_projects_alter(&$projects)</h2>

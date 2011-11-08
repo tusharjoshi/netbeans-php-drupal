@@ -8,7 +8,7 @@
 * Implements hook_module_implements_alter();
 */
 function ${file_name}_module_implements_alter(&$implementations, $hook) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_module_implements_alter(&$implementations, $hook)</h2>

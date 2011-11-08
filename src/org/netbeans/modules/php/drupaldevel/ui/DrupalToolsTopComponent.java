@@ -19,7 +19,10 @@ import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
 import org.netbeans.modules.php.drupaldevel.Util;
 import org.netbeans.modules.php.drupaldevel.ui.apitree.*;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
 import org.netbeans.api.project.Project;
+import org.netbeans.lib.editor.codetemplates.api.CodeTemplate;
+import org.netbeans.lib.editor.codetemplates.api.CodeTemplateManager;
 import org.netbeans.modules.php.drupaldevel.DrupalEditorUtilities;
 import org.netbeans.modules.php.drupaldevel.drush.ui.DrushTopComponent;
 import org.netbeans.modules.php.drupaldevel.libraryParser;
@@ -120,28 +123,13 @@ public final class DrupalToolsTopComponent extends TopComponent {
     }
 
     private void insertCodeToEditor(String text) {
-        if (this.activeEditor != null) {
-            try {
-
-                text = libraryParser.parseVariables(text, this.activeEditor);
-                int cursorPos = text.indexOf("${set_cursor}");
-                int offset = -1;
-                if (cursorPos >= 0) {
-                    text = libraryParser.getReplacement(text, "${set_cursor}", "");
-                    offset = this.activeEditor.getCaretPosition() + cursorPos;
-                }
-                DrupalEditorUtilities.insert(text, this.activeEditor);
-                if (offset >= 0) {
-                    this.activeEditor.setCaretPosition(offset);
-                }
-
-
-            } catch (BadLocationException ble) {
-                this.activeEditor.getToolkit().beep();
-            } finally {
-            }
-        }
-
+        this.activeEditor.requestFocus();
+        CodeTemplateManager tempManager = CodeTemplateManager.get(this.activeEditor.getDocument());
+        text = libraryParser.parseVariables(text, this.activeEditor);
+        text = libraryParser.getReplacement(text, "${set_cursor}", "\\$\\{cursor\\}");
+        CodeTemplate ct = tempManager.createTemporary(text);
+        
+        ct.insert(this.activeEditor);
     }
 
     private void setActiveVersion(Project proj) {

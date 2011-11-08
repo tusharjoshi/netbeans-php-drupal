@@ -8,7 +8,7 @@
 * Implements hook_batch_alter();
 */
 function ${file_name}_batch_alter(&$batch) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_batch_alter(&$batch)</h2>

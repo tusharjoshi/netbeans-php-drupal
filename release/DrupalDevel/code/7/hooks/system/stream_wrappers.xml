@@ -8,7 +8,7 @@
 * Implements hook_stream_wrappers();
 */
 function ${file_name}_stream_wrappers() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_stream_wrappers()</h2>

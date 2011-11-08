@@ -8,7 +8,7 @@
 * Implements hook_block_view();
 */
 function ${file_name}_block_view($delta = '') {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_block_view($delta = '')</h2>

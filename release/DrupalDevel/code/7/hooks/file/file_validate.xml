@@ -8,7 +8,7 @@
 * Implements hook_file_validate();
 */
 function ${file_name}_file_validate($file) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_file_validate($file)</h2>

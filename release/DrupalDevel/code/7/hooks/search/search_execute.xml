@@ -7,8 +7,8 @@
 /**
 * Implements hook_search_execute();
 */
-function ${file_name}_search_execute($keys = NULL, $conditions = NULL) {
-   ${set_cursor}
+function ${file_name}_search_execute($keys = ${NULL}, $conditions = ${NULL}) {
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_search_execute($keys = NULL, $conditions = NULL)</h2>

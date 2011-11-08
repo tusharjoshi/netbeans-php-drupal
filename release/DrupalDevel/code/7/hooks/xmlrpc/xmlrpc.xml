@@ -8,7 +8,7 @@
 * Implements hook_xmlrpc();
 */
 function ${file_name}_xmlrpc() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_xmlrpc()</h2>
