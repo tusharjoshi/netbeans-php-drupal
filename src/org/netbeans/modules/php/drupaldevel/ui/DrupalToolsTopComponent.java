@@ -8,6 +8,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.net.URLEncoder;
+import javax.swing.JOptionPane;
 import javax.swing.text.JTextComponent;
 import org.openide.windows.TopComponent;
 import org.netbeans.api.settings.ConvertAsProperties;
@@ -89,18 +90,14 @@ public final class DrupalToolsTopComponent extends TopComponent {
                     
                     insertCodeToEditor(tp.getTag("template"));
                 } else if (evt.getAction().equals(ApiTreeEvent.EVENT_HELP)) {
-                    String fName = "";
-                    if (item.getItemType().equals("themes")) {
-                        fName = "template_" + item.getName();
-                    } else if (item.getItemType().equals("hooks")) {
-                        fName = "hook_" + item.getName();
-                    }
-
+                    String fName = item.getSearch();
+                    
                     if (fName.length() > 0) {
                         try {
-                            String url = "http://api.drupal.org/api/search/" + activeDrupalVersion + "/" + URLEncoder.encode(fName, "UTF-8");
-                            HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(url));
+
+                            HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(fName));
                         } catch (Exception eee) {
+
                             return;//nothing much to do
                         }
                     }
