@@ -8,7 +8,7 @@
 * Implements hook_field_access();
 */
 function ${file_name}_field_access($op, $field, $entity_type, $entity, $account) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_field_access($op, $field, $entity_type, $entity, $account)</h2>

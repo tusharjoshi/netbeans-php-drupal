@@ -8,7 +8,7 @@
 * Implements hook_update_N();
 */
 function ${file_name}_update_N(&$sandbox) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_update_N(&$sandbox)</h2>

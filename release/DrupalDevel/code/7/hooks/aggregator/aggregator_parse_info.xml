@@ -8,7 +8,7 @@
 * Implements hook_aggregator_parse_info();
 */
 function ${file_name}_aggregator_parse_info() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_aggregator_parse_info()</h2>

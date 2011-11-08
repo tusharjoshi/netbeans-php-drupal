@@ -8,7 +8,7 @@
 * Implements hook_modules_uninstalled();
 */
 function ${file_name}_modules_uninstalled($modules) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_modules_uninstalled($modules)</h2>

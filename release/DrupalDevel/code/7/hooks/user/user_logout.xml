@@ -8,7 +8,7 @@
 * Implements hook_user_logout();
 */
 function ${file_name}_user_logout($account) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_user_logout($account)</h2>

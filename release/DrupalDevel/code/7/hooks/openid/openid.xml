@@ -8,7 +8,7 @@
 * Implements hook_openid();
 */
 function ${file_name}_openid($op, $request) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_openid($op, $request)</h2>

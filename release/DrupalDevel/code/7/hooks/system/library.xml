@@ -8,7 +8,7 @@
 * Implements hook_library();
 */
 function ${file_name}_library() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_library()</h2>

@@ -8,7 +8,7 @@
 * Implements hook_file_presave();
 */
 function ${file_name}_file_presave($file) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_file_presave($file)</h2>

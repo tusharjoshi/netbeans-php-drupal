@@ -8,7 +8,7 @@
 * Implements hook_dashboard_regions();
 */
 function ${file_name}_dashboard_regions() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_dashboard_regions()</h2>

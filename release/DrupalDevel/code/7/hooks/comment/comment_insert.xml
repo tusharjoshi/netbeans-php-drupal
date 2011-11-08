@@ -8,7 +8,7 @@
 * Implements hook_comment_insert();
 */
 function ${file_name}_comment_insert($comment) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_comment_insert($comment)</h2>

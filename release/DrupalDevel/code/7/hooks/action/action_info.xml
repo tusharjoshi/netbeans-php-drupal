@@ -8,7 +8,7 @@
 * Implements hook_action_info();
 */
 function ${file_name}_action_info() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_action_info()</h2>

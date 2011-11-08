@@ -8,7 +8,7 @@
 * Implements hook_date_format_types_alter();
 */
 function ${file_name}_date_format_types_alter(&$types) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_date_format_types_alter(&$types)</h2>

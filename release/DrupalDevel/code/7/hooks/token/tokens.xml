@@ -8,7 +8,7 @@
 * Implements hook_tokens();
 */
 function ${file_name}_tokens($type, $tokens, array $data = array(), array $options = array()) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_tokens($type, $tokens, array $data = array(), array $options = array())</h2>

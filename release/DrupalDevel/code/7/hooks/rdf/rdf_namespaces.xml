@@ -8,7 +8,7 @@
 * Implements hook_rdf_namespaces();
 */
 function ${file_name}_rdf_namespaces() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_rdf_namespaces()</h2>

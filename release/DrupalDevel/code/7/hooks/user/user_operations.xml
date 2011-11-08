@@ -8,7 +8,7 @@
 * Implements hook_user_operations();
 */
 function ${file_name}_user_operations() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_user_operations()</h2>

@@ -8,7 +8,7 @@
 * Implements hook_menu_link_insert();
 */
 function ${file_name}_menu_link_insert($link) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_menu_link_insert($link)</h2>

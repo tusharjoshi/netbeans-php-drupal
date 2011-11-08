@@ -8,7 +8,7 @@
 * Implements hook_update_dependencies();
 */
 function ${file_name}_update_dependencies() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_update_dependencies()</h2>

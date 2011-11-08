@@ -8,7 +8,7 @@
 * Implements hook_query_alter();
 */
 function ${file_name}_query_alter(QueryAlterableInterface $query) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_query_alter(QueryAlterableInterface $query)</h2>

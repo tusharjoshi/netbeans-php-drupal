@@ -8,7 +8,7 @@
 * Implements hook_language_init();
 */
 function ${file_name}_language_init() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_language_init()</h2>

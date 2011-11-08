@@ -8,7 +8,7 @@
 * Implements hook_aggregator_remove();
 */
 function ${file_name}_aggregator_remove($feed) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_aggregator_remove($feed)</h2>

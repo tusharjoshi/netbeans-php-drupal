@@ -8,7 +8,7 @@
 * Implements hook_search_preprocess();
 */
 function ${file_name}_search_preprocess($text) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_search_preprocess($text)</h2>

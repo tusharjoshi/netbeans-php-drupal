@@ -8,7 +8,7 @@
 * Implements hook_options_list();
 */
 function ${file_name}_options_list($field) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_options_list($field)</h2>

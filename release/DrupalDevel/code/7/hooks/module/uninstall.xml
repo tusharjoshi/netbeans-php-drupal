@@ -8,7 +8,7 @@
 * Implements hook_uninstall();
 */
 function ${file_name}_uninstall() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_uninstall()</h2>

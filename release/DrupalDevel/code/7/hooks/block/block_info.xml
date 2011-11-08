@@ -8,7 +8,7 @@
 * Implements hook_block_info();
 */
 function ${file_name}_block_info() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_block_info()</h2>

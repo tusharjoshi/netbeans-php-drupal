@@ -8,7 +8,7 @@
 * Implements hook_actions_delete();
 */
 function ${file_name}_actions_delete($aid) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_actions_delete($aid)</h2>

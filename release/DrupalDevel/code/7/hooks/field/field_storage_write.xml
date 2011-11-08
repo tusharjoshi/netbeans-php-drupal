@@ -8,7 +8,7 @@
 * Implements hook_field_storage_write();
 */
 function ${file_name}_field_storage_write($entity_type, $entity, $op, $fields) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_field_storage_write($entity_type, $entity, $op, $fields)</h2>

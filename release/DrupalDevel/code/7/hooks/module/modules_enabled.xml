@@ -8,7 +8,7 @@
 * Implements hook_modules_enabled();
 */
 function ${file_name}_modules_enabled($modules) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_modules_enabled($modules)</h2>

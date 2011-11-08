@@ -7,8 +7,8 @@
 /**
 * Implements hook_exit();
 */
-function ${file_name}_exit($destination = NULL) {
-   ${set_cursor}
+function ${file_name}_exit($destination = ${NULL}) {
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_exit($destination = NULL)</h2>

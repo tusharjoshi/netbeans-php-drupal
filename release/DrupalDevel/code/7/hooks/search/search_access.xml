@@ -8,7 +8,7 @@
 * Implements hook_search_access();
 */
 function ${file_name}_search_access() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_search_access()</h2>

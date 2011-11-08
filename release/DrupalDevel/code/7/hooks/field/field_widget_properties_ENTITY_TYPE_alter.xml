@@ -7,8 +7,8 @@
 /**
 * Implements hook_field_widget_properties_ENTITY_TYPE_alter();
 */
-function ${file_name}_field_widget_properties_ENTITY_TYPE_alter(&$widget, $context) {
-   ${set_cursor}
+function ${file_name}_field_widget_properties_${ENTITY_TYPE}_alter(&$widget, $context) {
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_field_widget_properties_ENTITY_TYPE_alter(&$widget, $context)</h2>

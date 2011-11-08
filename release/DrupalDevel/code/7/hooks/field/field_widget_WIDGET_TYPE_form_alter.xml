@@ -7,8 +7,8 @@
 /**
 * Implements hook_field_widget_WIDGET_TYPE_form_alter();
 */
-function ${file_name}_field_widget_WIDGET_TYPE_form_alter(&$element, &$form_state, $context) {
-   ${set_cursor}
+function ${file_name}_field_widget_${WIDGET_TYPE}_form_alter(&$element, &$form_state, $context) {
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_field_widget_WIDGET_TYPE_form_alter(&$element, &$form_state, $context)</h2>

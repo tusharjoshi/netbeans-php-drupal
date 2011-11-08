@@ -8,7 +8,7 @@
 * Implements hook_search_reset();
 */
 function ${file_name}_search_reset() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_search_reset()</h2>

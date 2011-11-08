@@ -8,7 +8,7 @@
 * Implements hook_admin_paths_alter();
 */
 function ${file_name}_admin_paths_alter(&$paths) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_admin_paths_alter(&$paths)</h2>

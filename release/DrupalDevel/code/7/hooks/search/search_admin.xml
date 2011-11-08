@@ -8,7 +8,7 @@
 * Implements hook_search_admin();
 */
 function ${file_name}_search_admin() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_search_admin()</h2>

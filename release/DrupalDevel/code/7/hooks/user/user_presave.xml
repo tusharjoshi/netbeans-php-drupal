@@ -8,7 +8,7 @@
 * Implements hook_user_presave();
 */
 function ${file_name}_user_presave(&$edit, $account, $category) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_user_presave(&$edit, $account, $category)</h2>

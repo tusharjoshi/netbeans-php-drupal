@@ -7,8 +7,8 @@
 /**
 * Implements hook_process_HOOK();
 */
-function ${file_name}_process_HOOK(&$variables) {
-   ${set_cursor}
+function ${file_name}_process_${HOOK}(&$variables) {
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_process_HOOK(&$variables)</h2>

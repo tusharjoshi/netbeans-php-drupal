@@ -8,7 +8,7 @@
 * Implements hook_entity_presave();
 */
 function ${file_name}_entity_presave($entity, $type) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_entity_presave($entity, $type)</h2>

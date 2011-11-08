@@ -7,8 +7,8 @@
 /**
 * Implements hook_filter_FILTER_settings();
 */
-function ${file_name}_filter_FILTER_settings($form, &$form_state, $filter, $format, $defaults, $filters) {
-   ${set_cursor}
+function ${file_name}_filter_${FILTER}_settings($form, &$form_state, $filter, $format, $defaults, $filters) {
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_filter_FILTER_settings($form, &$form_state, $filter, $format, $defaults, $filters)</h2>

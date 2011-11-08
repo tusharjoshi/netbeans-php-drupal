@@ -8,7 +8,7 @@
 * Implements hook_taxonomy_vocabulary_insert();
 */
 function ${file_name}_taxonomy_vocabulary_insert($vocabulary) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_taxonomy_vocabulary_insert($vocabulary)</h2>

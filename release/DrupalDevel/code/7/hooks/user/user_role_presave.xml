@@ -8,7 +8,7 @@
 * Implements hook_user_role_presave();
 */
 function ${file_name}_user_role_presave($role) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_user_role_presave($role)</h2>

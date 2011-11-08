@@ -38,10 +38,10 @@
 <p>The items are rather simple:</p>
 <ul>
   <li><strong>title</strong> - This is the name of the actual item, such as menu_alter</li>
-  <li><strong>external </strong>- This is a url of an external help page for the item. If left blank then no help will be available for that item</li>
-  <li><strong>group</strong> - This is the actual internatl group of the item, hook, theme, other.</li>
+  <li><strong>external </strong>- This is a URL of an external help page for the item. If left blank then no help will be available for that item</li>
+  <li><strong>group</strong> - This is the actual internal group of the item, hook, theme, other.</li>
   <li><strong>template</strong> - This is the actual template that is inserted into the editor. More information is available on this below.</li>
-  <li><strong>help</strong> - This is the internal help that is displayed in the help secton of the API Tree window. This should contain HTML formatted text.</li>
+  <li><strong>help</strong> - This is the internal help that is displayed in the help section of the API Tree window. This should contain HTML formatted text.</li>
 </ul>
 <p><em>The template and help sections must always be enclosed in CDATA.</em></p>
 <p>The core section in the XML file is the template section. Here is the template from hook_action_info:</p>
@@ -49,22 +49,30 @@
   * Implements hook_action_info();<br>
   */<br>
   function ${file_name}_action_info() {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;${set_cursor}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;${cursor}<br>
 }</p>
 <p>The actual code above will be inserted into the editor, which a couple special template variables:</p>
 <ul>
   <li><strong>${file_name} </strong>- This will be replaced with the file/module name.</li>
-  <li><strong>${set_cursor}</strong> - This is where the cursor will be placed after insertion</li>
+  <li><strong>${cursor}</strong> - This is where the cursor will be placed after insertion</li>
 </ul>
+<p>You can also use any of Netbeans code template variables inside your template. For a list of available replacements, please visit this <object classid="java:org.netbeans.modules.javahelp.BrowserDisplayer">
+                <param name="content" value="http://wiki.netbeans.org/Java_EditorUsersGuide#Reserved_parameter_and_hint_names">
+                <param name="text" value="<html><u>Netbeans wiki (Web document)</u></html>">
+                <param name="textFontSize" value="medium">
+                <param name="textColor" value="blue">
+            </object>
+    . Make sure the parameter you use is available for PHP.</p>
 <p>Using this simple structure it becomes simple to create your own custom code snippets to insert into your files. Simple follow the directory style listed above and create your XML file. Once you reload your project, your new code will be there. You can also override the included templates by copying them, into your custom template library. Make sure you follow the same directory structure to overwrite the template or you may create a separate template in a new directory. You can always retrieve the source templates from GitHub under the release/DrupalDevel folder.</p>
 <h3>Creation Templates</h3>
-<p>Creation tempaltes are a little different from API templates. They are simple text files with replacement variables. If you decide to create your own creation templates then make sure you include all the files you want in that template. If the template for that version of Drupal and item appear in your custom template path then none of the files from the core tempaltes will be used.</p>
+<p>Creation templates are a little different from API templates. They are simple text files with replacement variables. If you decide to create your own creation templates then make sure you include all the files you want in that template. If the template for that version of Drupal and item appear in your custom template path then none of the files from the core tempaltes will be used.</p>
 <p>File names in the templates contain one simple replacement variable, _drupal_safe_name_. This will be replaced with the module or theme name when the file is created. </p>
-<p>Inside of the tempalte files you have a couple more replacement variables:</p>
+<p>Inside of the template files you have a couple more replacement variables:</p>
 <ul>
   <li><strong>${real_name}</strong> - The user friendly name of the theme or item.</li>
   <li><strong>${safe_name}</strong> - The machine safe name of the theme or module (ie: the actual name used in the directory and info file)</li>
 </ul>
+
 <p>That's all there is to customizing the tool. It's very simple to add new items to the tool, but yet very powerful. If you come up with any great template modifications, please share them on GitHub so that everyone can enjoy them.</p>
 </body>
 </html>

@@ -8,7 +8,7 @@
 * Implements hook_themes_enabled();
 */
 function ${file_name}_themes_enabled($theme_list) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_themes_enabled($theme_list)</h2>

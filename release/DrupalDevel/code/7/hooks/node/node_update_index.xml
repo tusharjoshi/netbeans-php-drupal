@@ -8,7 +8,7 @@
 * Implements hook_node_update_index();
 */
 function ${file_name}_node_update_index($node) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_node_update_index($node)</h2>

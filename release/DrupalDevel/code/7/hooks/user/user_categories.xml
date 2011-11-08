@@ -8,7 +8,7 @@
 * Implements hook_user_categories();
 */
 function ${file_name}_user_categories() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_user_categories()</h2>

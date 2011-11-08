@@ -7,8 +7,8 @@
 /**
 * Implements hook_filter_FILTER_tips();
 */
-function ${file_name}_filter_FILTER_tips($filter, $format, $long) {
-   ${set_cursor}
+function ${file_name}_filter_${FILTER}_tips($filter, $format, $long) {
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_filter_FILTER_tips($filter, $format, $long)</h2>

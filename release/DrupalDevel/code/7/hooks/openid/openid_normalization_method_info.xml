@@ -8,7 +8,7 @@
 * Implements hook_openid_normalization_method_info();
 */
 function ${file_name}_openid_normalization_method_info() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_openid_normalization_method_info()</h2>

@@ -8,7 +8,7 @@
 * Implements hook_update_index();
 */
 function ${file_name}_update_index() {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_update_index()</h2>

@@ -8,7 +8,7 @@
 * Implements hook_form();
 */
 function ${file_name}_form($node, &$form_state) {
-   ${set_cursor}
+   ${cursor}
 }
 ]]></template>
 		<help><![CDATA[<h2>hook_form($node, &$form_state)</h2>
