@@ -100,23 +100,24 @@ public final class DrushTopComponent extends TopComponent {
     public void setActiveProject(Project proj) {
         this.activeProject = proj;
     }
-    
-    public void commandParse(){
+
+    public void commandParse() {
         String command = cmbCommand.getText();
-        if (command.equals("+DEBUG")){
+        if (command.equals("+DEBUG")) {
             cmdProcessor.println("<span style='font-weight:bold;color:#ff0000'>[DEBUG MODE ON]</span>");
             debugMode = true;
             cmbCommand.setBackground(Color.red);
-        } else if (command.equals("-DEBUG")){
+        } else if (command.equals("-DEBUG")) {
             cmdProcessor.println("<span style='font-weight:bold;color:#ff0000'>[DEBUG MODE OFF]</span>");
             cmbCommand.setBackground(Color.white);
             debugMode = false;
         } else {
-        
+
             executeDrush(command);
         }
-        
+
     }
+
     public void executeDrush(String input) {
 
 
@@ -144,8 +145,12 @@ public final class DrushTopComponent extends TopComponent {
             if (drupalPath.equals("")) {
                 drupalPath = DrupalDevelPreferences.getSourceDirectory(activeProject);
             }
+            if (System.getProperty("os.name").startsWith("Windows")) {
+                command += "-r \"" + drupalPath + "\" --include=\"" + DrupalDevelPreferences.getDrushIncludePath() + "\" ";
+            } else {
+                command += "-r " + drupalPath + " --include=" + DrupalDevelPreferences.getDrushIncludePath() + " ";
+            }
 
-            command += "-r \"" + drupalPath + "\" --include=\"" + DrupalDevelPreferences.getDrushIncludePath() + "\" ";
             btnCancel.setEnabled(true);
             btnExecute.setEnabled(false);
             if (!cmbHost.getText().equals("")) {
@@ -246,7 +251,7 @@ public final class DrushTopComponent extends TopComponent {
         cmbCommand.writeHistory();
         cmbHost.writeHistory();
         commandParse();
-        
+
     }//GEN-LAST:event_btnExecuteActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
