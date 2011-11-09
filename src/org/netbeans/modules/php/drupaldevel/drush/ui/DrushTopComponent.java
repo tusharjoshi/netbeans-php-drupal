@@ -4,6 +4,7 @@
  */
 package org.netbeans.modules.php.drupaldevel.drush.ui;
 
+import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.JOptionPane;
@@ -41,6 +42,7 @@ public final class DrushTopComponent extends TopComponent {
     private JTextComponent activeEditor;
     private PropertyChangeListener propListener;
     private Project activeProject;
+    private Boolean debugMode = false;
 
     public DrushTopComponent() {
         initComponents();
@@ -48,7 +50,7 @@ public final class DrushTopComponent extends TopComponent {
         setToolTipText(NbBundle.getMessage(DrushTopComponent.class, "HINT_DrushTopComponent"));
         btnCancel.setEnabled(false);
         activeProject = Util.getActiveProject();
-        
+
         propListener = new PropertyChangeListener() {
 
             public void propertyChange(PropertyChangeEvent evt) {
@@ -89,17 +91,35 @@ public final class DrushTopComponent extends TopComponent {
             @Override
             public void commandEnter(CommandHistoryEvent evt) {
                 cmbHost.writeHistory();
-                executeDrush(evt.command);
+                commandParse();
             }
         });
 
     }
-    public void setActiveProject(Project proj){
+
+    public void setActiveProject(Project proj) {
         this.activeProject = proj;
+    }
+    
+    public void commandParse(){
+        String command = cmbCommand.getText();
+        if (command.equals("+DEBUG")){
+            cmdProcessor.println("<span style='font-weight:bold;color:#ff0000'>[DEBUG MODE ON]</span>");
+            debugMode = true;
+            cmbCommand.setBackground(Color.red);
+        } else if (command.equals("-DEBUG")){
+            cmdProcessor.println("<span style='font-weight:bold;color:#ff0000'>[DEBUG MODE OFF]</span>");
+            cmbCommand.setBackground(Color.white);
+            debugMode = false;
+        } else {
+        
+            executeDrush(command);
+        }
+        
     }
     public void executeDrush(String input) {
 
-   
+
         String libPath = DrupalDevelPreferences.getDrushPath();
         boolean libraryCheck = DrupalDevelPreferences.validateDrushPath(libPath);
         if (!libraryCheck) {
@@ -111,28 +131,32 @@ public final class DrushTopComponent extends TopComponent {
             cmdProcessor.println("<span style='font-weight:bold;color:#ff0000'>[ERROR]</span> Active project not detected. Please open a PHP project file in the editor then proceed.");
             return;
         }
-              
+
         String command = "";
         if (System.getProperty("os.name").startsWith("Windows")) {
             command = "cmd /c " + DrupalDevelPreferences.getDrushPath() + "\\drush.bat ";
         } else {
             command = DrupalDevelPreferences.getDrushPath() + "/drush ";
         }
-        
-        String drupalPath = DrupalDevelPreferences.getDrupalPath(activeProject);
-        
-        if (drupalPath.equals("")){
-            drupalPath = DrupalDevelPreferences.getSourceDirectory(activeProject);
-        }
-    
-        command += "-r \"" + drupalPath + "\" --include=\"" + DrupalDevelPreferences.getDrushIncludePath() + "\" ";
-        btnCancel.setEnabled(true);
-        btnExecute.setEnabled(false);
-        if (!cmbHost.getText().equals("")) {
-            command += " --uri==" + cmbHost.getText();
+        if (!debugMode) {
+            String drupalPath = DrupalDevelPreferences.getDrupalPath(activeProject);
 
+            if (drupalPath.equals("")) {
+                drupalPath = DrupalDevelPreferences.getSourceDirectory(activeProject);
+            }
+
+            command += "-r \"" + drupalPath + "\" --include=\"" + DrupalDevelPreferences.getDrushIncludePath() + "\" ";
+            btnCancel.setEnabled(true);
+            btnExecute.setEnabled(false);
+            if (!cmbHost.getText().equals("")) {
+                command += " --uri=" + cmbHost.getText();
+
+            }
+            command += " -y " + input;
+        } else {
+            command += " " + input;
         }
-        command += " -y " + input;
+
         command = command.replaceAll("\\s+", " ");
         cmdProcessor.println("<b>EXECUTE: </b><i>" + command + "</i>");
         String[] cmd = command.split("\\s");
@@ -221,7 +245,8 @@ public final class DrushTopComponent extends TopComponent {
     private void btnExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecuteActionPerformed
         cmbCommand.writeHistory();
         cmbHost.writeHistory();
-        executeDrush(cmbCommand.getText());
+        commandParse();
+        
     }//GEN-LAST:event_btnExecuteActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
