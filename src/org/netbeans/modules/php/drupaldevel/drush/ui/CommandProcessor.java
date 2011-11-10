@@ -271,13 +271,16 @@ class ActivatedHyperlinkListener implements HyperlinkListener {
 
         HyperlinkEvent.EventType type = hyperlinkEvent.getEventType();
         final String url = hyperlinkEvent.getURL().toString();
+        
         if (type == HyperlinkEvent.EventType.ACTIVATED) {
-            if (url.startsWith("file://")) {
-                String fileName = url.substring(7, url.lastIndexOf(":"));
+            
+            if (url.startsWith("file:/")) {
+                String fileName = url.substring(url.indexOf(":")+1, url.lastIndexOf(":"));
                 String lineNumber = url.substring(url.lastIndexOf(":") + 1);
                 File f = new File(fileName);
                 FileObject fobj = FileUtil.toFileObject(f);
                 DataObject dobj = null;
+                
                 try {
                     dobj = DataObject.find(fobj);
                 } catch (DataObjectNotFoundException ex) {
