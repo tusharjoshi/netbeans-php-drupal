@@ -52,3 +52,8 @@
     2.0.4 - beta
         - Tool templates now work off of code template system.
         - Editor gets focus upon code insertion
+		
+11/12/2011
+	2.0.5 - beta
+		- Several fixes for Mac and Nix
+		- Added reload button to API window

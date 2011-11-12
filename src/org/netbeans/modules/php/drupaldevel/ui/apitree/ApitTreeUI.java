@@ -23,7 +23,7 @@ import javax.swing.tree.*;
  * @author Jamie Holly <jamie@hollyit.net>
  */
 public class ApitTreeUI extends javax.swing.JPanel {
-    
+
     DefaultMutableTreeNode root = new DefaultMutableTreeNode("Please open a Drupal project");
     DefaultTreeModel treeModel;
     /**
@@ -37,12 +37,14 @@ public class ApitTreeUI extends javax.swing.JPanel {
     private ArrayList searchResults = new ArrayList();
     private int lastSearchIndex = 0;
     private String lastSearch = "";
-    
+    private String _path1 = "";
+    private String _path2 = "";
+
     public ApitTreeUI() {
         initComponents();
         HTMLEditorKit hed = new HTMLEditorKit();
         StyleSheet sheet = hed.getStyleSheet();
-        
+
         sheet.addRule(".php-boundry {font-weight:bold;}");
         sheet.addRule(".php-function-or-constant {color:#0000AA; }");
         sheet.addRule(".php-string {color:#AA0000; }");
@@ -54,11 +56,11 @@ public class ApitTreeUI extends javax.swing.JPanel {
         sheet.addRule(".code p{margin-left:5px}");
         Document doc = hed.createDefaultDocument();
         txtHelp.setEditorKit(hed);
-        tree.setModel(treeModel);        
+        tree.setModel(treeModel);
         tree.setModel(treeModel);
         tree.setCellRenderer(new TreeRenderer());
         ActionListener al = new ActionListener() {
-            
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 JMenuItem item = (JMenuItem) e.getSource();
@@ -69,13 +71,13 @@ public class ApitTreeUI extends javax.swing.JPanel {
                 } else if (item.getText().equals("Implementations")) {
                     fireApiItemEvent(new ApiTreeEvent(tree, selItem, ApiTreeEvent.EVENT_LOOKUP));
                 }
-                
+
             }
         };
-        
+
         contextMenu = new JPopupMenu();
         Icon icn = new ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/ui/apitree/add.png"));
-        
+
         menuItems[0] = new JMenuItem("Insert", icn);
         icn = new ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/ui/apitree/help.png"));
         menuItems[1] = new JMenuItem("Help", icn);
@@ -85,9 +87,9 @@ public class ApitTreeUI extends javax.swing.JPanel {
             menuItems[i].addActionListener(al);
             contextMenu.add(menuItems[i]);
         }
-        
+
         tree.addTreeSelectionListener(new TreeSelectionListener() {
-            
+
             @Override
             public void valueChanged(TreeSelectionEvent e) {
                 DefaultMutableTreeNode node = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
@@ -102,75 +104,79 @@ public class ApitTreeUI extends javax.swing.JPanel {
                 /*
                  * retrieve the node that was selected
                  */
-                
+
                 if (node instanceof ApiTreeItem) {
                     ApiTreeItem item = (ApiTreeItem) node;
-                    
+
                     TemplateParser tp = new TemplateParser(item.getFile());
                     String help = tp.getTag("help");
-                    if (help.equals("")){
-                        help="<h2><center>No help available</center></h2>";
+                    if (help.equals("")) {
+                        help = "<h2><center>No help available</center></h2>";
                     }
                     txtHelp.setText(help);
                     txtHelp.setCaretPosition(0);
-                    
+
                 }
             }
         });
-        
+
     }
-    
+
     public void loadPath(String path) {
         TreeMerger tm = new TreeMerger();
         HashMap map = tm.mergePaths(path, "");
         populateTree(map);
-        
-        
-        
+
+
+
     }
-    
+
     public void loadPath(String path, String path2) {
+        btnRefresh.setEnabled(false);
+
+        _path1 = path;
+        _path2 = path2;
         TreeMerger tm = new TreeMerger();
         HashMap map = tm.mergePaths(path, path2);
         populateTree(map);
-        
-        
-        
+        btnRefresh.setEnabled(true);
+
+
     }
-    
+
     private void populateTree(HashMap map) {
         root.removeAllChildren();
         DefaultMutableTreeNode nodes = this.parseMap(map, root);
-        
+
         root.add(nodes);
         sortNodes(root);
         treeModel = new DefaultTreeModel(root);
         tree.setRootVisible(false);
         tree.setModel(treeModel);
     }
-    
+
     private DefaultMutableTreeNode parseMap(HashMap map, DefaultMutableTreeNode parent) {
         DefaultMutableTreeNode node = new DefaultMutableTreeNode("");
         Iterator it = map.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pairs = (Map.Entry) it.next();
-            
-            
+
+
             if (pairs.getValue() instanceof HashMap) {
                 node = new DefaultMutableTreeNode(pairs.getKey());
                 HashMap map1 = (HashMap) pairs.getValue();
                 node.add(parseMap(map1, node));
             } else {
                 node = (ApiTreeItem) pairs.getValue();
-                
+
             }
             parent.add(node);
             it.remove(); // avoids a ConcurrentModificationException
         }
-        
+
         return node;
     }
-    
+
     private void sortNodes(DefaultMutableTreeNode node) {
         ArrayList children = Collections.list(node.children());
         // for getting original location
@@ -181,7 +187,7 @@ public class ApitTreeUI extends javax.swing.JPanel {
         DefaultMutableTreeNode temParent = new DefaultMutableTreeNode();
         for (Object child : children) {
             DefaultMutableTreeNode ch = (DefaultMutableTreeNode) child;
-            if (ch.getChildCount()>0){
+            if (ch.getChildCount() > 0) {
                 sortNodes(ch);
             }
             temParent.insert(ch, 0);
@@ -195,15 +201,15 @@ public class ApitTreeUI extends javax.swing.JPanel {
             node.insert((DefaultMutableTreeNode) children.get(indx), node.getChildCount());
         }
     }
-    
+
     public void addApiItemSelection(ApiTreeEventListener listener) {
         listenerList.add(ApiTreeEventListener.class, listener);
     }
-    
+
     public void removeApiItemSelection(ApiTreeEventListener listener) {
         listenerList.remove(ApiTreeEventListener.class, listener);
     }
-    
+
     void fireApiItemEvent(ApiTreeEvent evt) {
         Object[] listeners = listenerList.getListenerList();
         for (int i = 0; i < listeners.length; i = i + 2) {
@@ -212,18 +218,18 @@ public class ApitTreeUI extends javax.swing.JPanel {
             }
         }
     }
-    
+
     private int getItemCount() {
         int count = 0;
         Enumeration en = root.breadthFirstEnumeration();
 
         //iterate through the enumeration 
         while (en.hasMoreElements()) {
-            
+
             count++;
-            
+
         }
-        
+
         return count;
     }
 
@@ -243,11 +249,11 @@ public class ApitTreeUI extends javax.swing.JPanel {
             lastSearchIndex = (dir == 0) ? -1 : searchResults.size();
             lastSearch = nodeStr;
         }
-        
+
         if (searchResults.size() < 1) {
             return null;
         }
-        
+
         if (dir == 0) {
             lastSearchIndex++;
             if (lastSearchIndex > (searchResults.size() - 1)) {
@@ -263,7 +269,7 @@ public class ApitTreeUI extends javax.swing.JPanel {
         //tree node with string node found return null 
         return (DefaultMutableTreeNode) searchResults.get(lastSearchIndex);
     }
-    
+
     private ArrayList resultsMap(String nodeStr) {
         ArrayList map = new ArrayList();
         DefaultMutableTreeNode node = null;
@@ -278,15 +284,15 @@ public class ApitTreeUI extends javax.swing.JPanel {
 
             //match the string with the user-object of the node 
             if (node.getChildCount() == 0 && node.getUserObject().toString().startsWith(nodeStr)) {
-                
+
                 map.add(node);
-                
+
             }
         }
-        
+
         return map;
     }
-    
+
     private void doSearch(int dir) {
         btnSearchPrevious.setEnabled(false);
         btnSearchNext.setEnabled(false);
@@ -358,6 +364,7 @@ public class ApitTreeUI extends javax.swing.JPanel {
         tree = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtHelp = new javax.swing.JTextPane();
+        btnRefresh = new javax.swing.JButton();
 
         txtFind.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -402,17 +409,27 @@ public class ApitTreeUI extends javax.swing.JPanel {
 
         jSplitPane1.setRightComponent(jScrollPane2);
 
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/ui/apitree/refresh.png"))); // NOI18N
+        btnRefresh.setToolTipText("Refresh Library Data");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(txtFind)
+                .addComponent(txtFind, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearchPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(btnSearchNext, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSearchNext, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jSplitPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,16 +437,17 @@ public class ApitTreeUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnSearchNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtFind)
-                    .addComponent(btnSearchPrevious, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSearchPrevious, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRefresh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtFindKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFindKeyReleased
         doSearch(0);
     }//GEN-LAST:event_txtFindKeyReleased
-    
+
     private void treeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_treeMousePressed
         int selRow = tree.getRowForLocation(evt.getX(), evt.getY());
         TreePath selPath = tree.getPathForLocation(evt.getX(), evt.getY());
@@ -450,24 +468,29 @@ public class ApitTreeUI extends javax.swing.JPanel {
                     }
 
                     if (selItem.getSearch().equals("")) {
-                        
+
                         menuItems[1].setVisible(false);
-                    }                    
+                    }
                     contextMenu.show(tree, x, y);
                 }
                 selectedRow = selPath;
             }
         }
     }//GEN-LAST:event_treeMousePressed
-    
+
     private void btnSearchNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchNextActionPerformed
         doSearch(0);
     }//GEN-LAST:event_btnSearchNextActionPerformed
-    
+
     private void btnSearchPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPreviousActionPerformed
         doSearch(1);
     }//GEN-LAST:event_btnSearchPreviousActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        loadPath(_path1, _path2);
+    }//GEN-LAST:event_btnRefreshActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSearchNext;
     private javax.swing.JButton btnSearchPrevious;
     private javax.swing.JScrollPane jScrollPane1;
@@ -479,11 +502,11 @@ public class ApitTreeUI extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private class TreeRenderer extends DefaultTreeCellRenderer {
-        
+
         Icon hookIcon = new ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/ui/apitree/hook.png"));
         Icon themeIcon = new ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/ui/apitree/template.png"));
         Icon otherIcon = new ImageIcon(getClass().getResource("/org/netbeans/modules/php/drupaldevel/ui/apitree/code.png"));
-        
+
         @Override
         public Component getTreeCellRendererComponent(
                 JTree tree,
@@ -493,7 +516,7 @@ public class ApitTreeUI extends javax.swing.JPanel {
                 boolean leaf,
                 int row,
                 boolean hasFocus) {
-            
+
             super.getTreeCellRendererComponent(
                     tree, value, sel,
                     expanded, leaf, row,
@@ -509,7 +532,7 @@ public class ApitTreeUI extends javax.swing.JPanel {
                     setIcon(otherIcon);
                 }
             }
-            
+
             return this;
         }
     }
