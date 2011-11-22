@@ -191,6 +191,10 @@ public class libraryParser {
      */
     static String getFileName(JTextComponent targetComponent) {
         FileObject fo = NbEditorUtilities.getFileObject(targetComponent.getDocument());
-        return fo.getName();
+        String fileName = fo.getName();
+        if (fileName.contains(".")){
+            fileName = fileName.substring(0,fileName.indexOf("."));
+        }
+        return fileName;
     }
 }

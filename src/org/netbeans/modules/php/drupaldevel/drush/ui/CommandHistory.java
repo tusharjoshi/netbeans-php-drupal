@@ -116,11 +116,13 @@ public class CommandHistory extends JPanel {
         tf.setSelectionStart(0);
         tf.setSelectionEnd(tf.getText().length());
         hide_flag = true;
+        saveHistory();
     }
 
     public void saveHistory() {
 
         try {
+            
             Writer output = new BufferedWriter(new FileWriter(this.historyFile));
             //FileWriter always assumes default encoding is OK!
             for (String s : v) {

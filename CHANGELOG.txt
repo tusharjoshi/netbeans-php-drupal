@@ -57,3 +57,13 @@
 	2.0.5 - beta
 		- Several fixes for Mac and Nix
 		- Added reload button to API window
+		
+11/14/2011
+	2.0.6 - beta
+		- Fixed some problems with Drush combobox history
+		
+11/22/2011
+	2.0.7 - RC1
+		- Added drop down version select to new module and theme creation.
+		- Fixed bug in creating hooks with files that have multiple . in them.
+		

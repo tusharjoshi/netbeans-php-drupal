@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
 package org.netbeans.modules.php.drupaldevel.wizards.module;
 
@@ -22,12 +22,17 @@ public final class ModuleVisualPanel2 extends JPanel implements DocumentListener
     private ArrayList fileList = new ArrayList();
     public String drupalVer = "";
     public String libraryPath = "";
+    private boolean cbInit = false;
+
     /** Creates new form ModuleVisualPanel2 */
     public ModuleVisualPanel2(ModuleWizardPanel2 panel) {
         initComponents();
         this.panel = panel;
         jTextField1.getDocument().addDocumentListener(this);
         this.lblExists.setVisible(false);
+
+        // NetBeans is choking on adding actionListeners through the designer panel
+
     }
 
     @Override
@@ -63,17 +68,25 @@ public final class ModuleVisualPanel2 extends JPanel implements DocumentListener
     }
 
     private void updateGeneratedFilesList(String moduleName) {
-        
-        if (this.fileList.size()==0) {
-            
-            this.fileList = WizardUtils.getFilesList(this.libraryPath);
+        if (this.cbInit == false) {
+            cbDrupalVersion.addActionListener(new java.awt.event.ActionListener() {
 
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    fileList.clear();
+                    updateGeneratedFilesList(jTextField1.getText());
+                }
+            });
+            cbInit = true;
         }
+        if (this.fileList.size() == 0) {
+            this.fileList = WizardUtils.getFilesList(this.libraryPath + "/" + this.cbDrupalVersion.getSelectedItem().toString());
+        }
+
         String generatedFiles = "";
         moduleSafeName = moduleName.replaceAll("[^a-zA-Z0-9_]", "_").toLowerCase();
         for (int i = 0; i < this.fileList.size(); i++) {
             String item = this.fileList.get(i).toString();
-            
+
             String name = WizardUtils.fileName(item, moduleSafeName);
             generatedFiles += folderPath + moduleSafeName + "/" + name + "\n";
         }
@@ -106,10 +119,12 @@ public final class ModuleVisualPanel2 extends JPanel implements DocumentListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        cbDrupalVersion = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -117,17 +132,21 @@ public final class ModuleVisualPanel2 extends JPanel implements DocumentListener
 
         setPreferredSize(new java.awt.Dimension(478, 238));
 
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(ModuleVisualPanel2.class, "ModuleVisualPanel2.jLabel4.text")); // NOI18N
+
+        cbDrupalVersion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(ModuleVisualPanel2.class, "ModuleVisualPanel2.jLabel1.text")); // NOI18N
+
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jTextField2.setEditable(false);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(ModuleVisualPanel2.class, "ModuleVisualPanel2.jLabel1.text")); // NOI18N
-
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(ModuleVisualPanel2.class, "ModuleVisualPanel2.jLabel2.text")); // NOI18N
+
+        jTextField2.setEditable(false);
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(ModuleVisualPanel2.class, "ModuleVisualPanel2.jLabel3.text")); // NOI18N
 
@@ -144,27 +163,42 @@ public final class ModuleVisualPanel2 extends JPanel implements DocumentListener
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(lblExists)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addGap(0, 20, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
-                .addGap(36, 36, 36))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(lblExists)
-                .addContainerGap(375, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cbDrupalVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))
+                        .addGap(36, 36, 36))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(cbDrupalVersion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -176,7 +210,7 @@ public final class ModuleVisualPanel2 extends JPanel implements DocumentListener
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lblExists)
                 .addGap(21, 21, 21))
         );
@@ -186,9 +220,11 @@ public final class ModuleVisualPanel2 extends JPanel implements DocumentListener
         // TODO add your handling code here:}//GEN-LAST:event_jTextField1ActionPerformed
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JComboBox cbDrupalVersion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
