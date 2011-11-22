@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
 package org.netbeans.modules.php.drupaldevel.wizards.module;
 
@@ -11,7 +11,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import org.openide.filesystems.FileObject;
 import java.io.File;
+import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
 import org.netbeans.modules.php.drupaldevel.DrupalDevelTool;
+import org.netbeans.modules.php.drupaldevel.wizards.WizardUtils;
 import org.openide.WizardDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbPreferences;
@@ -44,10 +46,10 @@ public class ModuleWizardPanel2 implements WizardDescriptor.Panel {
     public ModuleVisualPanel2 getComponent() {
         if (component == null) {
             component = new ModuleVisualPanel2(this);
-            component.drupalVer = this.drupalVer;
-            component.libraryPath = this.drupalLibrary;
-
             component.setFolderPath(this.target.getPath());
+            String path = DrupalDevelPreferences.libraryInstallPath() + "/files/module";
+            component.libraryPath = path;
+            WizardUtils.PopulateVersionCombo(component.cbDrupalVersion, path, drupalVer);
         }
         return component;
     }
@@ -68,7 +70,7 @@ public class ModuleWizardPanel2 implements WizardDescriptor.Panel {
     }
 
     public String getDrupalVer() {
-        return this.drupalVer;
+        return this.component.cbDrupalVersion.getSelectedItem().toString();
     }
 
     public ArrayList getFileList() {

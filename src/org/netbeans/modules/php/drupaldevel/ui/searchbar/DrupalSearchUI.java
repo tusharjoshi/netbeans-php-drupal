@@ -6,6 +6,7 @@ package org.netbeans.modules.php.drupaldevel.ui.searchbar;
 
 import java.net.URL;
 import java.net.URLEncoder;
+import javax.swing.JOptionPane;
 import org.netbeans.api.project.Project;
 import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
 import org.netbeans.modules.php.drupaldevel.Util;
@@ -55,7 +56,8 @@ public class DrupalSearchUI extends javax.swing.JPanel {
         }
         activeVersion = version;
         jLabel1.setText("Drupal " + version);
-        autoComplete1.setWordFile(DrupalDevelPreferences.getDefaultLibraryPath() + "/search/" + version + ".txt");
+        
+        autoComplete1.setWordFile(DrupalDevelPreferences.libraryInstallPath() + "/search/" + version + ".txt");
 
     }
 

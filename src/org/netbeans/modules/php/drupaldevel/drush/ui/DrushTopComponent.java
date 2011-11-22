@@ -61,6 +61,7 @@ public final class DrushTopComponent extends TopComponent {
                     if (proj != null) {
                         activeProject = proj;
                         String historyPath = proj.getProjectDirectory().getPath() + "/nbproject/private/";
+                        
                         cmbCommand.setHistory(historyPath + "drushcommands.txt");
                         cmbHost.setHistory(historyPath + "drushhosts.txt");
                     }

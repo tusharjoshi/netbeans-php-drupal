@@ -16,9 +16,11 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import org.netbeans.api.project.Project;
 import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
+import org.netbeans.modules.php.drupaldevel.Util;
 import org.netbeans.modules.php.drupaldevel.libraryParser;
 import org.openide.filesystems.FileLock;
 import org.openide.filesystems.FileObject;
@@ -32,7 +34,7 @@ public class WizardUtils {
     public static ArrayList getFilesList(final String path) {
         ArrayList dirs = new ArrayList();
         File dir = new File(path);
-        
+
         FileFilter filter = new FileFilter() {
 
             @Override
@@ -89,15 +91,29 @@ public class WizardUtils {
             Exceptions.printStackTrace(ex);
         }
     }
-    
-    public static String WizardTemplatePath(Project proj, String type, String version){
-        
+
+    public static String WizardTemplatePath(Project proj, String type, String version) {
+
         String path = DrupalDevelPreferences.getLibraryPath(proj) + "/files/" + type + "/" + version;
         File file = new File(path);
-        if (!file.isDirectory()){
+        if (!file.isDirectory()) {
             path = DrupalDevelPreferences.libraryInstallPath() + "/files/" + type + "/" + version;
         }
-        
+
         return path;
+    }
+
+    public static void PopulateVersionCombo(JComboBox comboBox, String path, String version) {
+        comboBox.removeAllItems();
+        ArrayList items = new ArrayList();
+        items = libraryParser.parseTree(path);
+        for (int i = 0; i < items.size(); i++) {
+            String item = items.get(i).toString();
+            Object obj = Util.makeObj(item);
+            comboBox.addItem(obj);
+            if (item.toString().equals(version)) {
+                comboBox.setSelectedItem(obj);
+            }
+        }
     }
 }
