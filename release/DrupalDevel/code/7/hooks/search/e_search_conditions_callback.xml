@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>e_search_conditions_callback</title>
+		<external>http://api.drupal.org/api/search/7/hook_e_search_conditions_callback</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements sample_search_conditions_callback();
+*/
+function ${file_name}_e_search_conditions_callback($keys) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>sample_search_conditions_callback($keys)</h2>
+
+<p>An example conditions callback function for search.</p>
+<p>This example pulls additional search keywords out of the $_REQUEST variable,
+(i.e. from the query string of the request). The conditions may also be
+generated internally - for example based on a module's settings.</p>
+
+
+
+
+]]></help>
+	</item>

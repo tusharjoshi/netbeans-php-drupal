@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>image_toolkits</title>
+		<external>http://api.drupal.org/api/search/7/hook_image_toolkits</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_image_toolkits();
+*/
+function ${file_name}_image_toolkits() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_image_toolkits()</h2>
+
+<p>Define image toolkits provided by this module.</p>
+<p>The file which includes each toolkit's functions must be declared as part of
+the files array in the module .info file so that the registry will find and
+parse it.</p>
+<p>The toolkit's functions must be named image_toolkitname_operation().
+where the operation may be:</p>
+<ul>
+<li>'load': Required. See image_gd_load() for usage.
+</li>
+<li>'save': Required. See image_gd_save() for usage.
+</li>
+<li>'settings': Optional. See image_gd_settings() for usage.
+</li>
+<li>'resize': Optional. See image_gd_resize() for usage.
+</li>
+<li>'rotate': Optional. See image_gd_rotate() for usage.
+</li>
+<li>'crop': Optional. See image_gd_crop() for usage.
+</li>
+<li>'desaturate': Optional. See image_gd_desaturate() for usage.
+</li>
+</ul>
+
+
+
+
+]]></help>
+	</item>

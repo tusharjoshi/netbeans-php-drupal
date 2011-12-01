@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_cancel_methods_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_cancel_methods_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_cancel_methods_alter();
+*/
+function ${file_name}_user_cancel_methods_alter(&$methods) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_cancel_methods_alter(&$methods)</h2>
+
+<p>Modify account cancellation methods.</p>
+<p>By implementing this hook, modules are able to add, customize, or remove
+account cancellation methods. All defined methods are turned into radio
+button form elements by user_cancel_methods() after this hook is invoked.
+The following properties can be defined for each method:</p>
+<ul>
+<li>title: The radio button's title.
+</li>
+<li>description: (optional) A description to display on the confirmation form
+if the user is not allowed to select the account cancellation method. The
+description is NOT used for the radio button, but instead should provide
+additional explanation to the user seeking to cancel their account.
+</li>
+<li>access: (optional) A boolean value indicating whether the user can access
+a method. If #access is defined, the method cannot be configured as default
+method.
+</li>
+</ul>
+
+<h3>Parameters</h3>
+<p><b>
+$methods</b> -- 
+An array containing user account cancellation methods, keyed by method id.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_update_forbid</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_update_forbid</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_update_forbid();
+*/
+function ${file_name}_field_update_forbid($field, $prior_field, $has_data) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_update_forbid($field, $prior_field, $has_data)</h2>
+
+<p>Forbid a field update from occurring.</p>
+<p>Any module may forbid any update for any reason. For example, the
+field's storage module might forbid an update if it would change
+the storage schema while data for the field exists. A field type
+module might forbid an update if it would change existing data's
+semantics, or if there are external dependencies on field settings
+that cannot be updated.</p>
+<p>To forbid the update from occurring, throw a FieldUpdateForbiddenException.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The field as it will be post-update.</p>
+<p><b>$prior_field</b> -- 
+The field as it is pre-update.</p>
+<p><b>$has_data</b> -- 
+Whether any data already exists for this field.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_update_instance</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_update_instance</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_update_instance();
+*/
+function ${file_name}_field_update_instance($instance, $prior_instance) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_update_instance($instance, $prior_instance)</h2>
+
+<p>Act on a field instance being updated.</p>
+<p>This hook is invoked from field_update_instance() after the instance record
+is saved, so it cannot be used by a module to modify the instance itself.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$instance</b> -- 
+The instance as it is post-update.</p>
+<p><b>$prior_$instance</b> -- 
+The instance as it was pre-update.</p>
+
+
+
+]]></help>
+	</item>

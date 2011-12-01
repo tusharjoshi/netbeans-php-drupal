@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_type_update</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_type_update</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_node_type_update();
+*/
+function ${file_name}_node_type_update($info) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_type_update($info)</h2>
+
+<p>Respond to node type updates.</p>
+<p>This hook is invoked from node_type_save() after the node type is updated
+in the database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$info</b> -- 
+The node type object that is being updated.</p>
+
+
+
+]]></help>
+	</item>

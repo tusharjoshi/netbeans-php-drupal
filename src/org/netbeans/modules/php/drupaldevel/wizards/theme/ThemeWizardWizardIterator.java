@@ -99,7 +99,7 @@ public final class ThemeWizardWizardIterator implements WizardDescriptor.Instant
             String src = fileList.get(i).toString();
             String name = WizardUtils.fileName(src, this.safeName);            
             FileObject file = subFolder.createData(name);
-            WizardUtils.generateFile(file, libraryPath, this.drupalVersion, "theme", name, src, this.safeName, this.moduleName);
+            WizardUtils.generateFile(file, libraryPath, name, src, this.safeName, this.moduleName);
             DataObject dObj = DataObject.find(file);
             OpenCookie oc = (OpenCookie) dObj.getCookie(OpenCookie.class);
             if (oc != null) {

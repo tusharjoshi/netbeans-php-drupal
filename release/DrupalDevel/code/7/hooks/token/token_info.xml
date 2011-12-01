@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>token_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_token_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_token_info();
+*/
+function ${file_name}_token_info() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_token_info()</h2>
+
+<p>Provide information about available placeholder tokens and token types.</p>
+<p>Tokens are placeholders that can be put into text by using the syntax
+[type:token], where type is the machine-readable name of a token type, and
+token is the machine-readable name of a token within this group. This hook
+provides a list of types and tokens to be displayed on text editing screens,
+so that people editing text can see what their token options are.</p>
+<p>The actual token replacement is done by token_replace(), which invokes
+hook_tokens(). Your module will need to implement that hook in order to
+generate token replacements from the tokens defined here.</p>
+
+
+
+
+]]></help>
+	</item>

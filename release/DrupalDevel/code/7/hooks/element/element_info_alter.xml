@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>element_info_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_element_info_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_element_info_alter();
+*/
+function ${file_name}_element_info_alter(&$type) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_element_info_alter(&$type)</h2>
+
+<p>Alter the element type information returned from modules.</p>
+<p>A module may implement this hook in order to alter the element type defaults
+defined by a module.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$type</b> -- 
+All element type defaults as collected by hook_element_info().</p>
+
+
+
+]]></help>
+	</item>

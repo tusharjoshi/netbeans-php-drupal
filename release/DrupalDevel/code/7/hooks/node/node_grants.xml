@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_grants</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_grants</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_node_grants();
+*/
+function ${file_name}_node_grants($account, $op) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_grants($account, $op)</h2>
+
+<p>Inform the node access system what permissions the user has.</p>
+<p>This hook is for implementation by node access modules. In this hook,
+the module grants a user different "grant IDs" within one or more
+"realms". In hook_node_access_records(), the realms and grant IDs are
+associated with permission to view, edit, and delete individual nodes.</p>
+<p>The realms and grant IDs can be arbitrarily defined by your node access
+module; it is common to use role IDs as grant IDs, but that is not
+required. Your module could instead maintain its own list of users, where
+each list has an ID. In that case, the return value of this hook would be
+an array of the list IDs that this user is a member of.</p>
+<p>A node access module may implement as many realms as necessary to
+properly define the access privileges for the nodes. Note that the system
+makes no distinction between published and unpublished nodes. It is the
+module's responsibility to provide appropriate realms to limit access to
+unpublished content.</p>
+<p>Node access records are stored in the {node_access} table and define which
+grants are required to access a node. There is a special case for the view
+operation -- a record with node ID 0 corresponds to a "view all" grant for
+the realm and grant ID of that record. If there are no node access modules
+enabled, the core node module adds a node ID 0 record for realm 'all'. Node
+access modules can also grant "view all" permission on their custom realms;
+for example, a module could create a record in {node_access} with:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p><span&nbsp;class="php-variable">$record</span>&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'nid'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">0</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'gid'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">888</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'realm'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'example_realm'</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'grant_view'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">1</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'grant_update'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">0</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'grant_delete'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">0</span>,<br&nbsp;/>
+);<br&nbsp;/>
+<span&nbsp;class="php-function-or-constant">drupal_write_record</span>(<span&nbsp;class="php-string">'node_access'</span>,&nbsp;<span&nbsp;class="php-variable">$record</span>);<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>And then in its hook_node_grants() implementation, it would need to return:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p><span&nbsp;class="php-keyword">if</span>&nbsp;(<span&nbsp;class="php-variable">$op</span>&nbsp;==&nbsp;<span&nbsp;class="php-string">'view'</span>)&nbsp;{<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-variable">$grants</span>[<span&nbsp;class="php-string">'example_realm'</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<span&nbsp;class="php-constant">888</span>);<br&nbsp;/>
+}<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>If you decide to do this, be aware that the node_access_rebuild() function
+will erase any node ID 0 entry when it is called, so you will need to make
+sure to restore your {node_access} record after node_access_rebuild() is
+called.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$account</b> -- 
+The user object whose grants are requested.</p>
+<p><b>$op</b> -- 
+The node operation to be performed, such as "view", "update", or "delete".</p>
+
+
+
+]]></help>
+	</item>

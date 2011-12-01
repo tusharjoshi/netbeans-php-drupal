@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_attach_load</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_attach_load</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_attach_load();
+*/
+function ${file_name}_field_attach_load($entity_type, $entities, $age, $options) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_attach_load($entity_type, $entities, $age, $options)</h2>
+
+<p>Act on field_attach_load().</p>
+<p>This hook is invoked after the field module has performed the operation.</p>
+<p>Unlike other field_attach hooks, this hook accounts for 'multiple loads'.
+Instead of the usual $entity parameter, it accepts an array of entities,
+indexed by entity ID. For performance reasons, information for all available
+entities should be loaded in a single query where possible.</p>
+<p>The changes made to the entities' field values get cached by the field cache
+for subsequent loads.</p>
+<p>See field_attach_load() for details and arguments.</p>
+
+
+
+
+]]></help>
+	</item>

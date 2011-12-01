@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_attach_view_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_attach_view_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_attach_view_alter();
+*/
+function ${file_name}_field_attach_view_alter(&$output, $context) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_attach_view_alter(&$output, $context)</h2>
+
+<p>Perform alterations on field_attach_view() or field_view_field().</p>
+<p>This hook is invoked after the field module has performed the operation.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$output</b> -- 
+The structured content array tree for all of the entity's fields.</p>
+<p><b>$context</b> -- 
+An associative array containing:</p>
+<ul>
+<li>entity_type: The type of $entity; for example, 'node' or 'user'.
+</li>
+<li>entity: The entity with fields to render.
+</li>
+<li>view_mode: View mode; for example, 'full' or 'teaser'.
+</li>
+<li>display: Either a view mode string or an array of display settings. If
+this hook is being invoked from field_attach_view(), the 'display'
+element is set to the view mode string. If this hook is being invoked
+from field_view_field(), this element is set to the $display argument
+and the view_mode element is set to '_custom'. See field_view_field()
+for more information on what its $display argument contains.
+</li>
+<li>language: The language code used for rendering.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

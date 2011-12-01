@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>taxonomy_vocabulary_presave</title>
+		<external>http://api.drupal.org/api/search/7/hook_taxonomy_vocabulary_presave</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_taxonomy_vocabulary_presave();
+*/
+function ${file_name}_taxonomy_vocabulary_presave($vocabulary) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_taxonomy_vocabulary_presave($vocabulary)</h2>
+
+<p>Act on taxonomy vocabularies before they are saved.</p>
+<p>Modules implementing this hook can act on the vocabulary object before it is
+inserted or updated.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$vocabulary</b> -- 
+A taxonomy vocabulary object.</p>
+
+
+
+]]></help>
+	</item>

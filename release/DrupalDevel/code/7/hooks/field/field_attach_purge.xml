@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_attach_purge</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_attach_purge</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_attach_purge();
+*/
+function ${file_name}_field_attach_purge($entity_type, $entity, $field, $instance) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_attach_purge($entity_type, $entity, $field, $instance)</h2>
+
+<p>Act on field_purge_data().</p>
+<p>This hook is invoked in field_purge_data() and allows modules to act on
+purging data from a single field pseudo-entity. For example, if a module
+relates data in the field with its own data, it may purge its own data
+during this process as well.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity; for example, 'node' or 'user'.</p>
+<p><b>$entity</b> -- 
+The pseudo-entity whose field data is being purged.</p>
+<p><b>$field</b> -- 
+The (possibly deleted) field whose data is being purged.</p>
+<p><b>$instance</b> -- 
+The deleted field instance whose data is being purged.</p>
+
+
+
+]]></help>
+	</item>

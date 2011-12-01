@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_formatter_view</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_formatter_view</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_formatter_view();
+*/
+function ${file_name}_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display)</h2>
+
+<p>Build a renderable array for a field value.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity.</p>
+<p><b>$entity</b> -- 
+The entity being displayed.</p>
+<p><b>$field</b> -- 
+The field structure.</p>
+<p><b>$instance</b> -- 
+The field instance.</p>
+<p><b>$langcode</b> -- 
+The language associated with $items.</p>
+<p><b>$items</b> -- 
+Array of values for this field.</p>
+<p><b>$display</b> -- 
+The display settings to use, as found in the 'display' entry of instance
+definitions. The array notably contains the following keys and values;</p>
+<ul>
+<li>type: The name of the formatter to use.
+</li>
+<li>settings: The array of formatter settings.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>taxonomy_vocabulary_load</title>
+		<external>http://api.drupal.org/api/search/7/hook_taxonomy_vocabulary_load</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_taxonomy_vocabulary_load();
+*/
+function ${file_name}_taxonomy_vocabulary_load($vocabularies) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_taxonomy_vocabulary_load($vocabularies)</h2>
+
+<p>Act on taxonomy vocabularies when loaded.</p>
+<p>Modules implementing this hook can act on the vocabulary objects before they
+are returned by taxonomy_vocabulary_load_multiple().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$vocabulary</b> -- 
+An array of taxonomy vocabulary objects.</p>
+
+
+
+]]></help>
+	</item>

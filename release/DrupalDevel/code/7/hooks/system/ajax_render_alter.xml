@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>ajax_render_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_ajax_render_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_ajax_render_alter();
+*/
+function ${file_name}_ajax_render_alter($commands) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_ajax_render_alter($commands)</h2>
+
+<p>Alter the commands that are sent to the user through the Ajax framework.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$commands</b> -- 
+An array of all commands that will be sent to the user.</p>
+
+
+
+]]></help>
+	</item>

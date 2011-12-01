@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_read_instance</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_read_instance</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_read_instance();
+*/
+function ${file_name}_field_read_instance($instance) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_read_instance($instance)</h2>
+
+<p>Act on a field record being read from the database.</p>
+<p>This hook is invoked from field_read_instances() on each instance being read.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$instance</b> -- 
+The instance record just read from the database.</p>
+
+
+
+]]></help>
+	</item>

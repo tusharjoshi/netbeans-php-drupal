@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>block</title>
+		<external>http://api.drupal.org/api/search/7/hook_block</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_block();
+*/
+function ${file_name}_block($op = 'list', $delta = 0, $edit = array()) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_block($op = 'list', $delta = 0, $edit = array())</h2>
+
+<p>Declare a block or set of blocks.</p>
+<p>Any module can declare a block (or blocks) to be displayed by implementing
+hook_block(), which also allows you to specify any custom configuration
+settings, and how to display the block.</p>
+<p>In hook_block(), each block your module provides is given a unique
+identifier referred to as "delta" (the array key in the return value for the
+'list' operation). Delta values only need to be unique within your module,
+and they are used in the following ways:</p>
+<ul>
+<li>Passed into the other hook_block() operations as an argument to
+identify the block being configured or viewed.
+</li>
+<li>Used to construct the default HTML ID of "block-MODULE-DELTA" applied to
+each block when it is rendered (which can then be used for CSS styling or
+JavaScript programming).
+</li>
+<li>Used to define a theming template suggestion of block__MODULE__DELTA, for
+advanced theming possibilities.
+</li>
+</ul>
+<p>The values of delta can be strings or numbers, but because of the uses above
+it is preferable to use descriptive strings whenever possible, and only use a
+numeric identifier if you have to (for instance if your module allows users
+to create several similar blocks that you identify within your module code
+with numeric IDs).</p>
+
+<h3>Parameters</h3>
+<p><b>
+$op</b> -- 
+What kind of information to retrieve about the block or blocks.
+Possible values:</p>
+<ul>
+<li>'list': A list of all blocks defined by the module.
+</li>
+<li>'configure': Configuration form for the block.
+</li>
+<li>'save': Save the configuration options.
+</li>
+<li>'view': Process the block when enabled in a region in order to view its
+contents.
+</li>
+</ul>
+<p><b>$delta</b> -- 
+Which block to return (not applicable if $op is 'list'). See above for more
+information about delta values.</p>
+<p><b>$edit</b> -- 
+If $op is 'save', the submitted form data from the configuration form.</p>
+
+
+
+]]></help>
+	</item>

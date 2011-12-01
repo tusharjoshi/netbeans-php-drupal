@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>file_download_access_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_file_download_access_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_file_download_access_alter();
+*/
+function ${file_name}_file_download_access_alter(&$grants, $field, $entity_type, $entity) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_file_download_access_alter(&$grants, $field, $entity_type, $entity)</h2>
+
+<p>Alter the access rules applied to a file download.</p>
+<p>Entities that implement file management set the access rules for their
+individual files. Module may use this hook to create custom access rules
+for file downloads.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$grants</b> -- 
+An array of grants gathered by hook_file_download_access(). The array is
+keyed by the module that defines the entity type's access control; the
+values are Boolean grant responses for each module.</p>
+<p><b>$field</b> -- 
+The field to which the file belongs.</p>
+<p><b>$entity_type</b> -- 
+The type of $entity; for example, 'node' or 'user'.</p>
+<p><b>$entity</b> -- 
+The $entity to which $file is referenced.</p>
+
+
+
+]]></help>
+	</item>

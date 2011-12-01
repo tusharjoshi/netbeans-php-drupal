@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>forms</title>
+		<external>http://api.drupal.org/api/search/7/hook_forms</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_forms();
+*/
+function ${file_name}_forms($form_id, $args) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_forms($form_id, $args)</h2>
+
+<p>Map form_ids to builder functions.</p>
+<p>This hook allows modules to build multiple forms from a single form "factory"
+function but each form will have a different form id for submission,
+validation, theming or alteration by other modules.</p>
+<p>The callback arguments will be passed as parameters to the function. Callers
+of drupal_get_form() are also able to pass in parameters. These will be
+appended after those specified by hook_forms().</p>
+<p>See node_forms() for an actual example of how multiple forms share a common
+building function.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$form_id</b> -- 
+The unique string identifying the desired form.</p>
+<p><b>$args</b> -- 
+An array containing the original arguments provided to drupal_get_form().</p>
+
+
+
+]]></help>
+	</item>

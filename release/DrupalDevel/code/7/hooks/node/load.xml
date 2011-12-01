@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>load</title>
+		<external>http://api.drupal.org/api/search/7/hook_load</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_load();
+*/
+function ${file_name}_load($nodes) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_load($nodes)</h2>
+
+<p>Act on nodes being loaded from the database.</p>
+<p>This hook is invoked only on the module that defines the node's content type
+(use hook_node_load() to respond to all node loads).</p>
+<p>This hook is invoked during node loading, which is handled by entity_load(),
+via classes NodeController and DrupalDefaultEntityController. After the node
+information is read from the database or the entity cache, hook_load() is
+invoked on the node's content type module, then field_attach_node_revision()
+or field_attach_load() is called, then hook_entity_load() is invoked on all
+implementing modules, and finally hook_node_load() is invoked on all
+implementing modules.</p>
+<p>This hook should only be used to add information that is not in the node or
+node revisions table, not to replace information that is in these tables
+(which could interfere with the entity cache). For performance reasons,
+information for all available nodes should be loaded in a single query where
+possible.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$nodes</b> -- 
+An array of the nodes being loaded, keyed by nid.</p>
+<p>For a detailed usage example, see node_example.module.</p>
+
+
+
+]]></help>
+	</item>

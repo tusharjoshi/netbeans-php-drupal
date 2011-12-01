@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>action_info_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_action_info_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_action_info_alter();
+*/
+function ${file_name}_action_info_alter(&$actions) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_action_info_alter(&$actions)</h2>
+
+<p>Alters the actions declared by another module.</p>
+<p>Called by actions_list() to allow modules to alter the return values from
+implementations of hook_action_info().</p>
+
+
+
+
+]]></help>
+	</item>

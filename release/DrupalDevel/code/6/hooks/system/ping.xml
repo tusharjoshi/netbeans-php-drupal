@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>ping</title>
+		<external>http://api.drupal.org/api/search/7/hook_ping</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_ping();
+*/
+function ${file_name}_ping($name = '', $url = '') {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_ping($name = '', $url = '')</h2>
+
+<p>Ping another server.</p>
+<p>This hook allows a module to notify other sites of updates on your
+Drupal site.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$name</b> -- 
+The name of your Drupal site.</p>
+<p><b>$url</b> -- 
+The URL of your Drupal site.</p>
+
+
+
+]]></help>
+	</item>

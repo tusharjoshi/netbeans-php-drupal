@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_delete</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_delete</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_delete();
+*/
+function ${file_name}_user_delete($account) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_delete($account)</h2>
+
+<p>Respond to user deletion.</p>
+<p>This hook is invoked from user_delete_multiple() before field_attach_delete()
+is called and before users are actually removed from the database.</p>
+<p>Modules should additionally implement hook_user_cancel() to process stored
+user data for other account cancellation methods.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$account</b> -- 
+The account that is being deleted.</p>
+
+
+
+]]></help>
+	</item>

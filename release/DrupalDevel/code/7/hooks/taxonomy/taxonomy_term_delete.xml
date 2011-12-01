@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>taxonomy_term_delete</title>
+		<external>http://api.drupal.org/api/search/7/hook_taxonomy_term_delete</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_taxonomy_term_delete();
+*/
+function ${file_name}_taxonomy_term_delete($term) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_taxonomy_term_delete($term)</h2>
+
+<p>Respond to the deletion of taxonomy terms.</p>
+<p>Modules implementing this hook can respond to the deletion of taxonomy
+terms from the database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$term</b> -- 
+A taxonomy term object.</p>
+
+
+
+]]></help>
+	</item>

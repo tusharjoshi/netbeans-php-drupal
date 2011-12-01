@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node</title>
+		<external>http://api.drupal.org/api/search/6/theme_node</external>
+		<group>theme</group>
+		<template><![CDATA[function ${file_name}_preprocess_node(&$variables) {
+  ${set_cursor}
+}]]></template>
+		<help></help>
+	</item>

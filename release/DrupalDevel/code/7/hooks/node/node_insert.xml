@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_insert</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_insert</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_node_insert();
+*/
+function ${file_name}_node_insert($node) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_insert($node)</h2>
+
+<p>Respond to creation of a new node.</p>
+<p>This hook is invoked from node_save() after the node is inserted into the
+node table in the database, after the type-specific hook_insert() is invoked,
+and after field_attach_insert() is called.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node that is being created.</p>
+
+
+
+]]></help>
+	</item>

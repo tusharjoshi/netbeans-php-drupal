@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>form_system_theme_settings_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_form_system_theme_settings_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_form_system_theme_settings_alter();
+*/
+function ${file_name}_form_system_theme_settings_alter(&$form, &$form_state) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_form_system_theme_settings_alter(&$form, &$form_state)</h2>
+
+<p>Allow themes to alter the theme-specific settings form.</p>
+<p>With this hook, themes can alter the theme-specific settings form in any way
+allowable by Drupal's Forms API, such as adding form elements, changing
+default values and removing form elements. See the Forms API documentation on
+api.drupal.org for detailed information.</p>
+<p>Note that the base theme's form alterations will be run before any sub-theme
+alterations.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$form</b> -- 
+Nested array of form elements that comprise the form.</p>
+<p><b>$form_state</b> -- 
+A keyed array containing the current state of the form.</p>
+
+
+
+]]></help>
+	</item>

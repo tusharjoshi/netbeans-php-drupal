@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>module_implements_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_module_implements_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_module_implements_alter();
+*/
+function ${file_name}_module_implements_alter(&$implementations, $hook) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_module_implements_alter(&$implementations, $hook)</h2>
+
+<p>Alter the registry of modules implementing a hook.</p>
+<p>This hook is invoked during module_implements(). A module may implement this
+hook in order to reorder the implementing modules, which are otherwise
+ordered by the module's system weight.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$implementations</b> -- 
+An array keyed by the module's name. The value of each item corresponds
+to a $group, which is usually FALSE, unless the implementation is in a
+file named $module.$group.inc.</p>
+<p><b>$hook</b> -- 
+The name of the module hook being implemented.</p>
+
+
+
+]]></help>
+	</item>

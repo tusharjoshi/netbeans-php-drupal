@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_load</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_load</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_load();
+*/
+function ${file_name}_field_storage_load($entity_type, $entities, $age, $fields, $options) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_load($entity_type, $entities, $age, $fields, $options)</h2>
+
+<p>Load field data for a set of entities.</p>
+<p>This hook is invoked from field_attach_load() to ask the field storage
+module to load field data.</p>
+<p>Modules implementing this hook should load field values and add them to
+objects in $entities. Fields with no values should be added as empty
+arrays.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of entity, such as 'node' or 'user'.</p>
+<p><b>$entities</b> -- 
+The array of entity objects to add fields to, keyed by entity ID.</p>
+<p><b>$age</b> -- 
+FIELD_LOAD_CURRENT to load the most recent revision for all fields, or
+FIELD_LOAD_REVISION to load the version indicated by each entity.</p>
+<p><b>$fields</b> -- 
+An array listing the fields to be loaded. The keys of the array are field
+IDs, and the values of the array are the entity IDs (or revision IDs,
+depending on the $age parameter) to add each field to.</p>
+<p><b>$options</b> -- 
+An associative array of additional options, with the following keys:</p>
+<ul>
+<li>deleted: If TRUE, deleted fields should be loaded as well as
+non-deleted fields. If unset or FALSE, only non-deleted fields should be
+loaded.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

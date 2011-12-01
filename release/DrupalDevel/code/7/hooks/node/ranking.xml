@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>ranking</title>
+		<external>http://api.drupal.org/api/search/7/hook_ranking</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_ranking();
+*/
+function ${file_name}_ranking() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_ranking()</h2>
+
+<p>Provide additional methods of scoring for core search results for nodes.</p>
+<p>A node's search score is used to rank it among other nodes matched by the
+search, with the highest-ranked nodes appearing first in the search listing.</p>
+<p>For example, a module allowing users to vote on content could expose an
+option to allow search results' rankings to be influenced by the average
+voting score of a node.</p>
+<p>All scoring mechanisms are provided as options to site administrators, and
+may be tweaked based on individual sites or disabled altogether if they do
+not make sense. Individual scoring mechanisms, if enabled, are assigned a
+weight from 1 to 10. The weight represents the factor of magnification of
+the ranking mechanism, with higher-weighted ranking mechanisms having more
+influence. In order for the weight system to work, each scoring mechanism
+must return a value between 0 and 1 for every node. That value is then
+multiplied by the administrator-assigned weight for the ranking mechanism,
+and then the weighted scores from all ranking mechanisms are added, which
+brings about the same result as a weighted average.</p>
+
+
+
+
+]]></help>
+	</item>

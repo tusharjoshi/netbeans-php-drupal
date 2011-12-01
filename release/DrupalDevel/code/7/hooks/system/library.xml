@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>library</title>
+		<external>http://api.drupal.org/api/search/7/hook_library</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_library();
+*/
+function ${file_name}_library() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_library()</h2>
+
+<p>Registers JavaScript/CSS libraries associated with a module.</p>
+<p>Modules implementing this return an array of arrays. The key to each
+sub-array is the machine readable name of the library. Each library may
+contain the following items:</p>
+<ul>
+<li>'title': The human readable name of the library.
+</li>
+<li>'website': The URL of the library's web site.
+</li>
+<li>'version': A string specifying the version of the library; intentionally
+not a float because a version like "1.2.3" is not a valid float. Use PHP's
+version_compare() to compare different versions.
+</li>
+<li>'js': An array of JavaScript elements; each element's key is used as $data
+argument, each element's value is used as $options array for
+drupal_add_js(). To add library-specific (not module-specific) JavaScript
+settings, the key may be skipped, the value must specify
+'type' => 'setting', and the actual settings must be contained in a 'data'
+element of the value.
+</li>
+<li>'css': Like 'js', an array of CSS elements passed to drupal_add_css().
+</li>
+<li>'dependencies': An array of libraries that are required for a library. Each
+element is an array listing the module and name of another library. Note
+that all dependencies for each dependent library will also be added when
+this library is added.
+</li>
+</ul>
+<p>Registered information for a library should contain re-usable data only.
+Module- or implementation-specific data and integration logic should be added
+separately.</p>
+
+
+
+
+]]></help>
+	</item>

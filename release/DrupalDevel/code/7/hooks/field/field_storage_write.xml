@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_write</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_write</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_write();
+*/
+function ${file_name}_field_storage_write($entity_type, $entity, $op, $fields) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_write($entity_type, $entity, $op, $fields)</h2>
+
+<p>Write field data for an entity.</p>
+<p>This hook is invoked from field_attach_insert() and field_attach_update(),
+to ask the field storage module to save field data.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The entity type of entity, such as 'node' or 'user'.</p>
+<p><b>$entity</b> -- 
+The entity on which to operate.</p>
+<p><b>$op</b> -- 
+FIELD_STORAGE_UPDATE when updating an existing entity,
+FIELD_STORAGE_INSERT when inserting a new entity.</p>
+<p><b>$fields</b> -- 
+An array listing the fields to be written. The keys and values of the
+array are field IDs.</p>
+
+
+
+]]></help>
+	</item>

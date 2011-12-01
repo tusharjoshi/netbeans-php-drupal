@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_update_field</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_update_field</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_update_field();
+*/
+function ${file_name}_field_storage_update_field($field, $prior_field, $has_data) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_update_field($field, $prior_field, $has_data)</h2>
+
+<p>Update the storage information for a field.</p>
+<p>This is invoked on the field's storage module from field_update_field(),
+before the new field information is saved to the database. The field storage
+module should update its storage tables to agree with the new field
+information. If there is a problem, the field storage module should throw an
+exception.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The updated field structure to be saved.</p>
+<p><b>$prior_field</b> -- 
+The previously-saved field structure.</p>
+<p><b>$has_data</b> -- 
+TRUE if the field has data in storage currently.</p>
+
+
+
+]]></help>
+	</item>

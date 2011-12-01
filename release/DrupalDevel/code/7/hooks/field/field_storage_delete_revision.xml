@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_delete_revision</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_delete_revision</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_delete_revision();
+*/
+function ${file_name}_field_storage_delete_revision($entity_type, $entity, $fields) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_delete_revision($entity_type, $entity, $fields)</h2>
+
+<p>Delete a single revision of field data for an entity.</p>
+<p>This hook is invoked from field_attach_delete_revision() to ask the field
+storage module to delete field revision data.</p>
+<p>Deleting the current (most recently written) revision is not
+allowed as has undefined results.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The entity type of entity, such as 'node' or 'user'.</p>
+<p><b>$entity</b> -- 
+The entity on which to operate. The revision to delete is
+indicated by the entity's revision ID property, as identified by
+hook_fieldable_info() for $entity_type.</p>
+<p><b>$fields</b> -- 
+An array listing the fields to delete. The keys and values of the
+array are field IDs.</p>
+
+
+
+]]></help>
+	</item>

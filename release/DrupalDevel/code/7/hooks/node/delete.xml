@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>delete</title>
+		<external>http://api.drupal.org/api/search/7/hook_delete</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_delete();
+*/
+function ${file_name}_delete($node) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_delete($node)</h2>
+
+<p>Respond to node deletion.</p>
+<p>This hook is invoked only on the module that defines the node's content type
+(use hook_node_delete() to respond to all node deletions).</p>
+<p>This hook is invoked from node_delete_multiple() after the node has been
+removed from the node table in the database, before hook_node_delete() is
+invoked, and before field_attach_delete() is called.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node that is being deleted.</p>
+
+
+
+]]></help>
+	</item>

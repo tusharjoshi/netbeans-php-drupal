@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>link</title>
+		<external>http://api.drupal.org/api/search/7/hook_link</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_link();
+*/
+function ${file_name}_link($type, $object, $teaser = ${FALSE}) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_link($type, $object, $teaser = FALSE)</h2>
+
+<p>Define internal Drupal links.</p>
+<p>This hook enables modules to add links to many parts of Drupal. Links
+may be added in nodes or in the navigation block, for example.</p>
+<p>The returned array should be a keyed array of link entries. Each link can
+be in one of two formats.</p>
+<p>The first format will use the l() function to render the link:</p>
+<ul>
+<li>attributes: Optional. See l() for usage.
+</li>
+<li>fragment: Optional. See l() for usage.
+</li>
+<li>href: Required. The URL of the link.
+</li>
+<li>html: Optional. See l() for usage.
+</li>
+<li>query: Optional. See l() for usage.
+</li>
+<li>title: Required. The name of the link.
+</li>
+</ul>
+<p>The second format can be used for non-links. Leaving out the href index will
+select this format:</p>
+<ul>
+<li>title: Required. The text or HTML code to display.
+</li>
+<li>attributes: Optional. An associative array of HTML attributes to apply to the span tag.
+</li>
+<li>html: Optional. If not set to true, check_plain() will be run on the title before it is displayed.
+</li>
+</ul>
+
+<h3>Parameters</h3>
+<p><b>
+$type</b> -- 
+An identifier declaring what kind of link is being requested.
+Possible values:</p>
+<ul>
+<li>comment: Links to be placed below a comment being viewed.
+</li>
+<li>node: Links to be placed below a node being viewed.
+</li>
+</ul>
+<p><b>$object</b> -- 
+A node object or a comment object according to the $type.</p>
+<p><b>$teaser</b> -- 
+In case of node link: a 0/1 flag depending on whether the node is
+displayed with its teaser or its full form.</p>
+
+
+
+]]></help>
+	</item>

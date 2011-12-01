@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>perm</title>
+		<external>http://api.drupal.org/api/search/7/hook_perm</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_perm();
+*/
+function ${file_name}_perm() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_perm()</h2>
+
+<p>Define user permissions.</p>
+<p>This hook can supply permissions that the module defines, so that they
+can be selected on the user permissions page and used to grant or restrict
+access to actions the module performs.</p>
+<p>Permissions are checked using user_access().</p>
+<p>For a detailed usage example, see page_example.module.</p>
+
+
+
+
+]]></help>
+	</item>

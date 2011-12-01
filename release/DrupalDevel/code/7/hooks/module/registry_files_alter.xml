@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>registry_files_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_registry_files_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_registry_files_alter();
+*/
+function ${file_name}_registry_files_alter(&$files, $modules) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_registry_files_alter(&$files, $modules)</h2>
+
+<p>Perform necessary alterations to the list of files parsed by the registry.</p>
+<p>Modules can manually modify the list of files before the registry parses
+them. The $modules array provides the .info file information, which includes
+the list of files registered to each module. Any files in the list can then
+be added to the list of files that the registry will parse, or modify
+attributes of a file.</p>
+<p>A necessary alteration made by the core SimpleTest module is to force .test
+files provided by disabled modules into the list of files parsed by the
+registry.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$files</b> -- 
+List of files to be parsed by the registry. The list will contain
+files found in each enabled module's info file and the core includes
+directory. The array is keyed by the file path and contains an array of
+the related module's name and weight as used internally by
+_registry_update() and related functions.</p>
+<p>For example:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-variable">$files</span>[<span&nbsp;class="php-string">&quot;modules/system/system.module&quot;</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'module'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'system'</span>,<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'weight'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-constant">0</span>,<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;);<br&nbsp;/>
+&nbsp;&nbsp;
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p><b>$modules</b> -- 
+An array containing all module information stored in the {system} table.
+Each element of the array also contains the module's .info file
+information in the property 'info'. An additional 'dir' property has been
+added to the module information which provides the path to the directory
+in which the module resides. The example shows how to take advantage of
+both properties.</p>
+
+
+
+]]></help>
+	</item>

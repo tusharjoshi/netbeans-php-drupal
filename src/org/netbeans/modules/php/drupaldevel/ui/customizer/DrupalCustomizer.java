@@ -16,7 +16,7 @@ import org.openide.util.NbBundle;
  * @author Jamie Holly <jamie@hollyit.net>
  */
 public class DrupalCustomizer  implements ProjectCustomizer.CompositeCategoryProvider {
- private static final String PHP_DOC = "PhpDoc"; // NOI18N
+ private static final String PHP_DOC = "Drupal"; // NOI18N
 
     @Override
     public Category createCategory(Lookup context) {

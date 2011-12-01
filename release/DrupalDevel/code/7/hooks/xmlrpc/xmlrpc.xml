@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>xmlrpc</title>
+		<external>http://api.drupal.org/api/search/7/hook_xmlrpc</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_xmlrpc();
+*/
+function ${file_name}_xmlrpc() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_xmlrpc()</h2>
+
+<p>Register XML-RPC callbacks.</p>
+<p>This hook lets a module register callback functions to be called when
+particular XML-RPC methods are invoked by a client.</p>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>comment</title>
+		<external>http://api.drupal.org/api/search/7/hook_comment</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_comment();
+*/
+function ${file_name}_comment(&$a1, $op) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_comment(&$a1, $op)</h2>
+
+<p>Respond to comment actions.</p>
+<p>This hook allows modules to extend the comments system by responding when
+certain actions take place.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$a1</b> -- 
+Argument; meaning is dependent on the action being performed.</p>
+<ul>
+<li>For "validate", "update", and "insert": an array of form values
+submitted by the user.
+</li>
+<li>For all other operations, the comment the action is being performed on.
+</li>
+</ul>
+<p><b>$op</b> -- 
+The action being performed. Possible values:</p>
+<ul>
+<li>"insert": The comment is being inserted.
+</li>
+<li>"update": The comment is being updated.
+</li>
+<li>"view": The comment is being viewed. This hook can be used to add
+additional data to the comment before theming.
+</li>
+<li>"validate": The user has just finished editing the comment and is
+trying to preview or submit it. This hook can be used to check
+the comment. Errors should be set with form_set_error().
+</li>
+<li>"publish": The comment is being published by the moderator.
+</li>
+<li>"unpublish": The comment is being unpublished by the moderator.
+</li>
+<li>"delete": The comment is being deleted by the moderator.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

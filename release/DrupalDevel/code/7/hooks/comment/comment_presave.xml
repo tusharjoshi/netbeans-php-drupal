@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>comment_presave</title>
+		<external>http://api.drupal.org/api/search/7/hook_comment_presave</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_comment_presave();
+*/
+function ${file_name}_comment_presave($comment) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_comment_presave($comment)</h2>
+
+<p>The comment passed validation and is about to be saved.</p>
+<p>Modules may make changes to the comment before it is saved to the database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$comment</b> -- 
+The comment object.</p>
+
+
+
+]]></help>
+	</item>

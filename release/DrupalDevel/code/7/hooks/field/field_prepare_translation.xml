@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_prepare_translation</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_prepare_translation</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_prepare_translation();
+*/
+function ${file_name}_field_prepare_translation($entity_type, $entity, $field, $instance, $langcode, &$items, $source_entity, $source_langcode) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_prepare_translation($entity_type, $entity, $field, $instance, $langcode, &$items, $source_entity, $source_langcode)</h2>
+
+<p>Define custom prepare_translation behavior for this module's field types.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity.</p>
+<p><b>$entity</b> -- 
+The entity for the operation.</p>
+<p><b>$field</b> -- 
+The field structure for the operation.</p>
+<p><b>$instance</b> -- 
+The instance structure for $field on $entity's bundle.</p>
+<p><b>$langcode</b> -- 
+The language associated to $items.</p>
+<p><b>$items</b> -- 
+$entity->{$field['field_name']}[$langcode], or an empty array if unset.</p>
+<p><b>$source_entity</b> -- 
+The source entity from which field values are being copied.</p>
+<p><b>$source_langcode</b> -- 
+The source language from which field values are being copied.</p>
+
+
+
+]]></help>
+	</item>

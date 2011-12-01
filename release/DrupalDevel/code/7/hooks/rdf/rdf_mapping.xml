@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>rdf_mapping</title>
+		<external>http://api.drupal.org/api/search/7/hook_rdf_mapping</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_rdf_mapping();
+*/
+function ${file_name}_rdf_mapping() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_rdf_mapping()</h2>
+
+<p>Allow modules to define RDF mappings for field bundles.</p>
+<p>Modules defining their own field bundles can specify which RDF semantics
+should be used to annotate these bundles. These mappings are then used for
+automatic RDFa output in the HTML code.</p>
+
+
+
+
+]]></help>
+	</item>

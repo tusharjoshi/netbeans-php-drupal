@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_details_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_details_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_details_alter();
+*/
+function ${file_name}_field_storage_details_alter(&$details, $field) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_details_alter(&$details, $field)</h2>
+
+<p>Perform alterations on Field API storage details.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$details</b> -- 
+An array of storage details for fields as exposed by
+hook_field_storage_details() implementations.</p>
+<p><b>$field</b> -- 
+A field structure.</p>
+
+
+
+]]></help>
+	</item>

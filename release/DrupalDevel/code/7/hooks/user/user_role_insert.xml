@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_role_insert</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_role_insert</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_role_insert();
+*/
+function ${file_name}_user_role_insert($role) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_role_insert($role)</h2>
+
+<p>Inform other modules that a user role has been added.</p>
+<p>Modules implementing this hook can act on the user role object when saved to
+the database. It's recommended that you implement this hook if your module
+adds additional data to user roles object. The module should save its custom
+additions to the database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$role</b> -- 
+A user role object.</p>
+
+
+
+]]></help>
+	</item>

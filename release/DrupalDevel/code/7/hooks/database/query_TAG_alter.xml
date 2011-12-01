@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>query_TAG_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_query_TAG_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_query_TAG_alter();
+*/
+function ${file_name}_query_${TAG}_alter(QueryAlterableInterface $query) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_query_TAG_alter(QueryAlterableInterface $query)</h2>
+
+<p>Perform alterations to a structured query for a given tag.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$query</b> -- 
+An Query object describing the composite parts of a SQL query.</p>
+
+
+
+]]></help>
+	</item>

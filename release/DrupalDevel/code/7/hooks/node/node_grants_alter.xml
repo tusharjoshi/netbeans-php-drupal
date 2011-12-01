@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_grants_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_grants_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_node_grants_alter();
+*/
+function ${file_name}_node_grants_alter(&$grants, $account, $op) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_grants_alter(&$grants, $account, $op)</h2>
+
+<p>Alter user access rules when trying to view, edit or delete a node.</p>
+<p>Node access modules establish rules for user access to content.
+hook_node_grants() defines permissions for a user to view, edit or
+delete nodes by building a $grants array that indicates the permissions
+assigned to the user by each node access module. This hook is called to allow
+modules to modify the $grants array by reference, so the interaction of
+multiple node access modules can be altered or advanced business logic can be
+applied.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$grants</b> -- 
+The $grants array returned by hook_node_grants().</p>
+<p><b>$account</b> -- 
+The user account requesting access to content.</p>
+<p><b>$op</b> -- 
+The operation being performed, 'view', 'update' or 'delete'.</p>
+<p>Developers may use this hook to either add additional grants to a user
+or to remove existing grants. These rules are typically based on either the
+permissions assigned to a user role, or specific attributes of a user
+account.</p>
+
+
+
+]]></help>
+	</item>

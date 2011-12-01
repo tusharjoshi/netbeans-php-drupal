@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>load</title>
+		<external>http://api.drupal.org/api/search/7/hook_load</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_load();
+*/
+function ${file_name}_load($node) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_load($node)</h2>
+
+<p>Load node-type-specific information.</p>
+<p>This is a hook used by node modules. It is called to allow the module
+a chance to load extra information that it stores about a node, or
+possibly replace already loaded information - which can be dangerous.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node being loaded. At call time, node.module has already loaded
+the basic information about the node, such as its node ID (nid),
+title, and body.</p>
+
+
+
+]]></help>
+	</item>

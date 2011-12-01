@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>init</title>
+		<external>http://api.drupal.org/api/search/7/hook_init</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_init();
+*/
+function ${file_name}_init() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_init()</h2>
+
+<p>Perform setup tasks. See also, hook_boot.</p>
+<p>This hook is run at the beginning of the page request. It is typically
+used to set up global parameters which are needed later in the request.
+when this hook is called, all modules are already loaded in memory.</p>
+<p>For example, this hook is a typical place for modules to add CSS or JS
+that should be present on every page. This hook is not run on cached
+pages - though CSS or JS added this way will be present on a cached page.</p>
+
+
+
+
+]]></help>
+	</item>

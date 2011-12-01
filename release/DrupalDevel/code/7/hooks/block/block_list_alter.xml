@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>block_list_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_block_list_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_block_list_alter();
+*/
+function ${file_name}_block_list_alter(&$blocks) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_block_list_alter(&$blocks)</h2>
+
+<p>Act on blocks prior to rendering.</p>
+<p>This hook allows you to add, remove or modify blocks in the block list. The
+block list contains the block definitions, not the rendered blocks. The
+blocks are rendered after the modules have had a chance to manipulate the
+block list.</p>
+<p>You can also set $block->content here, which will override the content of the
+block and prevent hook_block_view() from running.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$blocks</b> -- 
+An array of $blocks, keyed by the block ID.</p>
+
+
+
+]]></help>
+	</item>

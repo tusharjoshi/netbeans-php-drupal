@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_widget_WIDGET_TYPE_form_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_widget_WIDGET_TYPE_form_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_widget_WIDGET_TYPE_form_alter();
+*/
+function ${file_name}_field_widget_${WIDGET_TYPE}_form_alter(&$element, &$form_state, $context) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_widget_WIDGET_TYPE_form_alter(&$element, &$form_state, $context)</h2>
+
+<p>Alter widget forms for a specific widget provided by another module.</p>
+<p>Modules can implement hook_field_widget_WIDGET_TYPE_form_alter() to modify a
+specific widget form, rather than using hook_field_widget_form_alter() and
+checking the widget type.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$element</b> -- 
+The field widget form element as constructed by hook_field_widget_form().</p>
+<p><b>$form_state</b> -- 
+An associative array containing the current state of the form.</p>
+<p><b>$context</b> -- 
+An associative array containing the following key-value pairs, matching the
+arguments received by hook_field_widget_form():</p>
+<ul>
+<li>"form": The form structure where widgets are being attached to. This
+might be a full form structure, or a sub-element of a larger form.
+</li>
+<li>"field": The field structure.
+</li>
+<li>"instance": The field instance structure.
+</li>
+<li>"langcode": The language associated with $items.
+</li>
+<li>"items": Array of default values for this field.
+</li>
+<li>"delta": The order of this item in the array of subelements (0, 1, 2,
+etc).
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

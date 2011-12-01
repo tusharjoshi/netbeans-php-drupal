@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>shortcut_default_set</title>
+		<external>http://api.drupal.org/api/search/7/hook_shortcut_default_set</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_shortcut_default_set();
+*/
+function ${file_name}_shortcut_default_set($account) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_shortcut_default_set($account)</h2>
+
+<p>Return the name of a default shortcut set for the provided user account.</p>
+<p>This hook allows modules to define default shortcut sets for a particular
+user that differ from the site-wide default (for example, a module may want
+to define default shortcuts on a per-role basis).</p>
+<p>The default shortcut set is used only when the user does not have any other
+shortcut set explicitly assigned to them.</p>
+<p>Note that only one default shortcut set can exist per user, so when multiple
+modules implement this hook, the last (i.e., highest weighted) module which
+returns a valid shortcut set name will prevail.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$account</b> -- 
+The user account whose default shortcut set is being requested.</p>
+
+
+
+]]></help>
+	</item>

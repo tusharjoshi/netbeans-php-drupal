@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>taxonomy</title>
+		<external>http://api.drupal.org/api/search/7/hook_taxonomy</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_taxonomy();
+*/
+function ${file_name}_taxonomy($op, $type, $array = ${NULL}) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_taxonomy($op, $type, $array = NULL)</h2>
+
+<p>Act on taxonomy changes.</p>
+<p>This hook allows modules to take action when the terms and vocabularies
+in the taxonomy are modified.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$op</b> -- 
+What is being done to $array. Possible values:</p>
+<ul>
+<li>"delete"
+</li>
+<li>"insert"
+</li>
+<li>"update"
+</li>
+</ul>
+<p><b>$type</b> -- 
+What manner of item $array is. Possible values:</p>
+<ul>
+<li>"term"
+</li>
+<li>"vocabulary"
+</li>
+</ul>
+<p><b>$array</b> -- 
+The item on which $op is being performed. Possible values:</p>
+<ul>
+<li>for vocabularies, 'insert' and 'update' ops:
+$form_values from taxonomy_form_vocabulary_submit()
+</li>
+<li>for vocabularies, 'delete' op:
+$vocabulary from taxonomy_get_vocabulary() cast to an array
+</li>
+<li>for terms, 'insert' and 'update' ops:
+$form_values from taxonomy_form_term_submit()
+</li>
+<li>for terms, 'delete' op:
+$term from taxonomy_get_term() cast to an array
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

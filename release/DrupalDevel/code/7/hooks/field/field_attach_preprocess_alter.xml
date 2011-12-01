@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_attach_preprocess_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_attach_preprocess_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_attach_preprocess_alter();
+*/
+function ${file_name}_field_attach_preprocess_alter(&$variables, $context) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_attach_preprocess_alter(&$variables, $context)</h2>
+
+<p>Alter field_attach_preprocess() variables.</p>
+<p>This hook is invoked while preprocessing the field.tpl.php template file
+in field_attach_preprocess().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$variables</b> -- 
+The variables array is passed by reference and will be populated with field
+values.</p>
+<p><b>$context</b> -- 
+An associative array containing:</p>
+<ul>
+<li>entity_type: The type of $entity; for example, 'node' or 'user'.
+</li>
+<li>entity: The entity with fields to render.
+</li>
+<li>element: The structured array containing the values ready for rendering.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

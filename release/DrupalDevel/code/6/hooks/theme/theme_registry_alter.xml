@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>theme_registry_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_theme_registry_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_theme_registry_alter();
+*/
+function ${file_name}_theme_registry_alter(&$theme_registry) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_theme_registry_alter(&$theme_registry)</h2>
+
+<p>Alter the theme registry information returned from hook_theme().</p>
+<p>The theme registry stores information about all available theme hooks,
+including which callback functions those hooks will call when triggered,
+what template files are exposed by these hooks, and so on.</p>
+<p>Note that this hook is only executed as the theme cache is re-built.
+Changes here will not be visible until the next cache clear.</p>
+<p>The $theme_registry array is keyed by theme hook name, and contains the
+information returned from hook_theme(), as well as additional properties
+added by _theme_process_registry().</p>
+<p>For example:</p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php<br&nbsp;/>
+</div>
+<p><span&nbsp;class="php-variable">$theme_registry</span>[<span&nbsp;class="php-string">'user_profile'</span>]&nbsp;=&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'arguments'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-string">'account'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-function-or-constant">NULL</span>,<br&nbsp;/>
+&nbsp;&nbsp;),<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'template'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'modules/user/user-profile'</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'file'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'modules/user/user.pages.inc'</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'type'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'module'</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'theme&nbsp;path'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'modules/user'</span>,<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'theme&nbsp;paths'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-constant">0</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'modules/user'</span>,<br&nbsp;/>
+&nbsp;&nbsp;),<br&nbsp;/>
+&nbsp;&nbsp;<span&nbsp;class="php-string">'preprocess&nbsp;functions'</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-keyword">array</span>(<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-constant">0</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'template_preprocess'</span>,<br&nbsp;/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class="php-constant">1</span>&nbsp;=&gt;&nbsp;<span&nbsp;class="php-string">'template_preprocess_user_profile'</span>,<br&nbsp;/>
+&nbsp;&nbsp;),<br&nbsp;/>
+);<br&nbsp;/></p>
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+
+<h3>Parameters</h3>
+<p><b>
+$theme_registry</b> -- 
+The entire cache of theme registry information, post-processing.</p>
+
+
+
+]]></help>
+	</item>

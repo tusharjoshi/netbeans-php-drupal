@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_display_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_display_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_display_alter();
+*/
+function ${file_name}_field_display_alter(&$display, $context) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_display_alter(&$display, $context)</h2>
+
+<p>Alters the display settings of a field before it gets displayed.</p>
+<p>Note that instead of hook_field_display_alter(), which is called for all
+fields on all entity types, hook_field_display_ENTITY_TYPE_alter() may be
+used to alter display settings for fields on a specific entity type only.</p>
+<p>This hook is called once per field per displayed entity. If the result of the
+hook involves reading from the database, it is highly recommended to
+statically cache the information.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$display</b> -- 
+The display settings that will be used to display the field values, as
+found in the 'display' key of $instance definitions.</p>
+<p><b>$context</b> -- 
+An associative array containing:</p>
+<ul>
+<li>entity_type: The entity type; e.g., 'node' or 'user'.
+</li>
+<li>field: The field being rendered.
+</li>
+<li>instance: The instance being rendered.
+</li>
+<li>entity: The entity being rendered.
+</li>
+<li>view_mode: The view mode, e.g. 'full', 'teaser'...
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

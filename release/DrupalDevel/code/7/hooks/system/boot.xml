@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>boot</title>
+		<external>http://api.drupal.org/api/search/7/hook_boot</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_boot();
+*/
+function ${file_name}_boot() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_boot()</h2>
+
+<p>Perform setup tasks. See also, hook_init.</p>
+<p>This hook is run at the beginning of the page request. It is typically
+used to set up global parameters which are needed later in the request.</p>
+<p>Only use this hook if your code must run even for cached page views.This hook
+is called before modules or most include files are loaded into memory.
+It happens while Drupal is still in bootstrap mode.</p>
+
+
+
+
+]]></help>
+	</item>

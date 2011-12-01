@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_purge</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_purge</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_purge();
+*/
+function ${file_name}_field_storage_purge($entity_type, $entity, $field, $instance) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_purge($entity_type, $entity, $field, $instance)</h2>
+
+<p>Remove field storage information when field data is purged.</p>
+<p>Called from field_purge_data() to allow the field storage
+module to delete field data information.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity; for example, 'node' or 'user'.</p>
+<p><b>$entity</b> -- 
+The pseudo-entity whose field data to delete.</p>
+<p><b>$field</b> -- 
+The (possibly deleted) field whose data is being purged.</p>
+<p><b>$instance</b> -- 
+The deleted field instance whose data is being purged.</p>
+
+
+
+]]></help>
+	</item>

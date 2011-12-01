@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>comment_load</title>
+		<external>http://api.drupal.org/api/search/7/hook_comment_load</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_comment_load();
+*/
+function ${file_name}_comment_load($comments) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_comment_load($comments)</h2>
+
+<p>Comments are being loaded from the database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$comments</b> -- 
+An array of comment objects indexed by cid.</p>
+
+
+
+]]></help>
+	</item>

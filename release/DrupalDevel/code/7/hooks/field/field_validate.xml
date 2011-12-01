@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_validate</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_validate</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_validate();
+*/
+function ${file_name}_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors)</h2>
+
+<p>Validate this module's field data.</p>
+<p>If there are validation problems, add to the $errors array (passed by
+reference). There is no return value.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity.</p>
+<p><b>$entity</b> -- 
+The entity for the operation.</p>
+<p><b>$field</b> -- 
+The field structure for the operation.</p>
+<p><b>$instance</b> -- 
+The instance structure for $field on $entity's bundle.</p>
+<p><b>$langcode</b> -- 
+The language associated with $items.</p>
+<p><b>$items</b> -- 
+$entity->{$field['field_name']}[$langcode], or an empty array if unset.</p>
+<p><b>$errors</b> -- 
+The array of errors (keyed by field name, language code, and delta) that
+have already been reported for the entity. The function should add its
+errors to this array. Each error is an associative array with the following
+keys and values:</p>
+<ul>
+<li>error: An error code (should be a string prefixed with the module name).
+</li>
+<li>message: The human readable message to be displayed.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

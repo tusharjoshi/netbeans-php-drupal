@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>translated_menu_link_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_translated_menu_link_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_translated_menu_link_alter();
+*/
+function ${file_name}_translated_menu_link_alter(&$item, $map) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_translated_menu_link_alter(&$item, $map)</h2>
+
+<p>Alter a menu link after it's translated, but before it's rendered.</p>
+<p>This hook may be used, for example, to add a page-specific query string.
+For performance reasons, only links that have $item['options']['alter'] == TRUE
+will be passed into this hook.  The $item['options']['alter'] flag should
+generally be set using hook_menu_link_alter().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$item</b> -- 
+Associative array defining a menu link after _menu_link_translate()</p>
+<p><b>$map</b> -- 
+Associative array containing the menu $map (path parts and/or objects).</p>
+
+
+
+]]></help>
+	</item>

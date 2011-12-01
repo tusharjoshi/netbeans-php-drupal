@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_load</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_load</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_load();
+*/
+function ${file_name}_field_load($entity_type, $entities, $field, $instances, $langcode, &$items, $age) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_load($entity_type, $entities, $field, $instances, $langcode, &$items, $age)</h2>
+
+<p>Define custom load behavior for this module's field types.</p>
+<p>Unlike most other field hooks, this hook operates on multiple entities. The
+$entities, $instances and $items parameters are arrays keyed by entity ID.
+For performance reasons, information for all available entity should be
+loaded in a single query where possible.</p>
+<p>Note that the changes made to the field values get cached by the field cache
+for subsequent loads. You should never use this hook to load fieldable
+entities, since this is likely to cause infinite recursions when
+hook_field_load() is run on those as well. Use
+hook_field_formatter_prepare_view() instead.</p>
+<p>Make changes or additions to field values by altering the $items parameter by
+reference. There is no return value.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity.</p>
+<p><b>$entities</b> -- 
+Array of entities being loaded, keyed by entity ID.</p>
+<p><b>$field</b> -- 
+The field structure for the operation.</p>
+<p><b>$instances</b> -- 
+Array of instance structures for $field for each entity, keyed by entity
+ID.</p>
+<p><b>$langcode</b> -- 
+The language code associated with $items.</p>
+<p><b>$items</b> -- 
+Array of field values already loaded for the entities, keyed by entity ID.
+Store your changes in this parameter (passed by reference).</p>
+<p><b>$age</b> -- 
+FIELD_LOAD_CURRENT to load the most recent revision for all fields, or
+FIELD_LOAD_REVISION to load the version indicated by each entity.</p>
+
+
+
+]]></help>
+	</item>

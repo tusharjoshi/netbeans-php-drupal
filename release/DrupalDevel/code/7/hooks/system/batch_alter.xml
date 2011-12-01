@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>batch_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_batch_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_batch_alter();
+*/
+function ${file_name}_batch_alter(&$batch) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_batch_alter(&$batch)</h2>
+
+<p>Alter batch information before a batch is processed.</p>
+<p>Called by batch_process() to allow modules to alter a batch before it is
+processed.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$batch</b> -- 
+The associative array of batch information. See batch_set() for details on
+what this could contain.</p>
+
+
+
+]]></help>
+	</item>

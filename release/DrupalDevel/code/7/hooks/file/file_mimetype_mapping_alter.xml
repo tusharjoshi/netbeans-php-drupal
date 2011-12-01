@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>file_mimetype_mapping_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_file_mimetype_mapping_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_file_mimetype_mapping_alter();
+*/
+function ${file_name}_file_mimetype_mapping_alter(&$mapping) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_file_mimetype_mapping_alter(&$mapping)</h2>
+
+<p>Alter MIME type mappings used to determine MIME type from a file extension.</p>
+<p>This hook is run when file_mimetype_mapping() is called. It is used to
+allow modules to add to or modify the default mapping from
+file_default_mimetype_mapping().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$mapping</b> -- 
+An array of mimetypes correlated to the extensions that relate to them.
+The array has 'mimetypes' and 'extensions' elements, each of which is an
+array.</p>
+
+
+
+]]></help>
+	</item>

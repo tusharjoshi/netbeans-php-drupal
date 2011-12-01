@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>form</title>
+		<external>http://api.drupal.org/api/search/7/hook_form</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_form();
+*/
+function ${file_name}_form(&$node, $form_state) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_form(&$node, $form_state)</h2>
+
+<p>Display a node editing form.</p>
+<p>This hook, implemented by node modules, is called to retrieve the form
+that is displayed when one attempts to "create/edit" an item. This form is
+displayed at the URI http://www.example.com/?q=node/<add|edit>/nodetype.</p>
+
+<h3>Parameters</h3>
+<p>
+&amp;$node
+The node being added or edited.</p>
+<p><b>$form_state</b> -- 
+The form state array. Changes made to this variable will have no effect.</p>
+
+
+
+]]></help>
+	</item>

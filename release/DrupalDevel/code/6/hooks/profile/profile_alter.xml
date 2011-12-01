@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>profile_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_profile_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_profile_alter();
+*/
+function ${file_name}_profile_alter(&$account) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_profile_alter(&$account)</h2>
+
+<p>Alter profile items before they are rendered.</p>
+<p>You may omit/add/re-sort/re-categorize, etc.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$account</b> -- 
+A user object whose profile is being rendered. Profile items
+are stored in $account->content.</p>
+
+
+
+]]></help>
+	</item>

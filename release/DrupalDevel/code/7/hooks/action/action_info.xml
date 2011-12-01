@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>action_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_action_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_action_info();
+*/
+function ${file_name}_action_info() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_action_info()</h2>
+
+<p>Declares information about actions.</p>
+<p>Any module can define actions, and then call actions_do() to make those
+actions happen in response to events. The trigger module provides a user
+interface for associating actions with module-defined triggers, and it makes
+sure the core triggers fire off actions when their events happen.</p>
+<p>An action consists of two or three parts:</p>
+<ul>
+<li>an action definition (returned by this hook)
+</li>
+<li>a function which performs the action (which by convention is named
+MODULE_description-of-function_action)
+</li>
+<li>an optional form definition function that defines a configuration form
+(which has the name of the action function with '_form' appended to it.)
+</li>
+</ul>
+<p>The action function takes two to four arguments, which come from the input
+arguments to actions_do().</p>
+
+
+
+
+]]></help>
+	</item>

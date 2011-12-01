@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>url_inbound_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_url_inbound_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_url_inbound_alter();
+*/
+function ${file_name}_url_inbound_alter(&$path, $original_path, $path_language) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_url_inbound_alter(&$path, $original_path, $path_language)</h2>
+
+<p>Alters inbound URL requests.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$path</b> -- 
+The path being constructed, which, if a path alias, has been resolved to a
+Drupal path by the database, and which also may have been altered by other
+modules before this one.</p>
+<p><b>$original_path</b> -- 
+The original path, before being checked for path aliases or altered by any
+modules.</p>
+<p><b>$path_language</b> -- 
+The language of the path.</p>
+
+
+
+]]></help>
+	</item>

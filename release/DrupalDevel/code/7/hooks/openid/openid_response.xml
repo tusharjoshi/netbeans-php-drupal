@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>openid_response</title>
+		<external>http://api.drupal.org/api/search/7/hook_openid_response</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_openid_response();
+*/
+function ${file_name}_openid_response($response, $account) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_openid_response($response, $account)</h2>
+
+<p>Allow modules to act upon a successful OpenID login.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$response</b> -- 
+Response values from the OpenID Provider.</p>
+<p><b>$account</b> -- 
+The Drupal user account that logged in</p>
+
+
+
+]]></help>
+	</item>

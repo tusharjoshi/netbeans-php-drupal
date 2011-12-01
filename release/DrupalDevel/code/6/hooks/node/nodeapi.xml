@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>nodeapi</title>
+		<external>http://api.drupal.org/api/search/7/hook_nodeapi</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_nodeapi();
+*/
+function ${file_name}_nodeapi(&$node, $op, $a3 = ${NULL}, $a4 = ${NULL}) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL)</h2>
+
+<p>Act on nodes defined by other modules.</p>
+<p>Despite what its name might make you think, hook_nodeapi() is not
+reserved for node modules. On the contrary, it allows modules to react
+to actions affecting all kinds of nodes, regardless of whether that
+module defined the node.</p>
+<p>It is common to find hook_nodeapi() used in conjunction with
+hook_form_alter(). Modules use hook_form_alter() to place additional form
+elements onto the node edit form, and hook_nodeapi() is used to read and
+write those values to and from the database.</p>
+
+<h3>Parameters</h3>
+<p>
+&amp;$node
+The node the action is being performed on.</p>
+<p><b>$op</b> -- 
+What kind of action is being performed. Possible values:</p>
+<ul>
+<li>"alter": the $node->content array has been rendered, so the node body or
+teaser is filtered and now contains HTML. This op should only be used when
+text substitution, filtering, or other raw text operations are necessary.
+</li>
+<li>"delete": The node is being deleted.
+</li>
+<li>"delete revision": The revision of the node is deleted. You can delete data
+associated with that revision.
+</li>
+<li>"insert": The node has just been created (inserted in the database).
+</li>
+<li>"load": The node is about to be loaded from the database. This hook
+can be used to load additional data at this time.
+</li>
+<li>"prepare": The node is about to be shown on the add/edit form.
+</li>
+<li>"prepare translation": The node is being cloned for translation. Load
+additional data or copy values from $node->translation_source.
+</li>
+<li>"print": Prepare a node view for printing. Used for printer-friendly
+view in book_module
+</li>
+<li>"rss item": An RSS feed is generated. The module can return properties
+to be added to the RSS item generated for this node. See comment_nodeapi()
+and upload_nodeapi() for examples. The $node passed can also be modified
+to add or remove contents to the feed item.
+</li>
+<li>"search result": The node is displayed as a search result. If you
+want to display extra information with the result, return it.
+</li>
+<li>"presave": The node passed validation and is about to be saved. Modules may
+use this to make changes to the node before it is saved to the database.
+</li>
+<li>"update": The node has just been updated in the database.
+</li>
+<li>"update index": The node is being indexed. If you want additional
+information to be indexed which is not already visible through
+nodeapi "view", then you should return it here.
+</li>
+<li>"validate": The user has just finished editing the node and is
+trying to preview or submit it. This hook can be used to check
+the node data. Errors should be set with form_set_error().
+</li>
+<li>"view": The node content is being assembled before rendering. The module
+may add elements $node->content prior to rendering. This hook will be
+called after hook_view().  The format of $node->content is the same as
+used by Forms API.
+</li>
+</ul>
+<p><b>$a3</p></b> -- 
+<ul>
+<li>For "view", passes in the $teaser parameter from node_view().
+</li>
+<li>For "validate", passes in the $form parameter from node_validate().
+</li>
+</ul>
+<p><b>$a4</p></b> -- 
+<ul>
+<li>For "view", passes in the $page parameter from node_view().
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

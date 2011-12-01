@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="nbdocs:/org/netbeans/modules/usersguide/ide.css" type="text/css">
+<title>NDDT - Drush</title>
+</head>
+
+<body>
+<h2>NDDT - Drush
+</h2>
+<p>Drush integration is provided by another TopComponent, similar to the API Tree. You can access the window via <img src="../images/drush16.png" width="16" height="16" alt="Drush">Window-&gt;Drupal-&gt;Drush from the Netbeans menu.</p>
+<p><img src="../images/drushimplement.jpg" width="646" height="285" alt="Drush Window"></p>
+<p>The Drush window is rather simple. You have the top section, which is your output window. Below that you have a field for your actual Drush command and to the right is a field for the http host of your Drupal installation. The host is only needed in multi-site installations of Drupal. Both of these fields have a history of 20 items that is based on a per-project basis. </p>
+<p>When you enter Drush commands, certain things are automatically appended to them. One of those is the -y option, meaning that the Drush command must be non-interactive. Any Drush command entered that requires additional input will abort automatically. Also the --include option is added to include the special Drush plugin for NDDT.</p>
+<p>The screenshot above is the output of an Implementation command from the API Tree. Drush will find all modules that implements a certain hook and output them in a hyperlink format. Clicking on the link will take you to that file and line.</p>
+<p>This version of NDDT is the early support for Drush so much is limited right now. Look for more features in future versions.</p>
+</body>
+</html>

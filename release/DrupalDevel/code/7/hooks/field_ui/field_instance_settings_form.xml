@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_instance_settings_form</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_instance_settings_form</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_instance_settings_form();
+*/
+function ${file_name}_field_instance_settings_form($field, $instance) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_instance_settings_form($field, $instance)</h2>
+
+<p>Add settings to an instance field settings form.</p>
+<p>Invoked from field_ui_field_edit_form() to allow the module defining the
+field to add settings for a field instance.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+The field structure being configured.</p>
+<p><b>$instance</b> -- 
+The instance structure being configured.</p>
+
+
+
+]]></help>
+	</item>

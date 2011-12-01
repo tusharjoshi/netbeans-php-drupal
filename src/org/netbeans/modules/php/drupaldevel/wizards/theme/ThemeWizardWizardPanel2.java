@@ -11,7 +11,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import org.openide.filesystems.FileObject;
 import java.io.File;
+import org.netbeans.modules.php.drupaldevel.DrupalDevelPreferences;
 import org.netbeans.modules.php.drupaldevel.DrupalDevelTool;
+import org.netbeans.modules.php.drupaldevel.wizards.WizardUtils;
 import org.openide.WizardDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbPreferences;
@@ -40,8 +42,9 @@ public class ThemeWizardWizardPanel2 implements WizardDescriptor.Panel {
     public ThemeWizardVisualPanel2 getComponent() {
         if (component == null) {
             component = new ThemeWizardVisualPanel2(this);
-            component.drupalVer = this.drupalVer;
-            component.libraryPath = this.drupalLibrary;
+            String path = DrupalDevelPreferences.libraryInstallPath() + "/files/theme";
+            component.libraryPath = path;
+            WizardUtils.PopulateVersionCombo(component.cbDrupalVersion, path, drupalVer);
             component.setFolderPath(this.target.getPath());
         }
         return component;
@@ -63,7 +66,7 @@ public class ThemeWizardWizardPanel2 implements WizardDescriptor.Panel {
     }
 
     public String getDrupalVer() {
-        return this.drupalVer;
+        return this.component.cbDrupalVersion.getSelectedItem().toString();
     }
 
     public ArrayList getFileList() {

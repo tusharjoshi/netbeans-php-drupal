@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>modules_installed</title>
+		<external>http://api.drupal.org/api/search/7/hook_modules_installed</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_modules_installed();
+*/
+function ${file_name}_modules_installed($modules) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_modules_installed($modules)</h2>
+
+<p>Perform necessary actions after modules are installed.</p>
+<p>This function differs from hook_install() in that it gives all other modules
+a chance to perform actions when a module is installed, whereas
+hook_install() is only called on the module actually being installed. See
+module_enable() for a detailed description of the order in which install and
+enable hooks are invoked.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$modules</b> -- 
+An array of the modules that were installed.</p>
+
+
+
+]]></help>
+	</item>
