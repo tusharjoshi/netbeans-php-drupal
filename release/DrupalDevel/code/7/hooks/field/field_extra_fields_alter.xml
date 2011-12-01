@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_extra_fields_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_extra_fields_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_extra_fields_alter();
+*/
+function ${file_name}_field_extra_fields_alter(&$info) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_extra_fields_alter(&$info)</h2>
+
+<p>Alter "pseudo-field" components on fieldable entities.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$info</b> -- 
+The associative array of 'pseudo-field' components.</p>
+
+
+
+]]></help>
+	</item>

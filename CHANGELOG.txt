@@ -1,22 +1,73 @@
 10/03/2011
-  - Add signing to the NBM
-  - Changed the modal type of the code insert dialog
-  - Removed the "keep open" option
-  - Added update center
+    1.0 - initial
+            - Add signing to the NBM
+            - Changed the modal type of the code insert dialog
+            - Removed the "keep open" option
+            - Added update center
   
 10/19/2011
-	1.5-dev branch:
-		- Library paths and Drupal versions are now set per project
-		- Added in a api.drupal.org search bar, which works off of the current project or global version settings.
-		- Renamed packages to org.netbeans.modules.php.drupaldevel.* to play nice with the PHP Module
+    1.5-dev branch:
+            - Library paths and Drupal versions are now set per project
+            - Added in a api.drupal.org search bar, which works off of the current project or global version settings.
+            - Renamed packages to org.netbeans.modules.php.drupaldevel.* to play nice with the PHP Module
   
 10/22/2011
-	1.5 release
-		- Removed search bar and drupal tool bar. Combined into a new dockable window.
-		- LibraryPath versions are no longer Drupal X, but rather just X
-		- Project level properties for Drupal Version and Library Path now in place.
+    1.5 release
+            - Removed search bar and drupal tool bar. Combined into a new dockable window.
+            - LibraryPath versions are no longer Drupal X, but rather just X
+            - Project level properties for Drupal Version and Library Path now in place.
 		
 10/28/2011
-	1.5.1 release
-		- Dropped phpmodule dependency and switched to Netbeans lookups
-		- Now works on 7.0+ and any version until Netbeans makes some major API changes.
+    1.5.1 release
+            - Dropped phpmodule dependency and switched to Netbeans lookups
+            - Now works on 7.0+ and any version until Netbeans makes some major API changes.
+
+10/31/2011
+    2.0.0 - bleeding
+            - Initial Drush support added. 
+11/01/2011
+    2.0.1 - bleeding
+            - Initial Drush support for MAC and *Nix
+				
+11/02/2011
+    2.0.2 - bleeding
+        - Option can now be set in project properties for the location of the 
+          Drupal installation
+        - Initial APITree Context Menu support added
+
+11/06/2011
+    2.0.3 - beta
+        - First beta of 2.0 branch
+        - Reworked template system. Code templates are now XML based
+        - Added help window to API TopComponent
+        - Moved api.drupal.org search bar back to the toolbar
+        - Added quickfind box on API TopComponent
+        - Drush TopComponent now opens when invoked
+        - Project source directory now parsed from project configuration
+        - External template libraries now merge with core libraries.
+        - Started help system
+        - Added icons to APITree items
+
+11/07/2011
+    2.0.4 - beta
+        - Tool templates now work off of code template system.
+        - Editor gets focus upon code insertion
+		
+11/12/2011
+	2.0.5 - beta
+		- Several fixes for Mac and Nix
+		- Added reload button to API window
+		
+11/14/2011
+	2.0.6 - beta
+		- Fixed some problems with Drush combobox history
+		
+11/22/2011
+	2.0.7 - RC1
+		- Added drop down version select to new module and theme creation.
+		- Fixed bug in creating hooks with files that have multiple . in them.
+
+12/01/2011
+        2.0.8 - Version 2 Final
+                -Full release of version 2
+		

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_submit</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_submit</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_node_submit();
+*/
+function ${file_name}_node_submit($node, $form, &$form_state) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_submit($node, $form, &$form_state)</h2>
+
+<p>Act on a node after validated form values have been copied to it.</p>
+<p>This hook is invoked when a node form is submitted with either the "Save" or
+"Preview" button, after form values have been copied to the form state's node
+object, but before the node is saved or previewed. It is a chance for modules
+to adjust the node's properties from what they are simply after a copy from
+$form_state['values']. This hook is intended for adjusting non-field-related
+properties. See hook_field_attach_submit() for customizing field-related
+properties.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node object being updated in response to a form submission.</p>
+<p><b>$form</b> -- 
+The form being used to edit the node.</p>
+<p><b>$form_state</b> -- 
+The form state array.</p>
+
+
+
+]]></help>
+	</item>

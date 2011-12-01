@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>node_grants</title>
+		<external>http://api.drupal.org/api/search/7/hook_node_grants</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_node_grants();
+*/
+function ${file_name}_node_grants($account, $op) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_node_grants($account, $op)</h2>
+
+<p>Inform the node access system what permissions the user has.</p>
+<p>This hook is for implementation by node access modules. In this hook,
+the module grants a user different "grant IDs" within one or more
+"realms". In hook_node_access_records(), the realms and grant IDs are
+associated with permission to view, edit, and delete individual nodes.</p>
+<p>The realms and grant IDs can be arbitrarily defined by your node access
+module; it is common to use role IDs as grant IDs, but that is not
+required. Your module could instead maintain its own list of users, where
+each list has an ID. In that case, the return value of this hook would be
+an array of the list IDs that this user is a member of.</p>
+<p>A node access module may implement as many realms as necessary to
+properly define the access privileges for the nodes.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$account</b> -- 
+The user object whose grants are requested.</p>
+<p><b>$op</b> -- 
+The node operation to be performed, such as "view", "update", or "delete".</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>cache_fastpath</title>
+		<external>http://api.drupal.org/api/search/7/hook_cache_fastpath</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of page_cache_fastpath();
+*/
+function ${file_name}_cache_fastpath() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>page_cache_fastpath()</h2>
+
+<p>Outputs a cached page.</p>
+<p>By implementing page_cache_fastpath(), a special cache handler can skip
+most of the bootstrap process, including the database connection.
+This function is invoked during DRUPAL_BOOTSTRAP_EARLY_PAGE_CACHE.</p>
+
+
+
+
+]]></help>
+	</item>

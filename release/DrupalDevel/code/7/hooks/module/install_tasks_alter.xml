@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>install_tasks_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_install_tasks_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_install_tasks_alter();
+*/
+function ${file_name}_install_tasks_alter(&$tasks, $install_state) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_install_tasks_alter(&$tasks, $install_state)</h2>
+
+<p>Alter the full list of installation tasks.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$tasks</b> -- 
+An array of all available installation tasks, including those provided by
+Drupal core. You can modify this array to change or replace any part of
+the Drupal installation process that occurs after the installation profile
+is selected.</p>
+<p><b>$install_state</b> -- 
+An array of information about the current installation state.</p>
+
+
+
+]]></help>
+	</item>

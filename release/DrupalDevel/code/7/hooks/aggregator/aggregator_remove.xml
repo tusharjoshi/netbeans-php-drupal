@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>aggregator_remove</title>
+		<external>http://api.drupal.org/api/search/7/hook_aggregator_remove</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_aggregator_remove();
+*/
+function ${file_name}_aggregator_remove($feed) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_aggregator_remove($feed)</h2>
+
+<p>Implement this hook to remove stored data if a feed is being deleted or a
+feed's items are being removed.</p>
+<p>Aggregator calls this hook if either a feed is deleted or a user clicks on
+"remove items".</p>
+<p>If your module stores feed items for example on hook_aggregator_process() it
+is recommended to implement this hook and to remove data related to $feed
+when called.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$feed</b> -- 
+The $feed object whose items are being removed.</p>
+
+
+
+]]></help>
+	</item>

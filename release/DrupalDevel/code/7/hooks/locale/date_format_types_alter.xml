@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>date_format_types_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_date_format_types_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_date_format_types_alter();
+*/
+function ${file_name}_date_format_types_alter(&$types) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_date_format_types_alter(&$types)</h2>
+
+<p>Modify existing date types.</p>
+<p>Allows other modules to modify existing date types like 'long'. Called by
+_system_date_format_types_build(). For instance, A module may use this hook
+to apply settings across all date types, such as locking all date types so
+they appear to be provided by the system.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$types</b> -- 
+A list of date types. Each date type is keyed by the machine-readable name
+and the values are associative arrays containing:</p>
+<ul>
+<li>is_new: Set to FALSE to override previous settings.
+</li>
+<li>module: The name of the module that created the date type.
+</li>
+<li>type: The machine-readable date type name.
+</li>
+<li>title: The human-readable date type name.
+</li>
+<li>locked: Specifies that the date type is system-provided.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

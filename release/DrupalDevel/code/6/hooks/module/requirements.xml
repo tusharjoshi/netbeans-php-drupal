@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>requirements</title>
+		<external>http://api.drupal.org/api/search/7/hook_requirements</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_requirements();
+*/
+function ${file_name}_requirements($phase) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_requirements($phase)</h2>
+
+<p>Check installation requirements and do status reporting.</p>
+<p>This hook has two closely related uses, determined by the $phase argument:
+checking installation requirements ($phase == 'install')
+and status reporting ($phase == 'runtime').</p>
+<p>Note that this hook, like all others dealing with installation and updates,
+must reside in a module_name.install file, or it will not properly abort
+the installation of the module if a critical requirement is missing.</p>
+<p>During the 'install' phase, modules can for example assert that
+library or server versions are available or sufficient.
+Note that the installation of a module can happen during installation of
+Drupal itself (by install.php) with an installation profile or later by hand.
+As a consequence, install-time requirements must be checked without access
+to the full Drupal API, because it is not available during install.php.
+For localisation you should for example use $t = get_t() to
+retrieve the appropriate localisation function name (t() or st()).
+If a requirement has a severity of REQUIREMENT_ERROR, install.php will abort
+or at least the module will not install.
+Other severity levels have no effect on the installation.
+Module dependencies do not belong to these installation requirements,
+but should be defined in the module's .info file.</p>
+<p>The 'runtime' phase is not limited to pure installation requirements
+but can also be used for more general status information like maintenance
+tasks and security issues.
+The returned 'requirements' will be listed on the status report in the
+administration section, with indication of the severity level.
+Moreover, any requirement with a severity of REQUIREMENT_ERROR severity will
+result in a notice on the the administration overview page.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$phase</b> -- 
+The phase in which hook_requirements is run:</p>
+<ul>
+<li>'install': the module is being installed.
+</li>
+<li>'runtime': the runtime requirements are being checked and shown on the
+status report page.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

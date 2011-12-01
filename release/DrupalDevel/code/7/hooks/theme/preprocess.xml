@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>preprocess</title>
+		<external>http://api.drupal.org/api/search/7/hook_preprocess</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_preprocess();
+*/
+function ${file_name}_preprocess(&$variables, $hook) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_preprocess(&$variables, $hook)</h2>
+
+<p>Preprocess theme variables.</p>
+<p>This hook allows modules to preprocess theme variables for theme templates.
+It is called for all invocations of theme(), to allow modules to add to
+or override variables for all theme hooks.</p>
+<p>For more detailed information, see theme().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$variables</b> -- 
+The variables array (modify in place).</p>
+<p><b>$hook</b> -- 
+The name of the theme hook.</p>
+
+
+
+]]></help>
+	</item>

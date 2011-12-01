@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>help</title>
+		<external>http://api.drupal.org/api/search/7/hook_help</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_help();
+*/
+function ${file_name}_help($path, $arg) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_help($path, $arg)</h2>
+
+<p>Provide online user help.</p>
+<p>By implementing hook_help(), a module can make documentation available to
+the user for the module as a whole, or for specific paths.  Help for
+developers should usually be provided via function header comments in the
+code, or in special API example files.</p>
+<p>For a detailed usage example, see page_example.module.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$path</b> -- 
+The router menu path, as defined in hook_menu(), for the help that is
+being requested; e.g., 'admin/people' or 'user/register'.  If the router
+path includes a wildcard, then this will appear in $path as %, even if it
+is a named %autoloader wildcard in the hook_menu() implementation; for
+example, node pages would have $path equal to 'node/%' or 'node/%/view'.
+To provide a help page for a whole module with a listing on admin/help,
+your hook implementation should match a path with a special descriptor
+after a "#" sign:
+'admin/help#modulename'
+The main module help text, displayed on the admin/help/modulename
+page and linked to from the admin/help page.</p>
+<p><b>$arg</b> -- 
+An array that corresponds to the return value of the arg() function, for
+modules that want to provide help that is specific to certain values
+of wildcards in $path. For example, you could provide help for the path
+'user/1' by looking for the path 'user/%' and $arg[1] == '1'. This given
+array should always be used rather than directly invoking arg(), because
+your hook implementation may be called for other purposes besides building
+the current page's help. Note that depending on which module is invoking
+hook_help, $arg may contain only empty strings. Regardless, $arg[0] to
+$arg[11] will always be set.</p>
+
+
+
+]]></help>
+	</item>

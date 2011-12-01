@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>entity_view</title>
+		<external>http://api.drupal.org/api/search/7/hook_entity_view</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_entity_view();
+*/
+function ${file_name}_entity_view($entity, $type, $view_mode, $langcode) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_entity_view($entity, $type, $view_mode, $langcode)</h2>
+
+<p>Act on entities being assembled before rendering.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity</b> -- 
+The entity object.</p>
+<p><b>$type</b> -- 
+The type of entity being rendered (i.e. node, user, comment).</p>
+<p><b>$view_mode</b> -- 
+The view mode the entity is rendered in.</p>
+<p><b>$langcode</b> -- 
+The language code used for rendering.</p>
+<p>The module may add elements to $entity->content prior to rendering. The
+structure of $entity->content is a renderable array as expected by
+drupal_render().</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>xmlrpc_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_xmlrpc_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_xmlrpc_alter();
+*/
+function ${file_name}_xmlrpc_alter(&$methods) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_xmlrpc_alter(&$methods)</h2>
+
+<p>Alters the definition of XML-RPC methods before they are called.</p>
+<p>This hook allows modules to modify the callback definition of declared
+XML-RPC methods, right before they are invoked by a client. Methods may be
+added, or existing methods may be altered.</p>
+<p>Note that hook_xmlrpc() supports two distinct and incompatible formats to
+define a callback, so care must be taken when altering other methods.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$methods</b> -- 
+An asssociative array of method callback definitions, as returned from
+hook_xmlrpc() implementations.</p>
+
+
+
+]]></help>
+	</item>

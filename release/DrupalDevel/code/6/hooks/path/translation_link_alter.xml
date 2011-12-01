@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>translation_link_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_translation_link_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_translation_link_alter();
+*/
+function ${file_name}_translation_link_alter(&$links, $path) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_translation_link_alter(&$links, $path)</h2>
+
+<p>Perform alterations on translation links.</p>
+<p>A translation link may need to point to a different path or use a translated
+link text before going through l(), which will just handle the path aliases.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$links</b> -- 
+Nested array of links keyed by language code.</p>
+<p><b>$path</b> -- 
+The current path.</p>
+
+
+
+]]></help>
+	</item>

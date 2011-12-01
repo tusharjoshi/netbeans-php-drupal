@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>update</title>
+		<external>http://api.drupal.org/api/search/7/hook_update</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_update();
+*/
+function ${file_name}_update($node) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_update($node)</h2>
+
+<p>Respond to updates to a node.</p>
+<p>This hook is invoked only on the module that defines the node's content type
+(use hook_node_update() to act on all node updates).</p>
+<p>This hook is invoked from node_save() after the node is updated in the
+node table in the database, before field_attach_update() is called, and
+before hook_node_update() is invoked.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node that is being updated.</p>
+
+
+
+]]></help>
+	</item>

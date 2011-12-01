@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>hook_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_hook_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_hook_info();
+*/
+function ${file_name}_hook_info() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_hook_info()</h2>
+
+<p>Defines one or more hooks that are exposed by a module.</p>
+<p>Normally hooks do not need to be explicitly defined. However, by declaring a
+hook explicitly, a module may define a "group" for it. Modules that implement
+a hook may then place their implementation in either $module.module or in
+$module.$group.inc. If the hook is located in $module.$group.inc, then that
+file will be automatically loaded when needed.
+In general, hooks that are rarely invoked and/or are very large should be
+placed in a separate include file, while hooks that are very short or very
+frequently called should be left in the main module file so that they are
+always available.</p>
+
+
+
+
+]]></help>
+	</item>

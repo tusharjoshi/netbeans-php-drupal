@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>action_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_action_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_action_info();
+*/
+function ${file_name}_action_info() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_action_info()</h2>
+
+<p>Declare information about one or more Drupal actions.</p>
+<p>Any module can define any number of Drupal actions. The trigger module is an
+example of a module that uses actions. An action consists of two or three
+parts: (1) an action definition (returned by this hook), (2) a function which
+does the action (which by convention is named module + '_' + description of
+what the function does + '_action'), and an optional form definition
+function that defines a configuration form (which has the name of the action
+with '_form' appended to it.)</p>
+
+
+
+
+]]></help>
+	</item>

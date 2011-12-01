@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>aggregator_parse</title>
+		<external>http://api.drupal.org/api/search/7/hook_aggregator_parse</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_aggregator_parse();
+*/
+function ${file_name}_aggregator_parse($feed) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_aggregator_parse($feed)</h2>
+
+<p>Implement this hook to create an alternative parser for aggregator module.</p>
+<p>A parser converts feed item data to a common format. The parser is called
+at the second of the three aggregation stages: data is downloaded by the
+active fetcher, it is converted to a common format by the active parser and
+finally, it is passed to all active processors which manipulate or store the
+data.</p>
+<p>Modules that define this hook can be set as active parser on
+admin/config/services/aggregator. Only one parser can be active at a time.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$feed</b> -- 
+The $feed object that describes the resource to be parsed.
+$feed->source_string contains the raw feed data as a string. Parse data
+from $feed->source_string and expose it to other modules as an array of
+data items on $feed->items.</p>
+<p>Feed format:</p>
+<ul>
+<li>$feed->description (string) - description of the feed
+</li>
+<li>$feed->image (string) - image for the feed
+</li>
+<li>$feed->etag (string) - value of feed's entity tag header field
+</li>
+<li>$feed->modified (UNIX timestamp) - value of feed's last modified header
+field
+</li>
+<li>$feed->items (Array) - array of feed items.
+</li>
+</ul>
+<p>By convention, the common format for a single feed item is:
+$item[key-name] = value;</p>
+<p>Recognized keys:
+TITLE (string) - the title of a feed item
+DESCRIPTION (string) - the description (body text) of a feed item
+TIMESTAMP (UNIX timestamp) - the feed item's published time as UNIX timestamp
+AUTHOR (string) - the feed item's author
+GUID (string) - RSS/Atom global unique identifier
+LINK (string) - the feed item's URL</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>block_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_block_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_block_info();
+*/
+function ${file_name}_block_info() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_block_info()</h2>
+
+<p>Define all blocks provided by the module.</p>
+<p>This hook declares to Drupal what blocks are provided by your module and can
+optionally specify initial block configuration settings.</p>
+<p>In hook_block_info(), each block your module provides is given a unique
+identifier referred to as "delta" (the array key in the return value). Delta
+values only need to be unique within your module, and they are used in the
+following ways:</p>
+<ul>
+<li>Passed into the other block hooks in your module as an argument to
+identify the block being configured or viewed.
+</li>
+<li>Used to construct the default HTML ID of "block-MODULE-DELTA" applied to
+each block when it is rendered (which can then be used for CSS styling or
+JavaScript programming).
+</li>
+<li>Used to define a theming template suggestion of block__MODULE__DELTA, for
+advanced theming possibilities.
+</li>
+<li>Used by other modules to identify your block in hook_block_info_alter() and
+other alter hooks.
+</li>
+</ul>
+<p>The values of delta can be strings or numbers, but because of the uses above
+it is preferable to use descriptive strings whenever possible, and only use a
+numeric identifier if you have to (for instance if your module allows users
+to create several similar blocks that you identify within your module code
+with numeric IDs). The maximum length for delta values is 32 bytes.</p>
+
+
+
+
+]]></help>
+	</item>

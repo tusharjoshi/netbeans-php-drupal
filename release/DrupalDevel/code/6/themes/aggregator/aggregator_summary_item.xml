@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>aggregator_summary_item</title>
+		<external>http://api.drupal.org/api/search/6/theme_aggregator_summary_item</external>
+		<group>theme</group>
+		<template><![CDATA[function ${file_name}_preprocess_aggregator_summary_item(&$variables) {
+  ${set_cursor}
+}]]></template>
+		<help></help>
+	</item>

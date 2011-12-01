@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>schema</title>
+		<external>http://api.drupal.org/api/search/7/hook_schema</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_schema();
+*/
+function ${file_name}_schema() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_schema()</h2>
+
+<p>Define the current version of the database schema.</p>
+<p>A Drupal schema definition is an array structure representing one or
+more tables and their related keys and indexes. A schema is defined by
+hook_schema() which must live in your module's .install file.</p>
+<p>By implementing hook_schema() and specifying the tables your module
+declares, you can easily create and drop these tables on all
+supported database engines. You don't have to deal with the
+different SQL dialects for table creation and alteration of the
+supported database engines.</p>
+<p>See the Schema API documentation at http://drupal.org/node/146843 for
+details on hook_schema(), where database tables are defined.</p>
+
+
+
+
+]]></help>
+	</item>

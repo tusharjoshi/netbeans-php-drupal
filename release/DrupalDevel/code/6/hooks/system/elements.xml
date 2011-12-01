@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>elements</title>
+		<external>http://api.drupal.org/api/search/7/hook_elements</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_elements();
+*/
+function ${file_name}_elements() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_elements()</h2>
+
+<p>Allows modules to declare their own Forms API element types and specify their
+default values.</p>
+<p>This hook allows modules to declare their own form element types and to
+specify their default values. The values returned by this hook will be
+merged with the elements returned by hook_form() implementations and so
+can return defaults for any Form APIs keys in addition to those explicitly
+mentioned below.</p>
+<p>Each of the form element types defined by this hook is assumed to have
+a matching theme function, e.g. theme_elementtype(), which should be
+registered with hook_theme() as normal.</p>
+<p>For more information about custom element types see the explanation at
+<a href="http://drupal.org/node/169815">http://drupal.org/node/169815</a> .</p>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_widget_error</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_widget_error</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_widget_error();
+*/
+function ${file_name}_field_widget_error($element, $error, $form, &$form_state) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_widget_error($element, $error, $form, &$form_state)</h2>
+
+<p>Flag a field-level validation error.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$element</b> -- 
+An array containing the form element for the widget. The error needs to be
+flagged on the right sub-element, according to the widget's internal
+structure.</p>
+<p><b>$error</b> -- 
+An associative array with the following key-value pairs, as returned by
+hook_field_validate():</p>
+<ul>
+<li>error: the error code. Complex widgets might need to report different
+errors to different form elements inside the widget.
+</li>
+<li>message: the human readable message to be displayed.
+</li>
+</ul>
+<p><b>$form</b> -- 
+The form structure where field elements are attached to. This might be a
+full form structure, or a sub-element of a larger form.</p>
+<p><b>$form_state</b> -- 
+An associative array containing the current state of the form.</p>
+
+
+
+]]></help>
+	</item>

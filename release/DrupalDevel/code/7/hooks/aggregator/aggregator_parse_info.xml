@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>aggregator_parse_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_aggregator_parse_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_aggregator_parse_info();
+*/
+function ${file_name}_aggregator_parse_info() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_aggregator_parse_info()</h2>
+
+<p>Implement this hook to expose the title and a short description of your
+parser.</p>
+<p>The title and the description provided are shown on
+admin/config/services/aggregator among other places. Use as title the human
+readable name of the parser and as description a brief (40 to 80 characters)
+explanation of the parser's functionality.</p>
+<p>This hook is only called if your module implements hook_aggregator_parse().
+If this hook is not implemented aggregator will use your module's file name
+as title and there will be no description.</p>
+
+
+
+
+]]></help>
+	</item>

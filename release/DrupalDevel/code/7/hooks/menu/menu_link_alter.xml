@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_link_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_link_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu_link_alter();
+*/
+function ${file_name}_menu_link_alter(&$item) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_link_alter(&$item)</h2>
+
+<p>Alter the data being saved to the {menu_links} table by menu_link_save().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$item</b> -- 
+Associative array defining a menu link as passed into menu_link_save().</p>
+
+
+
+]]></help>
+	</item>

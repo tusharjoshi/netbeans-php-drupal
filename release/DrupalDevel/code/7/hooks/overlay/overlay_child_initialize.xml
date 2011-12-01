@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>overlay_child_initialize</title>
+		<external>http://api.drupal.org/api/search/7/hook_overlay_child_initialize</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_overlay_child_initialize();
+*/
+function ${file_name}_overlay_child_initialize() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_overlay_child_initialize()</h2>
+
+<p>Allow modules to act when an overlay child window is initialized.</p>
+<p>The child window is initialized when a page is displayed from within the
+overlay, so modules can act here if they need to take action to work from
+within the confines of the overlay.</p>
+
+
+
+
+]]></help>
+	</item>

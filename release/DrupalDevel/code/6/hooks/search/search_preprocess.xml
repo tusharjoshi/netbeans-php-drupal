@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>search_preprocess</title>
+		<external>http://api.drupal.org/api/search/7/hook_search_preprocess</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_search_preprocess();
+*/
+function ${file_name}_search_preprocess($text) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_search_preprocess($text)</h2>
+
+<p>Preprocess text for the search index.</p>
+<p>This hook is called both for text added to the search index, as well as
+the keywords users have submitted for searching.</p>
+<p>This is required for example to allow Japanese or Chinese text to be
+searched. As these languages do not use spaces, it needs to be split into
+separate words before it can be indexed. There are various external
+libraries for this.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$text</b> -- 
+The text to split. This is a single piece of plain-text that was
+extracted from between two HTML tags. Will not contain any HTML entities.</p>
+
+
+
+]]></help>
+	</item>

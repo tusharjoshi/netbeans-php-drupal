@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_prepare_view</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_prepare_view</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_prepare_view();
+*/
+function ${file_name}_field_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items)</h2>
+
+<p>Prepare field values prior to display.</p>
+<p>This hook is invoked before the field values are handed to formatters
+for display, and runs before the formatters' own
+hook_field_formatter_prepare_view().</p>
+<p>Unlike most other field hooks, this hook operates on multiple entities. The
+$entities, $instances and $items parameters are arrays keyed by entity ID.
+For performance reasons, information for all available entities should be
+loaded in a single query where possible.</p>
+<p>Make changes or additions to field values by altering the $items parameter by
+reference. There is no return value.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entity_type</b> -- 
+The type of $entity.</p>
+<p><b>$entities</b> -- 
+Array of entities being displayed, keyed by entity ID.</p>
+<p><b>$field</b> -- 
+The field structure for the operation.</p>
+<p><b>$instances</b> -- 
+Array of instance structures for $field for each entity, keyed by entity
+ID.</p>
+<p><b>$langcode</b> -- 
+The language associated to $items.</p>
+<p><b>$items</b> -- 
+$entity->{$field['field_name']}, or an empty array if unset.</p>
+
+
+
+]]></help>
+	</item>

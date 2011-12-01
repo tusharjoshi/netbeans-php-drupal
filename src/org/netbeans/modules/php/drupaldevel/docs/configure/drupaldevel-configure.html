@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="nbdocs:/org/netbeans/modules/usersguide/ide.css" type="text/css">
+<title>Drupal Configuration</title>
+</head>
+
+<body>
+<h2>NDDT Configuration
+</h2>
+<p>NDDT has configuration on both a global level and per project. With the exception of a couple of items, the configuration is very similar. When you access Tools -&gt; Options in the Netbeans menu, click on the PHP tab. From there you will see a secondary tab for Drupal:</p>
+<p><img src="../images/optionswindow.jpg" width="629" height="481" alt="Options"></p>
+<p>The top section is for specifying custom templates, which is covered in details in the <a href="../customization/customization.html">customization section</a>.</p>
+<p>Following the custom templates section is the default Drupal version. The version set here will apply to all projects that do not have a Drupal version specified.</p>
+<p>The final section is for the location of Drush. Drush is not included with this module and the installation of Drush goes beyond the scope of this document, however excellent help is available on the <object classid="java:org.netbeans.modules.javahelp.BrowserDisplayer">
+                <param name="content" value="http://drupal.org/project/drush">
+                <param name="text" value="<html><u>Drush project (Web document)</u></html>">
+                <param name="textFontSize" value="medium">
+                <param name="textColor" value="blue">
+            </object> on drupal.org.</p>
+<h3>Per Project Configuration</h3>
+<p>You can override most global settings through the per-project properties. To access this window, right click on your project and select properties. In the left hand tree, click on the Drupal category:</p>
+<p><img src="../images/projpropwindow.jpg" width="668" height="411" alt="Project Properties"></p>
+<p>The options available here are the same as the global options, with the exception of the bottom item. There is where you can specify the actual location of Drupal within your project. By default NDDT looks for Drupal in the project's root source file. If you have Drupal installed in a subdirectory, then specify it here. This is imperative for Drush to function properly.</p>
+<p>&nbsp;</p>
+</body>
+</html>

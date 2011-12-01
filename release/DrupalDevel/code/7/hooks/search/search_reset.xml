@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>search_reset</title>
+		<external>http://api.drupal.org/api/search/7/hook_search_reset</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_search_reset();
+*/
+function ${file_name}_search_reset() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_search_reset()</h2>
+
+<p>Take action when the search index is going to be rebuilt.</p>
+<p>Modules that use hook_update_index() should update their indexing
+bookkeeping so that it starts from scratch the next time
+hook_update_index() is called.</p>
+
+
+
+
+]]></help>
+	</item>

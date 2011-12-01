@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>openid_discovery_method_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_openid_discovery_method_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_openid_discovery_method_info();
+*/
+function ${file_name}_openid_discovery_method_info() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_openid_discovery_method_info()</h2>
+
+<p>Allow modules to declare OpenID discovery methods.</p>
+<p>The discovery function callbacks will be called in turn with an unique
+parameter, the claimed identifier. They have to return an array of services,
+in the same form returned by openid_discover().</p>
+<p>The first discovery method that succeed (return at least one services) will
+stop the discovery process.</p>
+
+
+
+
+]]></help>
+	</item>

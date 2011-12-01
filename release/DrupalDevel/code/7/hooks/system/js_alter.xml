@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>js_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_js_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_js_alter();
+*/
+function ${file_name}_js_alter(&$javascript) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_js_alter(&$javascript)</h2>
+
+<p>Perform necessary alterations to the JavaScript before it is presented on
+the page.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$javascript</b> -- 
+An array of all JavaScript being presented on the page.</p>
+
+
+
+]]></help>
+	</item>

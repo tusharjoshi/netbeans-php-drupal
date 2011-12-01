@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>uninstall</title>
+		<external>http://api.drupal.org/api/search/7/hook_uninstall</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_uninstall();
+*/
+function ${file_name}_uninstall() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_uninstall()</h2>
+
+<p>Remove any information that the module sets.</p>
+<p>The information that the module should remove includes:</p>
+<ul>
+<li>variables that the module has set using variable_set() or system_settings_form()
+</li>
+<li>modifications to existing tables
+</li>
+</ul>
+<p>The module should not remove its entry from the {system} table. Database
+tables defined by hook_schema() will be removed automatically.</p>
+<p>The uninstall hook will fire when the module gets uninstalled but before the
+module's database tables are removed, allowing your module to query its own
+tables during this routine.</p>
+<p>When hook_uninstall() is called, your module will already be disabled, so
+its .module file will not be automatically included. If you need to call API
+functions from your .module file in this hook, use drupal_load() to make
+them available. (Keep this usage to a minimum, though, especially when
+calling API functions that invoke hooks, or API functions from modules
+listed as dependencies, since these may not be available or work as expected
+when the module is disabled.)</p>
+
+
+
+
+]]></help>
+	</item>

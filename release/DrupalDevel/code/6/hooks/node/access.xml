@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>access</title>
+		<external>http://api.drupal.org/api/search/7/hook_access</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_access();
+*/
+function ${file_name}_access($op, $node, $account) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_access($op, $node, $account)</h2>
+
+<p>Define access restrictions.</p>
+<p>This hook allows node modules to limit access to the node types they
+define.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$op</b> -- 
+The operation to be performed. Possible values:</p>
+<ul>
+<li>"create"
+</li>
+<li>"delete"
+</li>
+<li>"update"
+</li>
+<li>"view"
+</li>
+</ul>
+<p><b>$node</b> -- 
+The node on which the operation is to be performed, or, if it does
+not yet exist, the type of node to be created.</p>
+<p><b>$account</b> -- 
+A user object representing the user for whom the operation is to be
+performed.</p>
+
+
+
+]]></help>
+	</item>

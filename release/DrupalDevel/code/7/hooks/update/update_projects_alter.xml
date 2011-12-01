@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>update_projects_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_update_projects_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_update_projects_alter();
+*/
+function ${file_name}_update_projects_alter(&$projects) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_update_projects_alter(&$projects)</h2>
+
+<p>Alter the list of projects before fetching data and comparing versions.</p>
+<p>Most modules will never need to implement this hook. It is for advanced
+interaction with the update status module: mere mortals need not apply.
+The primary use-case for this hook is to add projects to the list, for
+example, to provide update status data on disabled modules and themes. A
+contributed module might want to hide projects from the list, for example,
+if there is a site-specific module that doesn't have any official releases,
+that module could remove itself from this list to avoid "No available
+releases found" warnings on the available updates report. In rare cases, a
+module might want to alter the data associated with a project already in
+the list.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$projects</b> -- 
+Reference to an array of the projects installed on the system. This
+includes all the metadata documented in the comments below for each
+project (either module or theme) that is currently enabled. The array is
+initially populated inside update_get_projects() with the help of
+_update_process_info_list(), so look there for examples of how to
+populate the array with real values.</p>
+
+
+
+]]></help>
+	</item>

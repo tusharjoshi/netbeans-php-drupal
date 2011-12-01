@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>entity_load</title>
+		<external>http://api.drupal.org/api/search/7/hook_entity_load</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_entity_load();
+*/
+function ${file_name}_entity_load($entities, $type) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_entity_load($entities, $type)</h2>
+
+<p>Act on entities when loaded.</p>
+<p>This is a generic load hook called for all entity types loaded via the
+entity API.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$entities</b> -- 
+The entities keyed by entity ID.</p>
+<p><b>$type</b> -- 
+The type of entities being loaded (i.e. node, user, comment).</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>db_rewrite_sql</title>
+		<external>http://api.drupal.org/api/search/7/hook_db_rewrite_sql</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_db_rewrite_sql();
+*/
+function ${file_name}_db_rewrite_sql($query, $primary_table, $primary_field, $args) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_db_rewrite_sql($query, $primary_table, $primary_field, $args)</h2>
+
+<p>Rewrite database queries, usually for access control.</p>
+<p>Add JOIN and WHERE statements to queries and decide whether the primary_field
+shall be made DISTINCT. For node objects, primary field is always called nid.
+For taxonomy terms, it is tid and for vocabularies it is vid. For comments,
+it is cid. Primary table is the table where the primary object (node, file,
+term_node etc.) is.</p>
+<p>You shall return an associative array. Possible keys are 'join', 'where' and
+'distinct'. The value of 'distinct' shall be 1 if you want that the
+primary_field made DISTINCT.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$query</b> -- 
+Query to be rewritten.</p>
+<p><b>$primary_table</b> -- 
+Name or alias of the table which has the primary key field for this query.
+Typical table names would be: {blocks}, {comments}, {forum}, {node},
+{menu}, {term_data} or {vocabulary}. However, it is more common for
+$primary_table to contain the usual table alias: b, c, f, n, m, t or v.</p>
+<p><b>$primary_field</b> -- 
+Name of the primary field.</p>
+<p><b>$args</b> -- 
+Array of additional arguments.</p>
+
+
+
+]]></help>
+	</item>

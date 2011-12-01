@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>install_tasks</title>
+		<external>http://api.drupal.org/api/search/7/hook_install_tasks</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_install_tasks();
+*/
+function ${file_name}_install_tasks() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_install_tasks()</h2>
+
+<p>Return an array of tasks to be performed by an installation profile.</p>
+<p>Any tasks you define here will be run, in order, after the installer has
+finished the site configuration step but before it has moved on to the
+final import of languages and the end of the installation. You can have any
+number of custom tasks to perform during this phase.</p>
+<p>Each task you define here corresponds to a callback function which you must
+separately define and which is called when your task is run. This function
+will receive the global installation state variable, $install_state, as
+input, and has the opportunity to access or modify any of its settings. See
+the install_state_defaults() function in the installer for the list of
+$install_state settings used by Drupal core.</p>
+<p>At the end of your task function, you can indicate that you want the
+installer to pause and display a page to the user by returning any themed
+output that should be displayed on that page (but see below for tasks that
+use the form API or batch API; the return values of these task functions are
+handled differently). You should also use drupal_set_title() within the task
+callback function to set a custom page title. For some tasks, however, you
+may want to simply do some processing and pass control to the next task
+without ending the page request; to indicate this, simply do not send back
+a return value from your task function at all. This can be used, for
+example, by installation profiles that need to configure certain site
+settings in the database without obtaining any input from the user.</p>
+<p>The task function is treated specially if it defines a form or requires
+batch processing; in that case, you should return either the form API
+definition or batch API array, as appropriate. See below for more
+information on the 'type' key that you must define in the task definition
+to inform the installer that your task falls into one of those two
+categories. It is important to use these APIs directly, since the installer
+may be run non-interactively (for example, via a command line script), all
+in one page request; in that case, the installer will automatically take
+care of submitting forms and processing batches correctly for both types of
+installations. You can inspect the $install_state['interactive'] boolean to
+see whether or not the current installation is interactive, if you need
+access to this information.</p>
+<p>Remember that a user installing Drupal interactively will be able to reload
+an installation page multiple times, so you should use variable_set() and
+variable_get() if you are collecting any data that you need to store and
+inspect later. It is important to remove any temporary variables using
+variable_del() before your last task has completed and control is handed
+back to the installer.</p>
+
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>date_formats_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_date_formats_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_date_formats_alter();
+*/
+function ${file_name}_date_formats_alter(&$formats) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_date_formats_alter(&$formats)</h2>
+
+<p>Alter date formats declared by another module.</p>
+<p>Called by _system_date_format_types_build() to allow modules to alter the
+return values from implementations of hook_date_formats().</p>
+
+
+
+
+]]></help>
+	</item>

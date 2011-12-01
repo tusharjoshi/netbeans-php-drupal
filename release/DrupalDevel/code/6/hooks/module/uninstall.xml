@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>uninstall</title>
+		<external>http://api.drupal.org/api/search/7/hook_uninstall</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_uninstall();
+*/
+function ${file_name}_uninstall() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_uninstall()</h2>
+
+<p>Remove any information that the module sets.</p>
+<p>The information that the module should remove includes:</p>
+<ul>
+<li>Variables that the module has set using variable_set().
+</li>
+<li>Modifications to existing tables.
+</li>
+<li>Database tables the module created.
+</li>
+</ul>
+<p>The uninstall hook will fire when the module gets uninstalled.</p>
+
+
+
+
+]]></help>
+	</item>

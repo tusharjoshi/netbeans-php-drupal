@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user_role_update</title>
+		<external>http://api.drupal.org/api/search/7/hook_user_role_update</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_user_role_update();
+*/
+function ${file_name}_user_role_update($role) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user_role_update($role)</h2>
+
+<p>Inform other modules that a user role has been updated.</p>
+<p>Modules implementing this hook can act on the user role object when updated.
+It's recommended that you implement this hook if your module adds additional
+data to user roles object. The module should save its custom additions to
+the database.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$role</b> -- 
+A user role object.</p>
+
+
+
+]]></help>
+	</item>

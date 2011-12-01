@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>block</title>
+		<external>http://api.drupal.org/api/search/7/template_preprocess_block</external>
+		<group>theme</group>
+		<template><![CDATA[function ${file_name}_preprocess_aggregator_feed_source(&$variables) {
+  ${set_cursor}
+}]]></template>
+		<help></help>
+	</item>

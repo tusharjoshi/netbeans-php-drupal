@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>custom_theme</title>
+		<external>http://api.drupal.org/api/search/7/hook_custom_theme</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_custom_theme();
+*/
+function ${file_name}_custom_theme() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_custom_theme()</h2>
+
+<p>Return the machine-readable name of the theme to use for the current page.</p>
+<p>This hook can be used to dynamically set the theme for the current page
+request. It should be used by modules which need to override the theme
+based on dynamic conditions (for example, a module which allows the theme to
+be set based on the current user's role). The return value of this hook will
+be used on all pages except those which have a valid per-page or per-section
+theme set via a theme callback function in hook_menu(); the themes on those
+pages can only be overridden using hook_menu_alter().</p>
+<p>Since only one theme can be used at a time, the last (i.e., highest
+weighted) module which returns a valid theme name from this hook will
+prevail.</p>
+
+
+
+
+]]></help>
+	</item>

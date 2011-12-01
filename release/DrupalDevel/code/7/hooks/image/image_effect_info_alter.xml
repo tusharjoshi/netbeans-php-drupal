@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>image_effect_info_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_image_effect_info_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_image_effect_info_alter();
+*/
+function ${file_name}_image_effect_info_alter(&$effects) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_image_effect_info_alter(&$effects)</h2>
+
+<p>Alter the information provided in hook_image_effect_info().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$effects</b> -- 
+The array of image effects, keyed on the machine-readable effect name.</p>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>update_index</title>
+		<external>http://api.drupal.org/api/search/7/hook_update_index</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_update_index();
+*/
+function ${file_name}_update_index() {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_update_index()</h2>
+
+<p>Update Drupal's full-text index for this module.</p>
+<p>Modules can implement this hook if they want to use the full-text indexing
+mechanism in Drupal.</p>
+<p>This hook is called every cron run if search.module is enabled. A module
+should check which of its items were modified or added since the last
+run. It is advised that you implement a throttling mechanism which indexes
+at most 'search_cron_limit' items per run (see example below).</p>
+<p>You should also be aware that indexing may take too long and be aborted if
+there is a PHP time limit. That's why you should update your internal
+bookkeeping multiple times per run, preferably after every item that
+is indexed.</p>
+<p>Per item that needs to be indexed, you should call search_index() with
+its content as a single HTML string. The search indexer will analyse the
+HTML and use it to assign higher weights to important words (such as
+titles). It will also check for links that point to nodes, and use them to
+boost the ranking of the target nodes.</p>
+
+
+
+
+]]></help>
+	</item>

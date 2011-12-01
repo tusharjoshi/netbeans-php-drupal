@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>block_save</title>
+		<external>http://api.drupal.org/api/search/7/hook_block_save</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_block_save();
+*/
+function ${file_name}_block_save($delta = '', $edit = array()) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_block_save($delta = '', $edit = array())</h2>
+
+<p>Save the configuration options from hook_block_configure().</p>
+<p>This hook allows you to save the block-specific configuration settings
+defined within your hook_block_configure().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$delta</b> -- 
+Which block is being configured. This is a unique identifier for the block
+within the module, defined in hook_block_info().</p>
+<p><b>$edit</b> -- 
+The submitted form data from the configuration form.</p>
+<p>For a detailed usage example, see block_example.module.</p>
+
+
+
+]]></help>
+	</item>

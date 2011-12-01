@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>validate</title>
+		<external>http://api.drupal.org/api/search/7/hook_validate</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_validate();
+*/
+function ${file_name}_validate($node, $form, &$form_state) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_validate($node, $form, &$form_state)</h2>
+
+<p>Perform node validation before a node is created or updated.</p>
+<p>This hook is invoked only on the module that defines the node's content type
+(use hook_node_validate() to act on all node validations).</p>
+<p>This hook is invoked from node_validate(), after a user has finished
+editing the node and is previewing or submitting it. It is invoked at the end
+of all the standard validation steps, and before hook_node_validate() is
+invoked.</p>
+<p>To indicate a validation error, use form_set_error().</p>
+<p>Note: Changes made to the $node object within your hook implementation will
+have no effect.  The preferred method to change a node's content is to use
+hook_node_presave() instead.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node being validated.</p>
+<p><b>$form</b> -- 
+The form being used to edit the node.</p>
+<p><b>$form_state</b> -- 
+The form state array.</p>
+
+
+
+]]></help>
+	</item>

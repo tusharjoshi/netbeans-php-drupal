@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>comment_insert</title>
+		<external>http://api.drupal.org/api/search/7/hook_comment_insert</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_comment_insert();
+*/
+function ${file_name}_comment_insert($comment) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_comment_insert($comment)</h2>
+
+<p>The comment is being inserted.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$comment</b> -- 
+The comment object.</p>
+
+
+
+]]></help>
+	</item>

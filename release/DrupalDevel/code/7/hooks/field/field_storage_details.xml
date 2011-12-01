@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_storage_details</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_storage_details</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_storage_details();
+*/
+function ${file_name}_field_storage_details($field) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_storage_details($field)</h2>
+
+<p>Reveal the internal details about the storage for a field.</p>
+<p>For example, an SQL storage module might return the Schema API structure for
+the table. A key/value storage module might return the server name,
+authentication credentials, and bin name.</p>
+<p>Field storage modules are not obligated to implement this hook. Modules
+that rely on these details must only use them for read operations.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$field</b> -- 
+A field structure.</p>
+
+
+
+]]></help>
+	</item>

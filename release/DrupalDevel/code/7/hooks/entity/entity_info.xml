@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>entity_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_entity_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_entity_info();
+*/
+function ${file_name}_entity_info() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_entity_info()</h2>
+
+<p>Inform the base system and the Field API about one or more entity types.</p>
+<p>Inform the system about one or more entity types (i.e., object types that
+can be loaded via entity_load() and, optionally, to which fields can be
+attached).</p>
+
+
+
+
+]]></help>
+	</item>

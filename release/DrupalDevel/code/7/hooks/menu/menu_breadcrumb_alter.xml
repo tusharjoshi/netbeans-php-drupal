@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_breadcrumb_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_breadcrumb_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu_breadcrumb_alter();
+*/
+function ${file_name}_menu_breadcrumb_alter(&$active_trail, $item) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_breadcrumb_alter(&$active_trail, $item)</h2>
+
+<p>Alter links in the active trail before it is rendered as the breadcrumb.</p>
+<p>This hook is invoked by menu_get_active_breadcrumb() and allows alteration
+of the breadcrumb links for the current page, which may be preferred instead
+of setting a custom breadcrumb via drupal_set_breadcrumb().</p>
+<p>Implementations should take into account that menu_get_active_breadcrumb()
+subsequently performs the following adjustments to the active trail *after*
+this hook has been invoked:</p>
+<ul>
+<li>The last link in $active_trail is removed, if its 'href' is identical to
+the 'href' of $item. This happens, because the breadcrumb normally does
+not contain a link to the current page.
+</li>
+<li>The (second to) last link in $active_trail is removed, if the current $item
+is a MENU_DEFAULT_LOCAL_TASK. This happens in order to do not show a link
+to the current page, when being on the path for the default local task;
+e.g. when being on the path node/%/view, the breadcrumb should not contain
+a link to node/%.
+</li>
+</ul>
+<p>Each link in the active trail must contain:</p>
+<ul>
+<li>title: The localized title of the link.
+</li>
+<li>href: The system path to link to.
+</li>
+<li>localized_options: An array of options to pass to url().
+</li>
+</ul>
+
+<h3>Parameters</h3>
+<p><b>
+$active_trail</b> -- 
+An array containing breadcrumb links for the current page.</p>
+<p><b>$item</b> -- 
+The menu router item of the current page.</p>
+
+
+
+]]></help>
+	</item>

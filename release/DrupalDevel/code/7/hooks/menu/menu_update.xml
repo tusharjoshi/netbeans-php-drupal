@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>menu_update</title>
+		<external>http://api.drupal.org/api/search/7/hook_menu_update</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_menu_update();
+*/
+function ${file_name}_menu_update($menu) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_menu_update($menu)</h2>
+
+<p>Informs modules that a custom menu was updated.</p>
+<p>This hook is used to notify modules that a custom menu has been updated.
+Contributed modules may use the information to perform actions based on the
+information entered into the menu system.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$menu</b> -- 
+An array representing a custom menu:</p>
+<ul>
+<li>menu_name: The unique name of the custom menu.
+</li>
+<li>title: The human readable menu title.
+</li>
+<li>description: The custom menu description.
+</li>
+<li>old_name: The current 'menu_name'. Note that internal menu names cannot
+be changed after initial creation.
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

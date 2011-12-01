@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>system_themes_page_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_system_themes_page_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_system_themes_page_alter();
+*/
+function ${file_name}_system_themes_page_alter(&$theme_groups) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_system_themes_page_alter(&$theme_groups)</h2>
+
+<p>Alters theme operation links.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$theme_groups</b> -- 
+An associative array containing groups of themes.</p>
+
+
+
+]]></help>
+	</item>

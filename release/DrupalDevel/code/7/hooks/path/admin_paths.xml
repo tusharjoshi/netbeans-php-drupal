@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>admin_paths</title>
+		<external>http://api.drupal.org/api/search/7/hook_admin_paths</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_admin_paths();
+*/
+function ${file_name}_admin_paths() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_admin_paths()</h2>
+
+<p>Define administrative paths.</p>
+<p>Modules may specify whether or not the paths they define in hook_menu() are
+to be considered administrative. Other modules may use this information to
+display those pages differently (e.g. in a modal overlay, or in a different
+theme).</p>
+<p>To change the administrative status of menu items defined in another module's
+hook_menu(), modules should implement hook_admin_paths_alter().</p>
+
+
+
+
+]]></help>
+	</item>

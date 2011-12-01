@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>poll_results</title>
+		<external>http://api.drupal.org/api/search/6/theme_poll_results</external>
+		<group>theme</group>
+		<template><![CDATA[function ${file_name}_preprocess_poll_results(&$variables) {
+  ${set_cursor}
+}]]></template>
+		<help></help>
+	</item>

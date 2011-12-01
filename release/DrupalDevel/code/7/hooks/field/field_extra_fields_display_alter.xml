@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_extra_fields_display_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_extra_fields_display_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_extra_fields_display_alter();
+*/
+function ${file_name}_field_extra_fields_display_alter(&$displays, $context) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_extra_fields_display_alter(&$displays, $context)</h2>
+
+<p>Alters the display settings of pseudo-fields before an entity is displayed.</p>
+<p>This hook is called once per displayed entity. If the result of the hook
+involves reading from the database, it is highly recommended to statically
+cache the information.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$displays</b> -- 
+An array of display settings for the pseudo-fields in the entity, keyed
+by pseudo-field names.</p>
+<p><b>$context</b> -- 
+An associative array containing:</p>
+<ul>
+<li>entity_type: The entity type; e.g., 'node' or 'user'.
+</li>
+<li>bundle: The bundle name.
+</li>
+<li>view_mode: The view mode, e.g. 'full', 'teaser'...
+</li>
+</ul>
+
+
+
+]]></help>
+	</item>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>update_dependencies</title>
+		<external>http://api.drupal.org/api/search/7/hook_update_dependencies</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_update_dependencies();
+*/
+function ${file_name}_update_dependencies() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_update_dependencies()</h2>
+
+<p>Return an array of information about module update dependencies.</p>
+<p>This can be used to indicate update functions from other modules that your
+module's update functions depend on, or vice versa. It is used by the update
+system to determine the appropriate order in which updates should be run, as
+well as to search for missing dependencies.</p>
+<p>Implementations of this hook should be placed in a mymodule.install file in
+the same directory as mymodule.module.</p>
+
+
+
+
+]]></help>
+	</item>

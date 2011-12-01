@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>date_formats</title>
+		<external>http://api.drupal.org/api/search/7/hook_date_formats</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_date_formats();
+*/
+function ${file_name}_date_formats() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_date_formats()</h2>
+
+<p>Define additional date formats.</p>
+<p>This hook is used to define the PHP date format strings that can be assigned
+to date types in the administrative interface. A module can provide date
+format strings for the core-provided date types ('long', 'medium', and
+'short'), or for date types defined in hook_date_format_types() by itself
+or another module.</p>
+<p>Since date formats can be locale-specific, you can specify the locales that
+each date format string applies to. There may be more than one locale for a
+format. There may also be more than one format for the same locale. For
+example d/m/Y and Y/m/d work equally well in some locales. You may wish to
+define some additional date formats that aren't specific to any one locale,
+for example, "Y m". For these cases, the 'locales' component of the return
+value should be omitted.</p>
+<p>Providing a date format here does not normally assign the format to be
+used with the associated date type -- a user has to choose a format for each
+date type in the administrative interface. There is one exception: locale
+initialization chooses a locale-specific format for the three core-provided
+types (see locale_get_localized_date_format() for details). If your module
+needs to ensure that a date type it defines has a format associated with it,
+call </p>
+<div class="code">
+<div&nbsp;class="php-boundry">&lt;?php&nbsp;</div>
+<p><span&nbsp;class="php-function-or-constant">variable_set</span>(<span&nbsp;class="php-string">'date_format_'</span>&nbsp;.&nbsp;<span&nbsp;class="php-variable">$type</span>,&nbsp;<span&nbsp;class="php-variable">$format</span>);&nbsp;
+<div&nbsp;class="php-boundry">?&gt;</div>
+</div>
+<p>where $type is the machine-readable name defined in hook_date_format_types(),
+and $format is a PHP date format string.</p>
+
+
+
+
+]]></help>
+	</item>

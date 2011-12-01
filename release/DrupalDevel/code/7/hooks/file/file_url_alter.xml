@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>file_url_alter</title>
+		<external>http://api.drupal.org/api/search/7/hook_file_url_alter</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_file_url_alter();
+*/
+function ${file_name}_file_url_alter(&$uri) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_file_url_alter(&$uri)</h2>
+
+<p>Alter the URL to a file.</p>
+<p>This hook is called from file_create_url(), and  is called fairly
+frequently (10+ times per page), depending on how many files there are in a
+given page.
+If CSS and JS aggregation are disabled, this can become very frequently
+(50+ times per page) so performance is critical.</p>
+<p>This function should alter the URI, if it wants to rewrite the file URL.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$uri</b> -- 
+The URI to a file for which we need an external URL, or the path to a
+shipped file.</p>
+
+
+
+]]></help>
+	</item>

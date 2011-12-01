@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>field_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_field_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_field_info();
+*/
+function ${file_name}_field_info() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_field_info()</h2>
+
+<p>Define Field API field types.</p>
+
+
+
+
+]]></help>
+	</item>

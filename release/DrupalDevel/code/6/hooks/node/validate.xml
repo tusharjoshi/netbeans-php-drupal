@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>validate</title>
+		<external>http://api.drupal.org/api/search/7/hook_validate</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_validate();
+*/
+function ${file_name}_validate($node, &$form) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_validate($node, &$form)</h2>
+
+<p>Verify a node editing form.</p>
+<p>This is a hook used by node modules. It is called to allow the module
+to verify that the node is in a format valid to post to the site.
+Errors should be set with form_set_error().</p>
+
+<h3>Parameters</h3>
+<p><b>
+$node</b> -- 
+The node to be validated.</p>
+<p><b>$form</b> -- 
+The node edit form array.</p>
+
+
+
+]]></help>
+	</item>

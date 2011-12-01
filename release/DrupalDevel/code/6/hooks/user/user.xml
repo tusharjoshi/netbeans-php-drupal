@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>user</title>
+		<external>http://api.drupal.org/api/search/7/hook_user</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_user();
+*/
+function ${file_name}_user($op, &$edit, &$account, $category = ${NULL}) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_user($op, &$edit, &$account, $category = NULL)</h2>
+
+<p>Act on user account actions.</p>
+<p>This hook allows modules to react when operations are performed on user
+accounts.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$op</b> -- 
+What kind of action is being performed. Possible values (in alphabetical
+order):</p>
+<ul>
+<li>"after_update": The user object has been updated and changed. Use this
+(probably along with 'insert') if you want to reuse some information from
+the user object.
+</li>
+<li>"categories": A set of user information categories is requested.
+</li>
+<li>"delete": The user account is being deleted. The module should remove its
+custom additions to the user object from the database.
+</li>
+<li>"form": The user account edit form is about to be displayed. The module
+should present the form elements it wishes to inject into the form.
+</li>
+<li>"insert": The user account is being added. The module should save its
+custom additions to the user object into the database and set the saved
+fields to NULL in $edit.
+</li>
+<li>"load": The user account is being loaded. The module may respond to this
+and insert additional information into the user object.
+</li>
+<li>"login": The user just logged in.
+</li>
+<li>"logout": The user just logged out.
+</li>
+<li>"register": The user account registration form is about to be displayed.
+The module should present the form elements it wishes to inject into the
+form.
+</li>
+<li>"submit": Modify the account before it gets saved.
+</li>
+<li>"update": The user account is being changed. The module should save its
+custom additions to the user object into the database and set the saved
+fields to NULL in $edit.
+</li>
+<li>"validate": The user account is about to be modified. The module should
+validate its custom additions to the user object, registering errors as
+necessary.
+</li>
+<li>"view": The user's account information is being displayed. The module
+should format its custom additions for display, and add them to the
+$account->content array.
+</li>
+</ul>
+<p>&amp;$edit
+The array of form values submitted by the user.</p>
+<p>&amp;$account
+The user object on which the operation is being performed.</p>
+<p><b>$category</b> -- 
+The active category of user information being edited.</p>
+
+
+
+]]></help>
+	</item>

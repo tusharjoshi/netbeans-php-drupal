@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>update_N</title>
+		<external>http://api.drupal.org/api/search/7/hook_update_N</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of hook_update_N();
+*/
+function ${file_name}_update_N(&$sandbox) {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_update_N(&$sandbox)</h2>
+
+<p>Perform a single update.</p>
+<p>For each patch which requires a database change add a new hook_update_N()
+which will be called by update.php. The database updates are numbered
+sequentially according to the version of Drupal you are compatible with.</p>
+<p>Schema updates should adhere to the Schema API: http://drupal.org/node/150215</p>
+<p>Database updates consist of 3 parts:</p>
+<ul>
+<li>1 digit for Drupal core compatibility
+</li>
+<li>1 digit for your module's major release version (e.g. is this the 5.x-1.* (1) or 5.x-2.* (2) series of your module?)
+</li>
+<li>2 digits for sequential counting starting with 00
+</li>
+</ul>
+<p>The 2nd digit should be 0 for initial porting of your module to a new Drupal
+core API.</p>
+<p>Examples:</p>
+<ul>
+<li>mymodule_update_5200()</p>
+<ul>
+<li>This is the first update to get the database ready to run mymodule 5.x-2.*.
+</li>
+</ul>
+</li>
+<li>mymodule_update_6000()
+<ul>
+<li>This is the required update for mymodule to run with Drupal core API 6.x.
+</li>
+</ul>
+</li>
+<li>mymodule_update_6100()
+<ul>
+<li>This is the first update to get the database ready to run mymodule 6.x-1.*.
+</li>
+</ul>
+</li>
+<li>mymodule_update_6200()
+<ul>
+<li>This is the first update to get the database ready to run mymodule 6.x-2.*.
+Users can directly update from 5.x-2.* to 6.x-2.* and they get all 60XX
+and 62XX updates, but not 61XX updates, because those reside in the
+6.x-1.x branch only.
+</li>
+</ul>
+</li>
+</ul>
+<p>A good rule of thumb is to remove updates older than two major releases of
+Drupal. See hook_update_last_removed() to notify Drupal about the removals.</p>
+<p>Never renumber update functions.</p>
+<p>Further information about releases and release numbers:</p>
+<ul>
+<li>http://drupal.org/handbook/version-info
+</li>
+<li>http://drupal.org/node/93999 (Overview of contributions branches and tags)
+</li>
+<li>http://drupal.org/handbook/cvs/releases
+</li>
+</ul>
+<p>Implementations of this hook should be placed in a mymodule.install file in
+the same directory as mymodule.module. Drupal core's updates are implemented
+using the system module as a name and stored in database/updates.inc.</p>
+
+
+
+
+]]></help>
+	</item>

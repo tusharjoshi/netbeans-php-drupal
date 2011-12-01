@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>file_validate</title>
+		<external>http://api.drupal.org/api/search/7/hook_file_validate</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_file_validate();
+*/
+function ${file_name}_file_validate($file) {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_file_validate($file)</h2>
+
+<p>Check that files meet a given criteria.</p>
+<p>This hook lets modules perform additional validation on files. They're able
+to report a failure by returning one or more error messages.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$file</b> -- 
+The file object being validated.</p>
+
+
+
+]]></help>
+	</item>

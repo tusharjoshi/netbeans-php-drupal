@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>filter_info</title>
+		<external>http://api.drupal.org/api/search/7/hook_filter_info</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implements hook_filter_info();
+*/
+function ${file_name}_filter_info() {
+   ${cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>hook_filter_info()</h2>
+
+<p>Define content filters.</p>
+<p>User submitted content is passed through a group of filters before it is
+output in HTML, in order to remove insecure or unwanted parts, correct or
+enhance the formatting, transform special keywords, etc. A group of filters
+is referred to as a "text format". Administrators can create as many text
+formats as needed. Individual filters can be enabled and configured
+differently for each text format.</p>
+<p>This hook is invoked by filter_get_filters() and allows modules to register
+input filters they provide.</p>
+<p>Filtering is a two-step process. First, the content is 'prepared' by calling
+the 'prepare callback' function for every filter. The purpose of the 'prepare
+callback' is to escape HTML-like structures. For example, imagine a filter
+which allows the user to paste entire chunks of programming code without
+requiring manual escaping of special HTML characters like < or &amp;. If the
+programming code were left untouched, then other filters could think it was
+HTML and change it. For many filters, the prepare step is not necessary.</p>
+<p>The second step is the actual processing step. The result from passing the
+text through all the filters' prepare steps gets passed to all the filters
+again, this time with the 'process callback' function. The process callbacks
+should then actually change the content: transform URLs into hyperlinks,
+convert smileys into images, etc.</p>
+<p>For performance reasons content is only filtered once; the result is stored
+in the cache table and retrieved from the cache the next time the same piece
+of content is displayed. If a filter's output is dynamic, it can override the
+cache mechanism, but obviously this should be used with caution: having one
+filter that does not support caching in a particular text format disables
+caching for the entire format, not just for one filter.</p>
+<p>Beware of the filter cache when developing your module: it is advised to set
+your filter to 'cache' => FALSE while developing, but be sure to remove that
+setting if it's not needed, when you are no longer in development mode.</p>
+
+
+
+
+]]></help>
+	</item>

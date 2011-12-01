@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>profile_listing</title>
+		<external>http://api.drupal.org/api/search/6/theme_profile_listing</external>
+		<group>theme</group>
+		<template><![CDATA[function ${file_name}_preprocess_profile_listing(&$variables) {
+  ${set_cursor}
+}]]></template>
+		<help></help>
+	</item>
