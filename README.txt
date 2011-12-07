@@ -1,3 +1,7 @@
+NDDT now has its own website. Read news on upcoming releases and share code snippets:
+
+http://nddt.hollyit.net/
+
 Drupal development module for the Netbeans IDE.
 
 Full documentation available now available under Help in Netbeans
