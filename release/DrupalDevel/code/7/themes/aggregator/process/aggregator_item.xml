@@ -3,7 +3,7 @@
 		<title>aggregator_item</title>
 		<external>http://api.drupal.org/api/search/7/template_process_aggregator_item</external>
 		<group>theme</group>
-		<template><![CDATA[function ${file_name}_preprocess_aggregator_feed_source(&$variables) {
+		<template><![CDATA[function ${file_name}_preprocess_aggregator_item(&$variables) {
   ${set_cursor}
 }]]></template>
 		<help></help>

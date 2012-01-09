@@ -3,7 +3,7 @@
 		<title>field_ui_display_overview_table</title>
 		<external>http://api.drupal.org/api/search/7/template_preprocess_field_ui_display_overview_table</external>
 		<group>theme</group>
-		<template><![CDATA[function ${file_name}_preprocess_aggregator_feed_source(&$variables) {
+		<template><![CDATA[function ${file_name}_preprocess_field_ui_display_overview_table(&$variables) {
   ${set_cursor}
 }]]></template>
 		<help></help>

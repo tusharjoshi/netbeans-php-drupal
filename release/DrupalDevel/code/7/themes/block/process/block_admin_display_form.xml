@@ -3,7 +3,7 @@
 		<title>block_admin_display_form</title>
 		<external>http://api.drupal.org/api/search/7/template_process_block_admin_display_form</external>
 		<group>theme</group>
-		<template><![CDATA[function ${file_name}_preprocess_aggregator_feed_source(&$variables) {
+		<template><![CDATA[function ${file_name}_preprocess_block_admin_display_form(&$variables) {
   ${set_cursor}
 }]]></template>
 		<help></help>

@@ -3,7 +3,7 @@
 		<title>forum_list</title>
 		<external>http://api.drupal.org/api/search/7/template_process_forum_list</external>
 		<group>theme</group>
-		<template><![CDATA[function ${file_name}_preprocess_aggregator_feed_source(&$variables) {
+		<template><![CDATA[function ${file_name}_preprocess_forum_list(&$variables) {
   ${set_cursor}
 }]]></template>
 		<help></help>
