@@ -3,7 +3,7 @@
 		<title>comment</title>
 		<external>http://api.drupal.org/api/search/7/template_preprocess_comment</external>
 		<group>theme</group>
-		<template><![CDATA[function ${file_name}_preprocess_aggregator_feed_source(&$variables) {
+		<template><![CDATA[function ${file_name}_preprocess_comment(&$variables) {
   ${set_cursor}
 }]]></template>
 		<help></help>

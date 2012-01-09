@@ -70,4 +70,7 @@
 12/01/2011
         2.0.8 - Version 2 Final
                 -Full release of version 2
+				
+01/09/2012
+		2.0.9 - Fixes to Drupal 7 themeing hook templates
 		

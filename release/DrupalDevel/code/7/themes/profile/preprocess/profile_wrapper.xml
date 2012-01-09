@@ -3,7 +3,7 @@
 		<title>profile_wrapper</title>
 		<external>http://api.drupal.org/api/search/7/template_preprocess_profile_wrapper</external>
 		<group>theme</group>
-		<template><![CDATA[function ${file_name}_preprocess_aggregator_feed_source(&$variables) {
+		<template><![CDATA[function ${file_name}_preprocess_profile_wrapper(&$variables) {
   ${set_cursor}
 }]]></template>
 		<help></help>
