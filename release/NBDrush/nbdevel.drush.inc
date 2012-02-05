@@ -18,11 +18,12 @@ function nbdevel_drush_command() {
     'aliases' => array('nbm'),
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
     'arguments' => array(
-      'module-name' => 'The module of which you want info',
+      'module-name' => '- The module of which you want info',
     ),
     'examples' => array(
-      'drush nbm ctools' => 'Show module information of ctool',
+      'drush nbm views' => '- Show module information of Views',
     ),
+    'callback' => 'drush_nbdevel_moduleinfo',
   );
   
 
@@ -78,31 +79,32 @@ function drush_nbdevel_fn_view($function_name) {
   //_drush_devel_print_function($reflect->getFileName(), $reflect->getStartLine(), $reflect->getEndLine());
 }
 
-/**
- * Implements validate function for drush command.
- */
-function drush_nbdevel_validate($alias) {
-  drush_set_option('module-name', $alias);
-}
 
 /**
- * Implements custom drush command.
+ * Implements custom drush command for nb-module (moduleinfo).
  */
-function drush_nbdevel() {
-  $dependency_list = 'None';
-  $module = drush_get_option('module-name', NULL);
-  $rsc = drush_db_select('system', 'filename', 'name=:name', array(':name' => $module));
-  $filename = drush_db_result($rsc);
-  $info_file = drupal_parse_info_file(dirname($filename) . '/' . $module . '.info');
-  if (isset($info_file['dependencies'])) {
-    $dependency_list = implode("\n", $info_file['dependencies']);
-  }
-
-  drush_print_table(array(
-    array('Name', $info_file['name']),
-    array('Description', $info_file['description']),
-    array('Version', $info_file['version']),
-    array('Module path', dirname($filename)),
-    array('Dependencies', $dependency_list),
-  ),TRUE);
+function drush_nbdevel_moduleinfo($alias) {
+	drush_set_option('module-name', $alias);
+	if (module_exists($alias)) {
+	
+		$dependency_list = 'None';
+		$module = drush_get_option('module-name', NULL);
+		$rsc = drush_db_select('system', 'filename', 'name=:name', array(':name' => $module));
+		$filename = drush_db_result($rsc);	 
+		$info_file = drupal_parse_info_file(dirname($filename) . '/' . $module . '.info');
+		if (isset($info_file['dependencies'])) {
+			$dependency_list = implode("\n", $info_file['dependencies']);
+		}
+		
+		drush_print_table(array(
+			array('Name: ', $info_file['name']),
+			array('Description: ', $info_file['description']),
+			array('Version: ', $info_file['version']),
+			array('Module path: ', dirname($filename)),
+			array('Dependencies: ', $dependency_list),
+		),TRUE);
+	}
+	else {
+		drush_print("Couldn't find the ".$alias."-module");
+	}
 }
