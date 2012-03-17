@@ -123,6 +123,7 @@ public class ApitTreeUI extends javax.swing.JPanel {
     }
 
     public void loadPath(String path) {
+        _path1 = path;
         TreeMerger tm = new TreeMerger();
         HashMap map = tm.mergePaths(path, "");
         populateTree(map);
@@ -487,6 +488,7 @@ public class ApitTreeUI extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSearchPreviousActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        
         loadPath(_path1, _path2);
     }//GEN-LAST:event_btnRefreshActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables

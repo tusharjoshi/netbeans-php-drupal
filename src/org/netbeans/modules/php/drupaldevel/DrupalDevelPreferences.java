@@ -113,6 +113,8 @@ public final class DrupalDevelPreferences {
         File emulatorBinary = InstalledFileLocator.getDefault().locate(
                 "DrupalDevel", "org.netbeans.modules.php.dupaldevel", false);
         String path = emulatorBinary.getAbsolutePath();
+        
+                
         return path;
     }
 
