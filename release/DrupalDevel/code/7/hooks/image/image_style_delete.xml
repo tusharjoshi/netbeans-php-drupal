@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_image_style_delete();
+* Implements hook_image_style_delete().
 */
 function ${file_name}_image_style_delete($style) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_storage_details_alter();
+* Implements hook_field_storage_details_alter().
 */
 function ${file_name}_field_storage_details_alter(&$details, $field) {
    ${cursor}

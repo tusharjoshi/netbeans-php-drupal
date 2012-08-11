@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_xmlrpc();
+* Implements hook_xmlrpc().
 */
 function ${file_name}_xmlrpc() {
    ${cursor}

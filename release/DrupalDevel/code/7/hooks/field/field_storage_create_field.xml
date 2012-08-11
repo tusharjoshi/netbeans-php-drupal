@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_storage_create_field();
+* Implements hook_field_storage_create_field().
 */
 function ${file_name}_field_storage_create_field($field) {
    ${cursor}

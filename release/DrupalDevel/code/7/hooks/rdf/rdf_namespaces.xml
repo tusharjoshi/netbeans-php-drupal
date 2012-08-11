@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_rdf_namespaces();
+* Implements hook_rdf_namespaces().
 */
 function ${file_name}_rdf_namespaces() {
    ${cursor}

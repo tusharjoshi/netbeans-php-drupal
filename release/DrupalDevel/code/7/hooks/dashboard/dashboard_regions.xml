@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_dashboard_regions();
+* Implements hook_dashboard_regions().
 */
 function ${file_name}_dashboard_regions() {
    ${cursor}

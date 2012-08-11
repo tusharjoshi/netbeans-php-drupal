@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_ajax_render_alter();
+* Implements hook_ajax_render_alter().
 */
 function ${file_name}_ajax_render_alter($commands) {
    ${cursor}

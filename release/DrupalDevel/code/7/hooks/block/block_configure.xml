@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_block_configure();
+* Implements hook_block_configure().
 */
 function ${file_name}_block_configure($delta = '') {
    ${cursor}

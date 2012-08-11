@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_read_instance();
+* Implements hook_field_read_instance().
 */
 function ${file_name}_field_read_instance($instance) {
    ${cursor}
