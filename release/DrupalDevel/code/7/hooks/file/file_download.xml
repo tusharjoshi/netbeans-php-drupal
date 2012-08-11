@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_file_download();
+* Implements hook_file_download().
 */
 function ${file_name}_file_download($uri) {
    ${cursor}

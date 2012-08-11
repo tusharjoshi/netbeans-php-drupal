@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_permission();
+* Implements hook_permission().
 */
 function ${file_name}_permission() {
    ${cursor}

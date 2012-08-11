@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_stream_wrappers();
+* Implements hook_stream_wrappers().
 */
 function ${file_name}_stream_wrappers() {
    ${cursor}

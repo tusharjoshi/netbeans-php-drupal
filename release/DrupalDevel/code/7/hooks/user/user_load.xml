@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_user_load();
+* Implements hook_user_load().
 */
 function ${file_name}_user_load($users) {
    ${cursor}
