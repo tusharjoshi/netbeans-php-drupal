@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_tokens();
+* Implements hook_tokens().
 */
 function ${file_name}_tokens($type, $tokens, array $data = array(), array $options = array()) {
    ${cursor}

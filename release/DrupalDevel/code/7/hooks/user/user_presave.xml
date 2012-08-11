@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_user_presave();
+* Implements hook_user_presave().
 */
 function ${file_name}_user_presave(&$edit, $account, $category) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_attach_prepare_translation_alter();
+* Implements hook_field_attach_prepare_translation_alter().
 */
 function ${file_name}_field_attach_prepare_translation_alter(&$entity, $context) {
    ${cursor}

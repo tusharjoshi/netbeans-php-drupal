@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_user_update();
+* Implements hook_user_update().
 */
 function ${file_name}_user_update(&$edit, $account, $category) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_filter_FILTER_settings();
+* Implements hook_filter_FILTER_settings().
 */
 function ${file_name}_filter_${FILTER}_settings($form, &$form_state, $filter, $format, $defaults, $filters) {
    ${cursor}

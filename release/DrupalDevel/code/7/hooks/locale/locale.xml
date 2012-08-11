@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_locale();
+* Implements hook_locale().
 */
 function ${file_name}_locale($op = 'groups') {
    ${cursor}

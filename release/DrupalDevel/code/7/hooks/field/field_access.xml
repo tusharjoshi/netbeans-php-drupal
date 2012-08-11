@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_access();
+* Implements hook_field_access().
 */
 function ${file_name}_field_access($op, $field, $entity_type, $entity, $account) {
    ${cursor}

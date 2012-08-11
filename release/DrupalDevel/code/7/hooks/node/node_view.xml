@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_node_view();
+* Implements hook_node_view().
 */
 function ${file_name}_node_view($node, $view_mode, $langcode) {
    ${cursor}
