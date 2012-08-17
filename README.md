@@ -2,9 +2,8 @@ README - 2.0 - Final
 ====================
 **Netbeans Drupal Development Tool (NDDT)**
 
-**NOTE ON DRUSH:** When setting up Drush, you must specify the absolute path to the folder
-that drush exists in. This will be the folder containing drush.php. Please see this issue
-for more information https://github.com/HollyIT/NBDrupalDevel/issues/15
+**NOTE ON DRUSH (Update for 2.0.11):** When setting up Drush, you must specify the absolute path to the folder
+that drush exists in. This is the location of drush for *NIX/Mac or drush.bat for Windows. 
 
 
 _NDDT now has its own website. Read news on upcoming releases and share code snippets_
