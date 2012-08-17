@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_filter_FILTER_prepare();
+* Implements hook_filter_FILTER_prepare().
 */
 function ${file_name}_filter_${FILTER}_prepare($text, $filter, $format, $langcode, $cache, $cache_id) {
    ${cursor}

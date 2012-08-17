@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_file_url_alter();
+* Implements hook_file_url_alter().
 */
 function ${file_name}_file_url_alter(&$uri) {
    ${cursor}

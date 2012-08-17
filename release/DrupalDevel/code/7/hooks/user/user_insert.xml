@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_user_insert();
+* Implements hook_user_insert().
 */
 function ${file_name}_user_insert(&$edit, $account, $category) {
    ${cursor}

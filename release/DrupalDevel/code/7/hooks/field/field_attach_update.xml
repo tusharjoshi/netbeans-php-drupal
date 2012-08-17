@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_attach_update();
+* Implements hook_field_attach_update().
 */
 function ${file_name}_field_attach_update($entity_type, $entity) {
    ${cursor}

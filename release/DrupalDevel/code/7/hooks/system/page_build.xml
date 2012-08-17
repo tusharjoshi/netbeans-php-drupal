@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_page_build();
+* Implements hook_page_build().
 */
 function ${file_name}_page_build(&$page) {
    ${cursor}

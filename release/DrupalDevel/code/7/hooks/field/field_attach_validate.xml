@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_attach_validate();
+* Implements hook_field_attach_validate().
 */
 function ${file_name}_field_attach_validate($entity_type, $entity, &$errors) {
    ${cursor}

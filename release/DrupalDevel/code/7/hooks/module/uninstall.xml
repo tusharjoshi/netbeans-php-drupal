@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_uninstall();
+* Implements hook_uninstall().
 */
 function ${file_name}_uninstall() {
    ${cursor}

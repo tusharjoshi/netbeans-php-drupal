@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_preprocess();
+* Implements hook_preprocess().
 */
 function ${file_name}_preprocess(&$variables, $hook) {
    ${cursor}

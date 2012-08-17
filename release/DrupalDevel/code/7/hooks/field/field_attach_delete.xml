@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_attach_delete();
+* Implements hook_field_attach_delete().
 */
 function ${file_name}_field_attach_delete($entity_type, $entity) {
    ${cursor}

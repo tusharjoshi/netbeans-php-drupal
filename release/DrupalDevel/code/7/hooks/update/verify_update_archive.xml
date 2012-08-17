@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_verify_update_archive();
+* Implements hook_verify_update_archive().
 */
 function ${file_name}_verify_update_archive($project, $archive_file, $directory) {
    ${cursor}

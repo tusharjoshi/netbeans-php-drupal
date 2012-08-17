@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_countries_alter();
+* Implements hook_countries_alter().
 */
 function ${file_name}_countries_alter(&$countries) {
    ${cursor}

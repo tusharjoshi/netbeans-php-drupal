@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_tokens_alter();
+* Implements hook_tokens_alter().
 */
 function ${file_name}_tokens_alter(array &$replacements, array $context) {
    ${cursor}

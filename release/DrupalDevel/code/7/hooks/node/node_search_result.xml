@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_node_search_result();
+* Implements hook_node_search_result().
 */
 function ${file_name}_node_search_result($node) {
    ${cursor}

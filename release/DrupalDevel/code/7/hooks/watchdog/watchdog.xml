@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_watchdog();
+* Implements hook_watchdog().
 */
 function ${file_name}_watchdog(array $log_entry) {
    ${cursor}

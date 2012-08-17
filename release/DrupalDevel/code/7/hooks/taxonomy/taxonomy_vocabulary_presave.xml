@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_taxonomy_vocabulary_presave();
+* Implements hook_taxonomy_vocabulary_presave().
 */
 function ${file_name}_taxonomy_vocabulary_presave($vocabulary) {
    ${cursor}

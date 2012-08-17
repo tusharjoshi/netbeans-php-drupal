@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_schema_alter();
+* Implements hook_schema_alter().
 */
 function ${file_name}_schema_alter(&$schema) {
    ${cursor}

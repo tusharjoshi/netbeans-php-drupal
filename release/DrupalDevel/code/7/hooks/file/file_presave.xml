@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_file_presave();
+* Implements hook_file_presave().
 */
 function ${file_name}_file_presave($file) {
    ${cursor}

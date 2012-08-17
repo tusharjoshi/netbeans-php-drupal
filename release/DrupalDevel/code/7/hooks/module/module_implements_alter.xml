@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_module_implements_alter();
+* Implements hook_module_implements_alter().
 */
 function ${file_name}_module_implements_alter(&$implementations, $hook) {
    ${cursor}
