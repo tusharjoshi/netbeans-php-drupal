@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_entity_info_alter();
+* Implements hook_entity_info_alter().
 */
 function ${file_name}_entity_info_alter(&$entity_info) {
    ${cursor}

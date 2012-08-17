@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_rdf_mapping();
+* Implements hook_rdf_mapping().
 */
 function ${file_name}_rdf_mapping() {
    ${cursor}

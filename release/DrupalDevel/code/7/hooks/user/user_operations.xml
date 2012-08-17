@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_user_operations();
+* Implements hook_user_operations().
 */
 function ${file_name}_user_operations() {
    ${cursor}

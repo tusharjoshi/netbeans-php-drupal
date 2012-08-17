@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_update_forbid();
+* Implements hook_field_update_forbid().
 */
 function ${file_name}_field_update_forbid($field, $prior_field, $has_data) {
    ${cursor}

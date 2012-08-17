@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_file_update();
+* Implements hook_file_update().
 */
 function ${file_name}_file_update($file) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_update_last_removed();
+* Implements hook_update_last_removed().
 */
 function ${file_name}_update_last_removed() {
    ${cursor}

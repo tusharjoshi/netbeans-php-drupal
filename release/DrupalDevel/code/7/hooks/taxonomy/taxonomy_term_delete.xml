@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_taxonomy_term_delete();
+* Implements hook_taxonomy_term_delete().
 */
 function ${file_name}_taxonomy_term_delete($term) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_path_delete();
+* Implements hook_path_delete().
 */
 function ${file_name}_path_delete($path) {
    ${cursor}

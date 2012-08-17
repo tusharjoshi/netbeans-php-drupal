@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_image_toolkits();
+* Implements hook_image_toolkits().
 */
 function ${file_name}_image_toolkits() {
    ${cursor}

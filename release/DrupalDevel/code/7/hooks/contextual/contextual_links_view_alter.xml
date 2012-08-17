@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_contextual_links_view_alter();
+* Implements hook_contextual_links_view_alter().
 */
 function ${file_name}_contextual_links_view_alter(&$element, $items) {
    ${cursor}
