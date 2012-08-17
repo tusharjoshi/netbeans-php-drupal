@@ -218,7 +218,7 @@ public final class DrupalDevelPreferences {
         ArrayList items = libraryParser.parseTree(path);
         if (children != null) {
             for (int i = 0; i < children.length; i++) {
-                if (children[i].getName().equals("drush.php")) {
+                if (children[i].getName().equals("drush")) {
                     hasCode = true;
                 }
             }

@@ -78,3 +78,8 @@
 03/17/2012
 		2.0.10 - Fixed broken API Tree refresh in *Nix/MAC (Issue #17)
 				- Added new module info drush command (pull request 18 - h/t sbilde)
+				
+08/17/2012
+		2.0.11 - Fixed broken Drush multisite in *NIX/OSx (Issue #23)
+				- Function comment must end with full stop (Issue #24)
+				- Modified to work with Drush installed from PEAR
