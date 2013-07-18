@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_profile_alter();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_profile_alter(&$account) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

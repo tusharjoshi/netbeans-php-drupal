@@ -5,10 +5,11 @@ README - 2.0 - Final
 **NOTE ON DRUSH (Update for 2.0.11):** When setting up Drush, you must specify the absolute path to the folder
 that drush exists in. This is the location of drush for *NIX/Mac or drush.bat for Windows. 
 
+Co-Maintainer Wanted!!!
+-----------------------
+If you are interested in helping out with maintaining this project, then please open an issue or email
+jamie [a t] hollyit [d o t] com.
 
-_NDDT now has its own website. Read news on upcoming releases and share code snippets_
-
-http://nddt.hollyit.net/
 
 What is NDDT
 ------------
@@ -38,7 +39,11 @@ Requirements
 Installation
 ------------
 
-Head over to the downloads section and grab the NBM. Open up Netbeans and go to
+You can download the latest NBM build here:
+
+https://github.com/HollyIT/NBDrupalDevel/raw/master/NBDrupalDevelTool.nbm
+
+Open up Netbeans and go to
 Tools->Plugins. Select the Downloaded tab in the Plugins window then click the 
 "Add Plugins" button. Navigate to the file you saved and select it. Simply follow the
 on-screen instructions and you are ready to go.

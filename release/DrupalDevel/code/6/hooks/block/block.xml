@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_block();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_block($op = 'list', $delta = 0, $edit = array()) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

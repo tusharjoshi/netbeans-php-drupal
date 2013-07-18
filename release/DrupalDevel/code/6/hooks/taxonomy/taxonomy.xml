@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_taxonomy();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_taxonomy($op, $type, $array = ${NULL}) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

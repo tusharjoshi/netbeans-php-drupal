@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_file_download();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_file_download($filepath) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

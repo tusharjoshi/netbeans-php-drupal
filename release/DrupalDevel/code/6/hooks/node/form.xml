@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_form();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_form(&$node, $form_state) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>
