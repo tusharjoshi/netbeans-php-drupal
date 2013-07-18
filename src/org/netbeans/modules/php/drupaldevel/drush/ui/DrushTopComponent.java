@@ -7,12 +7,13 @@ package org.netbeans.modules.php.drupaldevel.drush.ui;
 import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.text.JTextComponent;
 import org.netbeans.api.editor.EditorRegistry;
 import org.netbeans.api.project.Project;
-import org.netbeans.api.project.ProjectUtils;
 
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
@@ -26,17 +27,17 @@ import org.openide.awt.ActionReference;
  * Top component which displays something.
  */
 @ConvertAsProperties(dtd = "-//org.netbeans.modules.php.drupaldevel.drush.ui//Drush//EN",
-autostore = false)
+        autostore = false)
 @TopComponent.Description(preferredID = "DrushTopComponent",
-iconBase = "org/netbeans/modules/php/drupaldevel/drush/ui/drush16.png",
-persistenceType = TopComponent.PERSISTENCE_ALWAYS)
+        iconBase = "org/netbeans/modules/php/drupaldevel/drush/ui/drush16.png",
+        persistenceType = TopComponent.PERSISTENCE_ALWAYS)
 @TopComponent.Registration(mode = "output", openAtStartup = false)
 @ActionID(category = "Window", id = "org.netbeans.modules.php.drupaldevel.drush.ui.DrushTopComponent")
 @ActionReference(path = "Menu/Window/Drupal" /*
- * , position = 333
- */)
+         * , position = 333
+         */)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_DrushAction",
-preferredID = "DrushTopComponent")
+        preferredID = "DrushTopComponent")
 public final class DrushTopComponent extends TopComponent {
 
     private boolean libraryGood;
@@ -119,7 +120,7 @@ public final class DrushTopComponent extends TopComponent {
 
     public void executeDrush(String input) {
 
-
+        List<String> cmd = new ArrayList<String>();
         String libPath = DrupalDevelPreferences.getDrushPath();
         boolean libraryCheck = DrupalDevelPreferences.validateDrushPath(libPath);
         if (!libraryCheck) {
@@ -133,10 +134,17 @@ public final class DrushTopComponent extends TopComponent {
         }
 
         String command = "";
+        String args = "";
+        File directory = new File(DrupalDevelPreferences.getDrushPath());
         if (System.getProperty("os.name").startsWith("Windows")) {
-            command = "cmd /c " + DrupalDevelPreferences.getDrushPath() + "\\drush.bat ";
+
+            cmd.add("cmd");
+            cmd.add("/c");
+            cmd.add("drush.bat");
+
+
         } else {
-            command = DrupalDevelPreferences.getDrushPath().replace(" ", "\\s") + "/drush ";
+            //cmd.add(DrupalDevelPreferences.getDrushPath().replace(" ", "\\s") + "/drush");
         }
         if (!debugMode) {
             String drupalPath = DrupalDevelPreferences.getDrupalPath(activeProject);
@@ -144,30 +152,55 @@ public final class DrushTopComponent extends TopComponent {
             if (drupalPath.equals("")) {
                 drupalPath = DrupalDevelPreferences.getSourceDirectory(activeProject);
             }
+            cmd.add("--root=\"" + drupalPath + "\"");
+
+
             if (System.getProperty("os.name").startsWith("Windows")) {
-                command += "-r \"" + drupalPath + "\" --include=\"" + DrupalDevelPreferences.getDrushIncludePath() + "\" ";
+                cmd.add("--include=\"" + DrupalDevelPreferences.getDrushIncludePath() + "\"");
+
             } else {
-                command += "-r " + drupalPath + " --include=" + DrupalDevelPreferences.getDrushIncludePath().replace(" ", "\\s") + " ";
+                cmd.add("--include=\"" + DrupalDevelPreferences.getDrushIncludePath().replace(" ", "\\s") + "\"");
+
             }
 
             btnCancel.setEnabled(true);
             btnExecute.setEnabled(false);
             if (!cmbHost.getText().equals("")) {
-                command += " --uri=" + cmbHost.getText();
+
+                cmd.add("--uri=\"" + cmbHost.getText() + "\"");
 
             }
-            command += " -y " + input;
-        } else {
-            command += " " + input;
-        }
+            args += " -y " + input;
+            cmd.add("-y");
 
-        command = command.replaceAll("\\s+", " ");
-        cmdProcessor.println("<b>EXECUTE: </b><i>" + command + "</i>");
-        String[] cmd = command.split("\\s");
+
+        }
+        String[] inParts = input.split(" ");
+        for(int i = 0; i < inParts.length; i++) {
+            cmd.add(inParts[i]);
+        }
+        String[] simpleArray = new String[cmd.size()];
+        cmd.toArray(simpleArray);
+        //command = command.replaceAll("\\s+", " ");
+
+        cmdProcessor.println("<b>EXECUTE: </b><i>" + join(simpleArray, " ") + "</i>");
+
 
         btnCancel.setEnabled(true);
-        System.out.println(command);
-        cmdProcessor.runCommand(cmd);
+        
+        cmdProcessor.runCommand(directory, simpleArray);
+    }
+
+    public static String join(String r[], String d) {
+        if (r.length == 0) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        int i;
+        for (i = 0; i < r.length - 1; i++) {
+            sb.append(r[i] + d);
+        }
+        return sb.toString() + r[i];
     }
 
     /**

@@ -137,11 +137,11 @@ public class CommandProcessor extends JPanel implements ActionListener, ItemList
         }
     }
 
-    public void runCommand(String[] command) {
+    public void runCommand(File directory, String[] command) {
         commandOutput = "";
         runner = new CommandRunner();
         runner.cp = this;
-        runner.runCommand(command);
+        runner.runCommand(directory, command);
     }
 
     public void cancelCommand() {
@@ -241,10 +241,11 @@ public class CommandProcessor extends JPanel implements ActionListener, ItemList
             return sb.toString();
         }
 
-        public void runCommand(String[] command) {
+        public void runCommand(File directory, String[] command) {
             try {
                 executionStart = System.nanoTime();
                 ProcessBuilder pb = new ProcessBuilder(command);
+                pb.directory(directory);
                 pb.redirectErrorStream(true);
                 process = pb.start();
 

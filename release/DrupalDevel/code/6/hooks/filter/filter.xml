@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_filter();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_filter($op, $delta = 0, $format = -1, $text = '', $cache_id = 0) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

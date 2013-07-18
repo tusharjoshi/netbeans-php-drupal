@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_mail_alter();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_mail_alter(&$message) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

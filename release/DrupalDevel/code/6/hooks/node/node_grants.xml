@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_node_grants();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_node_grants($account, $op) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

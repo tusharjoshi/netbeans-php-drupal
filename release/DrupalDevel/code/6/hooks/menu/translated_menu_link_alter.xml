@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_translated_menu_link_alter();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_translated_menu_link_alter(&$item, $map) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

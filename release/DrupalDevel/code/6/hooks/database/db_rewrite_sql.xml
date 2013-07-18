@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_db_rewrite_sql();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_db_rewrite_sql($query, $primary_table, $primary_field, $args) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

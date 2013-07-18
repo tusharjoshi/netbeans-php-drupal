@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_search_preprocess();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_search_preprocess($text) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

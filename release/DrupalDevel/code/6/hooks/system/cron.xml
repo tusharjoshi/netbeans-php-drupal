@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_cron();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_cron() {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>

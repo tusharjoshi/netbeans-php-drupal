@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of hook_actions_delete();
+* Implementation of <? print $hook ?>().
 */
-function ${file_name}_actions_delete($aid) {
+function ${file_name}_<? print $signature ?> {
    ${set_cursor}
 }
 ]]></template>
