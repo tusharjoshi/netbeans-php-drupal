@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_comment_presave().
+* Implements hook_comment_presave();
 */
 function ${file_name}_comment_presave($comment) {
    ${cursor}

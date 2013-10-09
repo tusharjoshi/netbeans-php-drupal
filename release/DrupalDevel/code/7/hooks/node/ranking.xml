@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_ranking().
+* Implements hook_ranking();
 */
 function ${file_name}_ranking() {
    ${cursor}

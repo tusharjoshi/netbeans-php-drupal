@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_attach_presave().
+* Implements hook_field_attach_presave();
 */
 function ${file_name}_field_attach_presave($entity_type, $entity) {
    ${cursor}

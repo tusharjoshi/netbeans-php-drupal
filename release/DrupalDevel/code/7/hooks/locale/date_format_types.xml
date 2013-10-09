@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_date_format_types().
+* Implements hook_date_format_types();
 */
 function ${file_name}_date_format_types() {
    ${cursor}

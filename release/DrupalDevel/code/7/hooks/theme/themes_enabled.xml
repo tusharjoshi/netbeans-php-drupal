@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_themes_enabled().
+* Implements hook_themes_enabled();
 */
 function ${file_name}_themes_enabled($theme_list) {
    ${cursor}

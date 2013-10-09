@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_test_finished().
+* Implements hook_test_finished();
 */
 function ${file_name}_test_finished($results) {
    ${cursor}

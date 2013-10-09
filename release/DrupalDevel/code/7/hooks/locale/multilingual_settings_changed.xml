@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_multilingual_settings_changed().
+* Implements hook_multilingual_settings_changed();
 */
 function ${file_name}_multilingual_settings_changed() {
    ${cursor}

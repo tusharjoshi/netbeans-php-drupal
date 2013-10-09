@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_modules_enabled().
+* Implements hook_modules_enabled();
 */
 function ${file_name}_modules_enabled($modules) {
    ${cursor}

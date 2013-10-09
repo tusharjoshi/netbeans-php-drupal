@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_token_info().
+* Implements hook_token_info();
 */
 function ${file_name}_token_info() {
    ${cursor}

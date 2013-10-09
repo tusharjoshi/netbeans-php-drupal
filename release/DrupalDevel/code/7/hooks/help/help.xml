@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_help().
+* Implements hook_help();
 */
 function ${file_name}_help($path, $arg) {
    ${cursor}

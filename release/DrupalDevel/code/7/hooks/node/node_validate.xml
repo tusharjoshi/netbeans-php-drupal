@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_node_validate().
+* Implements hook_node_validate();
 */
 function ${file_name}_node_validate($node, $form, &$form_state) {
    ${cursor}

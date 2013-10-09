@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_search_status().
+* Implements hook_search_status();
 */
 function ${file_name}_search_status() {
    ${cursor}

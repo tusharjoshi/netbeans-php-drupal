@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_mail().
+* Implements hook_mail();
 */
 function ${file_name}_mail($key, &$message, $params) {
    ${cursor}

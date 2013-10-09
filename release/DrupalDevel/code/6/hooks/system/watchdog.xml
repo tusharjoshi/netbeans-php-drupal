@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of <? print $hook ?>().
+* Implementation of hook_watchdog();
 */
-function ${file_name}_<? print $signature ?> {
+function ${file_name}_watchdog($log_entry) {
    ${set_cursor}
 }
 ]]></template>

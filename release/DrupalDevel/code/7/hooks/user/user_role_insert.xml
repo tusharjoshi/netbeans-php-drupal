@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_user_role_insert().
+* Implements hook_user_role_insert();
 */
 function ${file_name}_user_role_insert($role) {
    ${cursor}

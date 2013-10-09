@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_attach_purge().
+* Implements hook_field_attach_purge();
 */
 function ${file_name}_field_attach_purge($entity_type, $entity, $field, $instance) {
    ${cursor}

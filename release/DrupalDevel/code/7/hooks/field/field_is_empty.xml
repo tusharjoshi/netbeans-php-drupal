@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_is_empty().
+* Implements hook_field_is_empty();
 */
 function ${file_name}_field_is_empty($item, $field) {
    ${cursor}

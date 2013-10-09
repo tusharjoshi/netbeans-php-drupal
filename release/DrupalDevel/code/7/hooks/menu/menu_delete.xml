@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_menu_delete().
+* Implements hook_menu_delete();
 */
 function ${file_name}_menu_delete($menu) {
    ${cursor}

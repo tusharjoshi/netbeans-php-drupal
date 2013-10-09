@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_user_role_presave().
+* Implements hook_user_role_presave();
 */
 function ${file_name}_user_role_presave($role) {
    ${cursor}

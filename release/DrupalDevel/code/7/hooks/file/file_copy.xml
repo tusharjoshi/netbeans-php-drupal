@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_file_copy().
+* Implements hook_file_copy();
 */
 function ${file_name}_file_copy($file, $source) {
    ${cursor}

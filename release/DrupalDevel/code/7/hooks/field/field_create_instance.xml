@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_create_instance().
+* Implements hook_field_create_instance();
 */
 function ${file_name}_field_create_instance($instance) {
    ${cursor}

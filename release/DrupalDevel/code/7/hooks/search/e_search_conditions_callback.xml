@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements sample_search_conditions_callback().
+* Implements sample_search_conditions_callback();
 */
 function ${file_name}_e_search_conditions_callback($keys) {
    ${cursor}

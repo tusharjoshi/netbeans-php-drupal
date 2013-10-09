@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_widget_properties_ENTITY_TYPE_alter().
+* Implements hook_field_widget_properties_ENTITY_TYPE_alter();
 */
 function ${file_name}_field_widget_properties_${ENTITY_TYPE}_alter(&$widget, $context) {
    ${cursor}

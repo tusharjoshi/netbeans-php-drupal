@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_disable().
+* Implements hook_disable();
 */
 function ${file_name}_disable() {
    ${cursor}

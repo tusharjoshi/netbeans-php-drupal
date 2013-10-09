@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_boot().
+* Implements hook_boot();
 */
 function ${file_name}_boot() {
    ${cursor}

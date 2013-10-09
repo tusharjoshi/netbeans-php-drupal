@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_menu_contextual_links_alter().
+* Implements hook_menu_contextual_links_alter();
 */
 function ${file_name}_menu_contextual_links_alter(&$links, $router_item, $root_path) {
    ${cursor}

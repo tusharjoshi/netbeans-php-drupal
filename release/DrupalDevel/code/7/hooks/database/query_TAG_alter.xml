@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_query_TAG_alter().
+* Implements hook_query_TAG_alter();
 */
 function ${file_name}_query_${TAG}_alter(QueryAlterableInterface $query) {
    ${cursor}

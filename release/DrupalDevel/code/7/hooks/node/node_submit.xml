@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_node_submit().
+* Implements hook_node_submit();
 */
 function ${file_name}_node_submit($node, $form, &$form_state) {
    ${cursor}

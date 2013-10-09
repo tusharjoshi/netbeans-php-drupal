@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of <? print $hook ?>().
+* Implementation of hook_theme();
 */
-function ${file_name}_<? print $signature ?> {
+function ${file_name}_theme($existing, $type, $theme, $path) {
    ${set_cursor}
 }
 ]]></template>

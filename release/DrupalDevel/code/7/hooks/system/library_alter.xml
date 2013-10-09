@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_library_alter().
+* Implements hook_library_alter();
 */
 function ${file_name}_library_alter(&$libraries, $module) {
    ${cursor}

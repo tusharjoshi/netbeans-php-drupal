@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_image_default_styles().
+* Implements hook_image_default_styles();
 */
 function ${file_name}_image_default_styles() {
    ${cursor}

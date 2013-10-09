@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_node_access_records().
+* Implements hook_node_access_records();
 */
 function ${file_name}_node_access_records($node) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_storage_pre_update().
+* Implements hook_field_storage_pre_update();
 */
 function ${file_name}_field_storage_pre_update($entity_type, $entity, &$skip_fields) {
    ${cursor}

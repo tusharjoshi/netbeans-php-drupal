@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_cron_queue_info_alter().
+* Implements hook_cron_queue_info_alter();
 */
 function ${file_name}_cron_queue_info_alter(&$queues) {
    ${cursor}
