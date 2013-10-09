@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_menu_link_insert().
+* Implements hook_menu_link_insert();
 */
 function ${file_name}_menu_link_insert($link) {
    ${cursor}

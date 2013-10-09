@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_node_prepare().
+* Implements hook_node_prepare();
 */
 function ${file_name}_node_prepare($node) {
    ${cursor}

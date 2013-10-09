@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_node_grants().
+* Implements hook_node_grants();
 */
 function ${file_name}_node_grants($account, $op) {
    ${cursor}

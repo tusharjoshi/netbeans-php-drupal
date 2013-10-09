@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_user_cancel().
+* Implements hook_user_cancel();
 */
 function ${file_name}_user_cancel($edit, $account, $method) {
    ${cursor}

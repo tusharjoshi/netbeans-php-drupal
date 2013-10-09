@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_exit().
+* Implements hook_exit();
 */
 function ${file_name}_exit($destination = ${NULL}) {
    ${cursor}

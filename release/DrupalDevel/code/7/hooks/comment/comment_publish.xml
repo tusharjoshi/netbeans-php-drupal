@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_comment_publish().
+* Implements hook_comment_publish();
 */
 function ${file_name}_comment_publish($comment) {
    ${cursor}

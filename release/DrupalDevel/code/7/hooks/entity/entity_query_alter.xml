@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_entity_query_alter().
+* Implements hook_entity_query_alter();
 */
 function ${file_name}_entity_query_alter($query) {
    ${cursor}

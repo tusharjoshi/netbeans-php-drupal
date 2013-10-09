@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_flush_caches().
+* Implements hook_flush_caches();
 */
 function ${file_name}_flush_caches() {
    ${cursor}

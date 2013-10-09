@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_language_fallback_candidates_alter().
+* Implements hook_language_fallback_candidates_alter();
 */
 function ${file_name}_language_fallback_candidates_alter(array &$fallback_candidates) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_url_outbound_alter().
+* Implements hook_url_outbound_alter();
 */
 function ${file_name}_url_outbound_alter(&$path, &$options, $original_path) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_library().
+* Implements hook_library();
 */
 function ${file_name}_library() {
    ${cursor}

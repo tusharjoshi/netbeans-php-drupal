@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_openid_response().
+* Implements hook_openid_response();
 */
 function ${file_name}_openid_response($response, $account) {
    ${cursor}

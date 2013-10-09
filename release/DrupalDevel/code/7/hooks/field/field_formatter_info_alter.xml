@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_formatter_info_alter().
+* Implements hook_field_formatter_info_alter();
 */
 function ${file_name}_field_formatter_info_alter(&$info) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_user_view_alter().
+* Implements hook_user_view_alter();
 */
 function ${file_name}_user_view_alter(&$build) {
    ${cursor}

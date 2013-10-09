@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_archiver_info_alter().
+* Implements hook_archiver_info_alter();
 */
 function ${file_name}_archiver_info_alter(&$info) {
    ${cursor}

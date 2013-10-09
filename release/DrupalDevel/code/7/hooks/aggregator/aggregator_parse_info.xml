@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_aggregator_parse_info().
+* Implements hook_aggregator_parse_info();
 */
 function ${file_name}_aggregator_parse_info() {
    ${cursor}

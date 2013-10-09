@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_filter_info_alter().
+* Implements hook_filter_info_alter();
 */
 function ${file_name}_filter_info_alter(&$info) {
    ${cursor}

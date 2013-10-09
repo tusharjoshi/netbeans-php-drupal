@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_comment_view().
+* Implements hook_comment_view();
 */
 function ${file_name}_comment_view($comment, $view_mode, $langcode) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_cron().
+* Implements hook_cron();
 */
 function ${file_name}_cron() {
    ${cursor}

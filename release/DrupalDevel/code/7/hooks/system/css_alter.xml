@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_css_alter().
+* Implements hook_css_alter();
 */
 function ${file_name}_css_alter(&$css) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_forms().
+* Implements hook_forms();
 */
 function ${file_name}_forms($form_id, $args) {
    ${cursor}

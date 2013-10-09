@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_filter_format_disable().
+* Implements hook_filter_format_disable();
 */
 function ${file_name}_filter_format_disable($format) {
    ${cursor}

@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_taxonomy_term_load().
+* Implements hook_taxonomy_term_load();
 */
 function ${file_name}_taxonomy_term_load($terms) {
    ${cursor}

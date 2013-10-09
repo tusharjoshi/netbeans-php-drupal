@@ -5,9 +5,9 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implementation of <? print $hook ?>().
+* Implementation of hook_translation_link_alter();
 */
-function ${file_name}_<? print $signature ?> {
+function ${file_name}_translation_link_alter(&$links, $path) {
    ${set_cursor}
 }
 ]]></template>

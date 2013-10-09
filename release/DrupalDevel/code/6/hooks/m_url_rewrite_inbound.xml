@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<item>
+		<title>m_url_rewrite_inbound</title>
+		<external>http://api.drupal.org/api/search/7/hook_m_url_rewrite_inbound</external>
+		<group>hook</group>
+		<template><![CDATA[
+/**
+* Implementation of <? print $hook ?>().
+*/
+function ${file_name}_<? print $signature ?> {
+   ${set_cursor}
+}
+]]></template>
+		<help><![CDATA[<h2>custom_url_rewrite_inbound(&$result, $path, $path_language)</h2>
+
+<p>custom_url_rewrite_inbound is not a hook, it's a function you can add to
+settings.php to alter incoming requests so they map to a Drupal path.
+This function is called before modules are loaded and
+the menu system is initialized and it changes $_GET['q'].</p>
+<p>This function should change the value of $result by reference.</p>
+
+<h3>Parameters</h3>
+<p><b>
+$result</b> -- 
+The Drupal path based on the database. If there is no match in the database it'll be the same as $path.</p>
+<p><b>$path</b> -- 
+The path to be rewritten.</p>
+<p><b>$path_language</b> -- 
+An optional language code to rewrite the path into.</p>
+
+
+
+]]></help>
+	</item>

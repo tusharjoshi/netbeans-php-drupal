@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_comment_load().
+* Implements hook_comment_load();
 */
 function ${file_name}_comment_load($comments) {
    ${cursor}

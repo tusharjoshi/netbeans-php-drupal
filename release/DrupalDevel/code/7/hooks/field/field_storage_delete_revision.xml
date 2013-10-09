@@ -5,7 +5,7 @@
 		<group>hook</group>
 		<template><![CDATA[
 /**
-* Implements hook_field_storage_delete_revision().
+* Implements hook_field_storage_delete_revision();
 */
 function ${file_name}_field_storage_delete_revision($entity_type, $entity, $fields) {
    ${cursor}
