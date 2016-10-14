@@ -1,5 +1,11 @@
 README - 2.0 - Final
 ====================
+
+No Longer Maintained!!!
+-----------------------
+
+Since releasing this tools I have stopped using Netbeans and moved on to PHPStorm. Due to that and lack of time, I can no longer maintain this repository. If anyone is interested in taking over, please open up an issue so we can talk about transfering ownership.
+
 **Netbeans Drupal Development Tool (NDDT)**
 
 **NOTE ON DRUSH (Update for 2.0.11):** When setting up Drush, you must specify the absolute path to the folder
