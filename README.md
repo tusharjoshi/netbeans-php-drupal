@@ -9,7 +9,9 @@ Since releasing this tools I have stopped using Netbeans and moved on to PHPStor
 **Netbeans Drupal Development Tool (NDDT)**
 
 **NOTE ON DRUSH (Update for 2.0.11):** When setting up Drush, you must specify the absolute path to the folder
-that drush exists in. This is the location of drush for *NIX/Mac or drush.bat for Windows. 
+that drush exists in. This is the location of drush for *NIX/Mac or drush.bat for Windows.
+
+Drush path and configuration for this plugin is found under NetBeans: Preferences/Options > PHP > Drupal after installing this plugin.  For path to drush on mac, you might enter /Users/youruser/.drush
 
 Co-Maintainer Wanted!!!
 -----------------------
