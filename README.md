@@ -3,6 +3,9 @@ README - 2.0 - Final
 
 **Netbeans Drupal Development Tool (NDDT)**
 
+**10/15/2016: NOTE for old FORKS**
+The complete commit history has been changed to remove the NBM release binary files from the commits, hence all old forks prior to 10/15/2016 will need a force update to their repositories.  The current development will now happen on the develop branch and the master branch is protected from force commits.
+
 **NOTE ON DRUSH (Update for 2.0.11):** When setting up Drush, you must specify the absolute path to the folder
 that drush exists in. This is the location of drush for *NIX/Mac or drush.bat for Windows.
 
