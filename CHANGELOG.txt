@@ -83,3 +83,7 @@
 		2.0.11 - Fixed broken Drush multisite in *NIX/OSx (Issue #23)
 				- Function comment must end with full stop (Issue #24)
 				- Modified to work with Drush installed from PEAR
+
+10/15/2016
+        2.0.11 
+            - Maintainer changed to Tushar Joshi <tusharvjoshi@gmail.com>

@@ -1,22 +1,12 @@
 README - 2.0 - Final
 ====================
 
-No Longer Maintained!!!
------------------------
-
-Since releasing this tools I have stopped using Netbeans and moved on to PHPStorm. Due to that and lack of time, I can no longer maintain this repository. If anyone is interested in taking over, please open up an issue so we can talk about transfering ownership.
-
 **Netbeans Drupal Development Tool (NDDT)**
 
 **NOTE ON DRUSH (Update for 2.0.11):** When setting up Drush, you must specify the absolute path to the folder
 that drush exists in. This is the location of drush for *NIX/Mac or drush.bat for Windows.
 
 Drush path and configuration for this plugin is found under NetBeans: Preferences/Options > PHP > Drupal after installing this plugin.  For path to drush on mac, you might enter /Users/youruser/.drush
-
-Co-Maintainer Wanted!!!
------------------------
-If you are interested in helping out with maintaining this project, then please open an issue or email
-jamie [a t] hollyit [d o t] com.
 
 
 What is NDDT
@@ -46,15 +36,7 @@ Requirements
 
 Installation
 ------------
-
-You can download the latest NBM build here:
-
-https://github.com/HollyIT/NBDrupalDevel/raw/master/NBDrupalDevelTool.nbm
-
-Open up Netbeans and go to
-Tools->Plugins. Select the Downloaded tab in the Plugins window then click the 
-"Add Plugins" button. Navigate to the file you saved and select it. Simply follow the
-on-screen instructions and you are ready to go.
+(UPDATE: earlier the NBM binary was committed in the repository, which has been removed now.  The releases will be done through the release mechanism in github)
 
 Documentation
 -------------
