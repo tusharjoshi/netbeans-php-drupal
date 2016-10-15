@@ -87,3 +87,4 @@
 10/15/2016
         2.0.11 
             - Maintainer changed to Tushar Joshi <tusharvjoshi@gmail.com>
+            - Release tag v2.0.11 added and earlier release made available

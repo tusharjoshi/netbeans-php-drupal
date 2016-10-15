@@ -41,6 +41,15 @@ Installation
 ------------
 (UPDATE: earlier the NBM binary was committed in the repository, which has been removed now.  The releases will be done through the release mechanism in github)
 
+You can download the latest NBM build here:
+
+https://github.com/tusharvjoshi/NBDrupalDevel/releases/download/v2.0.11/NBDrupalDevelTool.nbm
+
+Open up Netbeans and go to
+Tools->Plugins. Select the Downloaded tab in the Plugins window then click the 
+"Add Plugins" button. Navigate to the file you saved and select it. Simply follow the
+on-screen instructions and you are ready to go.
+
 Documentation
 -------------
 Documentation is included in the tool under the NetBeans help menu.
