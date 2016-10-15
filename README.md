@@ -59,6 +59,12 @@ Contributing
 NDDT is open source, licensed under the GPL. If you are interested in contributing to the
 development of the tool or even the documentation then please contact me here on GitHub.
 
+Building
+--------
+For building NBM from source a keystore is needed which should be placed in the ../keystore folder.  The command used to generate this keystore is as follows
+
+  keytool -genkey -alias nddt2 -keystore ../keystore/nddt2 -validity 3650
+
 [1]: http://www.netbeans.org
 [2]: http://www.drupal.org
 [3]: http://www.drupal.org/project/drush
