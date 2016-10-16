@@ -16,7 +16,7 @@ import javax.swing.event.ChangeListener;
 import org.netbeans.api.project.Project;
 
 import org.netbeans.modules.php.drupal.DrupalDevelPreferences;
-import org.netbeans.modules.php.drupal.Util;
+import org.netbeans.modules.php.drupal.util.Util;
 import org.netbeans.modules.php.drupal.wizards.WizardUtils;
 import org.openide.WizardDescriptor;
 import org.netbeans.spi.project.ui.templates.support.Templates;

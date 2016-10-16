@@ -19,7 +19,7 @@ import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.netbeans.modules.php.drupal.DrupalDevelPreferences;
-import org.netbeans.modules.php.drupal.Util;
+import org.netbeans.modules.php.drupal.util.Util;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 

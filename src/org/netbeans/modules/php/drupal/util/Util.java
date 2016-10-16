@@ -2,7 +2,7 @@
  * This file contains various utilities to help with the processing of the
  * module
  */
-package org.netbeans.modules.php.drupal;
+package org.netbeans.modules.php.drupal.util;
 
 import java.awt.Component;
 import java.lang.reflect.Constructor;
@@ -25,6 +25,7 @@ import javax.swing.text.JTextComponent;
 import org.netbeans.api.project.FileOwnerQuery;
 import org.netbeans.api.project.Project;
 import org.netbeans.editor.BaseDocument;
+import org.netbeans.modules.php.drupal.ContextAwareActionWrapper;
 import org.netbeans.modules.php.drupal.drush.ui.DrushTopComponent;
 import org.openide.loaders.DataObject;
 import org.openide.util.Parameters;

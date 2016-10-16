@@ -15,12 +15,12 @@ import org.openide.awt.ActionReference;
 import org.openide.util.*;
 import org.netbeans.api.editor.EditorRegistry;
 import org.netbeans.modules.php.drupal.DrupalDevelPreferences;
-import org.netbeans.modules.php.drupal.Util;
+import org.netbeans.modules.php.drupal.util.Util;
 import org.netbeans.api.project.Project;
 import org.netbeans.lib.editor.codetemplates.api.CodeTemplate;
 import org.netbeans.lib.editor.codetemplates.api.CodeTemplateManager;
 import org.netbeans.modules.php.drupal.drush.ui.DrushTopComponent;
-import org.netbeans.modules.php.drupal.libraryParser;
+import org.netbeans.modules.php.drupal.util.LibraryParser;
 import org.netbeans.modules.php.drupal.ui.apitree.ApiTreeEvent;
 import org.netbeans.modules.php.drupal.ui.apitree.ApiTreeEventListener;
 import org.netbeans.modules.php.drupal.ui.apitree.ApiTreeItem;
@@ -124,8 +124,8 @@ public final class DrupalToolsTopComponent extends TopComponent {
     private void insertCodeToEditor(String text) {
         this.activeEditor.requestFocus();
         CodeTemplateManager tempManager = CodeTemplateManager.get(this.activeEditor.getDocument());
-        text = libraryParser.parseVariables(text, this.activeEditor);
-        text = libraryParser.getReplacement(text, "${set_cursor}", "\\$\\{cursor\\}");
+        text = LibraryParser.parseVariables(text, this.activeEditor);
+        text = LibraryParser.getReplacement(text, "${set_cursor}", "\\$\\{cursor\\}");
         CodeTemplate ct = tempManager.createTemporary(text);
 
         ct.insert(this.activeEditor);

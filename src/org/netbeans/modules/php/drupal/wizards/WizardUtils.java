@@ -17,11 +17,10 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 import org.netbeans.api.project.Project;
 import org.netbeans.modules.php.drupal.DrupalDevelPreferences;
-import org.netbeans.modules.php.drupal.Util;
-import org.netbeans.modules.php.drupal.libraryParser;
+import org.netbeans.modules.php.drupal.util.Util;
+import org.netbeans.modules.php.drupal.util.LibraryParser;
 import org.openide.filesystems.FileLock;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileStateInvalidException;
@@ -66,7 +65,7 @@ public class WizardUtils {
     public static void generateFile(final FileObject file, String libraryPath, String name, String src, String safeName, String realName) throws IOException {
         try {
             FileSystem fs = file.getFileSystem();
-            String text = libraryParser.getTemplate(libraryPath + "/" + src);
+            String text = LibraryParser.getTemplate(libraryPath + "/" + src);
             text = text.replaceAll(Pattern.quote("${real_name}"), realName);
             text = text.replaceAll(Pattern.quote("${safe_name}"), safeName);
             final String textOut = text;
@@ -106,7 +105,7 @@ public class WizardUtils {
     public static void PopulateVersionCombo(JComboBox comboBox, String path, String version) {
         comboBox.removeAllItems();
         ArrayList items = new ArrayList();
-        items = libraryParser.parseTree(path);
+        items = LibraryParser.parseTree(path);
         for (int i = 0; i < items.size(); i++) {
             String item = items.get(i).toString();
             Object obj = Util.makeObj(item);

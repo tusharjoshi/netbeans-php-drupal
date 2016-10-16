@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import org.netbeans.modules.php.drupal.DrupalDevelPreferences;
-import org.netbeans.modules.php.drupal.Util;
-import org.netbeans.modules.php.drupal.libraryParser;
+import org.netbeans.modules.php.drupal.util.Util;
+import org.netbeans.modules.php.drupal.util.LibraryParser;
 
 final class DrupalPanel extends javax.swing.JPanel {
 
@@ -80,7 +80,7 @@ final class DrupalPanel extends javax.swing.JPanel {
 
         String path = DrupalDevelPreferences.libraryInstallPath() + "/code";
 
-        ArrayList items = libraryParser.parseTree(path);
+        ArrayList items = LibraryParser.parseTree(path);
         for (int i = 0; i < items.size(); i++) {
             String item = items.get(i).toString();
             Object obj = Util.makeObj(item);

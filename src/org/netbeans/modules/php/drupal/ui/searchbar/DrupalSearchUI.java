@@ -9,7 +9,7 @@ import java.net.URLEncoder;
 import javax.swing.JOptionPane;
 import org.netbeans.api.project.Project;
 import org.netbeans.modules.php.drupal.DrupalDevelPreferences;
-import org.netbeans.modules.php.drupal.Util;
+import org.netbeans.modules.php.drupal.util.Util;
 import org.netbeans.modules.php.drupal.ui.searchbar.autocomplete.AutoCompleteEvent;
 import org.netbeans.modules.php.drupal.ui.searchbar.autocomplete.AutoCompleteEventListener;
 import org.openide.awt.HtmlBrowser;

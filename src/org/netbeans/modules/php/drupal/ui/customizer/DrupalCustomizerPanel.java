@@ -11,8 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import org.netbeans.api.project.Project;
-import org.netbeans.modules.php.drupal.Util;
-import org.netbeans.modules.php.drupal.libraryParser;
+import org.netbeans.modules.php.drupal.util.Util;
+import org.netbeans.modules.php.drupal.util.LibraryParser;
 import org.netbeans.modules.php.drupal.DrupalDevelPreferences;
 import org.netbeans.spi.project.ui.support.ProjectCustomizer.Category;
 
@@ -84,7 +84,7 @@ public class DrupalCustomizerPanel extends javax.swing.JPanel {
         }
 
         String path = DrupalDevelPreferences.libraryInstallPath() + "/code";
-        items = libraryParser.parseTree(path);
+        items = LibraryParser.parseTree(path);
         cbDrupalVersion.addItem("Default");
         for (int i = 0; i < items.size(); i++) {
             String item = items.get(i).toString();

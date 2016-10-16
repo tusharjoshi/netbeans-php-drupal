@@ -1,7 +1,7 @@
 /*
  * Utilities to perform actions on the selected editor pane (JTextComponent)
  */
-package org.netbeans.modules.php.drupal;
+package org.netbeans.modules.php.drupal.util;
 
 /**
  *

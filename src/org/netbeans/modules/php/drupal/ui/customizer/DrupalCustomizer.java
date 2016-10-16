@@ -6,7 +6,7 @@ package org.netbeans.modules.php.drupal.ui.customizer;
 
 import javax.swing.JComponent;
 import org.netbeans.api.project.Project;
-import org.netbeans.modules.php.drupal.Util;
+import org.netbeans.modules.php.drupal.util.Util;
 import org.netbeans.spi.project.ui.support.ProjectCustomizer;
 import org.netbeans.spi.project.ui.support.ProjectCustomizer.Category;
 import org.openide.util.Lookup;

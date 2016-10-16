@@ -2,14 +2,13 @@
  * A class to process the files inside a Drupal code library
  *
  */
-package org.netbeans.modules.php.drupal;
+package org.netbeans.modules.php.drupal.util;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
-import java.io.FilenameFilter;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,46 +16,13 @@ import java.util.regex.Pattern;
 import javax.swing.text.JTextComponent;
 import org.openide.filesystems.FileObject;
 import org.netbeans.modules.editor.NbEditorUtilities;
+import org.netbeans.modules.php.drupal.util.ResourceCleaner;
 
 /**
  *
  * @author jamie
  */
-public class libraryParser {
-
-    private String libraryPath = "";
-
-    /**
-     * Constructor for the libraryParser
-     * 
-     * @param path A string containing the absolute path to the library
-     */
-    public libraryParser(String path) {
-        this.libraryPath = path;
-
-    }
-
-    /**
-     * Return the available Drupal versions found inside the library path.
-     * @return an ArrayList containing the versions
-     */
-    public ArrayList getVersions() {
-        ArrayList vers = new ArrayList();
-        vers = parseTree(this.libraryPath);
-        return vers;
-    }
-
-    /**
-     * Return the directory items found in path (relative to this.libraryPath)
-     * 
-     * @param path A string containing the relative path to this.libraryPath
-     * @return An ArrayList containing the items
-     */
-    public ArrayList getPathItems(String path) {
-        ArrayList vers = new ArrayList();
-        vers = parseTree(this.libraryPath + "/" + path);
-        return vers;
-    }
+public class LibraryParser {
 
     /**
      * Read a Drupal template file 
@@ -65,7 +31,7 @@ public class libraryParser {
      * @return A string containing the unprocessed template.
      */
     public static String getTemplate(String tmpPath) {
-        return libraryParser.readFileAsString(tmpPath);
+        return LibraryParser.readFileAsString(tmpPath);
 
     }
 
@@ -76,54 +42,34 @@ public class libraryParser {
      * @return A string containing the file
      */
     private static String readFileAsString(String filePath) {
-        String sb = "";
+        StringBuilder builder = new StringBuilder();
+        FileInputStream fstream = null;
+        // Get the object of DataInputStream
+        DataInputStream in = null;
+        BufferedReader br = null;
         try {
             // Open the file that is the first 
             // command line parameter
-            FileInputStream fstream = new FileInputStream(filePath);
+            fstream = new FileInputStream(filePath);
             // Get the object of DataInputStream
-            DataInputStream in = new DataInputStream(fstream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            in = new DataInputStream(fstream);
+            br = new BufferedReader(new InputStreamReader(in));
             String strLine;
             //Read File Line By Line
             while ((strLine = br.readLine()) != null) {
                 // Print the content on the console
-                sb += strLine + "\n";
+                builder.append(strLine);
+                builder.append("\n");
             }
-            //Close the input stream
-            in.close();
         } catch (Exception e) {//Catch exception if any
             System.err.println("Error: " + e.getMessage());
+        } finally {
+            ResourceCleaner.close(br);
+            ResourceCleaner.close(in);
+            ResourceCleaner.close(fstream);
         }
 
-        return sb.toString();
-    }
-
-    /**
-     * Returns an ArrayList containing all .tpl files found under path
-     * 
-     * @param path A string containing the absolute path to the directory to parse
-     * @return An ArrayList containing all found template files
-     */
-    public ArrayList getFileItems(String path) {
-        ArrayList files = new ArrayList();
-        File list = new File(this.libraryPath + "/" + path);
-        FilenameFilter filter = new FilenameFilter() {
-
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".tpl");
-            }
-        };
-
-        File[] children = list.listFiles(filter);
-        if (children != null) {
-            for (int i = 0; i < children.length; i++) {
-                files.add(i, children[i].getName().replace(".tpl", ""));
-            }
-            Collections.sort(files);
-        }
-        return files;
+        return builder.toString();
     }
 
     /**

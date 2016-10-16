@@ -3,10 +3,10 @@
  */
 package org.netbeans.modules.php.drupal;
 
+import org.netbeans.modules.php.drupal.util.LibraryParser;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.prefs.Preferences;
-import javax.swing.JOptionPane;
 import org.openide.modules.InstalledFileLocator;
 import org.openide.util.NbPreferences;
 import org.netbeans.api.project.ProjectUtils;
@@ -167,7 +167,7 @@ public final class DrupalDevelPreferences {
         Boolean hasCode = false;
         Boolean hasFiles = false;
 
-        ArrayList items = libraryParser.parseTree(path);
+        ArrayList items = LibraryParser.parseTree(path);
         for (int i = 0; i < items.size(); i++) {
             String item = items.get(i).toString();
 
@@ -215,7 +215,7 @@ public final class DrupalDevelPreferences {
         Boolean hasCode = false;
         File list = new File(path);
         File[] children = list.listFiles();
-        ArrayList items = libraryParser.parseTree(path);
+        ArrayList items = LibraryParser.parseTree(path);
         if (children != null) {
             for (int i = 0; i < children.length; i++) {
                 if (children[i].getName().equals("drush")) {
