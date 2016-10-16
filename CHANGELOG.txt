@@ -94,3 +94,5 @@
             - Changed module name to Drupal
             - Changed source level to 1.7 (Annotation processor still needs 1.7)
             - Renamed DrupalDevel path to Drupal in packages
+            - Changed license to Apache v2
+            - Changed name to netbeans-php-drupal

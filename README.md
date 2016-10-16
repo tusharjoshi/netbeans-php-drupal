@@ -1,7 +1,7 @@
 README - 2.0 - Final
 ====================
 
-**Netbeans Drupal Development Tool (NDDT)**
+**Netbeans Drupal Plugin**
 
 **10/15/2016: NOTE for old FORKS**
 The complete commit history has been changed to remove the NBM release binary files from the commits, hence all old forks prior to 10/15/2016 will need a force update to their repositories.  The current development will now happen on the develop branch and the master branch is protected from force commits.
@@ -34,7 +34,7 @@ The version 2 release of NDDT now has integration with [Drush][3].
 Requirements
 ------------
 
-* Netbeans 7.0.1 or greater
+* Netbeans 8.2 or greater
 * Drush installed and configured on your local machine (for Drush related features only)
 
 Installation
@@ -56,8 +56,9 @@ Documentation is included in the tool under the NetBeans help menu.
 
 Contributing
 ------------
-NDDT is open source, licensed under the GPL. If you are interested in contributing to the
-development of the tool or even the documentation then please contact me here on GitHub.
+NDDT is open source, licensed under the Apache v2. If you are interested in contributing to the
+development of the tool or even the documentation then please raise a PR or enhancement 
+request via issues in Github.
 
 Building
 --------
