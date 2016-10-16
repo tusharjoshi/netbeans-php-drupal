@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Services">
+        <folder name="AutoupdateType">
+            <file name="org_netbeans_modules_php_drupaldevel_update_center.instance">
+                <attr name="displayName" bundlevalue="org.netbeans.modules.php.drupal.Bundle#Services/AutoupdateType/org_netbeans_modules_php_drupaldevel_update_center.instance"/>
+                <attr name="enabled" boolvalue="true"/>
+                <attr name="instanceCreate" methodvalue="org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogFactory.createUpdateProvider"/>
+                <attr name="instanceOf" stringvalue="org.netbeans.spi.autoupdate.UpdateProvider"/>
+                <attr name="url" bundlevalue="org.netbeans.modules.php.drupal.Bundle#org_netbeans_modules_php_drupaldevel_update_center"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Templates">
+        <folder name="Scripting">
+            <file name="module">
+                <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/org/netbeans/modules/php/drupal/wizards/module/drupal.png"/>
+                <attr name="displayName" bundlevalue="org.netbeans.modules.php.drupal.Bundle#Templates/Scripting/module"/>
+                <attr name="instantiatingIterator" newvalue="org.netbeans.modules.php.drupal.wizards.module.ModuleWizardIterator"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/netbeans/modules/php/drupal/wizards/module/module.html"/>
+            </file>
+            <file name="themeWizard">
+                <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/org/netbeans/modules/php/drupal/wizards/theme/drupal.png"/>
+                <attr name="displayName" bundlevalue="org.netbeans.modules.php.drupal.Bundle#Templates/Scripting/themeWizard"/>
+                <attr name="instantiatingIterator" newvalue="org.netbeans.modules.php.drupal.wizards.theme.ThemeWizardWizardIterator"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/netbeans/modules/php/drupal/wizards/theme/themeWizard.html"/>
+            </file>
+        </folder>
+    </folder>
+</filesystem>

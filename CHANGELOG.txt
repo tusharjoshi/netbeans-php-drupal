@@ -88,3 +88,9 @@
         2.0.11 
             - Maintainer changed to Tushar Joshi <tusharvjoshi@gmail.com>
             - Release tag v2.0.11 added and earlier release made available
+
+10/16/2016
+        2.0.12 - develop branch
+            - Changed module name to Drupal
+            - Changed source level to 1.7 (Annotation processor still needs 1.7)
+            - Renamed DrupalDevel path to Drupal in packages

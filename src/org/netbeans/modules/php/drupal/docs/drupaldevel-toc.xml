@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<toc version="2.0">
+    <tocitem text="Drupal Developer">
+        <tocitem text="About Drupal Developer" target="org.netbeans.modules.php.drupal.about"/>
+        <tocitem text="Configuration" target="org.netbeans.modules.php.drupal.configure"/>
+        <tocitem text="API Tree" target="org.netbeans.modules.php.drupal.apitree"/>
+        <tocitem text="Search Bar" target="org.netbeans.modules.php.drupal.searchbar"/>
+        <tocitem text="Creating Modules And Themes" target="org.netbeans.modules.php.drupal.creation"/>
+        <tocitem text="Drush" target="org.netbeans.modules.php.drupal.drush"/>
+        <tocitem text="Customization" target="org.netbeans.modules.php.drupal.customization"/>
+    </tocitem>
+</toc>

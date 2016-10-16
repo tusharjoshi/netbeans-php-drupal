@@ -1,0 +1,301 @@
+/*
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
+ */
+package org.netbeans.modules.php.drupal.drush.ui;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.io.*;
+import java.util.HashMap;
+import javax.swing.*;
+import javax.swing.event.EventListenerList;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+import javax.swing.text.DefaultEditorKit;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
+import org.openide.cookies.LineCookie;
+import org.openide.filesystems.FileObject;
+import org.openide.filesystems.FileUtil;
+import org.openide.loaders.DataObject;
+import org.openide.loaders.DataObjectNotFoundException;
+import org.openide.text.Line;
+
+/**
+ *
+ * @author Jamie Holly <jamie@hollyit.net>
+ */
+public class CommandProcessor extends JPanel implements ActionListener, ItemListener {
+
+    private HashMap actions;
+    private JTextPane textArea;
+    private CommandRunner runner;
+    private String commandOutput = "";
+    private HTMLEditorKit HTMLkit = new HTMLEditorKit();
+    private HTMLDocument HTMLdoc = new HTMLDocument();
+    protected EventListenerList listenerList = new EventListenerList();
+
+    public CommandProcessor() {
+        super(new BorderLayout());
+        textArea = new JTextPane();
+        textArea.setEditable(false);
+        textArea.setContentType("text/html");
+        textArea.setEditorKit(HTMLkit);
+        textArea.setDocument(HTMLdoc);
+        HyperlinkListener hyperlinkListener = new ActivatedHyperlinkListener(textArea);
+        textArea.addHyperlinkListener(hyperlinkListener);
+        StyleSheet sheet = HTMLkit.getStyleSheet();
+
+        JScrollPane scroller = new JScrollPane(textArea);
+        add(scroller, BorderLayout.CENTER);
+        addPopupMenu();
+        setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        setPreferredSize(new Dimension(100, 150));
+    }
+
+    private void addPopupMenu() {
+        JPopupMenu menu = new JPopupMenu();
+        textArea.add(menu);
+        textArea.setComponentPopupMenu(menu);
+
+        createActionTable();
+        try {
+            menu.add(getActionByName(DefaultEditorKit.copyAction, "Copy"));
+            menu.add(getActionByName(DefaultEditorKit.selectAllAction, "Select All"));
+        } catch (Exception e) {
+            // Nothing to see here. Just so we can load it in the GUI editor.
+        }
+        menu.add(new JSeparator());
+        JMenuItem clearAll = new JMenuItem("Clear");
+        clearAll.addActionListener(this);
+        menu.add(clearAll);
+
+
+    }
+
+    private Action getActionByName(String name, String description) {
+        Action a = null;
+
+        a = (Action) (actions.get(name));
+        a.putValue(Action.NAME, description);
+        return a;
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JMenuItem source = (JMenuItem) (e.getSource());
+        clearScreen();
+    }
+
+    public void clearScreen() {
+        textArea.setText("");
+    }
+
+    public void println(String text) {
+        appendTextArea(text + "\n");
+
+
+    }
+
+    public long executionTime() {
+        return runner.getExecutionTime();
+    }
+
+    private void appendTextArea(String text) {
+        text = text.replace("\n", "<br>");
+        text = text.replaceAll("\\u001B(.*?)m", "");
+        text = text.replaceAll("\\[warning\\]", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='font-weight:bold;color:#C8B560;'>[WARNING]</span>");
+        text = text.replaceAll("\\[error\\]", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='font-weight:bold;color:#C11B17'>[ERROR]</span>");
+        try {
+            HTMLkit.insertHTML(HTMLdoc, HTMLdoc.getLength(), text, 0, 0, null);
+        } catch (Exception e) {
+        }
+
+    }
+
+    public void itemStateChanged(ItemEvent e) {
+        // Nothing to do here
+    }
+
+    public String getCommandOutput() {
+        return this.commandOutput;
+    }
+
+    private void createActionTable() {
+        actions = new HashMap();
+        Action[] actionsArray = textArea.getActions();
+        for (int i = 0; i < actionsArray.length; i++) {
+            Action a = actionsArray[i];
+            actions.put(a.getValue(Action.NAME), a);
+        }
+    }
+
+    public void runCommand(File directory, String[] command) {
+        commandOutput = "";
+        runner = new CommandRunner();
+        runner.cp = this;
+        runner.runCommand(directory, command);
+    }
+
+    public void cancelCommand() {
+        runner.cancelProcess();
+    }
+
+    private void fireCommandProcessorEvent() {
+        CommandProcessorEvent evt = new CommandProcessorEvent(this);
+        Object[] listeners = listenerList.getListenerList();
+        for (int i = 0; i < listeners.length; i = i + 2) {
+            if (listeners[i] == CommandProcessorEventListener.class) {
+                ((CommandProcessorEventListener) listeners[i + 1]).commandDone(evt);
+            }
+        }
+    }
+
+    public void addCommandListener(CommandProcessorEventListener listener) {
+        listenerList.add(CommandProcessorEventListener.class, listener);
+    }
+
+    public void removeCommandListener(CommandProcessorEventListener listener) {
+        listenerList.remove(CommandProcessorEventListener.class, listener);
+    }
+
+    private class CommandRunner extends SwingWorker<Integer, String> {
+
+        private Process process;
+        private Integer result = -1;
+        public CommandProcessor cp;
+        private long executionStart = 0;
+        private long executionTime = 0;
+
+        public void cancelProcess() {
+            this.cancel(true);
+        }
+
+        @Override
+        public Integer doInBackground() {
+            InputStreamReader in = null;
+
+            try {
+                in = new InputStreamReader(process.getInputStream());
+
+                char[] buf = new char[1 << 10]; // 1KiB buffer
+                int numRead = -1;
+
+                while ((numRead = in.read(buf)) > -1) {
+                    publish(new String(buf, 0, numRead));
+                }
+
+                result = new Integer(process.waitFor());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    in.close();
+                } catch (IOException e) { /*
+                     * ignore
+                     */
+
+                }
+            }
+
+            return result;
+        }
+
+        @Override
+        protected void process(java.util.List<String> chunks) {
+            for (String text : chunks) {
+                appendTextArea(text);
+                commandOutput += text;
+            }
+        }
+
+        @Override
+        protected void done() {
+            try {
+                this.executionTime = System.nanoTime() - executionStart;
+                this.cp.fireCommandProcessorEvent();
+            } catch (Exception ignore) {
+            }
+        }
+
+        public long getExecutionTime() {
+            return executionTime;
+        }
+
+        private String loadStream(InputStream s) throws Exception {
+            BufferedReader br = new BufferedReader(new InputStreamReader(s));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+            return sb.toString();
+        }
+
+        public void runCommand(File directory, String[] command) {
+            try {
+                executionStart = System.nanoTime();
+                ProcessBuilder pb = new ProcessBuilder(command);
+                pb.directory(directory);
+                pb.redirectErrorStream(true);
+                process = pb.start();
+
+
+
+                execute();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class ActivatedHyperlinkListener implements HyperlinkListener {
+
+    JTextPane editorPane;
+
+    public ActivatedHyperlinkListener(JTextPane editorPane) {
+
+        this.editorPane = editorPane;
+    }
+
+    public void hyperlinkUpdate(HyperlinkEvent hyperlinkEvent) {
+
+        HyperlinkEvent.EventType type = hyperlinkEvent.getEventType();
+        final String url = hyperlinkEvent.getURL().toString();
+        
+        if (type == HyperlinkEvent.EventType.ACTIVATED) {
+            
+            if (url.startsWith("file:/")) {
+                String fileName = url.substring(url.indexOf(":")+1, url.lastIndexOf(":"));
+                String lineNumber = url.substring(url.lastIndexOf(":") + 1);
+                File f = new File(fileName);
+                FileObject fobj = FileUtil.toFileObject(f);
+                DataObject dobj = null;
+                
+                try {
+                    dobj = DataObject.find(fobj);
+                } catch (DataObjectNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+                if (dobj != null) {
+                    LineCookie lc = (LineCookie) dobj.getCookie(LineCookie.class);
+                    if (lc != null) {
+                        Line l = lc.getLineSet().getOriginal(Integer.parseInt(lineNumber));
+                        l.show(Line.ShowOpenType.OPEN, Line.ShowVisibilityType.FOCUS);
+                    }
+
+                }
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.apisupport.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
-            <code-name-base>org.netbeans.modules.php.drupaldevel</code-name-base>
+            <code-name-base>org.netbeans.modules.php.drupal</code-name-base>
             <standalone/>
             <module-dependencies>
                 <dependency>
@@ -209,7 +209,7 @@
                 </dependency>
             </module-dependencies>
             <public-packages>
-                <package>org.netbeans.modules.php.drupaldevel.ui.autocomplete</package>
+                <package>org.netbeans.modules.php.drupal.ui.autocomplete</package>
             </public-packages>
         </data>
     </configuration>
