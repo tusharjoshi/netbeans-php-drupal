@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
 <index version="2.0">
-    <indexitem text="About Drupal Developer" target="org.netbeans.modules.php.drupal.about"/>
-    <indexitem text="Configuration" target="org.netbeans.modules.php.drupal.configure"/>
-    <indexitem text="About Drupal Developer" target="org.netbeans.modules.php.drupal.about"/>
+    <indexitem text="About Drupal" target="org.netbeans.modules.php.drupal.about"/>
     <indexitem text="Configuration" target="org.netbeans.modules.php.drupal.configure"/>
     <indexitem text="API Tree" target="org.netbeans.modules.php.drupal.apitree"/>
     <indexitem text="Search Bar" target="org.netbeans.modules.php.drupal.searchbar"/>
     <indexitem text="Creating Modules And Themes" target="org.netbeans.modules.php.drupal.creation"/>
     <indexitem text="Drush" target="org.netbeans.modules.php.drupal.drush"/>
-    <indexitem text="Customization" target="org.netbeans.modules.php.drupal.customization"/>    
+    <indexitem text="Customization" target="org.netbeans.modules.php.drupal.customization"/>
 </index>
