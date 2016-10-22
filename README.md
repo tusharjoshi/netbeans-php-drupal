@@ -1,6 +1,8 @@
 README - 2.0 - Final
 ====================
 
+[![Join the chat at https://gitter.im/netbeans-php-drupal/Lobby](https://badges.gitter.im/netbeans-php-drupal/Lobby.svg)](https://gitter.im/netbeans-php-drupal/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 **Netbeans Drupal Plugin**
 
 **10/15/2016: NOTE for old FORKS**
